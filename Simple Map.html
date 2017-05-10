@@ -20,7 +20,7 @@
     <script src="dark_style.js"></script>
 
     <script>
-        function buildNav() {
+        function buildNav(labels) {
             for (i = 0; i < labels.length; i++) {
                 $('<h3 class="' + labels[i] + '">').html(labels[i]).appendTo('#container');
             }
@@ -53,8 +53,6 @@
                         lng: position.coords.longitude
                     };
 
-                    AddMarker(pos);
-
                     infoWindow.setPosition(pos);
                     infoWindow.setContent('youre here');
                     infoWindow.open(map);
@@ -62,6 +60,7 @@
                     map.setZoom(13);
 
                     calculateAndDisplayRoute(pos);
+                    // AddMarker(pos);
                 });
             } else {
                 console.log('error')
@@ -70,8 +69,12 @@
             function calculateAndDisplayRoute(pos) {
                 directionsService.route({
                     origin: new google.maps.LatLng(pos.lat, pos.lng),
-                    destination: 'Bat Yam, Israel',
-                    travelMode: 'DRIVING'
+                    // destination: 'Bat Yam, Israel',
+                    destination: {
+                        lat: beaches[2][1],
+                        lng: beaches[2][2]
+                    },
+                    travelMode: 'WALKING'
                 }, function (response, status) {
                     if (status === 'OK') {
                         directionsDisplay.setDirections(response);
@@ -121,7 +124,7 @@
             'Gambari'
         ]
 
-        buildNav()
+        buildNav(labels)
 
         var beaches = [
             ['Gambari', 32.053875, 34.755612, 7],
