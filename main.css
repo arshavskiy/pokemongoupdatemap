@@ -1,0 +1,32 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    height: 60%;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    font-family: 'Poiret One', cursive;
+    color: black;
+    border-bottom: 2px solid orange;
+    border-top: 2px solid white;
+    border-radius: 48px;
+    cursor: pointer;
+}
+
+h3:hover {
+    /*color: darkred;*/
+    border-top: 2px solid orange;
+}
