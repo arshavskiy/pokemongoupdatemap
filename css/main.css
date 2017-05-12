@@ -18,7 +18,7 @@ body {
     user-select: none;
     font-size: 11px;
     background-color: rgb(255, 255, 255);
-    padding: 4px;
+    padding: 8px;
     border-bottom-left-radius: 2px;
     border-top-left-radius: 2px;
     -webkit-background-clip: padding-box;

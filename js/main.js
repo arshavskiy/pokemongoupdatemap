@@ -53,7 +53,7 @@ function initMap() {
         },
         zoomControl: false,
         scaleControl: true,
-        styles: mini
+        styles: dark
 
     });
 
