@@ -152,7 +152,7 @@ function initMap() {
         imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
     });
 
-    $('h3').on('click', function (e) {
+    document.querySelector('h3').addEventListener('click', function (e) {
         console.log(e.target.className);
         for (var i = beaches.length - 1; i >= 0; i--) {
             if (e.target.className == beaches[i][0]) {
