@@ -5,11 +5,14 @@ body {
     padding: 0;
     font-size: 1.1rem;
     font-family: 'Poiret One', cursive;
+    font-weight: 600;
 }
 
 #map {
     height: 60%;
 }
+
+
 /* #data{
         position: absolute;
         top: 10px;
@@ -21,17 +24,22 @@ body {
 
         padding-left: 10px;
       } */
+
 #data,
 #container {
     display: flex;
     justify-content: center;
 }
-input{
+
+select,
+option input {
     font-family: 'Poiret One', cursive;
     color: black;
+    font-weight: bold;
     border: none;
     border-bottom: 2px solid orange;
 }
+
 h3 {
     display: inline-block;
     font-size: 0.8rem;
