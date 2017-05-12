@@ -1,2 +1,3 @@
 # google_maps_api_page
-simple page with Google Maps navigation testing
+simple Google Maps page with map stylings, route navigation and marker clustering testing.
+
