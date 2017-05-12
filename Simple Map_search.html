@@ -17,13 +17,14 @@
 
         <div id="data">
             <label>Choose a city from this list:
-                     <select id="end">
-                        <option value="Jerusalem">Jerusalem</option>
-                        <option value="Tel Aviv">Tel Aviv</option>
-                        <option value="Haifa">Haifa</option>
-                        <option value="Ashdod">Ashdod</option>
-                        <option value="Ashkelon">Ashkelon</option>
-                    </select>
+                <!-- <select id="end"> -->
+                <input id = "end" list = "datalist" type = "text" />
+                <datalist id = "datalist">
+                    <option value = "Tel Aviv">
+                    <option value = "Jerusalem">
+                    <option value = "Haifa">
+                </datalist>
+                 <!-- <label>Enter to submit -->
         </div>
 
     </main>
@@ -71,7 +72,25 @@
 
             directionsDisplay.setMap(map);
 
+            var onChangeHandler = function() {
+              calculateAndDisplayRoute(directionsService, directionsDisplay);
+            };
 
+            document.getElementById('end').addEventListener('change', onChangeHandler);
+
+            function calculateAndDisplayRoute(pos, directionsService, directionsDisplay) {
+                directionsService.route({
+                  origin: new google.maps.LatLng(pos.lat, pos.lng),
+                  destination: document.getElementById('end').value,
+                  travelMode: 'DRIVING'
+                }, function(response, status) {
+                  if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
+                  } else {
+                    window.alert('Directions request failed due to ' + status);
+                  }
+                });
+            }
 
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
@@ -94,58 +113,26 @@
                 console.log('error')
             }
 
-            function calculateAndDisplayRoute(pos) {
-                directionsService.route({
-                    origin: new google.maps.LatLng(pos.lat, pos.lng),
-                    // destination: 'Bat Yam, Israel',
-                    destination: {
-                        lat: beaches[2][1],
-                        lng: beaches[2][2]
-                    },
-                    travelMode: 'WALKING'
-                }, function (response, status) {
-                    if (status === 'OK') {
-                        directionsDisplay.setDirections(response);
-                    } else {
-                        window.alert('Directions request failed due to ' + status);
-                    }
-                });
-            }
+            // function calculateAndDisplayRoute(pos) {
+            //     directionsService.route({
+            //         origin: new google.maps.LatLng(pos.lat, pos.lng),
+            //         // destination: 'Bat Yam, Israel',
+            //         destination: {
+            //             lat: beaches[2][1],
+            //             lng: beaches[2][2]
+            //         },
 
-            // search route
-            var onChangeHandler = function () {
 
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    var pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
+            //         travelMode: 'WALKING'
+            //     }, function (response, status) {
+            //         if (status === 'OK') {
+            //             directionsDisplay.setDirections(response);
+            //         } else {
+            //             window.alert('Directions request failed due to ' + status);
+            //         }
+            //     });
+            // }
 
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent('youre here');
-                    infoWindow.open(map);
-
-                    map.setCenter(pos);
-                    calculateAndDisplayRoute(pos);
-                });
-            }
-
-            document.getElementById('end').addEventListener('change', onChangeHandler);
-
-            function calculateAndDisplayRoute(pos) {
-                directionsService.route({
-                    origin: new google.maps.LatLng(pos.lat, pos.lng),
-                    destination: document.getElementById('end').value,
-                    travelMode: 'DRIVING'
-                }, function (response, status) {
-                    if (status === 'OK') {
-                        directionsDisplay.setDirections(response);
-                    } else {
-                        window.alert('Directions request failed due to ' + status);
-                    }
-                });
-            }
-            //markers
             var markers = locations.map(function (location, i) {
                 return new google.maps.Marker({
                     position: location,
@@ -199,31 +186,31 @@
         ];
 
         var locations = [{
-            lat: 32.053017,
-            lng: 34.755967
-        }, {
-            lat: 32.053399,
-            lng: 34.753853
-        }, {
-            lat: 32.052635,
-            lng: 34.756171
-        }, {
-            lat: 32.054350,
-            lng: 34.756470
-        }, {
-            lat: 32.053724,
-            lng: 34.755891
-        }, {
-            lat: 32.054062,
-            lng: 34.755628
-        }, {
-            lat: 32.053986,
-            lng: 34.755913
-        },
-        {
-            lat: 32.053875,
-            lng: 34.755612
-        }
+                lat: 32.053017,
+                lng: 34.755967
+            }, {
+                lat: 32.053399,
+                lng: 34.753853
+            }, {
+                lat: 32.052635,
+                lng: 34.756171
+            }, {
+                lat: 32.054350,
+                lng: 34.756470
+            }, {
+                lat: 32.053724,
+                lng: 34.755891
+            }, {
+                lat: 32.054062,
+                lng: 34.755628
+            }, {
+                lat: 32.053986,
+                lng: 34.755913
+            },
+            {
+                lat: 32.053875,
+                lng: 34.755612
+            }
         ]
     </script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">

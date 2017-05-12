@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Google maps</title>
+    <style>
+        #map {
+            width: 100%;
+            height: 70vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="map"></div>
+    <div id="data">
+        <label>Choose a city from this list:
+                <!-- <select id="end"> -->
+                 <select id="end">
+			      <option value="Jerusalem">Jerusalem</option>
+			      <option value="Tel Aviv">Tel Aviv</option>
+			      <option value="Haifa">Haifa</option>
+			      <option value="Ashdod">Ashdod</option>
+			      <option value="Ashkelon">Ashkelon</option>
+			    </select>
+                 <!-- <label>Enter to submit -->
+        </div>
+
+
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvurGh4FizEVN8F1NvHNbwJpp0U_bMAbU&callback=initMap" async
+	  defer></script>
+	<script src="map.js"></script>
+</body>
+
+</html>
