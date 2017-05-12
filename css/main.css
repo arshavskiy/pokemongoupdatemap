@@ -3,27 +3,33 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-size: 1.1rem;
-    font-family: 'Poiret One', cursive;
     font-weight: 600;
 }
 
 #map {
-    height: 60%;
+    height: 70vh;
 }
 
-
-/* #data{
-        position: absolute;
-        top: 10px;
-        left: 25%;
-        z-index: 5;
-       
-        text-align: center;
-       
-
-        padding-left: 10px;
-      } */
+#data {
+    position: absolute;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    font-family: Roboto, Arial, sans-serif;
+    user-select: none;
+    font-size: 11px;
+    background-color: rgb(255, 255, 255);
+    padding: 4px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+    top: 30vh;
+    left: 0.8%;
+    z-index: 5;
+    text-align: center;
+    padding-left: 10px;
+}
 
 #data,
 #container {
@@ -33,10 +39,17 @@ body {
 
 select,
 option input {
-    font-family: 'Poiret One', cursive;
-    color: black;
-    font-weight: bold;
-    border: none;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    font-family: Roboto, Arial, sans-serif;
+    user-select: none;
+    font-size: 11px;
+    background-color: rgb(255, 255, 255);
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
     border-bottom: 2px solid orange;
 }
 
