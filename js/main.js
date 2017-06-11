@@ -152,18 +152,24 @@ function initMap() {
         imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
     });
 
-    document.querySelector('h3').addEventListener('click', function (e) {
-        console.log(e.target.className);
-        for (var i = beaches.length - 1; i >= 0; i--) {
-            if (e.target.className == beaches[i][0]) {
-                map.setCenter({
-                    lat: beaches[i][1],
-                    lng: beaches[i][2]
-                });
-                map.setZoom(20);
+    //Position by menu slection
+    var menus = document.querySelectorAll('h3');
+    for (var i = 0; i < menus.length; i++) {
+
+        menus[i].addEventListener('click', function (e) {
+            console.log(e.target.className);
+
+            for (var i = beaches.length - 1; i >= 0; i--) {
+                if (e.target.className == beaches[i][0]) {
+                    map.setCenter({
+                        lat: beaches[i][1],
+                        lng: beaches[i][2]
+                    });
+                    map.setZoom(20);
+                }
             }
-        }
-    });
+        });
+    }
 
     function AddMarker(pos) {
         var marker = new google.maps.Marker({
