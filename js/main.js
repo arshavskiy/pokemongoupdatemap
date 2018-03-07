@@ -1,57 +1,56 @@
 var locations = [{
-        lat: 32.053017,
-        lng: 34.755967
-    }, {
-        lat: 32.053399,
-        lng: 34.753853
-    }, {
-        lat: 32.052635,
-        lng: 34.756171
-    }, {
-        lat: 32.054350,
-        lng: 34.756470
-    }, {
-        lat: 32.053724,
-        lng: 34.755891
-    }, {
-        lat: 32.054062,
-        lng: 34.755628
-    }, {
-        lat: 32.053986,
-        lng: 34.755913
-    },
-    {
-        lat: 32.053875,
-        lng: 34.755612
-    }
+    lat: 32.053017,
+    lng: 34.755967
+}, {
+    lat: 32.053399,
+    lng: 34.753853
+}, {
+    lat: 32.052635,
+    lng: 34.756171
+}, {
+    lat: 32.054350,
+    lng: 34.756470
+}, {
+    lat: 32.053724,
+    lng: 34.755891
+}, {
+    lat: 32.054062,
+    lng: 34.755628
+}, {
+    lat: 32.053986,
+    lng: 34.755913
+},
+{
+    lat: 32.053875,
+    lng: 34.755612
+}
 ]
 
-var beaches = [
-    ['Gambari', 32.053875, 34.755612, 7],
-    ['El Jamila', 32.053986, 34.755913, 6],
-    ['Anna Loulou Bar', 32.053399, 34.753853, 5],
-    ['Shaffa Bar', 32.053017, 34.755967, 4],
-    ['Cafe Puaa', 32.052635, 34.756171, 3],
-    ['Dr Shakshuka', 32.054350, 34.756470, 2],
-    ['Urbano', 32.054062, 34.755628, 1]
+var barLocations = [
+['Gambari', 32.053875, 34.755612, 7],
+['El Jamila', 32.053986, 34.755913, 6],
+['Anna Loulou Bar', 32.053399, 34.753853, 5],
+['Shaffa Bar', 32.053017, 34.755967, 4],
+['Cafe Puaa', 32.052635, 34.756171, 3],
+['Dr Shakshuka', 32.054350, 34.756470, 2],
+['Urbano', 32.054062, 34.755628, 1]
 ];
 
-var map;
-
-function buildNav(beaches) {
-    for (i = 0; i < beaches.length; i++) {
-        $('<h3 class="' + beaches[i][0] + '">').html(beaches[i][0]).appendTo('#container');
+function buildNav(loc) {
+    for (i = 0; i < loc.length; i++) {
+        $('<h3 class="' + loc[i][0] + '">').html(loc[i][0]).appendTo('#container');
     }
 };
 
 function initMap() {
+    var map;
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
         center: {
             lat: 32.053017,
             lng: 34.755967
         },
-        zoomControl: false,
+        zoomControl: true,
         scaleControl: true,
         styles: dark
 
@@ -64,8 +63,6 @@ function initMap() {
 
     directionsDisplay.setMap(map);
 
-
-
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -75,10 +72,10 @@ function initMap() {
             };
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent('youre here');
+            infoWindow.setContent('Is says you are here!');
             infoWindow.open(map);
             map.setCenter(pos);
-            map.setZoom(12);
+            map.setZoom(17);
 
             calculateAndDisplayRoute(pos);
         });
@@ -91,8 +88,8 @@ function initMap() {
             origin: new google.maps.LatLng(pos.lat, pos.lng),
             // destination: 'Bat Yam, Israel',
             destination: {
-                lat: beaches[2][1],
-                lng: beaches[2][2]
+                lat: barLocations[2][1],
+                lng: barLocations[2][2]
             },
             travelMode: 'WALKING'
         }, function (response, status) {
@@ -114,7 +111,7 @@ function initMap() {
             };
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent('youre here');
+            infoWindow.setContent('Here!');
             infoWindow.open(map);
 
             map.setCenter(pos);
@@ -122,12 +119,12 @@ function initMap() {
         });
     }
 
-    document.getElementById('end').addEventListener('change', onChangeHandler);
+    document.getElementById('selectNavigationCor').addEventListener('change', onChangeHandler);
 
     function calculateAndDisplayRoute(pos) {
         directionsService.route({
             origin: new google.maps.LatLng(pos.lat, pos.lng),
-            destination: document.getElementById('end').value,
+            destination: document.getElementById('selectNavigationCor').value,
             travelMode: 'DRIVING'
         }, function (response, status) {
             if (status === 'OK') {
@@ -159,13 +156,13 @@ function initMap() {
         menus[i].addEventListener('click', function (e) {
             console.log(e.target.className);
 
-            for (var i = beaches.length - 1; i >= 0; i--) {
-                if (e.target.className == beaches[i][0]) {
+            for (var i = barLocations.length - 1; i >= 0; i--) {
+                if (e.target.className == barLocations[i][0]) {
                     map.setCenter({
-                        lat: beaches[i][1],
-                        lng: beaches[i][2]
+                        lat: barLocations[i][1],
+                        lng: barLocations[i][2]
                     });
-                    map.setZoom(20);
+                    map.setZoom(19);
                 }
             }
         });
@@ -181,6 +178,4 @@ function initMap() {
 
 }
 
-
-
-buildNav(beaches);
+buildNav(barLocations);
