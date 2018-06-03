@@ -1,5 +1,3 @@
-
-
 function buildNav(loc) {
     for (i = 0; i < loc.length; i++) {
         $('<h3 class="' + loc[i][0] + '">').html(loc[i][0]).appendTo('#container');
@@ -9,7 +7,7 @@ function buildNav(loc) {
 function initMap() {
     var map;
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
+        zoom: 16,
         center: {
             lat: 32.053017,
             lng: 34.755967
@@ -39,7 +37,7 @@ function initMap() {
             infoWindow.setContent('Is says you are here!');
             infoWindow.open(map);
             map.setCenter(pos);
-            map.setZoom(17);
+            map.setZoom(20);
 
             calculateAndDisplayRoute(pos);
         });
@@ -94,7 +92,7 @@ function initMap() {
             if (status === 'OK') {
                 directionsDisplay.setDirections(response);
             } else {
-                window.alert('Directions request failed due to ' + status);
+                console.log('Directions request failed due to ' + status);
             }
         });
     }
@@ -143,3 +141,7 @@ function initMap() {
 }
 
 buildNav(barLocations);
+
+
+var $findMeBtn = $('.find-me');
+
