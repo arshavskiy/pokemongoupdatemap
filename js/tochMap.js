@@ -43,10 +43,10 @@ function addMarkerToMap(map) {
    
     myPosition = {
         lat: function () {
-            return (Math.random() / 1000) + 32.03;
+            return (Math.random() / 100) + 32.085;
         },
         lng: function () {
-            return (Math.random() / 10) + 34.74;
+            return (Math.random() / 100) + 34.771;
         }
     }
     
@@ -54,7 +54,7 @@ function addMarkerToMap(map) {
     let lngS = myPosition.lng();
     var mapLatLng = new google.maps.LatLng(latS, lngS);
     map.setCenter(mapLatLng);
-    map.setZoom(14);
+    map.setZoom(15);
 
 
     var marker = new google.maps.Marker({
