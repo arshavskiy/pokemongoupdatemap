@@ -11,29 +11,37 @@
 </head>
 
 <body>
-  <div class="container-fluid">
-    <!-- <h1>Geolocation API demo</h1> -->
-    <form class="form-horizontal">
-      <div class="form-group">
-        <button type="button" class="find-me btn btn-info btn-block">Add Pokistop to a map</button>
-      </div>
-    </form>
-    <p class="no-geolocation-support">The Geolocation API isn't supported in this browser :(</p>
 
-    <div id="map">
-      <div id="map-canvas"></div>
+  <!-- <h1>Geolocation API demo</h1> -->
+  <div class="row padd-t50" >
+    <div class="col-md-9">
+
+      <div id="map">
+        <div id="map-canvas"></div>
+      </div>
+      <div class="content-center">
+        <button type="button" class="find-me btn btn-info btn-block">Add Pokistop to a map</button>
+        
+      </div>
     </div>
-    <!-- Button trigger modal -->
+    <div class="col-md-3">
+      <section class="text-center">
+        <h5>cordinates</h5>
+        <ul class="cordinatedList">
+        </ul>
+      </section>
+      
+    </div>
+   
   </div>
 
   <section>
     <div class="col-md-12">
       <div class="center">
-
-        <button type="button" id="modalLogin" class="modalLogin btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        
+      <!-- <button type="button" id="modalLogin" class="modalLogin btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
           Login
-        </button>
-
+        </button> -->
       </div>
       <!-- Modal -->
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

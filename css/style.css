@@ -10,13 +10,16 @@ form {
 
 .find-me.btn {
   font-family: inherit;
+  max-width: 250px;
+  margin-top: 20px;
 }
+
 
 .find-me.btn,
 .not-on-https,
 .no-geolocation-support,
 .coordinates {
-  font-size: 1.5em;
+  font-size: 12px;
 }
 
 .not-on-https,
@@ -72,4 +75,27 @@ form {
 .modal-footer{
   padding: 0 15px !important;
   justify-content: center;
+}
+
+
+ul.cordinatedList{
+  padding:0;
+}
+
+ul.cordinatedList li{
+  font-size: 10px;
+  list-style: none;
+}
+
+.padd-t50{
+  padding-top:50px;
+}
+
+.content-center{
+  display: flex;
+  justify-content: center;
+}
+
+.row{
+  margin: 0;
 }

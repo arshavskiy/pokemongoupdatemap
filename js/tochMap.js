@@ -55,13 +55,17 @@ function addMarkerToMap(map) {
     var mapLatLng = new google.maps.LatLng(latS, lngS);
     map.setCenter(mapLatLng);
     map.setZoom(15);
-
-
     var marker = new google.maps.Marker({
         position: mapLatLng,
         animation: google.maps.Animation.DROP,
         map: map,
     });
+
+    var li = $('<li/>')
+        .text(latS.toFixed(6) + '°' + ' : ' + lngS.toFixed(6) + '°')
+        .appendTo('ul.cordinatedList');
+        
+    // $('ul.cordinatedList').text(latS + ':' + lngS);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize(map));
