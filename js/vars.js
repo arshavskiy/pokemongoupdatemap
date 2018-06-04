@@ -25,6 +25,8 @@ var locations = [{
         lng: 34.755612
 }]
 
+
+
 var barLocations = [
     ['Gambari', 32.053875, 34.755612, 7],
     ['El Jamila', 32.053986, 34.755913, 6],
