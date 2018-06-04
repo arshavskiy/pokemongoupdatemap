@@ -16,7 +16,7 @@ function initialize(map) {
             addMarker(event.latLng, map);
         });
 
-        addMarker(mapLatLng, map);
+        addMarker(mapLatLng, map, 'Me');
     });
 }
 
