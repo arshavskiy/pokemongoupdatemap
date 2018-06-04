@@ -116,7 +116,6 @@ function initMap() {
     for (var i = 0; i < menus.length; i++) {
 
         menus[i].addEventListener('click', function (e) {
-            console.log(e.target.className);
 
             for (var i = barLocations.length - 1; i >= 0; i--) {
                 if (e.target.className == barLocations[i][0]) {

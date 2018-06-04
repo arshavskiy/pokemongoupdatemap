@@ -111,6 +111,10 @@ ul.cordinatedList{
 ul.cordinatedList li{
   font-size: 10px;
   list-style: none;
+  
+}
+ul.cordinatedList li b{
+  cursor: pointer;
 }
 
 .padd-t50{
