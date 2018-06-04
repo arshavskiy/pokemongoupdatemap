@@ -43,9 +43,35 @@ form {
 }
 
 #map-canvas {
-  height: 25rem;
+  height: 45rem;
   min-height: 25rem;
   width: 100%;
+}
+
+@media (max-width:576px){
+  #map-canvas {
+    height: 35rem;
+    min-height: 25rem;
+    width: 100%;
+  }
+  .content-center{
+    position: relative;
+    top: -70px;
+  }
+  .row.padd-t50{
+    padding-top:0;
+    margin: 0;
+  }
+  .col-md-9{
+    padding: 0;
+  }
+  .text-center{
+    osition: relative;
+    top: -40px;
+    height: 150px;
+    overflow-x: scroll;
+  }
+  
 }
 
 
