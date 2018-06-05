@@ -80,7 +80,7 @@ var retro = [{
     {
         featureType: "poi.attraction",
         stylers: [{
-                color: "#c40000"
+                color: "#ffffaa"
             },
             {
                 "saturation": 100
@@ -117,7 +117,7 @@ var retro = [{
         featureType: "poi.park",
         elementType: "labels.text.fill",
         stylers: [{
-            color: "#447530"
+            color: "#445530"
         }]
     },
     {
@@ -145,21 +145,21 @@ var retro = [{
         featureType: "road.highway",
         elementType: "geometry",
         stylers: [{
-            color: "#f8c967"
+            color: "#f8d967"
         }]
     },
     {
         featureType: "road.highway",
         elementType: "geometry.stroke",
         stylers: [{
-            color: "#e9bc62"
+            color: "#e9ac62"
         }]
     },
     {
         featureType: "road.highway.controlled_access",
         elementType: "geometry",
         stylers: [{
-            color: "#e98d58"
+            color: "#ed9d58"
         }]
     },
     {

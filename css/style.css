@@ -10,10 +10,22 @@ form {
 
 .find-me.btn {
   font-family: inherit;
-  max-width: 250px;
+  max-width: 100px;
   margin-top: 20px;
+  margin-left: 20px;
 }
 
+#labelName{
+  height: 30px;
+  height: 32px;
+  background: transparent;
+  border: 1px solid orange;
+  border-radius: 5px;
+}
+
+.marg-t-20{
+  margin-top: 20px;
+}
 
 .find-me.btn,
 .not-on-https,
@@ -43,7 +55,7 @@ form {
 }
 
 #map-canvas {
-  height: 45rem;
+  height: calc( 75vh + 20px);
   min-height: 25rem;
   width: 100%;
 }
@@ -72,6 +84,10 @@ form {
     overflow-x: scroll;
   }
   
+  .marg-top-minus-40{
+    position: relative;
+    top: -40px;
+  }
 }
 
 
@@ -105,7 +121,10 @@ form {
 
 
 ul.cordinatedList{
-  padding:0;
+  padding: 0;
+  height: 75vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 ul.cordinatedList li{
