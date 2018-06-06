@@ -29,7 +29,7 @@ function addMarker(location, map, label, icon) {
     });
 
     if (typeof location == 'object'){
-        printCordinates(location.lat, location.lng, label, map);
+        printCordinates(location.lat, location.lng, label, map, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png');
     } else {
         printCordinates(location.lat(), location.lng(), label, map);
     }
@@ -87,7 +87,10 @@ function printCordinates(latS, lngS, label, map, iconForlist) {
     if (label){
         if(label == 'אתה פה'){
             iconGPSList = 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/002-bracelet.png';
+        } else if (label == 'נקודה הוספה'){
+            iconGPSList = image_mission;
         }
+        
         $('<li/>')
         .html(`<label class="label_icon"><div class="icon_span"><img src="${iconGPSList ? iconGPSList : image_pokemon}" class="padding"><b>${label}</b></div></<label>`)
         .appendTo('ul.cordinatedList');
