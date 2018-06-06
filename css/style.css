@@ -8,23 +8,37 @@ form {
   margin: 2.5rem auto;
 }
 
-.find-me.btn {
+.btn{
   font-family: inherit;
   max-width: 100px;
-  margin-top: 20px;
-  margin-left: 20px;
+ 
+  height: 28px;
+  line-height: 0;
+  width: 50px;
+  padding: 0;
+  font-weight: 500;
+  background: #fff;
+  color: black;
+  border: 1px solid #bbb;
+}
+.find-me.btn {
+  margin-top: 18px;
+}
+
+.box-shadow{
+  box-shadow: 1px 1px 2px #999;
 }
 
 #labelName{
-  height: 30px;
-  height: 32px;
+  height: 28px;
   background: transparent;
-  border: 1px solid orange;
-  border-radius: 5px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  margin-right: -1px;
 }
 
 .marg-t-20{
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
 .find-me.btn,
@@ -56,40 +70,8 @@ form {
 
 #map-canvas {
   height: calc( 75vh + 20px);
-  min-height: 25rem;
   width: 100%;
 }
-
-@media (max-width:576px){
-  #map-canvas {
-    height: 35rem;
-    min-height: 25rem;
-    width: 100%;
-  }
-  .content-center{
-    position: relative;
-    top: -70px;
-  }
-  .row.padd-t50{
-    padding-top:0;
-    margin: 0;
-  }
-  .col-md-9{
-    padding: 0;
-  }
-  .text-center{
-    osition: relative;
-    top: -40px;
-    height: 150px;
-    overflow-x: scroll;
-  }
-  
-  .marg-top-minus-40{
-    position: relative;
-    top: -40px;
-  }
-}
-
 
 .container{
   /* display: none; */
@@ -147,4 +129,89 @@ ul.cordinatedList li b{
 
 .row{
   margin: 0;
+}
+
+.icon_span{
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon_span::after{
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 6px;
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid transparent;
+  clear: both;
+  transform: rotate(-45deg);
+}
+.icon_span:hover::after{
+  border-top: 10px solid orange;
+}
+
+.icon_span > b{
+  cursor: pointer;
+  padding: 0px 10px;
+}
+
+* input{
+  direction: rtl;
+}
+
+img.padding{
+  width: 25px;
+  margin: 5px;
+}
+
+label.label_icon{
+  width: 100%
+}
+
+
+@media (max-width:576px){
+  #map-canvas {
+    height: 50vh;
+    width: 100%;
+  }
+
+  ul.cordinatedList{
+    padding: 0;
+    height: 35vh;
+    overflow-x: scroll;
+    overflow-y: auto;
+  }
+
+  .content-center{
+    position: relative;
+    top: -70px;
+  }
+
+  .row.padd-t50{
+    padding-top:0;
+    margin: 0;
+  }
+
+  .col-md-9{
+    padding: 0;
+  }
+  
+  .text-center{
+  }
+  
+  .marg-top-minus-40{
+    position: relative;
+    top: -40px;
+  }
+
+  img.padding{
+    margin:0 5px;
+  }
 }

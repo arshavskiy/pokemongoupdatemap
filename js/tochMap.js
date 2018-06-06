@@ -13,7 +13,7 @@ function initialize(map) {
             addMarker(event.latLng, map, 'נקודה הוספה' ,image_mission);
         });
 
-        addMarker(mapLatLng, map, 'אתה פה', image);
+        addMarker(mapLatLng, map, 'אתה פה');
     });
 }
 
@@ -80,10 +80,12 @@ function addMarkerToMap(map, label) {
 
 
 function printCordinates(latS, lngS, label, map) {
+    let print_cordinates;
 
     if (label){
+
         $('<li/>')
-        .html(`<b>${label}</b>`)
+        .html(`<label class="label_icon"><div class="icon_span"><img src="${image_pokemon}" class="padding"><b>${label}</b></div></<label>`)
         .appendTo('ul.cordinatedList');
 
         let li = $('ul.cordinatedList li');
@@ -104,16 +106,12 @@ function printCordinates(latS, lngS, label, map) {
             });
             map.setZoom(16);
         });
-
     }
+
     if (typeof latS == 'number'){
-        $('<li/>')
-        .text( '('+latS.toFixed(7) + '°' + ' : ' + lngS.toFixed(7) + '°)')
-        .appendTo('ul.cordinatedList');
+        print_cordinates = '('+latS.toFixed(7) + '°' + ' : ' + lngS.toFixed(7) + '°)';
     } else {
-        $('<li/>')
-        .text( '('+latS().toFixed(7) + '°' + ' : ' + lngS().toFixed(7) + '°)' )
-        .appendTo('ul.cordinatedList');
+        print_cordinates = '('+latS().toFixed(7) + '°' + ' : ' + lngS().toFixed(7) + '°)';
     }
    
 }
