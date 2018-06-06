@@ -4,6 +4,8 @@
   text-align: center;
 }
 
+
+
 form {
   margin: 2.5rem auto;
 }
@@ -109,11 +111,22 @@ ul.cordinatedList{
   overflow-y: auto;
 }
 
+.cordinatedList::-webkit-scrollbar {
+  width: 5px;
+}
+.cordinatedList::-webkit-scrollbar-track {
+  background: #ddd;
+}
+.cordinatedList::-webkit-scrollbar-thumb {
+  background: #666; 
+}
+
 ul.cordinatedList li{
   font-size: 10px;
   list-style: none;
-  
+  margin-right: 10%;
 }
+
 ul.cordinatedList li b{
   cursor: pointer;
 }
@@ -144,17 +157,18 @@ ul.cordinatedList li b{
   content: '';
   position: absolute;
   left: 30px;
-  top: 6px;
+  top: 4px;
   width: 0;
   height: 0;
-  border-bottom: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid transparent;
   clear: both;
   transform: rotate(-45deg);
 }
+
 .icon_span:hover::after{
-  border-top: 10px solid orange;
+  border-top: 20px solid orange;
 }
 
 .icon_span > b{
@@ -189,6 +203,12 @@ label.label_icon{
     overflow-y: auto;
   }
 
+  ul.cordinatedList li {
+    font-size: 10px;
+    list-style: none;
+    margin-right: 0;
+  }
+  
   .content-center{
     position: relative;
     top: -70px;
@@ -214,4 +234,23 @@ label.label_icon{
   img.padding{
     margin:0 5px;
   }
+  
+  .icon_span::after{
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 6px;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    clear: both;
+    transform: rotate(-45deg);
+  }
+  
+  .icon_span:hover::after{
+    border-top: 10px solid orange;
+  }
+
 }

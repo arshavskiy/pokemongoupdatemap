@@ -9,12 +9,13 @@ function initialize(map) {
         map.setCenter(mapLatLng);
         map.setZoom(14);
 
-        google.maps.event.addListener(map, 'click', function (event) {
-            addMarker(event.latLng, map, 'נקודה הוספה' ,image_mission);
-        });
-
         addMarker(mapLatLng, map, 'אתה פה');
     });
+
+    google.maps.event.addListener(map, 'click', function (event) {
+        addMarker(event.latLng, map, 'נקודה הוספה' ,image_mission);
+    });
+
 }
 
 
@@ -79,13 +80,16 @@ function addMarkerToMap(map, label) {
 }
 
 
-function printCordinates(latS, lngS, label, map) {
+function printCordinates(latS, lngS, label, map, iconForlist) {
     let print_cordinates;
+    let iconGPSList = '';
 
     if (label){
-
+        if(label == 'אתה פה'){
+            iconGPSList = 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/002-bracelet.png';
+        }
         $('<li/>')
-        .html(`<label class="label_icon"><div class="icon_span"><img src="${image_pokemon}" class="padding"><b>${label}</b></div></<label>`)
+        .html(`<label class="label_icon"><div class="icon_span"><img src="${iconGPSList ? iconGPSList : image_pokemon}" class="padding"><b>${label}</b></div></<label>`)
         .appendTo('ul.cordinatedList');
 
         let li = $('ul.cordinatedList li');
@@ -95,13 +99,13 @@ function printCordinates(latS, lngS, label, map) {
             map.setCenter({
                 lat: (function(){
                     if (typeof latS == 'function'){
-                        return latS()
-                    } else return latS
+                        return latS();
+                    } else return latS;
                 })(),
                 lng: (function(){
                     if (typeof lngS == 'function'){
-                        return lngS()
-                    } else return lngS
+                        return lngS();
+                    } else return lngS;
                 })(),
             });
             map.setZoom(16);
@@ -113,7 +117,8 @@ function printCordinates(latS, lngS, label, map) {
     } else {
         print_cordinates = '('+latS().toFixed(7) + '°' + ' : ' + lngS().toFixed(7) + '°)';
     }
-   
+
+   console.log('print_cordinates', print_cordinates);
 }
 
 function addSavedLocations(pos, map) {
