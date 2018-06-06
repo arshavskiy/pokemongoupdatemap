@@ -48,8 +48,7 @@ function addMarkerToMap(map, label) {
 
         map.setCenter(mapLatLng);
         map.setZoom(15);
-
-        addMarker(mapLatLng, map, label, image_mission);
+        addMarker(mapLatLng, map, label, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/002-bracelet.png');
     });
 
 //  Add Random cordinates
@@ -79,7 +78,6 @@ function addMarkerToMap(map, label) {
     // printCordinates(mapLatLng.lat(), mapLatLng.lng(), name);
 }
 
-
 function printCordinates(latS, lngS, label, map, iconForlist) {
     let print_cordinates;
     let iconGPSList = '';
@@ -90,7 +88,7 @@ function printCordinates(latS, lngS, label, map, iconForlist) {
         } else if (label == 'נקודה הוספה'){
             iconGPSList = image_mission;
         }
-        
+
         $('<li/>')
         .html(`<label class="label_icon"><div class="icon_span"><img src="${iconGPSList ? iconGPSList : image_pokemon}" class="padding"><b>${label}</b></div></<label>`)
         .appendTo('ul.cordinatedList');
@@ -150,7 +148,7 @@ function init() {
     $findMeBtn.on('click', function (e) {
         e.preventDefault();
         let inputLabel = $('#labelName').val();
-        addMarkerToMap(map, inputLabel);
+        addMarkerToMap(map, inputLabel, );
     });
 
     addSavedLocations(locations, map);
