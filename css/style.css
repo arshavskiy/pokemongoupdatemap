@@ -4,8 +4,6 @@
   text-align: center;
 }
 
-
-
 form {
   margin: 2.5rem auto;
 }
@@ -13,10 +11,8 @@ form {
 .btn{
   font-family: inherit;
   max-width: 100px;
- 
   height: 28px;
   line-height: 0;
-  width: 50px;
   padding: 0;
   font-weight: 500;
   background: #fff;
@@ -180,6 +176,25 @@ ul.cordinatedList li b{
   direction: rtl;
 }
 
+
+.modal-dialog * input{
+    direction: ltr;
+}
+
+input#pokistopModalEmail1 {
+  direction: rtl;
+}
+
+.modal-footer, .modal-header{
+  border: none;
+}
+
+.modal-icon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 img.padding{
   width: 25px;
   margin: 5px;
@@ -199,7 +214,7 @@ label.label_icon{
   ul.cordinatedList{
     padding: 0;
     height: 35vh;
-    overflow-x: scroll;
+    overflow-x: hidden;
     overflow-y: auto;
   }
 
@@ -253,4 +268,17 @@ label.label_icon{
     border-top: 10px solid orange;
   }
 
+}
+
+.my-custom-class-for-label{
+  height: 20px;
+  position: relative;
+  border: 1px solid orange;
+  border-radius: 5px;
+  background: #fff;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+  font-size: 10px;
+  color: #282828;
 }

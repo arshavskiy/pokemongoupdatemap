@@ -20,12 +20,38 @@ function initialize(map) {
 
 
 function addMarker(location, map, label, icon) {
-    let marker = new google.maps.Marker({
+    var marker = new MarkerWithLabel({
         position: location,
-        // label: labels[labelIndex++ % labels.length],
-        // label: label,
         map: map,
         icon: icon,
+        labelContent: label,
+        labelClass: "my-custom-class-for-label", // the CSS class for the label
+        zIndex: 10000
+          //,icon: "img/marker/tuseiqui.png"
+      });
+
+    // let marker = new google.maps.Marker({
+    //     position: location,
+    //     animation: google.maps.Animation.DROP,
+    //     map: map,
+    //     icon: icon,
+    //     label: label,
+    //     labelClass: "my-custom-class-for-label", // your desired CSS class
+    //     labelInBackground: true
+    // });
+
+    google.maps.event.addListener(marker, 'click', function(e) {
+        let labelM = this.labelContent;
+        let iconM = this.icon;
+
+        $('#pokistopModal').on('show.bs.modal', function (e) {
+            // if (!data) return e.preventDefault();
+            // window.location.href = this.url;
+                $('#header').html(labelM);
+                $('#icon').html(`<img src="${iconM}"></img>`);
+          });
+        $('#pokistopModal').modal('show');
+          
     });
 
     if (typeof location == 'object'){

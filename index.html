@@ -46,6 +46,7 @@
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
+
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalCenterTitle">Pokimap Login</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -79,6 +80,57 @@
 
   </section>
 
+  <section>
+      <div class="col-md-12">
+        <div class="center">
+        <!-- <button type="button" id="modalLogin" class="modalLogin btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Login
+          </button> -->
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="pokistopModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+  
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+  
+              <div class="modal-body">
+                <div class="modal-icon">
+                      <span id="icon"></span>
+                    <div>
+                      <h5 id="header"></h5>
+                    </div>
+                </div>
+                <form>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1"></label>
+                    <input type="email" class="form-control" id="pokistopModalEmail1" aria-describedby="emailHelp" placeholder="מיקום">
+                    <small id="emailHelp" class="form-text text-muted"></small>
+                  </div>
+                  <!-- <div class="form-group">
+                    <label for="exampleInputPassword1"></label>
+                    <input type="password" class="form-control" id="pokistopModalInput" placeholder="Password">
+                  </div> -->
+              </div>
+  
+              <div class="modal-footer">
+                <div class="center">
+                  <button type="submit" id="pokistopBtn" class="btn btn-primary">להוסיף</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+    </section>
+
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/moment.min.js"></script>
@@ -86,7 +138,8 @@
   <script src="map style/retro_style.js"></script>
 
   <!-- <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script> -->
-  <script src='https://maps.googleapis.com/maps/api/js'></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+  <script src="js/marker.js"></script>
   
 
   <script src="js/tochMap.js"></script>
