@@ -174,7 +174,7 @@ function init() {
     $findMeBtn.on('click', function (e) {
         e.preventDefault();
         let inputLabel = $('#labelName').val();
-        addMarkerToMap(map, inputLabel, );
+        addMarkerToMap(map, inputLabel);
     });
 
     addSavedLocations(locations, map);
