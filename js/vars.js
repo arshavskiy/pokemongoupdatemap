@@ -117,6 +117,12 @@ var locations = [{
         lng: 34.7587102,
         label: 'פארק פרלה ולאון'
     },
+    {
+        lat:32.035835,
+        lng:34.7493449,
+        label: 'בית הכנסת רבי מאיר בעל הנס',
+        icon:'https://vignette.wikia.nocookie.net/pokemongo/images/7/71/Larvitar.png/revision/latest/scale-to-width-down/128?cb=20180409130100'
+    }
 ];
 
 

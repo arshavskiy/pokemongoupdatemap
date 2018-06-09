@@ -271,6 +271,7 @@ label.label_icon{
 }
 
 .my-custom-class-for-label{
+  display: none !important;
   height: 20px;
   position: relative;
   border: 1px solid orange;
