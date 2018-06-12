@@ -12,9 +12,10 @@ function initialize(map) {
         addMarker(mapLatLng, map, 'אתה פה');
     });
 
-    google.maps.event.addListener(map, 'click', function (event) {
-        addMarker(event.latLng, map, 'נקודה הוספה' ,image_mission);
-    });
+    // click on map makes marker
+    // google.maps.event.addListener(map, 'click', function (event) {
+    //     addMarker(event.latLng, map, 'נקודה הוספה' ,image_mission);
+    // });
 
 }
 
@@ -39,16 +40,37 @@ function addMarker(location, map, label, icon) {
     //     labelClass: "my-custom-class-for-label", // your desired CSS class
     //     labelInBackground: true
     // });
+    
 
     google.maps.event.addListener(marker, 'click', function(e) {
         let labelM = this.labelContent;
         let iconM = this.icon;
+        let subMenu;
 
         $('#pokistopModal').on('show.bs.modal', function (e) {
             // if (!data) return e.preventDefault();
             // window.location.href = this.url;
                 $('#header').html(labelM);
                 $('#icon').html(`<img src="${iconM}"></img>`);
+
+                let menu = $('.icon-first_menu img');
+                menu.each(function(i ,e){
+                    e.addEventListener('click', function (e) {
+                        console.log('e', e.target);
+                        if(e.target.id == 1){
+                            
+                            $('#pokistopModal').modal('hide');
+
+                            $('#pokiModalSubMenu').modal('show');
+                            $('#pokiModalSubMenu').on('show.bs.modal', function (e) {
+                                subMenu = `<img id="${i}" src="https://vignette.wikia.nocookie.net/pokemongo/images/6/65/Stardust.png" >`;
+                                $('.icon-sub_menu').html(`${subMenu}`);
+                            });
+                        }
+                    });       
+                }) 
+                    
+
           });
         $('#pokistopModal').modal('show');
           
@@ -73,8 +95,8 @@ function addMarkerToMap(map, label) {
         let mapLatLng = new google.maps.LatLng(lat, lng);
 
         map.setCenter(mapLatLng);
-        map.setZoom(15);
-        addMarker(mapLatLng, map, label, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/002-bracelet.png');
+        map.setZoom(16);
+        // addMarker(mapLatLng, map, label, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/002-bracelet.png');
     });
 
 //  Add Random cordinates
