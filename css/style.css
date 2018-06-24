@@ -72,7 +72,7 @@ form {
 .center {
   display: flex;
   justify-content: center !important;
-  align-items: center!important;
+  align-items: center !important;
   padding: 10px 0;
 }
 .modal-header {
@@ -224,6 +224,9 @@ label.label_icon {
   .icon_span:hover::after {
     border-top: 10px solid orange;
   }
+  .pokistop_link {
+    display: none;
+  }
 }
 .my-custom-class-for-label {
   display: none !important;
@@ -238,13 +241,63 @@ label.label_icon {
   font-size: 10px;
   color: #282828;
 }
+.icon-second_menu,
+.icon-first_menu {
+  font-size: 0.8rem;
+  text-align: center;
+  color: #fff;
+}
+.icon-second_menu p,
+.icon-first_menu p {
+  margin: 0;
+}
+.icon-second_menu div,
+.icon-first_menu div {
+  width: 45%;
+  display: inline-block;
+}
+.icon-second_menu img,
 .icon-first_menu img {
-  width: 90px;
-  background: lightgreen;
   border-radius: 50%;
+  height: auto;
   padding: 2px;
-  border: 5px solid;
-  margin: 5px;
+  width: 50%;
+  cursor: pointer;
+}
+.icon-second_menu img {
+  width: 70%;
+}
+.no-padding {
+  padding: 0 !important;
+}
+.modal-body {
+  background: linear-gradient(315deg, #1b7e94 0, #174e61 80%);
+}
+#pokistopModalSubMenu .modal-body {
+  background: linear-gradient(315deg, #8fd87d 0, #1b7e94 80%);
+}
+#pokistopModalSubEarn .modal-body {
+  background: linear-gradient(315deg, #8fd87d 0, #24ccaa 80%);
+}
+.modal-icon .header {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  line-height: 50px;
+  color: #fff;
+}
+.modal-icon .header img {
+  width: 50px;
+  height: 50px;
+}
+#exit-first_menu img,
+#back-second_menu img,
+#back-earn_menu img {
+  height: 60px;
+  width: 60px;
+}
+#back-earn_menu {
+  width: 100%;
 }
 h5 {
   font-size: 0.85rem;
