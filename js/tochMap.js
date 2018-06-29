@@ -28,8 +28,8 @@ function addMarker(location, map, label, icon) {
         labelContent: label,
         labelClass: "my-custom-class-for-label", // the CSS class for the label
         zIndex: 10000
-          //,icon: "img/marker/tuseiqui.png"
-      });
+        //,icon: "img/marker/tuseiqui.png"
+    });
 
     // let marker = new google.maps.Marker({
     //     position: location,
@@ -40,9 +40,9 @@ function addMarker(location, map, label, icon) {
     //     labelClass: "my-custom-class-for-label", // your desired CSS class
     //     labelInBackground: true
     // });
-    
 
-    google.maps.event.addListener(marker, 'click', function(e) {
+
+    google.maps.event.addListener(marker, 'click', function (e) {
         // let labelM = this.labelContent;
         // let iconM = this.icon;
         // let subMenu;
@@ -52,45 +52,45 @@ function addMarker(location, map, label, icon) {
         let backBtn = $('#back-second_menu');
         let exitBtn = $('#exit-first_menu');
         let earnExitBtn = $('#back-earn_menu');
+
         let firstMenuModal = $('#pokistopModal');
 
-        exitBtn.click( function (e) {
+        exitBtn.click(function (e) {
             $('#pokistopModal').modal('hide');
         });
 
-        backBtn.click( function (e) {
+        backBtn.click(function (e) {
             $('#pokistopModalSubMenu').modal('hide');
             firstMenuModal.modal('show');
         });
-        earnExitBtn.click( function (e) {
+        earnExitBtn.click(function (e) {
             $('#pokistopModalSubEarn').modal('hide');
             firstMenuModal.modal('show');
         });
-        
+
+        // $('#pokistopModal').modal('show');
+        openModal();
 
         // $('#pokistopModal').on('show.bs.modal', function (e) { });
-        menu.each(function(i ,e){
+        menu.each(function (i, e) {
             e.addEventListener('click', function (e) {
-                    switch (e.path[0].id) {
-                        case 'a7':
-                            $('#pokistopModalSubEarn').modal('show');
-                            firstMenuModal.modal('hide');
-                            break;
+                switch (e.path[0].id) {
+                    case 'a7':
+                        $('#pokistopModalSubEarn').modal('show');
+                        firstMenuModal.modal('hide');
+                        break;
 
-                        default:
-                            $('#pokistopModalSubMenu').modal('show');
-                            firstMenuModal.modal('hide');
+                    default:
+                        $('#pokistopModalSubMenu').modal('show');
+                        firstMenuModal.modal('hide');
 
-                            $('#pokistopModalSubMenu').on('show.bs.modal', function (e) {
-                            });
-                    }
-            });       
+                        $('#pokistopModalSubMenu').on('show.bs.modal', function (e) {});
+                }
+            });
         });
-                    
 
-         
-        $('#pokistopModal').modal('show');
-          
+
+
     });
 
     // if (typeof location == 'object'){
@@ -102,13 +102,10 @@ function addMarker(location, map, label, icon) {
 
 
 function addMarkerToMap(map, label) {
-
     // add to mission gps
     navigator.geolocation.getCurrentPosition(function (position) {
-
         let lat = position.coords.latitude;
         let lng = position.coords.longitude;
-
         let mapLatLng = new google.maps.LatLng(lat, lng);
 
         map.setCenter(mapLatLng);
@@ -116,97 +113,26 @@ function addMarkerToMap(map, label) {
         // addMarker(mapLatLng, map, label, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/002-bracelet.png');
     });
 
-//  Add Random cordinates
-    // let mapLatLng;
-    // if (!pos){
-    //     myPosition = {
-    //         lat: function () {
-    //             return (Math.random() / 100) + 32.085;
-    //         },
-    //         lng: function () {
-    //             return (Math.random() / 100) + 34.771;
-    //         }
-    //     }
-    //     mapLatLng = new google.maps.LatLng(myPosition.lat(), myPosition.lng());
-    // } else {
-    //     mapLatLng = new google.maps.LatLng(pos.lat, pos.lng);
-    // }
-
-    // map.setCenter(mapLatLng);
-    // map.setZoom(15);
-    // let marker = new google.maps.Marker({
-    //     position: mapLatLng,
-    //     animation: google.maps.Animation.DROP,
-    //     map: map,
-    //     icon: image_mission,
-    // });
-    // printCordinates(mapLatLng.lat(), mapLatLng.lng(), name);
 }
 
-function printCordinates(latS, lngS, label, map, iconForlist) {
-    let print_cordinates;
-    let iconGPSList = '';
-
-    if (label){
-        if(label == 'אתה פה'){
-            iconGPSList = 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/002-bracelet.png';
-        } else if (label == 'נקודה הוספה'){
-            iconGPSList = image_mission;
-        }
-
-        $('<li/>')
-        .html(`<label class="label_icon"><div class="icon_span"><img src="${iconGPSList ? iconGPSList : image_pokemon}" class="padding"><b>${label}</b></div></<label>`)
-        .appendTo('ul.cordinatedList');
-
-        let li = $('ul.cordinatedList li');
-        li = li[li.length-1]
-        li.addEventListener('click', function (e) {
-
-            map.setCenter({
-                lat: (function(){
-                    if (typeof latS == 'function'){
-                        return latS();
-                    } else return latS;
-                })(),
-                lng: (function(){
-                    if (typeof lngS == 'function'){
-                        return lngS();
-                    } else return lngS;
-                })(),
-            });
-            map.setZoom(16);
-        });
-    }
-
-    if (typeof latS == 'number'){
-        print_cordinates = '('+latS.toFixed(7) + '°' + ' : ' + lngS.toFixed(7) + '°)';
-    } else {
-        print_cordinates = '('+latS().toFixed(7) + '°' + ' : ' + lngS().toFixed(7) + '°)';
-    }
-
-   console.log('print_cordinates', print_cordinates);
-}
 
 function addSavedLocations(pos, map) {
-   
-        for (let i = 0; i < pos.length; i++) {
-          setTimeout(function() {
+    for (let i = 0; i < pos.length; i++) {
+        setTimeout(function () {
             addMarker(pos[i], map, pos[i].label, image_pokemon);
-          }, i * 100);
-        }
+        }, i * 100);
+    }
 }
 
 function init() {
-    let labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let labelIndex = 0;
 
-    let map = new google.maps.Map(document.getElementById('map-canvas'),{ styles: retro});
+    let $findMeBtn = $('.find-me');
+    let map = new google.maps.Map(document.getElementById('map-canvas'), {
+        styles: retro
+    });
     image = 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/sun.png';
     image_pokemon = 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/004-pokeball.png';
     image_mission = 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png';
-
-    let MyPlace;
-    let $findMeBtn = $('.find-me');
 
     google.maps.event.addDomListener(window, 'load', initialize(map));
 
@@ -219,4 +145,14 @@ function init() {
     addSavedLocations(locations, map);
 }
 
-init();
+
+
+window.onload = function () {
+    init();
+    // let modal = document.querySelector('.new-modal');
+    // let closeModalbtn = modal.querySelector('.close');
+    // closeModalbtn.onclick = function () {
+    //     modal.style.display = "none";
+    // }
+
+}
