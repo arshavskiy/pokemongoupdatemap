@@ -26,7 +26,7 @@ function changeMarkerIcom(marker, icon) {
         if (new_marker_icon) {
             marker.setIcon(new_marker_icon + '/revision/latest/scale-to-width-down/64');
         }
-        $(this).hide();
+        $('.new-modal').hide();
     }
 }
 

@@ -249,6 +249,9 @@ label.label_icon {
 .icon_last_menu div.holder {
   width: auto;
 }
+.icon_last_menu img {
+  width: 70px;
+}
 .icon-second_menu,
 .icon-first_menu {
   font-size: 0.8rem;
