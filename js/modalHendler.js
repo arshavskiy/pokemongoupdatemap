@@ -4,8 +4,7 @@ function menuEventsSetter(marker) {
         if (e.target.id == 'close') {
             $(this).hide();
             $('.icon-first_menu').empty();
-        } else if (e.target.localName == 'img') {
-
+        } else {
             let check_modal_icon_clicked = $('.new-modal')[0].id;
             if (check_modal_icon_clicked == 'third_menu_modal' || check_modal_icon_clicked == 'second_menu_modal') {
                 if (e.target && e.target.src) {
@@ -14,14 +13,8 @@ function menuEventsSetter(marker) {
                     setMarkerIcon(icon, marker);
                 }
             }
-
             openModal(e.target.id, marker);
 
-        } else if (e.target.localName != 'div.holder') {
-            $(this).hide();
-            $('.icon-first_menu').empty();
-        } else {
-            console.log('else', e);
         }
     });
 }
@@ -60,20 +53,23 @@ function openModal(id, marker) {
         if (id.includes("a")) {
             state.setA(id);
             buildMenu("second_menu_modal", bgColorClass2, subMenuItems);
+            menuEventsSetter(marker);
         } else if (id.includes("b")) {
             if (id === 'b1') {
                 if (missionFormater(state.getA()))
                     buildMenu("third_menu_modal", bgColorClass3, menuSercher());
+                menuEventsSetter(marker);
             } else if (isModalOpen.id) {
                 console.log(id);
             }
         }
     } else {
         buildMenu("first_menu_modal", bgColorClass1, menuItems);
+        menuEventsSetter(marker);
 
     }
 
-    menuEventsSetter(marker);
+
 }
 
 function menuSercher() {
