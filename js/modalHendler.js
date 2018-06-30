@@ -9,16 +9,12 @@ function menuEventsSetter(id, marker) {
             if (check_modal_icon_clicked == 'third_menu_modal' || check_modal_icon_clicked == 'second_menu_modal') {
                 state.setIcon(e.target.src);
                 let new_marker_icon = state.getIcon();
-                if (new_marker_icon) {
-                    marker.setIcon(new_marker_icon);
-                }
+                console.log('new_marker_icon', new_marker_icon);
+                // if (new_marker_icon) {
+                marker.setIcon(new_marker_icon);
+                // }
             }
-
-            openModal(e.target.id, null);
-
-            console.log(e.target);
-
-
+            openModal(e.target.id, marker);
 
         } else if (e.target.localName != 'div.holder') {
             $(this).hide();
