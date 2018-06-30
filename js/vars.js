@@ -170,7 +170,7 @@ let db = {
                         'https://vignette.wikia.nocookie.net/pokemongo/images/2/2b/Chansey.png',
                     ]
                 },
-            ],
+            ]
         },
         {
             id: 'a6',
@@ -205,14 +205,14 @@ let db = {
                     name: 'Evolve a Pokemon',
                     options: [
                         'https://vignette.wikia.nocookie.net/pokemongo/images/8/8d/Vulpix.png',
-                        'https: //vignette.wikia.nocookie.net/pokemongo/images/f/f2/Eevee.png'
+                        'https://vignette.wikia.nocookie.net/pokemongo/images/f/f2/Eevee.png'
                     ]
                 },
                 {
                     name: 'Evolve a Watertype Pokemon',
                     options: [
-                        'https: //vignette.wikia.nocookie.net/pokemongo/images/9/9d/Water.png',
-                        'https: //vignette.wikia.nocookie.net/pokemongo/images/f/f1/Seel.png'
+                        'https://vignette.wikia.nocookie.net/pokemongo/images/9/9d/Water.png',
+                        'https://vignette.wikia.nocookie.net/pokemongo/images/f/f1/Seel.png'
                     ]
                 },
             ],

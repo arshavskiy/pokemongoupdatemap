@@ -20,6 +20,7 @@ function initialize(map) {
 }
 
 
+
 function addMarker(location, map, label, icon) {
     var marker = new MarkerWithLabel({
         position: location,
@@ -47,47 +48,64 @@ function addMarker(location, map, label, icon) {
         // let iconM = this.icon;
         // let subMenu;
 
-        let menu = $('.icon-first_menu>div');
-        let menuSecond = $('icon-second_menu>div');
-        let backBtn = $('#back-second_menu');
-        let exitBtn = $('#exit-first_menu');
-        let earnExitBtn = $('#back-earn_menu');
+        // let menu = $('.icon-first_menu>div');
+        // let menuSecond = $('icon-second_menu>div');
+        // let backBtn = $('#back-second_menu');
+        // let exitBtn = $('#exit-first_menu');
+        // let earnExitBtn = $('#back-earn_menu');
 
-        let firstMenuModal = $('#pokistopModal');
+        // let firstMenuModal = $('#pokistopModal');
 
-        exitBtn.click(function (e) {
-            $('#pokistopModal').modal('hide');
-        });
+        // exitBtn.click(function (e) {
+        //     $('#pokistopModal').modal('hide');
+        // });
 
-        backBtn.click(function (e) {
-            $('#pokistopModalSubMenu').modal('hide');
-            firstMenuModal.modal('show');
-        });
-        earnExitBtn.click(function (e) {
-            $('#pokistopModalSubEarn').modal('hide');
-            firstMenuModal.modal('show');
-        });
+        // backBtn.click(function (e) {
+        //     $('#pokistopModalSubMenu').modal('hide');
+        //     firstMenuModal.modal('show');
+        // });
+        // earnExitBtn.click(function (e) {
+        //     $('#pokistopModalSubEarn').modal('hide');
+        //     firstMenuModal.modal('show');
+        // });
 
         // $('#pokistopModal').modal('show');
+
+
         openModal();
 
-        // $('#pokistopModal').on('show.bs.modal', function (e) { });
-        menu.each(function (i, e) {
-            e.addEventListener('click', function (e) {
-                switch (e.path[0].id) {
-                    case 'a7':
-                        $('#pokistopModalSubEarn').modal('show');
-                        firstMenuModal.modal('hide');
-                        break;
-
-                    default:
-                        $('#pokistopModalSubMenu').modal('show');
-                        firstMenuModal.modal('hide');
-
-                        $('#pokistopModalSubMenu').on('show.bs.modal', function (e) {});
-                }
-            });
+        $('.new-modal').one("click", function (e) {
+            if (e.target.id == 'close') {
+                $(this).hide();
+                $('.icon-first_menu').empty();
+            } else if (e.target.localName == 'img') {
+                openModal(e.target.id);
+            } else if (e.target.localName != 'div.holder') {
+                $(this).hide();
+                $('.icon-first_menu').empty();
+            } else {
+                console.log(e);
+            }
         });
+
+
+        // $('#pokistopModal').on('show.bs.modal', function (e) { });
+        // menu.each(function (i, e) {
+        //     e.addEventListener('click', function (e) {
+        //         switch (e.path[0].id) {
+        //             case 'a7':
+        //                 $('#pokistopModalSubEarn').modal('show');
+        //                 firstMenuModal.modal('hide');
+        //                 break;
+
+        //             default:
+        //                 $('#pokistopModalSubMenu').modal('show');
+        //                 firstMenuModal.modal('hide');
+
+        //                 $('#pokistopModalSubMenu').on('show.bs.modal', function (e) {});
+        //         }
+        //     });
+        // });
 
 
 
@@ -99,7 +117,6 @@ function addMarker(location, map, label, icon) {
     //     printCordinates(location.lat(), location.lng(), label, map);
     // }
 }
-
 
 function addMarkerToMap(map, label) {
     // add to mission gps
@@ -114,7 +131,6 @@ function addMarkerToMap(map, label) {
     });
 
 }
-
 
 function addSavedLocations(pos, map) {
     for (let i = 0; i < pos.length; i++) {
@@ -145,7 +161,33 @@ function init() {
     addSavedLocations(locations, map);
 }
 
-
+let state = (function () {
+    let selection = 0;
+    let stateA, stateB;
+    return {
+        count: function () {
+            return selection++;
+        },
+        setA: function (a) {
+            stateA = a;
+        },
+        setB: function (b) {
+            stateB = b;
+        },
+        getA: function () {
+            return stateA;
+        },
+        getB: function () {
+            return stateB;
+        },
+        a: function (id) {
+            return id.includes("a") ? id : "";
+        },
+        b: function (id) {
+            return id.includes("b") ? id : "";
+        },
+    };
+})();
 
 window.onload = function () {
     init();

@@ -14,7 +14,6 @@
 
 <body>
 
-  <!-- <h1>Geolocation API demo</h1> -->
   <div class="row">
 
     <div class="col-md-12 no-padding">
@@ -22,34 +21,16 @@
         <div id="map-canvas"></div>
       </div>
       <div class="content-center">
-        <!-- <input type="text" id="labelName" name="labelName" class="box-shadow marg-t-20"> -->
         <button type="button" class="find-me btn btn-info btn-block box-shadow">
           <i class="fa fa-crosshairs"></i>
         </button>
       </div>
     </div>
-
-    <!-- <aside class="pokistop_link">
-      <div class="col-md-3 marg-t-20">
-
-        <h5 class="text-center">משימות</h5>
-        <section>
-          <ul class="cordinatedList">
-          </ul>
-        </section>
-      </div>
-    </aside> -->
-
   </div>
 
   <section>
     <div class="col-md-12">
-      <!-- <div class="center"> -->
-      <!-- <button type="button" id="modalLogin" class="modalLogin btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-          Login
-        </button> -->
-      <!-- </div> -->
-      <!-- Modal -->
+
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
@@ -88,84 +69,6 @@
 
   <section>
     <div class="col-md-12">
-      <!-- <div class="center"> -->
-      <!-- <button type="button" id="modalLogin" class="modalLogin btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-            Login
-          </button> -->
-      <!-- </div> -->
-
-
-      <!-- <div class="modal fade" id="pokistopModalSubMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-
-            <div class="modal-body">
-              <div class="modal-icon">
-                <div class="header">
-                  <p>Daily Reward</p>
-                  <img id="a3" src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png">
-                  <p>פרס יומי</p>
-                </div>
-              </div>
-              <div class="icon-second_menu">
-
-                <div>
-                  <img id="b1" src="https://vignette.wikia.nocookie.net/pokemongo/images/f/fd/RT-Icon_Encounter.png" alt="">
-                </div>
-                <div>
-                  <img id="b2" src="https://vignette.wikia.nocookie.net/pokemongo/images/a/a2/Rare_Candy.png" alt="">
-                </div>
-                <div>
-                  <img id="b3" src="https://vignette.wikia.nocookie.net/pokemongo/images/a/a9/Fast_TM.png" alt="">
-                </div>
-                <div>
-                  <img id="b4" src="https://vignette.wikia.nocookie.net/pokemongo/images/6/65/Stardust.png" alt="">
-                </div>
-                <div>
-                  <img id="b5" src="https://vignette.wikia.nocookie.net/pokemongo/images/2/24/Berries.png" alt="">
-                </div>
-                <div>
-                  <img id="b6" src="https://vignette.wikia.nocookie.net/pokemongo/images/3/3e/Pok%C3%A9_Balls.png" alt="">
-                </div>
-                <div>
-                  <img id="b7" src="https://vignette.wikia.nocookie.net/pokemongo/images/0/0e/Revives.png" alt="">
-                </div>
-                <div>
-                  <img id="b8" src="https://vignette.wikia.nocookie.net/pokemongo/images/a/a8/Potions.png" alt="">
-                </div>
-                <span id="back-second_menu">
-                  <img src="https://vignette.wikia.nocookie.net/pokemongo/images/2/29/Button_Close.png" alt="">
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="modal fade" id="pokistopModalSubEarn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-body">
-            <div class="modal-icon">
-              <div class="header">
-                <p>Daily Reward</p>
-                <img id="a3" src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png">
-                <p>פרס יומי</p>
-              </div>
-            </div>
-
-            <div class="icon-second_menu">
-              <div>
-                <img id="b1" src="https://vignette.wikia.nocookie.net/pokemongo/images/d/da/Krabby.png" alt="">
-              </div>
-              <div id="back-earn_menu">
-                <img src="https://vignette.wikia.nocookie.net/pokemongo/images/2/29/Button_Close.png" alt="">
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
       <div class="new-modal">
         <div class="modal-content">
           <div class="modal-body">
@@ -178,7 +81,6 @@
             </div>
 
             <div class="icon-first_menu">
-              <div class="holder"></div>
             </div>
             <div class="center">
               <span id="back-second_menu">
@@ -202,6 +104,7 @@
   <script src="js/marker.js"></script>
   <script src="js/vars.js"></script>
   <script src="js/utils.js"></script>
+  <script src="js/modalHendler.js"></script>
   <script src="js/tochMap.js"></script>
 
 </body>
