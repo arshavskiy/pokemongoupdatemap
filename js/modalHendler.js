@@ -1,12 +1,20 @@
-function menuEventsSetter(id, marker) {
+function menuEventsSetter(marker) {
+
     $('.new-modal').one("click", function (e) {
         if (e.target.id == 'close') {
             $(this).hide();
             $('.icon-first_menu').empty();
         } else if (e.target.localName == 'img') {
 
-            icon = e.target.src;
-            changeMarkerIcom(marker, icon);
+            let check_modal_icon_clicked = $('.new-modal')[0].id;
+            if (check_modal_icon_clicked == 'third_menu_modal' || check_modal_icon_clicked == 'second_menu_modal') {
+                if (e.target && e.target.src) {
+                    icon = e.target.src;
+                    state.setIcon(icon);
+                    setMarkerIcon(icon, marker);
+                }
+            }
+
             openModal(e.target.id, marker);
 
         } else if (e.target.localName != 'div.holder') {
@@ -18,16 +26,13 @@ function menuEventsSetter(id, marker) {
     });
 }
 
-function changeMarkerIcom(marker, icon) {
-    let check_modal_icon_clicked = $('.new-modal')[0].id;
-    if (check_modal_icon_clicked == 'third_menu_modal' || check_modal_icon_clicked == 'second_menu_modal') {
-        state.setIcon(icon);
-        let new_marker_icon = state.getIcon();
-        if (new_marker_icon) {
-            marker.setIcon(new_marker_icon + '/revision/latest/scale-to-width-down/64');
-        }
-        $('.new-modal').hide();
+function setMarkerIcon(icon, marker) {
+
+    let new_marker_icon = state.getIcon();
+    if (new_marker_icon) {
+        marker.setIcon(new_marker_icon + '/revision/latest/scale-to-width-down/64');
     }
+    $('.new-modal').hide();
 }
 
 function missionFormater(item) {
@@ -68,7 +73,7 @@ function openModal(id, marker) {
 
     }
 
-    menuEventsSetter(id, marker);
+    menuEventsSetter(marker);
 }
 
 function menuSercher() {

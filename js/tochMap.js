@@ -46,37 +46,6 @@ function addMarker(location, map, label, icon) {
     google.maps.event.addListener(marker, 'click', function (e) {
         let NewMarkerIcon = openModal(null, marker);
 
-
-        // let labelM = this.labelContent;
-        // let iconM = this.icon;
-        // let subMenu;
-
-        // let menu = $('.icon-first_menu>div');
-        // let menuSecond = $('icon-second_menu>div');
-        // let backBtn = $('#back-second_menu');
-        // let exitBtn = $('#exit-first_menu');
-        // let earnExitBtn = $('#back-earn_menu');
-
-        // let firstMenuModal = $('#pokistopModal');
-
-        // exitBtn.click(function (e) {
-        //     $('#pokistopModal').modal('hide');
-        // });
-
-        // backBtn.click(function (e) {
-        //     $('#pokistopModalSubMenu').modal('hide');
-        //     firstMenuModal.modal('show');
-        // });
-        // earnExitBtn.click(function (e) {
-        //     $('#pokistopModalSubEarn').modal('hide');
-        //     firstMenuModal.modal('show');
-        // });
-
-        // $('#pokistopModal').modal('show');
-
-
-
-
         // $('#pokistopModal').on('show.bs.modal', function (e) { });
         // menu.each(function (i, e) {
         //     e.addEventListener('click', function (e) {
@@ -94,8 +63,6 @@ function addMarker(location, map, label, icon) {
         //         }
         //     });
         // });
-
-
 
     });
 
