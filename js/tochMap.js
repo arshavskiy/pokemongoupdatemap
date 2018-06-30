@@ -22,7 +22,7 @@ function initialize(map) {
 
 
 function addMarker(location, map, label, icon) {
-    var marker = new MarkerWithLabel({
+    let marker = new MarkerWithLabel({
         position: location,
         map: map,
         icon: icon,
@@ -44,6 +44,9 @@ function addMarker(location, map, label, icon) {
 
 
     google.maps.event.addListener(marker, 'click', function (e) {
+        let NewMarkerIcon = openModal(null, marker);
+
+
         // let labelM = this.labelContent;
         // let iconM = this.icon;
         // let subMenu;
@@ -72,21 +75,6 @@ function addMarker(location, map, label, icon) {
         // $('#pokistopModal').modal('show');
 
 
-        openModal();
-
-        $('.new-modal').one("click", function (e) {
-            if (e.target.id == 'close') {
-                $(this).hide();
-                $('.icon-first_menu').empty();
-            } else if (e.target.localName == 'img') {
-                openModal(e.target.id);
-            } else if (e.target.localName != 'div.holder') {
-                $(this).hide();
-                $('.icon-first_menu').empty();
-            } else {
-                console.log(e);
-            }
-        });
 
 
         // $('#pokistopModal').on('show.bs.modal', function (e) { });
@@ -163,7 +151,7 @@ function init() {
 
 let state = (function () {
     let selection = 0;
-    let stateA, stateB;
+    let stateA, stateB, stateIcon;
     return {
         count: function () {
             return selection++;
@@ -173,6 +161,12 @@ let state = (function () {
         },
         setB: function (b) {
             stateB = b;
+        },
+        setIcon: function (icon) {
+            stateIcon = icon;
+        },
+        getIcon: function () {
+            return stateIcon;
         },
         getA: function () {
             return stateA;
@@ -186,6 +180,7 @@ let state = (function () {
         b: function (id) {
             return id.includes("b") ? id : "";
         },
+
     };
 })();
 

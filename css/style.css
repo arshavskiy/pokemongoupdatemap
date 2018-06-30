@@ -241,6 +241,14 @@ label.label_icon {
   font-size: 10px;
   color: #282828;
 }
+.icon_last_menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.icon_last_menu div.holder {
+  width: auto;
+}
 .icon-second_menu,
 .icon-first_menu {
   font-size: 0.8rem;
@@ -314,7 +322,6 @@ h5 {
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
   left: 0;
   top: 0;
   width: 100%;

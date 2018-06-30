@@ -131,22 +131,26 @@ let db = {
     main_menu: [{
             id: 'a1',
             icon: 'https://vignette.wikia.nocookie.net/pokemongo/images/7/75/Mp-Icon_Medals.png',
-            name: 'Catch לתפוס'
+            name: 'Catch לתפוס',
+            mission: null
         },
         {
             id: 'a2',
             icon: 'https://vignette.wikia.nocookie.net/pokemongo/images/5/55/Backpacker_shadow.png',
-            name: 'Spin לסובב'
+            name: 'Spin לסובב',
+            mission: null
         },
         {
             id: 'a3',
             icon: 'https://vignette.wikia.nocookie.net/pokemongo/images/3/38/Mp-Icon_Appraisal.png',
-            name: 'Make לעשות'
+            name: 'Make לעשות',
+            mission: null
         },
         {
             id: 'a4',
             icon: 'https://vignette.wikia.nocookie.net/pokemongo/images/b/b6/Mp-Icon_Attacks.png',
-            name: 'Battle / Win להלחם / לתפוס'
+            name: 'Battle / Win להלחם / לתפוס',
+            mission: null
         },
         {
             id: 'a5',
@@ -195,7 +199,8 @@ let db = {
         {
             id: 'a7',
             icon: 'https://vignette.wikia.nocookie.net/pokemongo/images/a/af/Mp-Icon_Candy.png',
-            name: 'Earn a Candy לקבל סוכריה'
+            name: 'Earn a Candy לקבל סוכריה',
+            mission: null
         },
         {
             id: 'a8',

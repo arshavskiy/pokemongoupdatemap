@@ -1,18 +1,30 @@
-function menuEventsSetter(id) {
+function menuEventsSetter(id, marker) {
     $('.new-modal').one("click", function (e) {
         if (e.target.id == 'close') {
             $(this).hide();
             $('.icon-first_menu').empty();
         } else if (e.target.localName == 'img') {
 
-            openModal(e.target.id);
+            let check_modal_icon_clicked = $('.new-modal')[0].id;
+            if (check_modal_icon_clicked == 'third_menu_modal' || check_modal_icon_clicked == 'second_menu_modal') {
+                state.setIcon(e.target.src);
+                let new_marker_icon = state.getIcon();
+                if (new_marker_icon) {
+                    marker.setIcon(new_marker_icon);
+                }
+            }
+
+            openModal(e.target.id, null);
+
             console.log(e.target);
+
+
 
         } else if (e.target.localName != 'div.holder') {
             $(this).hide();
             $('.icon-first_menu').empty();
         } else {
-            console.log(e);
+            console.log('else', e);
         }
     });
 }
@@ -23,9 +35,10 @@ function missionFormater(item) {
             return db.main_menu[i].id;
         }
     }
+    return false;
 }
 
-function openModal(id) {
+function openModal(id, marker) {
 
     let menuItems = db.main_menu;
     let subMenuItems = db.sub_menu;
@@ -34,20 +47,27 @@ function openModal(id) {
     let bgColorClass2 = "modal-body-color2";
     let bgColorClass3 = "modal-body-color3";
 
+    let isModalOpen = $('.new-modal');
+
+
     if (id) {
         if (id.includes("a")) {
             state.setA(id);
             buildMenu("second_menu_modal", bgColorClass2, subMenuItems);
-        } else if (id === 'b1') {
-            // missionFormater(state.getA());
-            buildMenu("third_menu_modal", bgColorClass3, menuSercher());
+        } else if (id.includes("b")) {
+            if (id === 'b1') {
+                if (missionFormater(state.getA()))
+                    buildMenu("third_menu_modal", bgColorClass3, menuSercher());
+            } else if (isModalOpen.id) {
+                console.log(id);
+            }
         }
     } else {
         buildMenu("first_menu_modal", bgColorClass1, menuItems);
 
     }
 
-    menuEventsSetter(id);
+    menuEventsSetter(id, marker);
 }
 
 function menuSercher() {
@@ -61,7 +81,18 @@ function menuSercher() {
 
 function buildMenu(id, bgColorClass, menuItems) {
     let modalExsist = $(".holder").length;
-    let haveMissions = menuItems[0].hasOwnProperty('options');
+    let haveMissions = false;
+
+    $('.icon-first_menu').removeClass('icon_last_menu');
+    $(".new-modal .modal-body").removeClass("modal-body-color1");
+    $(".new-modal .modal-body").removeClass("modal-body-color2");
+    $(".new-modal .modal-body").removeClass("modal-body-color3");
+
+
+    if (menuItems) {
+        haveMissions = menuItems[0].hasOwnProperty('options') ? true : false;
+    }
+
     let fragment = document.createDocumentFragment();
 
     if (haveMissions) {
@@ -75,6 +106,7 @@ function buildMenu(id, bgColorClass, menuItems) {
         $("<div>", {
             class: "holder"
         }).appendTo(".icon-first_menu");
+        $('.icon-first_menu').addClass('icon_last_menu');
 
         menuItems.forEach(function (v) {
 
@@ -101,35 +133,35 @@ function buildMenu(id, bgColorClass, menuItems) {
 
     } else {
 
-        menuItems.forEach(function (v) {
-            if ($(".holder").length > 0) {
-                $(".holder").empty();
-                $(".holder").remove();
-            }
+        if (menuItems) {
+            menuItems.forEach(function (v) {
+                if ($(".holder").length > 0) {
+                    $(".holder").empty();
+                    $(".holder").remove();
+                }
 
-            let img = document.createElement("img");
-            img.id = v.id;
-            img.src = v.icon;
-            let p = document.createElement("p");
-            p.innerText = v.name;
+                let img = document.createElement("img");
+                img.id = v.id;
+                img.src = v.icon;
+                let p = document.createElement("p");
+                p.innerText = v.name;
 
-            $("<div>", {
-                class: "holder"
-            }).appendTo(".icon-first_menu");
+                $("<div>", {
+                    class: "holder"
+                }).appendTo(".icon-first_menu");
 
-            let div_holder = document.querySelector(".holder");
-            let cln = div_holder.cloneNode(true);
-            cln.appendChild(img);
-            cln.appendChild(p);
-            fragment.append(cln);
-        });
+                let div_holder = document.querySelector(".holder");
+                let cln = div_holder.cloneNode(true);
+                cln.appendChild(img);
+                cln.appendChild(p);
+                fragment.append(cln);
+            });
+        }
     }
-    document.querySelector(".icon-first_menu").prepend(fragment);
-    $(".new-modal").attr("id", id);
-    $(".new-modal .modal-body").removeClass("modal-body-color1");
-    $(".new-modal .modal-body").removeClass("modal-body-color2");
-    $(".new-modal .modal-body").removeClass("modal-body-color3");
 
+    document.querySelector(".icon-first_menu").prepend(fragment);
+
+    $(".new-modal").attr("id", id);
     $(".new-modal .modal-body").addClass(bgColorClass);
     $(".new-modal").show();
 }
