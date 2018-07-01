@@ -241,17 +241,6 @@ label.label_icon {
   font-size: 10px;
   color: #282828;
 }
-.icon_last_menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-.icon_last_menu div.holder {
-  width: auto;
-}
-.icon_last_menu img {
-  width: 70px;
-}
 .icon-second_menu,
 .icon-first_menu {
   font-size: 0.8rem;
@@ -277,6 +266,17 @@ label.label_icon {
 }
 .icon-second_menu img {
   width: 70%;
+}
+.icon_last_menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.icon_last_menu div.holder {
+  width: auto;
+}
+.icon_last_menu img {
+  width: 70px;
 }
 .icon_gold {
   height: 60px;

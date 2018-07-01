@@ -8,9 +8,13 @@ function menuEventsSetter(marker) {
             let check_modal_icon_clicked = $('.new-modal')[0].id;
             if (check_modal_icon_clicked == 'third_menu_modal' || check_modal_icon_clicked == 'second_menu_modal') {
                 if (e.target && e.target.src) {
-                    icon = e.target.src;
-                    state.setIcon(icon);
+
+                    icon = e.target.src; state.setIcon(icon);
                     setMarkerIcon(icon, marker);
+
+                    objectForSave = e.target;
+                    // saveDB(objectForSave, marker);
+
                 }
             }
             openModal(e.target.id, marker);
@@ -18,6 +22,35 @@ function menuEventsSetter(marker) {
         }
     });
 }
+
+ getData = function() {
+    let DBfromJS = (function() {
+        return $.getJSON("js/db_locations.json", function(data){
+        });
+    })();
+    return JSON.parse(DBfromJS.responseText)
+}
+
+
+    
+
+function saveDB(item, marker) {
+    $.ajax({
+        type: "POST",
+        url: 'server/server.php',
+        data: item,
+        success: function (data) {
+            console.log('success', data);
+        },
+        dataType: function (data) {
+            console.log('dataType', data);
+        }
+    });
+}
+
+// $.get( "server/server.php", function( data ) {
+//     return JSON.parse(data);
+// }, "json" );
 
 function setMarkerIcon(icon, marker) {
 
@@ -48,7 +81,6 @@ function openModal(id, marker) {
 
     let isModalOpen = $('.new-modal');
 
-
     if (id) {
         if (id.includes("a")) {
             state.setA(id);
@@ -66,9 +98,7 @@ function openModal(id, marker) {
     } else {
         buildMenu("first_menu_modal", bgColorClass1, menuItems);
         menuEventsSetter(marker);
-
     }
-
 
 }
 
