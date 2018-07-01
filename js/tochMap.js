@@ -113,7 +113,8 @@ function init() {
         addMarkerToMap(map, inputLabel);
     });
 
-    addSavedLocations(locations, map);
+    getLocations = getDB();
+    addSavedLocations(getLocations, map);
 }
 
 let state = (function () {

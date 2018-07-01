@@ -23,35 +23,6 @@ function menuEventsSetter(marker) {
     });
 }
 
- getData = function() {
-    let DBfromJS = (function() {
-        return $.getJSON("js/db_locations.json", function(data){
-        });
-    })();
-    return JSON.parse(DBfromJS.responseText)
-}
-
-
-    
-
-function saveDB(item, marker) {
-    $.ajax({
-        type: "POST",
-        url: 'server/server.php',
-        data: item,
-        success: function (data) {
-            console.log('success', data);
-        },
-        dataType: function (data) {
-            console.log('dataType', data);
-        }
-    });
-}
-
-// $.get( "server/server.php", function( data ) {
-//     return JSON.parse(data);
-// }, "json" );
-
 function setMarkerIcon(icon, marker) {
 
     let new_marker_icon = state.getIcon();
