@@ -46,24 +46,6 @@ function addMarker(location, map, label, icon) {
     google.maps.event.addListener(marker, 'click', function (e) {
         let NewMarkerIcon = openModal(null, marker);
 
-        // $('#pokistopModal').on('show.bs.modal', function (e) { });
-        // menu.each(function (i, e) {
-        //     e.addEventListener('click', function (e) {
-        //         switch (e.path[0].id) {
-        //             case 'a7':
-        //                 $('#pokistopModalSubEarn').modal('show');
-        //                 firstMenuModal.modal('hide');
-        //                 break;
-
-        //             default:
-        //                 $('#pokistopModalSubMenu').modal('show');
-        //                 firstMenuModal.modal('hide');
-
-        //                 $('#pokistopModalSubMenu').on('show.bs.modal', function (e) {});
-        //         }
-        //     });
-        // });
-
     });
 
     // if (typeof location == 'object'){
@@ -101,7 +83,6 @@ function init() {
     let map = new google.maps.Map(document.getElementById('map-canvas'), {
         styles: retro
     });
-    image = 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/sun.png';
     image_pokemon = 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/004-pokeball.png';
     image_mission = 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png';
 

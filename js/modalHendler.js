@@ -9,7 +9,10 @@ function menuEventsSetter(marker) {
             if (check_modal_icon_clicked == 'third_menu_modal' || check_modal_icon_clicked == 'second_menu_modal') {
                 if (e.target && e.target.src) {
 
-                    icon = e.target.src; state.setIcon(icon);
+                    icon = e.target.src;
+
+                
+                    state.setIcon(icon);
                     setMarkerIcon(icon, marker);
 
                     objectForSave = e.target;
@@ -24,12 +27,21 @@ function menuEventsSetter(marker) {
 }
 
 function setMarkerIcon(icon, marker) {
-
+   
     let new_marker_icon = state.getIcon();
+   
     if (new_marker_icon) {
         marker.setIcon(new_marker_icon + '/revision/latest/scale-to-width-down/64');
+        updateDBicons(marker, new_marker_icon);
     }
-    $('.new-modal').hide();
+
+    closeModal();
+}
+
+function closeModal(params) {
+    if($('.new-modal').length > 0){
+        $('.new-modal').hide();
+    }
 }
 
 function missionFormater(item) {
@@ -60,7 +72,7 @@ function openModal(id, marker) {
         } else if (id.includes("b")) {
             if (id === 'b1') {
                 if (missionFormater(state.getA()))
-                    buildMenu("third_menu_modal", bgColorClass3, menuSercher());
+                    buildMenu("third_menu_modal", bgColorClass3, menuSearcher());
                 menuEventsSetter(marker);
             } else if (isModalOpen.id) {
                 console.log(id);
@@ -73,7 +85,7 @@ function openModal(id, marker) {
 
 }
 
-function menuSercher() {
+function menuSearcher() {
     earn = state.getA();
     for (i in db.main_menu) {
         if (db.main_menu[i].id === earn) {
