@@ -22,25 +22,25 @@ function initialize(map) {
 
 
 function addMarker(location, map, label, icon) {
-    let marker = new MarkerWithLabel({
-        position: location,
-        map: map,
-        icon: icon,
-        labelContent: label,
-        labelClass: "my-custom-class-for-label", // the CSS class for the label
-        zIndex: 10000
-        //,icon: "img/marker/tuseiqui.png"
-    });
-
-    // let marker = new google.maps.Marker({
+    // let marker = new MarkerWithLabel({
     //     position: location,
-    //     animation: google.maps.Animation.DROP,
     //     map: map,
     //     icon: icon,
-    //     label: label,
-    //     labelClass: "my-custom-class-for-label", // your desired CSS class
-    //     labelInBackground: true
+    //     labelContent: label,
+    //     labelClass: "my-custom-class-for-label", // the CSS class for the label
+    //     zIndex: 10000
+    //     //,icon: "img/marker/tuseiqui.png"
     // });
+
+    let marker = new google.maps.Marker({
+        position: location,
+        animation: google.maps.Animation.DROP,
+        map: map,
+        icon: icon,
+        // label: label,
+        labelClass: "my-custom-class-for-label", // your desired CSS class
+        labelInBackground: true
+    });
 
 
     google.maps.event.addListener(marker, 'click', function (e) {
