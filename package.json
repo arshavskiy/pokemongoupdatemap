@@ -1,0 +1,25 @@
+{
+  "name": "pokistop",
+  "version": "1.0.0",
+  "description": "learing",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arshavskiy/google_maps_api_page.git"
+  },
+  "keywords": [
+    "pokemin",
+    "go",
+    "google",
+    "map"
+  ],
+  "author": "pavel a",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arshavskiy/google_maps_api_page/issues"
+  },
+  "homepage": "https://github.com/arshavskiy/google_maps_api_page#readme"
+}
