@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arshavskiy/google_maps_api_page.git"
+    "url": "git+https://github.com/arshavskiy/pokemongoupdatemap.git"
   },
   "keywords": [
     "pokemin",
@@ -19,9 +19,9 @@
   "author": "pavel a",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/arshavskiy/google_maps_api_page/issues"
+    "url": "https://github.com/arshavskiy/pokemongoupdatemap.git/issues"
   },
-  "homepage": "https://github.com/arshavskiy/google_maps_api_page#readme",
+  "homepage": "https://github.com/arshavskiy/pokemongoupdatemap.git#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",

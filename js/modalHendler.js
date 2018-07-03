@@ -32,7 +32,10 @@ function setMarkerIcon(icon, marker) {
    
     if (new_marker_icon) {
         marker.setIcon(new_marker_icon + '/revision/latest/scale-to-width-down/64');
-        updateDBicons(marker, new_marker_icon + '/revision/latest/scale-to-width-down/64');
+
+        let new_icon_to_save = marker.getIcon();
+
+        updateDBicons(marker, new_icon_to_save);
         saveDB();
     }
 
