@@ -1,7 +1,8 @@
 getData = (function () {
     return $.getJSON("js/db_locations.json")
         .done(function (json) {
-            return json.location;
+            console.log(json);
+            return json;
         })
         .fail(function (jqxhr, textStatus, error) {
             var err = textStatus + ", " + error;
@@ -10,59 +11,27 @@ getData = (function () {
 })();
 
 function getDB() {
-    return getData.responseJSON.location;
+    return getData.responseJSON;
 }
 
 function updateDBicons(marker, new_marker_icon) {
     for (let i in getLocations) {
-        if (getLocations[i].label === marker.labelContent) {
+        if (getLocations[i].label === marker.label) {
             getLocations[i].icon = new_marker_icon;
-            console.log(marker.labelContent);
+            console.log(marker.label);
             console.log(getLocations[i].icon);
         }
     }
 }
 
-function saveDB(item, label) {
-
-    var ajaxGET = new XMLHttpRequest();
-    ajaxGET.onreadystatechange = function () {
-        if (ajaxGET.readyState == 4) {
-            // document.getElementById('content').innerHTML = ajaxGET.responseText;
-            console.log('ajaxGET.responseText', ajaxGET.responseText);
-        }
-    };
-
-    function updateText() {
-        ajaxGET.open('GET', 'server/server.php');
-        ajaxGET.send();
-    }
-
-    var ajaxPost = new XMLHttpRequest();
-    ajaxPost.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    ajaxPost.onreadystatechange = function () {
-        if (ajaxPost.readyState == 4) {
-            document.getElementById('content').innerHTML = ajaxPost.responseText;
-        }
-    };
-
-    function updateText(item, label ) {
-        ajaxPost.open('POST', 'server/server.php');
-        ajaxPost.send('item='+item+'&'+'label='+label);
-    }
-
-    var dataString = 'data_to_be_pass=' + item + '&' + label;
+function saveDB() {
     $.ajax({
         type: "POST",
-        url: 'server/server.php',
-        data: dataString,
-        cache: false,
+        url: '/post',
+        data: {getLocations:getLocations},
         dataType: 'json',
-        success: function () {
+        success: function (data) {
             console.log('success', data);
         },
-        dataType: function () {
-            console.log('dataType', data);
-        }
     });
 }

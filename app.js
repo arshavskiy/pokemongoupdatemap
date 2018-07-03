@@ -1,44 +1,42 @@
 // call the packages we need
 const express = require('express'); // call express
 const app = express(); // define our app using express
-const bodyParser = require('body-parser');
+const path = require('path');
 const fs = require('fs');
-var path = require('path');
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); 
 
-//Store all HTML files in view folder.
-app.use(express.static(__dirname + '/js'));
 //Store all JS and CSS in Scripts folder.
+app.use(express.static(__dirname + '/js'));
 app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/map style'));
 app.use(express.static(__dirname + '/icons'));
-//Store all JS and CSS in Scripts folder.
 app.use(express.static(__dirname + '/'));
 
-app.get('/',function(req,res){
-  res.sendFile('index.html');
-  //It will find and locate index.html from View or Scripts
-});
 
-app.get('/about',function(req,res){
-  res.sendFile('/about.html');
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname + '/index.html'));
 });
+app.post('/post',function(req,res){
+  console.log(JSON.stringify(req.body.getLocations));
+  let stringifed = JSON.stringify(req.body.getLocations);
 
-app.get('/sitemap',function(req,res){
-  res.sendFile('/sitemap.html');
+    fs.writeFile('js/db_locations.json', stringifed, 'utf8', function(err) {
+      if (err) throw err;
+      console.log('complete');
+      });
+    res.status(200).end('saved');
 });
+// app.get('/about',function(req,res){
+//   res.sendFile('/about.html');
+// });
 
 let port = process.env.PORT || 3000;
-
-
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
-});
-
-
 // START THE SERVER
-http.listen(port, '0.0.0.0', function(err) {
-    console.log('server runninng at ' + http.url );
+app.listen(port, '0.0.0.0', function (err) {
+  console.log('server runninng at ' + port);
 });
 
 // ROUTES FOR OUR API
@@ -50,17 +48,17 @@ router.get('/', function (req, res) {
   });
 });
 
-router.route('/:item,:icon')
+
+router.route('/get')
   .get(function (req, res) {
-
-    let q = req.body.name;
-    console.log('data read..' +  JSON.stringify(req.body.name) );
-    console.log('data read..' +  JSON.stringify(req.params.item) );
-    console.log('data read..' +  JSON.stringify(req.params.icon) );
-
-    getMeFunc(req.params.q, req.params.count, function (err, tweets) {
-      res.status('200').send(tweets);
-    });
+    let locationFromFile = fs.readFileSync("js/db_locations.json", "utf8");
+    // console.log( JSON.parse(locationFromFile));
+    res
+      .status(200)
+      .json(JSON.parse(locationFromFile));
   });
-
 app.use('/api', router);
+
+
+
+fs.writeFile

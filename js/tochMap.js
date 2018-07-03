@@ -30,16 +30,16 @@ function addMarker(location, map, label, icon) {
     //     labelClass: "my-custom-class-for-label", // the CSS class for the label
     //     zIndex: 10000
     //     //,icon: "img/marker/tuseiqui.png"
-    // });
-
+    // }); 
+    mapLatLng = new google.maps.LatLng(Number(location.lat), Number(location.lng));
     let marker = new google.maps.Marker({
-        position: location,
+        position: mapLatLng,
         animation: google.maps.Animation.DROP,
         map: map,
         icon: icon,
-        // label: label,
+        label: label,
         labelClass: "my-custom-class-for-label", // your desired CSS class
-        labelInBackground: true
+        labelInBackground: false
     });
 
 
@@ -72,8 +72,8 @@ function addMarkerToMap(map, label) {
 function addSavedLocations(pos, map) {
     for (let i = 0; i < pos.length; i++) {
         setTimeout(function () {
-            addMarker(pos[i], map, pos[i].label, image_pokemon);
-        }, i * 100);
+            addMarker(pos[i], map, pos[i].label, pos[i].icon||image_pokemon);
+        }, i * 10);
     }
 }
 
@@ -83,6 +83,7 @@ function init() {
     let map = new google.maps.Map(document.getElementById('map-canvas'), {
         styles: retro
     });
+    // image_pokemon = 'https://vignette.wikia.nocookie.net/pokemongo/images/f/fc/Button_Main_Menu.png/revision/latest/scale-to-width-down/64';
     image_pokemon = 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/004-pokeball.png';
     image_mission = 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png';
 
