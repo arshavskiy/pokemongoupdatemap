@@ -1,10 +1,7 @@
-# google_maps_api_page
-simple Google Maps page with
-<ul>
-<li>map stylings
-<li>route navigation
-<li>marker clustering
-<li>Menu link navigation
+# Pokemon Go location based Google Map.
+Project build with js and jquery back-end build with Node(that use JSON file as DB for locations and updated mission).
 
-url for testing - https://arshavskiy.github.io/google_maps_api_page/
+
+
+
 
