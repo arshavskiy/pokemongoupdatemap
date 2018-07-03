@@ -3,7 +3,50 @@ const express = require('express'); // call express
 const app = express(); // define our app using express
 const path = require('path');
 const fs = require('fs');
+const cors = require('cors');
 const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+var rawBodyHandler = function (req, res, buf, encoding) {
+  if (buf && buf.length) {
+      req.rawBody = buf.toString(encoding || 'utf8');
+      console.log('Raw body: ' + req.rawBody);
+  }
+}
+
+function notify(data){
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'arshavsky.pasha@gmail.com',
+      pass: 'udacha1984'
+    }
+  });
+  
+  let mailOptions = {
+    from: 'arshavsky.pasha@gmail.com',
+    to: 'arshavsky.pasha@gmail.com, cobyraz@gmail.com',
+    subject: 'You got new pokestop',
+    text: 'That was easy!'
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+}
+
+
+
+app.use(cors({ allowedHeaders: 'Content-Type, Cache-Control' }));
+app.options('*', cors());  // enable pre-flight
+
+// app.use(bodyParser.json({ verify: rawBodyHandler }));
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); 
@@ -24,6 +67,7 @@ app.post('/post',function(req,res){
     fs.writeFile('js/db_locations.json', stringifed, 'utf8', function(err) {
       if (err) throw err;
       console.log('complete');
+      notify(stringifed);
       });
     res.status(200).end('saved');
 });
@@ -58,5 +102,3 @@ router.route('/get')
 app.use('/api', router);
 
 
-
-fs.writeFile
