@@ -14,11 +14,30 @@ function init(map) {
         addMarker(mapLatLng, map);
     });
 
+    //add pokestop on click
+    google.maps.event.addListener(map, 'dblclick', function (event) {
 
+        console.log('dblclick', event);
+        // $('#labelName').show();
+        let inputLabel = 'נקודה הוספה'+state.count();
+
+        getLocations.push({
+            icon:  "",
+            label: inputLabel,
+            lat:   event.latLng.lat(),
+            lng:   event.latLng.lng()
+        });
+
+        saveDB();
+        
+        console.log(inputLabel, 'getLocations',getLocations);
+        addMarker(event.latLng, map, inputLabel, state.getPokestop_icon());
+    });
+    google.maps.event.addListener(map, 'click', function (event) {
+        console.log('click', event);
+    });
 
 }
-
-
 
 function addMarker(location, map, label, icon) {
 
@@ -99,17 +118,6 @@ function initMap() {
         showMyLocation(map, null);
     });
 }
-
-// click on map makes marker
-function addPokistop() {
-    google.maps.event.addListener(map, 'click', function (event) {
-        $('#labelName').show()
-        $('#labelName').val = 'נקודה הוספה';
-        let inputLabel = $('#labelName').val();
-        addMarker(event.latLng, map, inputLabel, state.getPokestop_icon());
-    });
-}
-
 
 let state = (function () {
     let selection = 0;
