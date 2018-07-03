@@ -120,30 +120,31 @@ let state = (function () {
         setB: function (b) {
             stateB = b;
         },
-        setIcon: function (icon) {
-            stateIcon = icon;
-        },
-        getIcon: function () {
-            return stateIcon;
-        },
-        setInitLocation(location) {
-            initLocation = location
-        },
-        setNewLocation(New_location) {
-            newLocation = New_location;
-        },
-        getInitLocation() {
-            return initLocation;
-        },
-        getNewLocation() {
-            return newLocation;
-        },
         getA: function () {
             return stateA;
         },
         getB: function () {
             return stateB;
         },
+        setIcon: function (icon) {
+            stateIcon = icon;
+        },
+        getIcon: function () {
+            return stateIcon;
+        },
+        setInitLocation: function (location) {
+            initLocation = location
+        },
+        setNewLocation: function (New_location) {
+            newLocation = New_location;
+        },
+        getInitLocation: function () {
+            return initLocation;
+        },
+        getNewLocation: function () {
+            return newLocation;
+        },
+       
         a: function (id) {
             return id.includes("a") ? id : "";
         },
