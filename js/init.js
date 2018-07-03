@@ -14,10 +14,7 @@ function init(map) {
         addMarker(mapLatLng, map);
     });
 
-    // click on map makes marker
-    // google.maps.event.addListener(map, 'click', function (event) {
-    //     addMarker(event.latLng, map, 'נקודה הוספה' ,image_mission);
-    // });
+
 
 }
 
@@ -80,10 +77,9 @@ function showMyLocation(map, label) {
 }
 
 function addSavedLocations(pos, map) {
-    let image_pokemon = 'https://vignette.wikia.nocookie.net/pokemongo/images/8/87/Pok%C3%A9_Ball.png/revision/latest/scale-to-width-down/32';
     for (let i = 0; i < pos.length; i++) {
         setTimeout(function () {
-            addMarker(pos[i], map, pos[i].label, pos[i].icon || image_pokemon);
+            addMarker(pos[i], map, pos[i].label, pos[i].icon || state.getPokestop_icon());
         }, i * 100);
     }
 }
@@ -95,9 +91,6 @@ function initMap() {
     });
     google.maps.event.addDomListener(window, 'load', init(map));
 
-    // image_mission = 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png';
-
-
     addSavedLocations(getLocations, map);
 
     $('.find-me').click(function (e) {
@@ -107,51 +100,36 @@ function initMap() {
     });
 }
 
+// click on map makes marker
+function addPokistop() {
+    google.maps.event.addListener(map, 'click', function (event) {
+        $('#labelName').show()
+        $('#labelName').val = 'נקודה הוספה';
+        let inputLabel = $('#labelName').val();
+        addMarker(event.latLng, map, inputLabel, state.getPokestop_icon());
+    });
+}
+
+
 let state = (function () {
     let selection = 0;
-    let stateA, stateB, stateIcon, initLocation, newLocation;
+    let stateA, stateB, stateIcon, initLocation, newLocation, image_pokestop; 
     return {
-        count: function () {
-            return selection++;
-        },
-        setA: function (a) {
-            stateA = a;
-        },
-        setB: function (b) {
-            stateB = b;
-        },
-        getA: function () {
-            return stateA;
-        },
-        getB: function () {
-            return stateB;
-        },
-        setIcon: function (icon) {
-            stateIcon = icon;
-        },
-        getIcon: function () {
-            return stateIcon;
-        },
-        setInitLocation: function (location) {
-            initLocation = location
-        },
-        setNewLocation: function (New_location) {
-            newLocation = New_location;
-        },
-        getInitLocation: function () {
-            return initLocation;
-        },
-        getNewLocation: function () {
-            return newLocation;
-        },
-       
-        a: function (id) {
-            return id.includes("a") ? id : "";
-        },
-        b: function (id) {
-            return id.includes("b") ? id : "";
-        },
-
+        getPokestop_icon: () => image_pokestop = 'https://vignette.wikia.nocookie.net/pokemongo/images/8/87/Pok%C3%A9_Ball.png/revision/latest/scale-to-width-down/32',
+        setPokestop_icon: (icon) => image_pokestop = icon,
+        setA: (a) => stateA = a,
+        getA: () => stateA,
+        setB: (b) => stateB = b,
+        getB: () => stateB,
+        setIcon: (icon) => stateIcon = icon,
+        getIcon: ()=> stateIcon,
+        setInitLocation: (location)=> initLocation = location,
+        setNewLocation: (New_location)=> newLocation = New_location,
+        getInitLocation: () => initLocation,
+        getNewLocation: () => newLocation,
+        count: () => selection++,
+        a: (id) => id.includes("a") ? id : "",
+        b: (id) => id.includes("b") ? id : "",
     };
 })();
 
