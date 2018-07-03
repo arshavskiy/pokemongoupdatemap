@@ -1,4 +1,4 @@
-function initialize(map) {
+function init(map) {
     navigator.geolocation.getCurrentPosition(function (position) {
 
         let lat = position.coords.latitude;
@@ -24,6 +24,14 @@ function initialize(map) {
 
 
 function addMarker(location, map, label, icon) {
+
+
+    if (typeof location.lat === 'function') {
+        mapLatLng = location;
+    } else {
+        mapLatLng = new google.maps.LatLng(Number(location.lat), Number(location.lng));
+    }
+
     // let marker = new MarkerWithLabel({
     //     position: location,
     //     map: map,
@@ -33,11 +41,6 @@ function addMarker(location, map, label, icon) {
     //     zIndex: 10000
     //     //,icon: "img/marker/tuseiqui.png"
     // }); 
-    if (typeof location.lat === 'function') {
-        mapLatLng = location;
-    } else {
-        mapLatLng = new google.maps.LatLng(Number(location.lat), Number(location.lng));
-    }
 
     let marker = new google.maps.Marker({
         position: mapLatLng,
@@ -85,25 +88,23 @@ function addSavedLocations(pos, map) {
     }
 }
 
-function init() {
+function initMap() {
 
-    let $findMeBtn = $('.find-me');
     let map = new google.maps.Map(document.getElementById('map-canvas'), {
         styles: retro
     });
+    google.maps.event.addDomListener(window, 'load', init(map));
 
     // image_mission = 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png';
 
-    google.maps.event.addDomListener(window, 'load', initialize(map));
 
-    $findMeBtn.click(function (e) {
+    addSavedLocations(getLocations, map);
+
+    $('.find-me').click(function (e) {
         e.preventDefault();
         // let inputLabel = $('#labelName').val();
         showMyLocation(map, null);
     });
-
-    getLocations = getDB();
-    addSavedLocations(getLocations, map);
 }
 
 let state = (function () {
@@ -125,16 +126,16 @@ let state = (function () {
         getIcon: function () {
             return stateIcon;
         },
-        setInitLocation(location){
+        setInitLocation(location) {
             initLocation = location
         },
-        setNewLocation(New_location){
+        setNewLocation(New_location) {
             newLocation = New_location;
         },
-        getInitLocation(){
+        getInitLocation() {
             return initLocation;
         },
-        getNewLocation(){
+        getNewLocation() {
             return newLocation;
         },
         getA: function () {
@@ -153,12 +154,8 @@ let state = (function () {
     };
 })();
 
-window.onload = function () {
-    init();
-    // let modal = document.querySelector('.new-modal');
-    // let closeModalbtn = modal.querySelector('.close');
-    // closeModalbtn.onclick = function () {
-    //     modal.style.display = "none";
-    // }
 
-}
+$(() => {
+    getLocations = getDB();
+    initMap();
+});

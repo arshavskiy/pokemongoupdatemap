@@ -11,6 +11,7 @@ getData = (function () {
 })();
 
 function getDB() {
+    
     return getData.responseJSON;
 }
 
