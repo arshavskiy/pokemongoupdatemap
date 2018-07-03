@@ -20,9 +20,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 app.post('/post',function(req,res){
-  console.log(JSON.stringify(req.body.getLocations));
   let stringifed = JSON.stringify(req.body.getLocations);
-
     fs.writeFile('js/db_locations.json', stringifed, 'utf8', function(err) {
       if (err) throw err;
       console.log('complete');

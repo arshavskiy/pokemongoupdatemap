@@ -214,62 +214,6 @@ label.label_icon {
   width: 100%;
 }
 
-@media (max-width: 576px) {
-  #map-canvas {
-    height: 100vh;
-    width: 100%;
-  }
-  ul.cordinatedList {
-    padding: 0;
-    height: 35vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-  ul.cordinatedList li {
-    font-size: 10px;
-    list-style: none;
-    margin-right: 0;
-  }
-  .content-center {
-    position: relative;
-    top: -70px;
-  }
-  .row.padd-t50 {
-    padding-top: 0;
-    margin: 0;
-  }
-  .col-md-9 {
-    padding: 0;
-  }
-  .text-center {
-  }
-  .marg-top-minus-40 {
-    position: relative;
-    top: -40px;
-  }
-  img.padding {
-    margin: 0 5px;
-  }
-  .icon_span::after {
-    content: "";
-    position: absolute;
-    left: 30px;
-    top: 6px;
-    width: 0;
-    height: 0;
-    border-bottom: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid transparent;
-    clear: both;
-    transform: rotate(-45deg);
-  }
-  .icon_span:hover::after {
-    border-top: 10px solid orange;
-  }
-  .pokistop_link {
-    display: none;
-  }
-}
 
 .my-custom-class-for-label {
   display: none !important;
@@ -380,13 +324,14 @@ h5 {
 
 .new-modal {
   display: none;
-  position: fixed;
-  z-index: 1;
+  position: absolute;
   left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
+  right: 0;
+  top: -80vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+ 
   .modal-content {
     margin: auto;
   }
@@ -401,5 +346,72 @@ h5 {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 576px) {
+  #map-canvas {
+    height: 100vh;
+    width: 100%;
+  }
+  .new-modal{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  }
+  ul.cordinatedList {
+    padding: 0;
+    height: 35vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  ul.cordinatedList li {
+    font-size: 10px;
+    list-style: none;
+    margin-right: 0;
+  }
+  .content-center {
+    position: relative;
+    top: -70px;
+  }
+  .row.padd-t50 {
+    padding-top: 0;
+    margin: 0;
+  }
+  .col-md-9 {
+    padding: 0;
+  }
+  .text-center {
+  }
+  .marg-top-minus-40 {
+    position: relative;
+    top: -40px;
+  }
+  img.padding {
+    margin: 0 5px;
+  }
+  .icon_span::after {
+    content: "";
+    position: absolute;
+    left: 30px;
+    top: 6px;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    clear: both;
+    transform: rotate(-45deg);
+  }
+  .icon_span:hover::after {
+    border-top: 10px solid orange;
+  }
+  .pokistop_link {
+    display: none;
   }
 }
