@@ -1,7 +1,6 @@
 getData = (function () {
     return $.getJSON("js/db_locations.json")
         .done(function (json) {
-            console.log(json);
             getLocations = json;
             initMap();
             map = state.getGoogleMap();
@@ -23,8 +22,6 @@ function updateDBicons(marker, new_marker_icon) {
     for (let i in getLocations) {
         if (getLocations[i].label === marker.labelContent) {
             getLocations[i].icon = new_marker_icon;
-            console.log(marker.label);
-            console.log(getLocations[i].icon);
         }
     }
 }
@@ -36,7 +33,8 @@ function saveDB() {
         data: {getLocations:getLocations},
         dataType: 'json',
         success: function (data) {
-            console.log('success', data);
+           
         },
+        
     });
 }

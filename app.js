@@ -9,14 +9,7 @@ const nodemailer = require('nodemailer');
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-var rawBodyHandler = function (req, res, buf, encoding) {
-  if (buf && buf.length) {
-      req.rawBody = buf.toString(encoding || 'utf8');
-      console.log('Raw body: ' + req.rawBody);
-  }
-}
-
-function notify(data){
+function emailMe(data){
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -34,13 +27,16 @@ function notify(data){
 
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
-      console.log(error);
+      log(error);
     } else {
-      console.log('Email sent: ' + info.response);
+      log('Email sent: ' + info.response);
     }
   });
 }
 
+function log(log) {
+    console.log(log);
+}
 
 
 app.use(cors({ allowedHeaders: 'Content-Type, Cache-Control' }));
@@ -66,8 +62,8 @@ app.post('/post',function(req,res){
   let stringifed = JSON.stringify(req.body.getLocations);
     fs.writeFile('js/db_locations.json', stringifed, 'utf8', function(err) {
       if (err) throw err;
-      console.log('complete');
-      notify(stringifed);
+      log('complete');
+      emailMe(stringifed);
       });
     res.status(200).end('saved');
 });

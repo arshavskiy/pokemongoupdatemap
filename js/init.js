@@ -17,10 +17,10 @@ function init(map) {
     //add pokestop on click
     google.maps.event.addListener(map, 'dblclick', function (event) {
 
-        console.log('dblclick', event);
+        
         // $('#labelName').show();
-        let inputLabel = 'נקודה הוספה'+state.count();
-
+        let inputLabel = 'נקודה הוספה'+ Math.floor(Date.now() / 1000);
+        console.log('dblclick', inputLabel);
         getLocations.push({
             icon:  "",
             label: inputLabel,
