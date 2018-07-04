@@ -2,135 +2,146 @@
 <html lang="en">
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121811598-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-121811598-1');
-  </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121811598-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  <meta charset="UTF-8">
-  <title>מפת משימות</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel='stylesheet prefetch' href='css/bootstrap.css'>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="apple-touch-icon" href="https://slot1-images.wikia.nocookie.net/__cb1530700857/common/skins/common/images/wiki.png"
-    sizes="155x155" />
-  <link rel="shortcut icon" href="https://vignette.wikia.nocookie.net/pokemongo/images/6/64/Favicon.ico/revision/latest?cb=20170626163724"
-  />
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'UA-121811598-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <title>מפת משימות</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet prefetch' href='css/bootstrap.css'>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="apple-touch-icon"
+          href="https://slot1-images.wikia.nocookie.net/__cb1530700857/common/skins/common/images/wiki.png"
+          sizes="155x155"/>
+    <link rel="shortcut icon"
+          href="https://vignette.wikia.nocookie.net/pokemongo/images/6/64/Favicon.ico/revision/latest?cb=20170626163724"
+    />
 </head>
 
 <body>
-  <!-- <div class="lds-circle"></div> -->
-  <div class="lds-ripple">
+<!-- <div class="lds-circle"></div> -->
+<div class="lds-ripple">
     <div></div>
     <div></div>
-  </div>
-  <div id="content"></div>
-  <div class="row">
+</div>
+<div id="content"></div>
+<div class="row">
 
     <div class="col-md-12 no-padding">
-      <div id="map">
-        <div id="map-canvas"></div>
-      </div>
-      <div class="content-center">
-        <input type="text" id='labelName'>
-        <button type="button" class="find-me btn btn-info btn-block box-shadow">
-          <i class="fa fa-crosshairs"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <section>
-    <div class="col-md-12">
-
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Pokimap Login</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-            </div>
-
-            <div class="modal-footer">
-              <div class="center">
-
-                <button type="submit" id="loginBtn" class="btn btn-primary">Submit</button>
-                </form>
-              </div>
-            </div>
-          </div>
+        <div id="map">
+            <div id="map-canvas"></div>
         </div>
-      </div>
+        <div class="content-center">
+            <input type="text" id='labelName'>
+            <button type="button" class="find-me btn btn-info btn-block box-shadow">
+                <i class="fa fa-crosshairs"></i>
+            </button>
+        </div>
     </div>
-  </section>
+</div>
 
-  <section>
+<section>
     <div class="col-md-12">
-      <div class="new-modal">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="modal-icon">
-              <div class="header">
-                <p>Daily Reward</p>
-                <img id="a3" src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png">
-                <p>פרס יומי</p>
-              </div>
-            </div>
 
-            <div class="icon-first_menu">
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Pokimap Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                       aria-describedby="emailHelp" placeholder="Enter email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                    anyone else.
+                                </small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                       placeholder="Password">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="center">
+
+                            <button type="submit" id="loginBtn" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="center">
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="col-md-12">
+        <div class="new-modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal-icon">
+                        <div class="header">
+                            <p>Daily Reward</p>
+                            <img id="a3"
+                                 src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png">
+                            <p>פרס יומי</p>
+                        </div>
+                    </div>
+
+                    <div class="icon-first_menu">
+                    </div>
+                    <div class="center">
               <span id="back-second_menu">
-                <img id="close" src="https://vignette.wikia.nocookie.net/pokemongo/images/2/29/Button_Close.png" alt="close modal">
+                <img id="close" src="https://vignette.wikia.nocookie.net/pokemongo/images/2/29/Button_Close.png"
+                     alt="close modal">
               </span>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 
-  </section>
+</section>
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-  <!-- <script src="js/bootstrap.min.js"></script> -->
-  <!-- <script src="js/moment.min.js"></script> -->
-  <script src="map style/retro_style.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<!-- <script src="js/bootstrap.min.js"></script> -->
+<!-- <script src="js/moment.min.js"></script> -->
+<script src="map style/retro_style.js"></script>
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9zjnqXZs64-jzUe9Ze_m3CjhTE1SPVv4" type="text/javascript"></script>
-  <!-- <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script> -->
-  <script src="js/data.js"></script>
-  <script src="js/vars.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/modalHendler.js"></script>
-  <script src="js/marker.js"></script>
-  <script src="js/init.js"></script>
-
-
-
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9zjnqXZs64-jzUe9Ze_m3CjhTE1SPVv4"
+        type="text/javascript"></script>
+<!-- <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script> -->
+<script src="js/data.js"></script>
+<script src="js/vars.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/modalHendler.js"></script>
+<script src="js/marker.js"></script>
+<script src="js/init.js"></script>
 
 
 </body>
