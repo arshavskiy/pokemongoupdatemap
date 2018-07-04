@@ -15,27 +15,30 @@ function init(map) {
     });
 
     //add pokestop on click
-    google.maps.event.addListener(map, 'dblclick', function (event) {
-
-        
-        // $('#labelName').show();
-        let inputLabel = 'נקודה הוספה'+ Math.floor(Date.now() / 1000);
-        console.log('dblclick', inputLabel);
-        getLocations.push({
-            icon:  "",
-            label: inputLabel,
-            lat:   event.latLng.lat(),
-            lng:   event.latLng.lng()
-        });
-
-        saveDB();
-        
-        console.log(inputLabel, 'getLocations',getLocations);
-        addMarker(event.latLng, map, inputLabel, state.getPokestop_icon());
+    let startDate, endDate;
+    google.maps.event.addListener(map, 'mousedown', function (event) {
+        startDate = Math.floor(Date.now() / 1000);
+        console.log('startDate', startDate);
     });
-    google.maps.event.addListener(map, 'click', function (event) {
-        console.log('click', event);
+    google.maps.event.addListener(map, 'mouseup', function (event) {
+        endDate = Math.floor(Date.now() / 1000);
+        console.log('endDate' , endDate);
+        validateClick(event);
     });
+    function validateClick(event){
+        if (endDate - startDate >= 2){
+            let inputLabel = 'נקודה הוספה'+ Math.floor(Date.now() / 1000);
+            getLocations.push({
+                icon:  "",
+                label: inputLabel,
+                lat:   event.latLng.lat(),
+                lng:   event.latLng.lng()
+            });
+            saveDB();
+            addMarker(event.latLng, map, inputLabel, state.getPokestop_icon());
+        }
+    }
+
 
 }
 
@@ -96,7 +99,6 @@ function showMyLocation(map, label) {
 }
 
 function addSavedLocations(pos, map) {
-    console.log(4);
     for (let i = 0; i < pos.length; i++) {
         setTimeout(function () {
             addMarker(pos[i], map, pos[i].label, pos[i].icon || state.getPokestop_icon());

@@ -20,7 +20,7 @@ function emailMe(data){
   
   let mailOptions = {
     from: 'pokemon.missions@gmail.com',
-    to: 'arshavsky.pasha@gmail.com, cobyraz@gmail.com',
+    to: 'arshavsky.pasha@gmail.com',
     subject: 'You got new pokestop',
     text: 'That was easy!'
   };
