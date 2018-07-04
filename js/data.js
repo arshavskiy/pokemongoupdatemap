@@ -2,7 +2,12 @@ getData = (function () {
     return $.getJSON("js/db_locations.json")
         .done(function (json) {
             console.log(json);
-            return json;
+            getLocations = json;
+            initMap();
+            map = state.getGoogleMap();
+            addSavedLocations(getLocations, map);
+          
+
         })
         .fail(function (jqxhr, textStatus, error) {
             var err = textStatus + ", " + error;
@@ -10,14 +15,13 @@ getData = (function () {
         });
 })();
 
-function getDB() {
-    
-    return getData.responseJSON;
-}
+// function getDB() {
+//     return getData.responseJSON;
+// }
 
 function updateDBicons(marker, new_marker_icon) {
     for (let i in getLocations) {
-        if (getLocations[i].label === marker.label) {
+        if (getLocations[i].label === marker.labelContent) {
             getLocations[i].icon = new_marker_icon;
             console.log(marker.label);
             console.log(getLocations[i].icon);
