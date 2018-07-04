@@ -18,11 +18,9 @@ function init(map) {
     let startDate, endDate;
     google.maps.event.addListener(map, 'mousedown', function (event) {
         startDate = Math.floor(Date.now() / 1000);
-        console.log('startDate', startDate);
     });
     google.maps.event.addListener(map, 'mouseup', function (event) {
         endDate = Math.floor(Date.now() / 1000);
-        console.log('endDate' , endDate);
         validateClick(event);
     });
     function validateClick(event){
@@ -130,11 +128,9 @@ let state = (function () {
     let stateA, stateB, stateIcon, initLocation, newLocation, image_pokestop, gooleMap; 
     return {
         setGoogleMap:(gm)=> {
-            console.log(2);
             gooleMap = gm;
         },
         getGoogleMap:()=> { 
-            console.log(3);
             return gooleMap
         },
         getPokestop_icon: () => image_pokestop = 'https://vignette.wikia.nocookie.net/pokemongo/images/8/87/Pok%C3%A9_Ball.png/revision/latest/scale-to-width-down/32',
@@ -157,11 +153,9 @@ let state = (function () {
 
 
 $(() => {
-    console.log(5);
 });
 
 window.onload = function(){
-    console.log(6);
     $('.lds-ripple').hide();
     $('body').css('background','#fff');
 }

@@ -115,8 +115,6 @@ function buildMenu(id, bgColorClass, menuItems) {
     let fragment = document.createDocumentFragment();
 
     if (haveMissions) {
-
-        console.log('mission', menuItems);
         if (modalExsist > 0) {
             $(".holder").empty();
             $(".holder").remove();
