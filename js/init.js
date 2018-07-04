@@ -100,7 +100,7 @@ function addSavedLocations(pos, map) {
     for (let i = 0; i < pos.length; i++) {
         setTimeout(function () {
             addMarker(pos[i], map, pos[i].label, pos[i].icon || state.getPokestop_icon());
-        }, i * 100);
+        }, i * 50);
     }
 }
 
@@ -154,6 +154,12 @@ let state = (function () {
 })();
 
 
-// $(() => {
-//     initMap();
-// });
+$(() => {
+    console.log(5);
+});
+
+window.onload = function(){
+    console.log(6);
+    $('.lds-ripple').hide();
+    $('body').css('background','#fff');
+}

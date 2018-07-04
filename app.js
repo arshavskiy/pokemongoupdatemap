@@ -20,13 +20,13 @@ function notify(data){
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'arshavsky.pasha@gmail.com',
-      pass: 'udacha1984'
+      user: 'pokemon.missions@gmail.com',
+      pass: 'pokemon.missions84'
     }
   });
   
   let mailOptions = {
-    from: 'arshavsky.pasha@gmail.com',
+    from: 'pokemon.missions@gmail.com',
     to: 'arshavsky.pasha@gmail.com, cobyraz@gmail.com',
     subject: 'You got new pokestop',
     text: 'That was easy!'
