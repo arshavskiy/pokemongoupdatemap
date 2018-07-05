@@ -1,14 +1,15 @@
-function validateClick(event){
+function validateClick(event, startDate, endDate){
     if (endDate - startDate >= 2){
         let inputLabel = 'נקודה הוספה'+ Math.floor(Date.now() / 1000);
         getLocations.push({
             icon:  "",
             label: inputLabel,
             lat:   event.latLng.lat(),
-            lng:   event.latLng.lng()
+            lng:   event.latLng.lng(),
+            startDate: app.getStartDate(),
         });
         saveDB();
-        addMarker(event.latLng, map, inputLabel, state.getPokestop_icon());
+        addMarker(event.latLng, map, inputLabel, app.getPokestop_icon());
     }
 }
 
@@ -71,12 +72,10 @@ function showMyLocation(map, label) {
 function addSavedLocations(pos, map) {
     for (let i = 0; i < pos.length; i++) {
         setTimeout(function () {
-            addMarker(pos[i], map, pos[i].label, pos[i].icon || state.getPokestop_icon());
+            addMarker(pos[i], map, pos[i].label, pos[i].icon || app.getPokestop_icon());
         }, i * 50);
     }
 }
-
-
 
 function printCordinates(latS, lngS, label, map, iconForlist) {
     let print_cordinates;

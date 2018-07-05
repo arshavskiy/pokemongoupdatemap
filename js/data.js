@@ -19,7 +19,7 @@ function saveDB() {
         data: {getLocations:getLocations},
         dataType: 'json',
         success: function (data) {
-           
+           console.log('send', data);
         },
         error: function(error){
             console.log('error');

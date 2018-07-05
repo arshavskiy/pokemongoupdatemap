@@ -12,7 +12,7 @@ function menuEventsSetter(marker) {
                     icon = e.target.src;
 
                 
-                    state.setIcon(icon);
+                    app.setIcon(icon);
                     setMarkerIcon(icon, marker);
 
                     objectForSave = e.target;
@@ -28,13 +28,11 @@ function menuEventsSetter(marker) {
 
 function setMarkerIcon(icon, marker) {
    
-    let new_marker_icon = state.getIcon();
+    let new_marker_icon = app.getIcon();
    
     if (new_marker_icon) {
         marker.setIcon(new_marker_icon + '/revision/latest/scale-to-width-down/64');
-
         let new_icon_to_save = marker.getIcon();
-
         updateDBicons(marker, new_icon_to_save);
         saveDB();
     }
@@ -70,12 +68,12 @@ function openModal(id, marker) {
 
     if (id) {
         if (id.includes("a")) {
-            state.setA(id);
+            app.setA(id);
             buildMenu("second_menu_modal", bgColorClass2, subMenuItems);
             menuEventsSetter(marker);
         } else if (id.includes("b")) {
             if (id === 'b1') {
-                if (missionFormater(state.getA()))
+                if (missionFormater(app.getA()))
                     buildMenu("third_menu_modal", bgColorClass3, menuSearcher());
                 menuEventsSetter(marker);
             } else if (isModalOpen.id) {
@@ -90,7 +88,7 @@ function openModal(id, marker) {
 }
 
 function menuSearcher() {
-    earn = state.getA();
+    earn = app.getA();
     for (i in db.main_menu) {
         if (db.main_menu[i].id === earn) {
             return db.main_menu[i].mission;
