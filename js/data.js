@@ -1,18 +1,4 @@
-getData = (function () {
-    return $.getJSON("js/db_locations.json")
-        .done(function (json) {
-            getLocations = json;
-            initMap();
-            map = state.getGoogleMap();
-            addSavedLocations(getLocations, map);
-          
 
-        })
-        .fail(function (jqxhr, textStatus, error) {
-            var err = textStatus + ", " + error;
-            console.log("Request Failed: " + err);
-        });
-})();
 
 // function getDB() {
 //     return getData.responseJSON;
@@ -35,6 +21,8 @@ function saveDB() {
         success: function (data) {
            
         },
-        
+        error: function(error){
+            console.log('error');
+        }
     });
 }
