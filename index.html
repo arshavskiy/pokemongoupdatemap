@@ -3,17 +3,7 @@
 
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121811598-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-        gtag('config', 'UA-121811598-1');
-    </script>
+   
 
     <meta charset="UTF-8">
     <title>מפת משימות</title>
@@ -29,9 +19,20 @@
           href="https://vignette.wikia.nocookie.net/pokemongo/images/6/64/Favicon.ico/revision/latest?cb=20170626163724"
     />
 </head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121811598-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
 
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-121811598-1');
+</script>
 <body>
 <!-- <div class="lds-circle"></div> -->
+<!-- loader -->
 <div class="lds-ripple">
     <div></div>
     <div></div>
@@ -52,6 +53,7 @@
     </div>
 </div>
 
+<!-- login modal -->
 <section>
     <div class="col-md-12">
 
@@ -99,6 +101,8 @@
     </div>
 </section>
 
+
+<!-- menu modal -->
 <section>
     <div class="col-md-12">
         <div class="new-modal">
