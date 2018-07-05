@@ -1,7 +1,10 @@
 # Pokemon Go location based Google Map.
-Project build with js and jquery back-end build with Node(that use JSON file as DB for locations and updated mission).
+Project JS and jQuery, Node(JSON as DB).
+
+Pokemon stops location emtered with click on map.
+Mission prise updated from markers on map and saved in JSON file.
 
 ## Run
-go to project dir cd/pokemongoupdatemap and run node app
+go to project dir cd/pokemongoupdatemap/npm start
 
 
