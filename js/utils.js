@@ -118,10 +118,10 @@ function addMarker(location, map, label, icon) {
     // });
 
 
-    // google.maps.event.addListener(marker, 'click', function (e) {
+    google.maps.event.addListener(marker, 'click', function (e) {
         // openModal(null, marker);
-
-    // });
+        console.log('do edit');
+    });
 
     // if (typeof location == 'object'){
     //     printCordinates(location.lat, location.lng, label, map, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png');
