@@ -1,5 +1,4 @@
 function menuEventsSetter(marker) {
-
     $('.new-modal').one("click", function (e) {
         if (e.target.id == 'close') {
             $(this).hide();
@@ -10,7 +9,6 @@ function menuEventsSetter(marker) {
                 if (e.target && e.target.src) {
 
                     icon = e.target.src;
-
                 
                     app.setIcon(icon);
                     setMarkerIcon(icon, marker);
@@ -27,7 +25,6 @@ function menuEventsSetter(marker) {
 }
 
 function setMarkerIcon(icon, marker) {
-   
     let new_marker_icon = app.getIcon();
    
     if (new_marker_icon) {
@@ -56,7 +53,6 @@ function missionFormater(item) {
 }
 
 function openModal(id, marker) {
-
     let menuItems = db.main_menu;
     let subMenuItems = db.sub_menu;
 

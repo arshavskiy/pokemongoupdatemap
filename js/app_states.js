@@ -2,7 +2,7 @@
 let app = (function () {
     let selection = 0;
     let locationsDB, startDate, appA, appB, appIcon,
-    initLocation, newLocation, image_pokestop, gooleMap; 
+    initLocation, newLocation, image_pokestop, gooleMap, token='picaro';
     return {
         setGlobalLocation: (loc)=> locationsDB = loc, 
         getGlobalLocation: ()=> locationsDB, 
@@ -22,6 +22,7 @@ let app = (function () {
         setNewLocation: (New_location)=> newLocation = New_location,
         getInitLocation: () => initLocation,
         getNewLocation: () => newLocation,
+        getToken:()=> token,
         count: () => selection++,
         a: (id) => id.includes("a") ? id : "",
         b: (id) => id.includes("b") ? id : "",

@@ -3,20 +3,18 @@
 
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-   
+
 
     <meta charset="UTF-8">
     <title>מפת משימות</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel='stylesheet prefetch' href='css/bootstrap.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="apple-touch-icon"
-          href="https://slot1-images.wikia.nocookie.net/__cb1530700857/common/skins/common/images/wiki.png"
-          sizes="155x155"/>
-    <link rel="shortcut icon"
-          href="https://vignette.wikia.nocookie.net/pokemongo/images/6/64/Favicon.ico/revision/latest?cb=20170626163724"
+    <link rel="apple-touch-icon" href="https://slot1-images.wikia.nocookie.net/__cb1530700857/common/skins/common/images/wiki.png"
+        sizes="155x155" />
+    <link rel="shortcut icon" href="https://vignette.wikia.nocookie.net/pokemongo/images/6/64/Favicon.ico/revision/latest?cb=20170626163724"
     />
 </head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121811598-1"></script>
@@ -30,123 +28,103 @@
     gtag('js', new Date());
     gtag('config', 'UA-121811598-1');
 </script>
-<body>
-<!-- <div class="lds-circle"></div> -->
-<!-- loader -->
-<div class="lds-ripple">
-    <div></div>
-    <div></div>
-</div>
-<div id="content"></div>
-<div class="row">
 
-    <div class="col-md-12 no-padding">
-        <div id="map">
-            <div id="map-canvas"></div>
-        </div>
-        <div class="content-center">
-            <input type="text" id='labelName'>
-            <button type="button" class="find-me btn btn-info btn-block box-shadow">
-                <i class="fa fa-crosshairs"></i>
-            </button>
+<body>
+    <!-- <div class="lds-circle"></div> -->
+    <!-- loader -->
+    <div class="lds-ripple">
+        <div></div>
+        <div></div>
+    </div>
+    <div id="content"></div>
+    <div class="row">
+
+        <div class="col-md-12 no-padding">
+            <div id="map">
+                <div id="map-canvas"></div>
+            </div>
+            <div class="content-center">
+                <input type="text" id='labelName'>
+                <button type="button" class="find-me btn btn-info btn-block box-shadow">
+                    <i class="fa fa-crosshairs"></i>
+                </button>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- login modal -->
-<section>
-    <div class="col-md-12">
+    <!-- login modal -->
+    <section class="modal-login">
+        <div class="col-md-12">
 
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Pokimap Login</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                       aria-describedby="emailHelp" placeholder="Enter email">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
-                                    anyone else.
-                                </small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1"
-                                       placeholder="Password">
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="modal-footer">
+            <div id="exampleModalCenter">
+                <div class="new-modal2">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <div class="col text-center"><h4 style="color:#fff">Add new Mission?</h4>
+                                        <input style="direction: ltr;" class="mt-4" name="gm_link" placeholder="Google Map link">
+                                        <input style="direction: ltr;" placeholder="Your token.." 
+                                        type="password" id="password" name="password"
+                                        minLength="4" required>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                         <div class="center">
-
-                            <button type="submit" id="loginBtn" class="btn btn-primary">Submit</button>
+                            <!-- <i id="cancelBtn" style="font-size: 2rem;" class="fa fa-times" aria-hidden="true"></i> -->
+                            <i id="okBtn" class="action_button fa fa-check ml-2" aria-hidden="true"></i>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
-<!-- menu modal -->
-<section>
-    <div class="col-md-12">
-        <div class="new-modal">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="modal-icon">
-                        <div class="header">
-                            <p>Daily Reward</p>
-                            <img id="a3"
-                                 src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png">
-                            <p>פרס יומי</p>
+    <!-- menu modal -->
+    <section>
+        <div class="col-md-12">
+            <div class="new-modal">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="modal-icon">
+                            <div class="header">
+                                <p>Daily Reward</p>
+                                <img id="a3" src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png">
+                                <p>פרס יומי</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="icon-first_menu">
-                    </div>
-                    <div class="center">
-              <span id="back-second_menu">
-                <img id="close" src="https://vignette.wikia.nocookie.net/pokemongo/images/2/29/Button_Close.png"
-                     alt="close modal">
-              </span>
+                        <div class="icon-first_menu">
+                        </div>
+                        <div class="center">
+                            <span id="back-second_menu">
+                                <img id="close" src="https://vignette.wikia.nocookie.net/pokemongo/images/2/29/Button_Close.png" alt="close modal">
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</section>
+    </section>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<!-- <script src="js/bootstrap.min.js"></script> -->
-<!-- <script src="js/moment.min.js"></script> -->
-<script src="map style/retro_style.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <!-- <script src="js/moment.min.js"></script> -->
+    <script src="map style/retro_style.js"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9zjnqXZs64-jzUe9Ze_m3CjhTE1SPVv4"
-        type="text/javascript"></script>
-<!-- <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script> -->
-<script src="js/state.js"></script>
-<script src="js/data.js"></script>
-<script src="js/vars.js"></script>
-<script src="js/utils.js"></script>
-<script src="js/modalHendler.js"></script>
-<script src="js/marker.js"></script>
-<script src="js/init.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9zjnqXZs64-jzUe9Ze_m3CjhTE1SPVv4" type="text/javascript"></script>
+    <!-- <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script> -->
+    <script src="js/app_states.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/vars.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/modalHendler.js"></script>
+    <script src="js/marker.js"></script>
+    <script src="js/init.js"></script>
 
 
 </body>

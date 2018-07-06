@@ -178,7 +178,7 @@ ul.cordinatedList li b {
   border-top: 20px solid orange;
 }
 
-.icon_span > b {
+.icon_span>b {
   cursor: pointer;
   padding: 0px 10px;
 }
@@ -215,10 +215,8 @@ label.label_icon {
   width: 100%;
 }
 
-
 .my-custom-class-for-label {
-  display: none !important;
-  // height: 20px;
+  display: none !important; // height: 20px;
   // position: relative;
   // border: 1px solid orange;
   // border-radius: 5px;
@@ -227,7 +225,7 @@ label.label_icon {
   // line-height: 20px;
   // font-weight: bold;
   // font-size: 10px;
-  color:transparent;
+  color: transparent;
 }
 
 .icon-second_menu,
@@ -323,6 +321,7 @@ h5 {
   line-height: 1rem;
 }
 
+.new-modal2,
 .new-modal {
   display: none;
   position: absolute;
@@ -332,7 +331,6 @@ h5 {
   margin-left: auto;
   margin-right: auto;
   width: 400px;
- 
   .modal-content {
     margin: auto;
   }
@@ -350,20 +348,37 @@ h5 {
   }
 }
 
+.new-modal2 {
+  width: 240px;
+  .modal-content {
+    background: linear-gradient(315deg, #8fd87d 0, #24ccaa 80%);
+  }
+}
+
+.action_button {
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  background: orange;
+  border-radius: 25px;
+  padding: 8px;
+}
+
 @media (max-width: 576px) {
   #map-canvas {
     height: 100vh;
     width: 100%;
   }
-  .new-modal{
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
+  .new-modal2,
+  .new-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
   }
   ul.cordinatedList {
     padding: 0;
@@ -388,6 +403,7 @@ h5 {
     padding: 0;
   }
   .text-center {
+    text-align: center;
   }
   .marg-top-minus-40 {
     position: relative;
@@ -417,9 +433,10 @@ h5 {
   }
 }
 
-body{
+body {
   background: #666;
 }
+
 .lds-ripple {
   display: inline-block;
   position: absolute;
@@ -428,18 +445,20 @@ body{
   width: 64px;
   height: 64px;
 }
+
 .lds-ripple div {
   position: absolute;
   border: 4px solid orange;
- 
   opacity: 1;
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
   z-index: 2;
 }
+
 .lds-ripple div:nth-child(2) {
   animation-delay: -0.5s;
 }
+
 @keyframes lds-ripple {
   0% {
     top: 28px;
@@ -470,8 +489,10 @@ body{
   animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
   z-index: 2;
 }
+
 @keyframes lds-circle {
-  0%, 100% {
+  0%,
+  100% {
     animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
   }
   0% {

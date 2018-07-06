@@ -1,24 +1,99 @@
+function saveNewMission(gmlinkToParse, event) {
+    let gmLatLng;
+    $('#exampleModalCenter').hide();
+
+    if (gmlinkToParse){
+        let linkToCode = gmlinkToParse.split(/@(.*)?/i);
+        if (linkToCode.length>1){
+            linkToCode = linkToCode[1].split('?');
+            gmLatLng = linkToCode[0].split(',');
+            console.log('latLng',gmLatLng[0],gmLatLng[1]);
+        }
+    }
+
+    let inputLabel = 'new_mission'+ Math.floor(Date.now() / 1000);
+    getLocations.push({
+        icon:  "",
+        label: inputLabel,
+        lat:   gmLatLng?gmLatLng[0]:event.latLng.lat(),
+        lng:   gmLatLng?gmLatLng[1]:event.latLng.lng(),
+        startDate: app.getStartDate(),
+    });
+
+    // saveDB();
+    openModalMissionSelector(gmLatLng?gmLatLng:event.latLng, map, inputLabel, app.getPokestop_icon());
+}
+
+function showMissionModal() {
+    $('#exampleModalCenter').css({
+        'opacity':'1',
+        'display':'block',
+        
+        });
+    $('.new-modal2').css({'opacity':'1', 'display':'block'});
+    return;
+}
+
+function missionModalHandles(event) {
+    document.getElementsByClassName("action_button")[0].addEventListener("click", function () {
+        gm_link = $("input[name='gm_link']").val();
+        token = $('#password').val();
+        if (token== app.getToken()){
+            saveNewMission(gm_link, event);
+        }
+    });
+
+    // $('.action_button').on('click', function(){
+    // });
+
+    $("input[name='gm_link']").keypress(function (e) {
+        gm_link = $("input[name='gm_link']").val();
+        token = $('#password').val();
+
+        if (e.which == 13) {
+            if (token== app.getToken()){
+                saveNewMission();
+            }
+          return false;    //<---- Add this line
+        }
+      });
+}
+
 function validateClick(event, startDate, endDate){
     if (endDate - startDate >= 2){
-        let inputLabel = 'נקודה הוספה'+ Math.floor(Date.now() / 1000);
-        getLocations.push({
-            icon:  "",
-            label: inputLabel,
-            lat:   event.latLng.lat(),
-            lng:   event.latLng.lng(),
-            startDate: app.getStartDate(),
-        });
-        saveDB();
-        addMarker(event.latLng, map, inputLabel, app.getPokestop_icon());
+
+        let gm_link;
+        let token;
+
+        showMissionModal();
+        missionModalHandles(event);
     }
 }
 
+function openModalMissionSelector(location, map, label, icon) {
+    if (typeof location.lat === 'function') {
+        mapLatLng = location;
+    } else {
+        mapLatLng = new google.maps.LatLng(Number(location[0]?location[0]:location.lat), Number(location[1]?location[1]:location.lng));
+    }
+
+    let marker = new MarkerWithLabel({
+        position: mapLatLng,
+        map: map,
+        icon: icon,
+        labelContent: label,
+        labelClass: "my-custom-class-for-label", // the CSS class for the label
+        zIndex: 10000
+        //,icon: "img/marker/tuseiqui.png"
+    }); 
+      openModal(null, marker);
+}
 
 function addMarker(location, map, label, icon) {
     if (typeof location.lat === 'function') {
         mapLatLng = location;
     } else {
-        mapLatLng = new google.maps.LatLng(Number(location.lat), Number(location.lng));
+        mapLatLng = new google.maps.LatLng(Number(location[0]?location[0]:location.lat), Number(location[1]?location[1]:location.lng));
     }
 
     let marker = new MarkerWithLabel({
@@ -43,10 +118,10 @@ function addMarker(location, map, label, icon) {
     // });
 
 
-    google.maps.event.addListener(marker, 'click', function (e) {
-        openModal(null, marker);
+    // google.maps.event.addListener(marker, 'click', function (e) {
+        // openModal(null, marker);
 
-    });
+    // });
 
     // if (typeof location == 'object'){
     //     printCordinates(location.lat, location.lng, label, map, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png');

@@ -259,6 +259,7 @@ h5 {
   font-size: 0.85rem;
   line-height: 1rem;
 }
+.new-modal2,
 .new-modal {
   display: none;
   position: absolute;
@@ -269,26 +270,45 @@ h5 {
   margin-right: auto;
   width: 400px;
 }
+.new-modal2 .modal-content,
 .new-modal .modal-content {
   margin: auto;
 }
+.new-modal2 .close,
 .new-modal .close {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
+.new-modal2 .close:hover,
 .new-modal .close:hover,
+.new-modal2 .close:focus,
 .new-modal .close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+.new-modal2 {
+  width: 240px;
+}
+.new-modal2 .modal-content {
+  background: linear-gradient(315deg, #8fd87d 0, #24ccaa 80%);
+}
+.action_button {
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  background: orange;
+  border-radius: 25px;
+  padding: 8px;
 }
 @media (max-width: 576px) {
   #map-canvas {
     height: 100vh;
     width: 100%;
   }
+  .new-modal2,
   .new-modal {
     display: none;
     position: fixed;
@@ -320,6 +340,9 @@ h5 {
   }
   .col-md-9 {
     padding: 0;
+  }
+  .text-center {
+    text-align: center;
   }
   .marg-top-minus-40 {
     position: relative;
