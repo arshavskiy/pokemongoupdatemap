@@ -295,8 +295,9 @@ h5 {
 .new-modal2 .modal-content {
   background: linear-gradient(315deg, #8fd87d 0, #24ccaa 80%);
 }
+.close_button,
 .action_button {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   color: #fff;
   cursor: pointer;
   background: orange;

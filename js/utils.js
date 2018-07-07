@@ -35,7 +35,7 @@ function showMissionModal() {
 }
 
 function missionModalHandles(event) {
-    document.getElementsByClassName("action_button")[0].addEventListener("click", function () {
+    document.getElementById("okBtn").addEventListener("click", function () {
         gm_link = $("input[name='gm_link']").val();
         token = $('#password').val();
         if (token== app.getToken()){
@@ -43,8 +43,9 @@ function missionModalHandles(event) {
         }
     });
 
-    // $('.action_button').on('click', function(){
-    // });
+    document.getElementById("cancelBtn").addEventListener("click", function () {
+        $('#exampleModalCenter').hide();
+    });
 
     $("input[name='gm_link']").keypress(function (e) {
         gm_link = $("input[name='gm_link']").val();
