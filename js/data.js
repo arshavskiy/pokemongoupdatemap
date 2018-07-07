@@ -15,7 +15,7 @@ function updateDBicons(marker, new_marker_icon) {
 function saveDB() {
     $.ajax({
         type: "POST",
-        url: '/post',
+        url: '/mission',
         data: {getLocations:getLocations},
         dataType: 'json',
         success: function (data) {

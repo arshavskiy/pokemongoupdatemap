@@ -119,6 +119,7 @@ function addMarker(location, map, label, icon) {
 
 
     google.maps.event.addListener(marker, 'click', function (e) {
+        // TODO edit modal with pass
         // openModal(null, marker);
         console.log('do edit');
     });

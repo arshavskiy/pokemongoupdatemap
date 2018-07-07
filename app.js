@@ -58,15 +58,25 @@ app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
-app.post('/post',function(req,res){
+app.post('/mission',function(req,res){
   let stringifed = JSON.stringify(req.body.getLocations);
-    fs.writeFile('js/db_locations.json', stringifed, 'utf8', function(err) {
-      if (err) throw err;
-      log('complete');
-      emailMe(stringifed);
-      });
-    res.status(200).end('saved');
+
+  fs.writeFile('js/db_locations.json', stringifed, 'utf8', function(err) {
+    if (err) throw err;
+    log('complete');
+    emailMe(stringifed);
+    });
+  res.status(200).end('saved');
 });
+app.delete('/:token', (req, res)=>{
+    console.log('token', req.params.token);
+
+    let filePath = 'js/db_locations.json';
+    if (req.params.token==='picaro_db'){
+      fs.truncate(filePath, 0, function(){console.log('done')});
+        res.status(200).end('200');
+    } else res.status(503).end('503');
+  });
 // app.get('/about',function(req,res){
 //   res.sendFile('/about.html');
 // });
@@ -85,16 +95,20 @@ router.get('/', function (req, res) {
     message: 'hooray! welcome to our api!'
   });
 });
+router.get('/delete/:token', function (req, res) {
+
+    let filePath = 'js/db_locations.json';
+    if (req.params.token==='picaro_db'){
+        fs.truncate(filePath, 0, function(){console.log('done')});
+        res.json({
+            message: 'delete',
+            filePath: filePath,
+        });
+    } else res.status(503).end('503');
 
 
-router.route('/get')
-  .get(function (req, res) {
-    let locationFromFile = fs.readFileSync("js/db_locations.json", "utf8");
-    // console.log( JSON.parse(locationFromFile));
-    res
-      .status(200)
-      .json(JSON.parse(locationFromFile));
-  });
+});
+
 app.use('/api', router);
 
 
