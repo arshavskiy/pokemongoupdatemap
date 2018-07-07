@@ -2,35 +2,38 @@ function saveNewMission(gmlinkToParse, event) {
     let gmLatLng;
     $('#exampleModalCenter').hide();
 
-    if (gmlinkToParse){
+    if (gmlinkToParse) {
         let linkToCode = gmlinkToParse.split(/@(.*)?/i);
-        if (linkToCode.length>1){
+        if (linkToCode.length > 1) {
             linkToCode = linkToCode[1].split('?');
             gmLatLng = linkToCode[0].split(',');
-            console.log('latLng',gmLatLng[0],gmLatLng[1]);
+            console.log('latLng', gmLatLng[0], gmLatLng[1]);
         }
     }
 
-    let inputLabel = 'new_mission'+ Math.floor(Date.now() / 1000);
+    let inputLabel = 'new_mission' + Math.floor(Date.now() / 1000);
     getLocations.push({
-        icon:  "",
+        icon: "",
         label: inputLabel,
-        lat:   gmLatLng?gmLatLng[0]:event.latLng.lat(),
-        lng:   gmLatLng?gmLatLng[1]:event.latLng.lng(),
+        lat: gmLatLng ? gmLatLng[0] : event.latLng.lat(),
+        lng: gmLatLng ? gmLatLng[1] : event.latLng.lng(),
         startDate: app.getStartDate(),
     });
 
     // saveDB();
-    openModalMissionSelector(gmLatLng?gmLatLng:event.latLng, map, inputLabel, app.getPokestop_icon());
+    openModalMissionSelector(gmLatLng ? gmLatLng : event.latLng, map, inputLabel, app.getPokestop_icon());
 }
 
 function showMissionModal() {
     $('#exampleModalCenter').css({
-        'opacity':'1',
-        'display':'block',
-        
-        });
-    $('.new-modal2').css({'opacity':'1', 'display':'block'});
+        'opacity': '1',
+        'display': 'block',
+
+    });
+    $('.new-modal2').css({
+        'opacity': '1',
+        'display': 'block'
+    });
     return;
 }
 
@@ -38,7 +41,7 @@ function missionModalHandles(event) {
     document.getElementById("okBtn").addEventListener("click", function () {
         gm_link = $("input[name='gm_link']").val();
         token = $('#password').val();
-        if (token== app.getToken()){
+        if (token == app.getToken()) {
             saveNewMission(gm_link, event);
         }
     });
@@ -52,16 +55,16 @@ function missionModalHandles(event) {
         token = $('#password').val();
 
         if (e.which == 13) {
-            if (token== app.getToken()){
+            if (token == app.getToken()) {
                 saveNewMission();
             }
-          return false;    //<---- Add this line
+            return false; //<---- Add this line
         }
-      });
+    });
 }
 
-function validateClick(event, startDate, endDate){
-    if (endDate - startDate >= 2){
+function validateClick(event, startDate, endDate) {
+    if (endDate - startDate >= 2) {
 
         let gm_link;
         let token;
@@ -75,7 +78,7 @@ function openModalMissionSelector(location, map, label, icon) {
     if (typeof location.lat === 'function') {
         mapLatLng = location;
     } else {
-        mapLatLng = new google.maps.LatLng(Number(location[0]?location[0]:location.lat), Number(location[1]?location[1]:location.lng));
+        mapLatLng = new google.maps.LatLng(Number(location[0] ? location[0] : location.lat), Number(location[1] ? location[1] : location.lng));
     }
 
     let marker = new MarkerWithLabel({
@@ -86,15 +89,15 @@ function openModalMissionSelector(location, map, label, icon) {
         labelClass: "my-custom-class-for-label", // the CSS class for the label
         zIndex: 10000
         //,icon: "img/marker/tuseiqui.png"
-    }); 
-      openModal(null, marker);
+    });
+    openModal(null, marker);
 }
 
 function addMarker(location, map, label, icon) {
     if (typeof location.lat === 'function') {
         mapLatLng = location;
     } else {
-        mapLatLng = new google.maps.LatLng(Number(location[0]?location[0]:location.lat), Number(location[1]?location[1]:location.lng));
+        mapLatLng = new google.maps.LatLng(Number(location[0] ? location[0] : location.lat), Number(location[1] ? location[1] : location.lng));
     }
 
     let marker = new MarkerWithLabel({
@@ -105,7 +108,7 @@ function addMarker(location, map, label, icon) {
         labelClass: "my-custom-class-for-label", // the CSS class for the label
         zIndex: 10000
         //,icon: "img/marker/tuseiqui.png"
-    }); 
+    });
 
     //defulat marker
     // let marker = new google.maps.Marker({
@@ -117,19 +120,73 @@ function addMarker(location, map, label, icon) {
     //     labelClass: "my-custom-class-for-label", // your desired CSS class
     //     labelInBackground: false
     // });
-
-
-    google.maps.event.addListener(marker, 'click', function (e) {
-        // TODO edit modal with pass
-        // openModal(null, marker);
-        console.log('do edit');
+    let startDate, endDate;
+    google.maps.event.addListener(marker, 'mousedown', function (e) {
+        startDate = Math.floor(Date.now() / 1000);
+        app.setStartDate(startDate);
+    });
+    google.maps.event.addListener(marker, 'mouseup', function (e) {
+        endDate = Math.floor(Date.now() / 1000);
+        if (endDate - startDate >= 2) {
+            open_login_edit_modal();
+        }
     });
 
+    // TODO edit modal with pass
+    // openModal(null, marker);
+    function open_login_edit_modal() {
+        let first_login_modal = `<div id="login_edit_modal">
+        <div class="new-modalL">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <div class="col text-center"><h4 style="color:#fff">Edit Mission?</h4>
+                                <input style="direction: ltr;" placeholder="Your token.." 
+                                type="password" id="passwordL" name="passwordL"
+                                minLength="4" required>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="center">
+                     <i id="cancelBtnL" class="close_button fa fa-times" aria-hidden="true"></i>
+                    <i id="okBtnL" class="action_button fa fa-check ml-2" aria-hidden="true"></i>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>`;
+        $('<div>').html(first_login_modal).appendTo('#generate');
+
+        $('#login_edit_modal').show();
+        $('.new-modalL').show();
+        $('#passwordL').focus();
+
+        let cBtn = document.getElementById("cancelBtnL");
+
+        cBtn.addEventListener("click", function () {
+            deleteFromDOM($('#login_edit_modal'));
+        });
+
+
+        document.getElementById("okBtnL").addEventListener("click", function () {
+            let tokenL = $('#passwordL').val();
+            if (tokenL == app.getToken()) {
+                deleteFromDOM($('#login_edit_modal'));
+                openModal(null, marker);
+            }
+        });
+    }
     // if (typeof location == 'object'){
     //     printCordinates(location.lat, location.lng, label, map, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png');
     // } else {
     //     printCordinates(location.lat(), location.lng(), label, map);
     // }
+}
+
+function deleteFromDOM(item) {
+    item.parent().remove();
 }
 
 function showMyLocation(map, label) {

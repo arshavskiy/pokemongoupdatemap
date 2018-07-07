@@ -259,6 +259,7 @@ h5 {
   font-size: 0.85rem;
   line-height: 1rem;
 }
+.new-modalL,
 .new-modal2,
 .new-modal {
   display: none;
@@ -270,10 +271,12 @@ h5 {
   margin-right: auto;
   width: 400px;
 }
+.new-modalL .modal-content,
 .new-modal2 .modal-content,
 .new-modal .modal-content {
   margin: auto;
 }
+.new-modalL .close,
 .new-modal2 .close,
 .new-modal .close {
   color: #aaaaaa;
@@ -281,17 +284,21 @@ h5 {
   font-size: 28px;
   font-weight: bold;
 }
+.new-modalL .close:hover,
 .new-modal2 .close:hover,
 .new-modal .close:hover,
+.new-modalL .close:focus,
 .new-modal2 .close:focus,
 .new-modal .close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
 }
+.new-modalL,
 .new-modal2 {
   width: 240px;
 }
+.new-modalL .modal-content,
 .new-modal2 .modal-content {
   background: linear-gradient(315deg, #8fd87d 0, #24ccaa 80%);
 }
@@ -309,6 +316,7 @@ h5 {
     height: 100vh;
     width: 100%;
   }
+  .new-modalL,
   .new-modal2,
   .new-modal {
     display: none;

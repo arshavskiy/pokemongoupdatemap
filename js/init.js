@@ -28,7 +28,7 @@ function init(map) {
 
 function initMap() {
     let map = new google.maps.Map(document.getElementById('map-canvas'), {
-        styles: retro
+        // styles: retro
     });
     app.setGoogleMap(map);
     google.maps.event.addDomListener(window, 'load', init(map));

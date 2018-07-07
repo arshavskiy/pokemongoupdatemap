@@ -9,13 +9,15 @@ function menuEventsSetter(marker) {
                 if (e.target && e.target.src) {
 
                     icon = e.target.src;
-                
-                    app.setIcon(icon);
-                    setMarkerIcon(icon, marker);
-
-                    objectForSave = e.target;
+                    if (e.target.id == 'b1'){
+                    //   $('#'+e.target.id).hide();
+                    } else {
+                        app.setIcon(icon);
+                        setMarkerIcon(icon, marker);
+    
+                        objectForSave = e.target;
+                    }
                     // saveDB(objectForSave, marker);
-
                 }
             }
             openModal(e.target.id, marker);
