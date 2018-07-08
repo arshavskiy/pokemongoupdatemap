@@ -1,26 +1,28 @@
 function menuEventsSetter(marker) {
-    $('.new-modal').one("click", function (e) {
+    document.getElementsByClassName("new-modal")[0].addEventListener("click", function (e) {
+        // $('.new-modal').one("click", function (e) {
         if (e.target.id == 'close') {
             $(this).hide();
             $('.icon-first_menu').empty();
         } else {
-            let check_modal_icon_clicked = $('.new-modal')[0].id;
-            if (check_modal_icon_clicked == 'third_menu_modal' || check_modal_icon_clicked == 'second_menu_modal') {
+            let check_modal = $('.new-modal')[0].id;
+            if (check_modal == 'third_menu_modal' || check_modal == 'second_menu_modal') {
                 if (e.target && e.target.src) {
 
                     icon = e.target.src;
-                    if (e.target.id == 'b1'){
-                    //   $('#'+e.target.id).hide();
+                    if (e.target.id == 'b1') {
+                        //   $('#'+e.target.id).hide();
                     } else {
                         app.setIcon(icon);
                         setMarkerIcon(icon, marker);
-    
+
                         objectForSave = e.target;
                     }
                     // saveDB(objectForSave, marker);
                 }
             }
-            openModal(e.target.id, marker);
+            if (app.getA() && app.getIcon()) return;
+            else openModal(e.target.id, marker);
 
         }
     });
@@ -28,7 +30,7 @@ function menuEventsSetter(marker) {
 
 function setMarkerIcon(icon, marker) {
     let new_marker_icon = app.getIcon();
-   
+
     if (new_marker_icon) {
         marker.setIcon(new_marker_icon + '/revision/latest/scale-to-width-down/64');
         let new_icon_to_save = marker.getIcon();
@@ -40,7 +42,7 @@ function setMarkerIcon(icon, marker) {
 }
 
 function closeModal(params) {
-    if($('.new-modal').length > 0){
+    if ($('.new-modal').length > 0) {
         $('.new-modal').hide();
     }
 }

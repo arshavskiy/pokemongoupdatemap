@@ -18,11 +18,11 @@ function saveDB() {
         url: '/mission',
         data: {getLocations:getLocations},
         dataType: 'json',
-        success: function (data) {
-           console.log('send', data);
+        done: function (status) {
+           console.log(status);
         },
-        error: function(error){
-            console.log('error');
+        fail: function(error){
+            console.log('error:', error);
         }
     });
 }

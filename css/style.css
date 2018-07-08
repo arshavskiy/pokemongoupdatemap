@@ -311,6 +311,9 @@ h5 {
   border-radius: 25px;
   padding: 8px;
 }
+.close_button {
+  padding: 8px 10px;
+}
 @media (max-width: 576px) {
   #map-canvas {
     height: 100vh;

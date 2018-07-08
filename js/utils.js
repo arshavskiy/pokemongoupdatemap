@@ -34,6 +34,8 @@ function showMissionModal() {
         'opacity': '1',
         'display': 'block'
     });
+    $('#password').focus();
+    
     return;
 }
 
