@@ -216,6 +216,9 @@ label.label_icon {
 .icon_last_menu img {
   width: 90px;
 }
+#adminMenu {
+  color: #fff;
+}
 .icon_gold {
   height: 60px;
   width: 60px;

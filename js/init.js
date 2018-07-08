@@ -1,4 +1,3 @@
-
 function init(map) {
     navigator.geolocation.getCurrentPosition(function (position) {
         let lat = position.coords.latitude;
@@ -27,6 +26,7 @@ function init(map) {
 }
 
 function initMap() {
+
     let map = new google.maps.Map(document.getElementById('map-canvas'), {
         // styles: retro
     });
@@ -43,12 +43,11 @@ function initMap() {
 getData = (function () {
     return $.getJSON("js/db_locations.json")
         .done(function (json) {
-           if (typeof json === 'object'){
-            app.setGlobalLocation(getLocations = json);
-           }
-           else {
-               app.setGlobalLocation(getLocations = [{}]);
-           }
+            if (typeof json === 'object') {
+                app.setGlobalLocation(getLocations = json);
+            } else {
+                app.setGlobalLocation(getLocations = [{}]);
+            }
 
             map = app.getGoogleMap();
 
@@ -58,20 +57,21 @@ getData = (function () {
             var err = textStatus + ", " + error;
             console.log("Request Failed: " + err);
         })
-        .always(function(json) {
+        .always(function (json) {
 
             //json db is cleaned
-            app.setGlobalLocation(json.responseText?json:[]);
+            app.setGlobalLocation(json.responseText ? json : []);
             map = app.getGoogleMap();
-          });
+        });
 })();
 
 initMap();
 
-var getLocations = [];
+let getLocations = [];
+let markers = [];
 
-window.onload = function(){
+window.onload = function () {
 
     $('.lds-ripple').hide();
-    $('body').css('background','#fff');
+    $('body').css('background', '#fff');
 }

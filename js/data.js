@@ -26,3 +26,17 @@ function saveDB() {
         }
     });
 }
+
+function deleteMissonDB(id) {
+    $.ajax({
+        type: "DELETE",
+        url: '/mission/delete/'+id,
+        dataType: 'json',
+        done: function (status) {
+           console.log(status);
+        },
+        fail: function(error){
+            console.log('error:', error);
+        }
+    });
+}
