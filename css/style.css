@@ -214,14 +214,12 @@ label.label_icon {
   width: auto;
 }
 .icon_last_menu img {
-  width: 70px;
+  width: 90px;
 }
 .icon_gold {
   height: 60px;
   width: 60px;
   padding: 2px;
-  background: rgba(55, 55, 55, 0.1);
-  border: 2px solid orange;
 }
 .no-padding {
   padding: 0 !important;

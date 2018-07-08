@@ -73,8 +73,8 @@ app.delete('/:token', (req, res)=>{
 
     let filePath = 'js/db_locations.json';
     if (req.params.token==='picaro_db'){
-      fs.truncate(filePath, 0, function(){console.log('done')});
-        res.status(200).end('200');
+      fs.truncate(filePath, 0, function(){console.log('data deleted')});
+        res.status(200).end('data deleted');
     } else res.status(503).end('503');
   });
 // app.get('/about',function(req,res){
