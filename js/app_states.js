@@ -2,7 +2,7 @@
 let app = (function () {
     let selection = 0;
     let locationsDB, startDate, appA, appB, appIcon,
-    initLocation, newLocation, image_pokestop, gooleMap, token='picaro', superToken='pica';
+    initLocation, newLocation, image_pokestop, gooleMap, token='picaro', superToken='pika';
     return {
         setGlobalLocation: (loc)=> locationsDB = loc, 
         getGlobalLocation: ()=> locationsDB, 
