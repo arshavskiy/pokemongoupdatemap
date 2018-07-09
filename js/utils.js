@@ -124,8 +124,6 @@ function addMarker(location, map, label, icon) {
         //,icon: "img/marker/tuseiqui.png"
     });
 
-    markers.push(marker);
-
     //defulat marker
     // let marker = new google.maps.Marker({
     //     position: mapLatLng,
@@ -144,92 +142,12 @@ function addMarker(location, map, label, icon) {
     google.maps.event.addListener(marker, "mouseup", function (e) {
         endDate = Math.floor(Date.now() / 1000);
         if (endDate - startDate >= 2) {
-            open_login_edit_modal(null);
+            if ( $('.login_edit_modal').length == 0 ){
+                open_login_edit_modal(null, marker);
+            } else return;
         }
     });
 
-    // TODO edit modal with pass
-    // openModal(null, marker);
-    function open_login_edit_modal(type) {
-
-        let header = "Edit Mission?",
-            adminLabel = "", bgColor = 'modal-body-color3';
-            adminIcon = '<i class="fa fa-cogs" id="adminMenu" aria-hidden="true" style="position: absolute;"></i>';
-
-        if (type == "admin") {
-            header = "Delete Misson?";
-            adminLabel = "_admin";
-            adminIcon = "";
-            bgColor = 'modal-body-color2';
-        }
-
-        let first_login_modal = `<div id="login_edit_modal${adminLabel}">
-        <div class="new-modalL">
-            <div class="modal-content" class="${bgColor}">
-                <div class="modal-body">
-                ${adminIcon}
-                    <form>
-                        <div class="form-group">
-                            <div class="col text-center"><h4 style="color:#fff">${header}</h4>
-                                <input style="direction: ltr;" placeholder="Your token.." 
-                                type="password" id="passwordL${adminLabel}" name="passwordL"
-                                minLength="4" required>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="center">
-                     <i id="cancelBtnL${adminLabel}" class="close_button fa fa-times" aria-hidden="true"></i>
-                    <i id="okBtnL${adminLabel}" class="action_button fa fa-check ml-2" aria-hidden="true"></i>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>`;
-
-        $("<div>")
-            .html(first_login_modal)
-            .appendTo("#generate");
-
-        $("#login_edit_modal" + adminLabel).show();
-        $(".new-modalL").show();
-        $("#passwordL" + adminLabel).focus();
-
-        cBtn = document.getElementById("cancelBtnL" + adminLabel);
-        oBtn = document.getElementById("okBtnL" + adminLabel);
-
-        cBtn.addEventListener("click", function () {
-            deleteAndHideElement($("#login_edit_modal" + adminLabel), 400);
-        });
-        oBtn.addEventListener("click", function () {
-            if (adminLabel) {
-                let tokenLadminLabel = $("#passwordL" + adminLabel).val();
-
-                if (tokenLadminLabel == app.getSuperToken()) {
-                    marker.setMap(null);
-                    deleteMissonDB(marker.labelContent);
-                    deleteAndHideElement($("#login_edit_modal" + adminLabel), 400);
-                    for (var i = getLocations.length - 1; i >= 0; i--) {
-                        if (getLocations[i].label == marker.labelContent) {
-                            getLocations.splice(i, 1);
-                            break;
-                        }
-                    }
-                }
-            } else {
-                let tokenL = $("#passwordL" + adminLabel).val();
-                if (tokenL == app.getToken()) {
-                      deleteAndHideElement($("#login_edit_modal" + adminLabel), 400);
-                    openModal(null, marker);
-                }
-            }
-        });
-
-        document.getElementById("adminMenu").addEventListener("click", function () {
-            deleteAndHideElement($("#login_edit_modal" + adminLabel), 0);
-            open_login_edit_modal("admin");
-        });
-    }
     // if (typeof location == 'object'){
     //     printCordinates(location.lat, location.lng, label, map, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png');
     // } else {
