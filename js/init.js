@@ -29,7 +29,9 @@ function initMap() {
 
     let map = new google.maps.Map(document.getElementById('map-canvas'), {
         // styles: retro
+        gestureHandling: "greedy"
     });
+    
     app.setGoogleMap(map);
     google.maps.event.addDomListener(window, 'load', init(map));
 

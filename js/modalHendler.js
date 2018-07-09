@@ -15,7 +15,8 @@ function menuEventsSetter(marker) {
                     } else {
                         app.setIcon(icon);
                         setMarkerIcon(icon, marker);
-
+                        app.setCount();
+                        console.log('count', app.getCount());
                         objectForSave = e.target;
                     }
                     // saveDB(objectForSave, marker);

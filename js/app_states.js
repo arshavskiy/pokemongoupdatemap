@@ -2,7 +2,7 @@
 let app = (function () {
     let selection = 0;
     let locationsDB, startDate, appA, appB, appIcon,
-    initLocation, newLocation, image_pokestop, gooleMap, token='picaro';
+    initLocation, newLocation, image_pokestop, gooleMap, token='picaro', superToken='pica';
     return {
         setGlobalLocation: (loc)=> locationsDB = loc, 
         getGlobalLocation: ()=> locationsDB, 
@@ -23,7 +23,9 @@ let app = (function () {
         getInitLocation: () => initLocation,
         getNewLocation: () => newLocation,
         getToken:()=> token,
-        count: () => selection++,
+        getSuperToken:()=> superToken,
+        setCount: () => selection++,
+        getCount: () => selection,
         a: (id) => id.includes("a") ? id : "",
         b: (id) => id.includes("b") ? id : "",
     };

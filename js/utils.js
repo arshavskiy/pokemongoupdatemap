@@ -1,40 +1,44 @@
 function saveNewMission(gmlinkToParse, event) {
     let gmLatLng;
-    $('#exampleModalCenter').hide();
+    $("#exampleModalCenter").hide();
 
     if (gmlinkToParse) {
         let linkToCode = gmlinkToParse.split(/@(.*)?/i);
         if (linkToCode.length > 1) {
-            linkToCode = linkToCode[1].split('?');
-            gmLatLng = linkToCode[0].split(',');
-            console.log('latLng', gmLatLng[0], gmLatLng[1]);
+            linkToCode = linkToCode[1].split("?");
+            gmLatLng = linkToCode[0].split(",");
+            console.log("latLng", gmLatLng[0], gmLatLng[1]);
         }
     }
 
-    let inputLabel = 'new_mission' + Math.floor(Date.now() / 1000);
+    let inputLabel = "new_mission" + Math.floor(Date.now() / 1000);
     getLocations.push({
         icon: "",
         label: inputLabel,
         lat: gmLatLng ? gmLatLng[0] : event.latLng.lat(),
         lng: gmLatLng ? gmLatLng[1] : event.latLng.lng(),
-        startDate: app.getStartDate(),
+        startDate: app.getStartDate()
     });
 
     // saveDB();
-    openModalMissionSelector(gmLatLng ? gmLatLng : event.latLng, map, inputLabel, app.getPokestop_icon());
+    openModalMissionSelector(
+        gmLatLng ? gmLatLng : event.latLng,
+        map,
+        inputLabel,
+        app.getPokestop_icon()
+    );
 }
 
 function showMissionModal() {
-    $('#exampleModalCenter').css({
-        'opacity': '1',
-        'display': 'block',
-
+    $("#exampleModalCenter").css({
+        opacity: "1",
+        display: "block"
     });
-    $('.new-modal2').css({
-        'opacity': '1',
-        'display': 'block'
+    $(".new-modal2").css({
+        opacity: "1",
+        display: "block"
     });
-    $('#password').focus();
+    $("#password").focus();
 
     return;
 }
@@ -42,19 +46,19 @@ function showMissionModal() {
 function missionModalHandles(event) {
     document.getElementById("okBtn").addEventListener("click", function () {
         gm_link = $("input[name='gm_link']").val();
-        token = $('#password').val();
+        token = $("#password").val();
         if (token == app.getToken()) {
             saveNewMission(gm_link, event);
         }
     });
 
     document.getElementById("cancelBtn").addEventListener("click", function () {
-        $('#exampleModalCenter').hide();
+        $("#exampleModalCenter").hide();
     });
 
     $("input[name='gm_link']").keypress(function (e) {
         gm_link = $("input[name='gm_link']").val();
-        token = $('#password').val();
+        token = $("#password").val();
 
         if (e.which == 13) {
             if (token == app.getToken()) {
@@ -67,7 +71,6 @@ function missionModalHandles(event) {
 
 function validateClick(event, startDate, endDate) {
     if (endDate - startDate >= 2) {
-
         let gm_link;
         let token;
 
@@ -77,10 +80,13 @@ function validateClick(event, startDate, endDate) {
 }
 
 function openModalMissionSelector(location, map, label, icon) {
-    if (typeof location.lat === 'function') {
+    if (typeof location.lat === "function") {
         mapLatLng = location;
     } else {
-        mapLatLng = new google.maps.LatLng(Number(location[0] ? location[0] : location.lat), Number(location[1] ? location[1] : location.lng));
+        mapLatLng = new google.maps.LatLng(
+            Number(location[0] ? location[0] : location.lat),
+            Number(location[1] ? location[1] : location.lng)
+        );
     }
 
     let marker = new MarkerWithLabel({
@@ -96,10 +102,13 @@ function openModalMissionSelector(location, map, label, icon) {
 }
 
 function addMarker(location, map, label, icon) {
-    if (typeof location.lat === 'function') {
+    if (typeof location.lat === "function") {
         mapLatLng = location;
     } else {
-        mapLatLng = new google.maps.LatLng(Number(location[0] ? location[0] : location.lat), Number(location[1] ? location[1] : location.lng));
+        mapLatLng = new google.maps.LatLng(
+            Number(location[0] ? location[0] : location.lat),
+            Number(location[1] ? location[1] : location.lng)
+        );
     }
 
     let marker = new MarkerWithLabel({
@@ -117,7 +126,6 @@ function addMarker(location, map, label, icon) {
 
     markers.push(marker);
 
-
     //defulat marker
     // let marker = new google.maps.Marker({
     //     position: mapLatLng,
@@ -129,14 +137,14 @@ function addMarker(location, map, label, icon) {
     //     labelInBackground: false
     // });
     let startDate, endDate;
-    google.maps.event.addListener(marker, 'mousedown', function (e) {
+    google.maps.event.addListener(marker, "mousedown", function (e) {
         startDate = Math.floor(Date.now() / 1000);
         app.setStartDate(startDate);
     });
-    google.maps.event.addListener(marker, 'mouseup', function (e) {
+    google.maps.event.addListener(marker, "mouseup", function (e) {
         endDate = Math.floor(Date.now() / 1000);
         if (endDate - startDate >= 2) {
-            open_login_edit_modal(null, marker);
+            open_login_edit_modal(null);
         }
     });
 
@@ -144,19 +152,20 @@ function addMarker(location, map, label, icon) {
     // openModal(null, marker);
     function open_login_edit_modal(type) {
 
-        let header = 'Edit Mission?',
-            adminLabel = '',
+        let header = "Edit Mission?",
+            adminLabel = "", bgColor = 'modal-body-color3';
             adminIcon = '<i class="fa fa-cogs" id="adminMenu" aria-hidden="true" style="position: absolute;"></i>';
 
-        if (type == 'admin') {
-            header = 'Delete Misson?';
-            adminLabel = '_admin';
-            adminIcon = '';
+        if (type == "admin") {
+            header = "Delete Misson?";
+            adminLabel = "_admin";
+            adminIcon = "";
+            bgColor = 'modal-body-color2';
         }
 
         let first_login_modal = `<div id="login_edit_modal${adminLabel}">
         <div class="new-modalL">
-            <div class="modal-content">
+            <div class="modal-content" class="${bgColor}">
                 <div class="modal-body">
                 ${adminIcon}
                     <form>
@@ -178,33 +187,28 @@ function addMarker(location, map, label, icon) {
         </div>
     </div>`;
 
-        $('<div>').html(first_login_modal).appendTo('#generate');
+        $("<div>")
+            .html(first_login_modal)
+            .appendTo("#generate");
 
-        $('#login_edit_modal' + adminLabel).show();
-        $('.new-modalL').show();
-        $('#passwordL' + adminLabel).focus();
-
+        $("#login_edit_modal" + adminLabel).show();
+        $(".new-modalL").show();
+        $("#passwordL" + adminLabel).focus();
 
         cBtn = document.getElementById("cancelBtnL" + adminLabel);
         oBtn = document.getElementById("okBtnL" + adminLabel);
 
         cBtn.addEventListener("click", function () {
-
-            deleteAndHideElement($('#login_edit_modal' + adminLabel), 400);
-
+            deleteAndHideElement($("#login_edit_modal" + adminLabel), 400);
         });
         oBtn.addEventListener("click", function () {
             if (adminLabel) {
-                console.log('i am in delete modal');
+                let tokenLadminLabel = $("#passwordL" + adminLabel).val();
 
-                let tokenLadminLabel = $('#passwordL' + adminLabel).val();
-                if (tokenLadminLabel == app.getToken()) {
-                    console.log('marker', marker.labelContent);
+                if (tokenLadminLabel == app.getSuperToken()) {
                     marker.setMap(null);
                     deleteMissonDB(marker.labelContent);
-
-                    deleteAndHideElement($('#login_edit_modal' + adminLabel), 400);
-
+                    deleteAndHideElement($("#login_edit_modal" + adminLabel), 400);
                     for (var i = getLocations.length - 1; i >= 0; i--) {
                         if (getLocations[i].label == marker.labelContent) {
                             getLocations.splice(i, 1);
@@ -213,20 +217,18 @@ function addMarker(location, map, label, icon) {
                     }
                 }
             } else {
-
-                let tokenL = $('#passwordL' + adminLabel).val();
+                let tokenL = $("#passwordL" + adminLabel).val();
                 if (tokenL == app.getToken()) {
-                    deleteAndHideElement($('#login_edit_modal'), 400);
+                      deleteAndHideElement($("#login_edit_modal" + adminLabel), 400);
                     openModal(null, marker);
                 }
             }
         });
 
         document.getElementById("adminMenu").addEventListener("click", function () {
-            open_login_edit_modal('admin');
+            deleteAndHideElement($("#login_edit_modal" + adminLabel), 0);
+            open_login_edit_modal("admin");
         });
-
-
     }
     // if (typeof location == 'object'){
     //     printCordinates(location.lat, location.lng, label, map, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png');
@@ -257,13 +259,17 @@ function showMyLocation(map, label) {
         map.setZoom(16);
         // addMarker(mapLatLng, map);
     });
-
 }
 
 function addSavedLocations(pos, map) {
     for (let i = 0; i < pos.length; i++) {
         setTimeout(function () {
-            addMarker(pos[i], map, pos[i].label, pos[i].icon || app.getPokestop_icon());
+            addMarker(
+                pos[i],
+                map,
+                pos[i].label,
+                pos[i].icon || app.getPokestop_icon()
+            );
         }, i * 50);
     }
 }
