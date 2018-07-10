@@ -187,7 +187,10 @@ function open_login_edit_modal(type, marker) {
     let header = "Edit Mission?",
         adminLabel = "", bgColor = 'modal-body-color3';
         adminIcon = '<i class="fa fa-cogs" id="adminMenu" aria-hidden="true" style="position: absolute;"></i>';
-        googleMapLink = '<div class="center" style="padding:0"><a href="https://www.google.com/maps/search/?api=1&query='+marker.position+'/" target="_blank"><h6>Get Directions</h6></a></div>';
+        //https://www.google.com/maps/search/?api=1&query=31.785492733328045, 35.214104199213125
+        googleMapLink = `<div class="center" style="padding:0">
+                        <a href="https://www.google.com/maps/search/?api=1&query=${marker.position}" target="_blank">
+                        <h6>Get Directions</h6></a></div>`;
 
 
     if (type == "admin") {
