@@ -43,7 +43,7 @@ function initMap() {
 }
 
 getData = (function () {
-    return $.getJSON("js/db_locations.json")
+    return $.getJSON("DB/db_locations.json")
         .done(function (json) {
             if (typeof json === 'object') {
                 app.setGlobalLocation(getLocations = json);

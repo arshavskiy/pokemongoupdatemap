@@ -1,16 +1,7 @@
 function saveNewMission(gmlinkToParse, event) {
     let gmLatLng;
     $("#exampleModalCenter").hide();
-
-    if (gmlinkToParse) {
-        let linkToCode = gmlinkToParse.split(/@(.*)?/i);
-        if (linkToCode.length > 1) {
-            linkToCode = linkToCode[1].split("?");
-            gmLatLng = linkToCode[0].split(",");
-            console.log("latLng", gmLatLng[0], gmLatLng[1]);
-        }
-    }
-
+    gmLatLng = parseGoolgeLink(gmlinkToParse);
     let inputLabel = "new_mission" + Math.floor(Date.now() / 1000);
     getLocations.push({
         icon: "",
@@ -27,6 +18,21 @@ function saveNewMission(gmlinkToParse, event) {
         inputLabel,
         app.getPokestop_icon()
     );
+}
+
+function parseGoolgeLink(gmlinkToParse) {
+    if (gmlinkToParse) {
+        let linkToCode = gmlinkToParse.split(/@(.*)?/i);
+        if (linkToCode.length > 1) {
+            linkToCode = linkToCode[1].split("?");
+            return gmLatLng = linkToCode[0].split(",");
+            console.log("latLng", gmLatLng[0], gmLatLng[1]);
+        } else if (linkToCode.length == 1){
+            linkToCode = linkToCode[0].split("=");
+            return gmLatLng = linkToCode[linkToCode.length-1].split(",");
+            console.log("latLng", gmLatLng[0], gmLatLng[1]);
+        }
+    }
 }
 
 function showMissionModal() {

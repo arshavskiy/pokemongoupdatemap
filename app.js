@@ -54,19 +54,24 @@ app.use(bodyParser.urlencoded({
 //Store all JS and CSS in Scripts folder.
 app.use(express.static(__dirname + '/js'));
 app.use(express.static(__dirname + '/css'));
+app.use(express.static(__dirname + '/DB'));
 app.use(express.static(__dirname + '/map style'));
 app.use(express.static(__dirname + '/icons'));
+app.use(express.static(__dirname + '/view'));
 app.use(express.static(__dirname + '/'));
 
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
+app.get('/edit',function(req,res){
+  res.sendFile(path.join(__dirname+'/view/edit.html'));
+});
 
 app.post('/mission', function (req, res) {
   let stringifed = JSON.stringify(req.body.getLocations);
 
-  fs.writeFile('js/db_locations.json', stringifed, 'utf8', function (err) {
+  fs.writeFile('DB/db_locations.json', stringifed, 'utf8', function (err) {
     if (err) throw err;
     log('complete');
     emailMe(stringifed);
@@ -78,7 +83,7 @@ app.delete('/mission/delete/:label', (req, res) => {
   console.log('token', req.params.label);
   let missionToDelete = req.params.label;
 
-  let filePath = 'js/db_locations.json';
+  let filePath = 'DB/db_locations.json';
   let rawdata = fs.readFileSync(filePath);
   let tempdb = JSON.parse(rawdata);
 
@@ -100,7 +105,7 @@ function deletFromArray(arr, deleteMemeber) {
 
 function saveToDB(data) {
   let stringifed = JSON.stringify(data);
-  fs.writeFile('js/db_locations.json', stringifed, 'utf8', function (err) {
+  fs.writeFile('DB/db_locations.json', stringifed, 'utf8', function (err) {
     if (err) throw err;
     log('complete');
 
@@ -110,7 +115,7 @@ function saveToDB(data) {
 app.delete('/:token', (req, res) => {
   console.log('token', req.params.token);
 
-  let filePath = 'js/db_locations.json';
+  let filePath = 'DB/db_locations.json';
   if (req.params.token === 'picaro_db') {
     fs.truncate(filePath, 0, function () {
       console.log('data deleted')
@@ -140,7 +145,7 @@ router.get('/', function (req, res) {
 });
 router.get('/delete/:token', function (req, res) {
 
-  let filePath = 'js/db_locations.json';
+  let filePath = 'DB/db_locations.json';
   if (req.params.token === 'picaro_db') {
     fs.truncate(filePath, 0, function () {
       console.log('done')
