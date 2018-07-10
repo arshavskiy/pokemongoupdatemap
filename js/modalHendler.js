@@ -8,19 +8,16 @@ function menuEventsSetter(marker) {
             let check_modal = $('.new-modal')[0].id;
             if (check_modal == 'third_menu_modal' || check_modal == 'second_menu_modal') {
                 if (e.target && e.target.src) {
-
-                    icon = e.target.src;
-                    if (e.target.id == 'b1') {
-                        //   $('#'+e.target.id).hide();
-                    } else {
+                        icon = e.target.src;
+                    // if (e.target.id == 'b1') {
+                    //     //   $('#'+e.target.id).hide();
+                    // } else {
                         app.setIcon(icon);
                         setMarkerIcon(icon, marker);
-
-                        app.setCount();
-                        console.log('count', app.getCount());
-
                         objectForSave = e.target;
-                    }
+                        app.setCount(); console.log('count', app.getCount());
+                        return;
+                    // }
                     // saveDB(objectForSave, marker);
                 }
             }
@@ -71,20 +68,29 @@ function openModal(id, marker) {
 
     if (id) {
         if (id.includes("a")) {
+
             app.setA(id);
+
+            console.log('second_menu_modal');
+
             buildMenu("second_menu_modal", bgColorClass2, subMenuItems);
             menuEventsSetter(marker);
+
         } else if (id.includes("b")) {
             if (id === 'b1') {
+
                 if (missionFormater(app.getA()))
-                    buildMenu("third_menu_modal", bgColorClass3, menuSearcher());
+                console.log('third_menu_modal');
+                buildMenu("third_menu_modal", bgColorClass3, menuSearcher());
                 menuEventsSetter(marker);
+
             } else if (isModalOpen.id) {
                 console.log(id);
             }
         }
     } else {
         buildMenu("first_menu_modal", bgColorClass1, menuItems);
+        console.log('first_menu_modal');
         menuEventsSetter(marker);
     }
 
@@ -199,6 +205,7 @@ function open_login_edit_modal(type, marker) {
         header = "Delete Misson?";
         adminLabel = "_admin";
         adminIcon = "";
+        googleMapLink= "";
         bgColor = 'modal-body-color2';
                 }
 
