@@ -3,6 +3,7 @@ function saveNewMission(gmlinkToParse, event) {
     $("#exampleModalCenter").hide();
     gmLatLng = parseGoolgeLink(gmlinkToParse);
     let inputLabel = "new_mission" + Math.floor(Date.now() / 1000);
+
     getLocations.push({
         icon: "",
         label: inputLabel,
@@ -21,18 +22,23 @@ function saveNewMission(gmlinkToParse, event) {
 }
 
 function parseGoolgeLink(gmlinkToParse) {
-    if (gmlinkToParse) {
+
+    var expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#,?&//=]*)/gi;
+    var regex = new RegExp(expression);
+    let google_link_valid = gmlinkToParse.match(regex);
+
+    if (google_link_valid) {
         let linkToCode = gmlinkToParse.split(/@(.*)?/i);
         if (linkToCode.length > 1) {
             linkToCode = linkToCode[1].split("?");
             return gmLatLng = linkToCode[0].split(",");
             console.log("latLng", gmLatLng[0], gmLatLng[1]);
-        } else if (linkToCode.length == 1){
+        } else if (linkToCode.length == 1) {
             linkToCode = linkToCode[0].split("=");
-            return gmLatLng = linkToCode[linkToCode.length-1].split(",");
+            return gmLatLng = linkToCode[linkToCode.length - 1].split(",");
             console.log("latLng", gmLatLng[0], gmLatLng[1]);
         }
-    }
+    } else return;
 }
 
 function showMissionModal() {
@@ -148,7 +154,7 @@ function addMarker(location, map, label, icon) {
     google.maps.event.addListener(marker, "mouseup", function (e) {
         endDate = Math.floor(Date.now() / 1000);
         if (endDate - startDate >= 2) {
-            if ( $('.login_edit_modal').length == 0 ){
+            if ($('.login_edit_modal').length == 0) {
                 open_login_edit_modal(null, marker);
             } else return;
         }
@@ -197,6 +203,30 @@ function addSavedLocations(pos, map) {
         }, i * 50);
     }
 }
+
+function sizeMap(linkIcon) {
+    let sub_menu_map = [
+        'https://vignette.wikia.nocookie.net/pokemongo/images/a/a2/Rare_Candy.png',
+        'https://vignette.wikia.nocookie.net/pokemongo/images/a/a9/Fast_TM.png',
+        'https://vignette.wikia.nocookie.net/pokemongo/images/6/65/Stardust.png',
+        'https://vignette.wikia.nocookie.net/pokemongo/images/2/24/Berries.png',
+        'https://vignette.wikia.nocookie.net/pokemongo/images/3/3e/Pok%C3%A9_Balls.png',
+        'https://vignette.wikia.nocookie.net/pokemongo/images/0/0e/Revives.png',
+        'https://vignette.wikia.nocookie.net/pokemongo/images/a/a8/Potions.png',
+    ];
+    let big_size_icon = 56;
+    let small_size_icon = 150;
+
+    if (linkIcon.includes('Rare_Candy')) return big_size_icon;
+    if (linkIcon.includes('Fast_TM')) return big_size_icon;
+    if (linkIcon.includes('Stardust')) return big_size_icon;
+    if (linkIcon.includes('Berries')) return big_size_icon;
+    if (linkIcon.includes('Pok%C3%A9_Balls')) return big_size_icon;
+    if (linkIcon.includes('Revives')) return big_size_icon;
+    if (linkIcon.includes('Potions')) return big_size_icon;
+    else return small_size_icon;
+}
+
 
 function printCordinates(latS, lngS, label, map, iconForlist) {
     let print_cordinates;

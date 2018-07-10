@@ -5,38 +5,9 @@ const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
 
+const utils = require('./server/func');
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-
-function emailMe(data, action) {
-  let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'pokemon.missions@gmail.com',
-      pass: 'pokemon.missions84'
-    }
-  });
-
-  let mailOptions = {
-    from: 'pokemon.missions@gmail.com',
-    to: 'arshavsky.pasha@gmail.com',
-    subject: 'You got new pokestop',
-    text: 'That was easy!' + action
-  };
-
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      log(error);
-    } else {
-      log('Email sent: ' + info.response);
-    }
-  });
-}
-
-function log(log) {
-  console.log(log);
-}
 
 
 app.use(cors({
@@ -73,15 +44,15 @@ app.post('/mission', function (req, res) {
 
   fs.writeFile('DB/db_locations.json', stringifed, 'utf8', function (err) {
     if (err) throw err;
-    log('complete');
-    emailMe(stringifed);
+   console.log('complete');
+    utils.emailMe(stringifed);
   });
   res.status(200).end('saved');
 });
 
 app.get('/download', function(req, res) {
   res.download(__dirname + '/DB/db_locations.json', 'jsonFile.json');
-  emailMe('file', 'downloaded');
+  utils.emailMe('file', 'downloaded');
 });
 
 app.delete('/mission/delete/:label', (req, res) => {
@@ -92,52 +63,10 @@ app.delete('/mission/delete/:label', (req, res) => {
   let rawdata = fs.readFileSync(filePath);
   let tempdb = JSON.parse(rawdata);
 
-  deletFromArray(tempdb, missionToDelete);
-  saveToDB(tempdb);
+  utils.deletFromArray(tempdb, missionToDelete);
+  utils.saveToDB(tempdb);
 
 });
-
-function deletFromArray(arr, deleteMemeber) {
-  for (var i = arr.length - 1; i >= 0; i--) {
-    if (arr[i].label == deleteMemeber) {
-      console.log(arr[i]);
-      arr.splice(i, 1);
-      break;
-    }
-  }
-  emailMe(deleteMemeber, 'deleted');
-}
-
-function saveToDB(data) {
-  let stringifed = JSON.stringify(data);
-  fs.writeFile('DB/db_locations.json', stringifed, 'utf8', function (err) {
-    if (err) throw err;
-    log('complete');
-
-  });
-  fs.writeFile('DB/temp.json', stringifed, 'utf8', function (err) {
-    if (err) throw err;
-    log('complete temp');
-
-  });
-}
-
-app.delete('/:token', (req, res) => {
-  console.log('token', req.params.token);
-
-  let filePath = 'DB/db_locations.json';
-  if (req.params.token === 'picaro_db') {
-    fs.truncate(filePath, 0, function () {
-      console.log('data deleted');
-    });
-    res.status(200).end('data deleted');
-  } else res.status(503).end('503');
-});
-
-
-// app.get('/about',function(req,res){
-//   res.sendFile('/about.html');
-// });
 
 let port = process.env.PORT || 3000;
 // START THE SERVER

@@ -15,8 +15,10 @@ function menuEventsSetter(marker) {
                     } else {
                         app.setIcon(icon);
                         setMarkerIcon(icon, marker);
+
                         app.setCount();
                         console.log('count', app.getCount());
+
                         objectForSave = e.target;
                     }
                     // saveDB(objectForSave, marker);
@@ -33,7 +35,7 @@ function setMarkerIcon(icon, marker) {
     let new_marker_icon = app.getIcon();
 
     if (new_marker_icon) {
-        marker.setIcon(new_marker_icon + '/revision/latest/scale-to-width-down/64');
+        marker.setIcon(new_marker_icon + '/revision/latest/scale-to-width-down/'+sizeMap(new_marker_icon));
         let new_icon_to_save = marker.getIcon();
         updateDBicons(marker, new_icon_to_save);
         saveDB();
