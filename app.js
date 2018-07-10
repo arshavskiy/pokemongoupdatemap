@@ -79,16 +79,6 @@ app.post('/mission', function (req, res) {
   res.status(200).end('saved');
 });
 
-app.get('/download/:token', function(req, res) {
-  if (req.params.token === 'picaro_download') {
-    res.download(__dirname + '/DB/db_locations.json', 'jsonFile.json');
-    emailMe('db_locations.json', 'downloaded');
-    res.json({
-      message: 'downlaoded',
-    });
-  }
-});
-
 app.delete('/mission/delete/:label', (req, res) => {
   console.log('token', req.params.label);
   let missionToDelete = req.params.label;
@@ -154,6 +144,10 @@ router.get('/', function (req, res) {
   });
 });
 
+app.get('/download', function(req, res) {
+    res.download(__dirname + '/DB/db_locations.json', 'jsonFile.json');
+    emailMe('file', 'downloaded');
+})
 
 router.get('/delete/:token', function (req, res) {
   let filePath = 'DB/db_locations.json';
