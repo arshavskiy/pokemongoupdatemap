@@ -1,3 +1,8 @@
+body {
+  background: linear-gradient(315deg, #8fd87d 0, #24ccaa 80%);
+  overflow-y: hidden;
+}
+
 .container {
   margin: 2rem auto;
   max-width: 50rem;
@@ -73,12 +78,8 @@ form {
 }
 
 #map-canvas {
-  height: calc(75vh + 20px);
+  height: ~"calc(100vh - 50px)";
   width: 100%;
-}
-
-.container {
-  /* display: none; */
 }
 
 .modalLogin {
@@ -263,19 +264,18 @@ label.label_icon {
     width: auto;
   }
   img {
-    width:90px;
+    width: 90px;
   }
 }
 
-#adminMenu{
-  color:#fff;
+#adminMenu {
+  color: #fff;
 }
 
 .icon_gold {
   height: 60px;
   width: 60px;
-  padding: 2px;
-  // background: rgba(55, 55, 55, 0.1);
+  padding: 2px; // background: rgba(55, 55, 55, 0.1);
   // border: 2px solid orange;
 }
 
@@ -352,6 +352,7 @@ h5 {
     cursor: pointer;
   }
 }
+
 .new-modalL,
 .new-modal2 {
   width: 240px;
@@ -369,16 +370,47 @@ h5 {
   border-radius: 25px;
   padding: 8px;
 }
-.close_button{
+
+.close_button {
   padding: 8px 10px;
+}
+
+nav,
+footer {
+background: transparent;
+}
+
+footer{
+  color:#000;
+}
+
+nav,
+footer {
+  padding: 0;
+  height: 25px;
+  font-size: 0.7rem;
+  color: #fff;
+  background: transparent;
+}
+
+#map_canvas{
+  width: 100%;
+  border-radius: 10px;
+  border: 6px solid lightblue;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 @media (max-width: 576px) {
   #map-canvas {
-    height: 100vh;
+    height: ~"calc(100vh - 60px)";
     width: 100%;
+    width: 100%;
+    border-radius: 10px;
+    border: 6px solid black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
-
   .new-modalL,
   .new-modal2,
   .new-modal {
@@ -442,10 +474,7 @@ h5 {
   .pokistop_link {
     display: none;
   }
-}
 
-body {
-  background: #666;
 }
 
 .lds-ripple {

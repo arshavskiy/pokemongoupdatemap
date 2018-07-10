@@ -1,3 +1,7 @@
+body {
+  background: linear-gradient(315deg, #8fd87d 0, #24ccaa 80%);
+  overflow-y: hidden;
+}
 .container {
   margin: 2rem auto;
   max-width: 50rem;
@@ -61,11 +65,8 @@ form {
   position: relative;
 }
 #map-canvas {
-  height: calc(95vh);
+  height: calc(100vh - 50px);
   width: 100%;
-}
-.container {
-  /* display: none; */
 }
 .modalLogin {
   padding: 10px;
@@ -315,10 +316,36 @@ h5 {
 .close_button {
   padding: 8px 10px;
 }
+nav,
+footer {
+  background: transparent;
+}
+footer {
+  color: #000;
+}
+nav,
+footer {
+  padding: 0;
+  height: 25px;
+  font-size: 0.7rem;
+  color: #fff;
+  background: transparent;
+}
+#map_canvas {
+  width: 100%;
+  border-radius: 10px;
+  border: 6px solid lightblue;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
 @media (max-width: 576px) {
   #map-canvas {
-    height: 100vh;
+    height: calc(100vh - 60px);
     width: 100%;
+    border-radius: 10px;
+    border: 6px solid black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
   .new-modalL,
   .new-modal2,
@@ -383,9 +410,6 @@ h5 {
   .pokistop_link {
     display: none;
   }
-}
-body {
-  background: #666;
 }
 .lds-ripple {
   display: inline-block;

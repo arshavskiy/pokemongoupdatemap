@@ -75,5 +75,5 @@ let markers = [];
 window.onload = function () {
 
     $('.lds-ripple').hide();
-    $('body').css('background', '#fff');
+    // $('body').css('background', 'linear-gradient(315deg, #8fd87d 0, #24ccaa 80%);');
 }
