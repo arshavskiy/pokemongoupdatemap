@@ -115,6 +115,11 @@ function saveToDB(data) {
     log('complete');
 
   });
+  fs.writeFile('DB/temp.json', stringifed, 'utf8', function (err) {
+    if (err) throw err;
+    log('complete');
+
+  });
 }
 
 app.delete('/:token', (req, res) => {
