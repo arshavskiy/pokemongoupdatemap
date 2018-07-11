@@ -204,7 +204,7 @@ function open_login_edit_modal(type, marker) {
     //https://www.google.com/maps/search/?api=1&query=31.785492733328045, 35.214104199213125
     googleMapLink = `<div class="center" style="padding:0">
                         <a href="https://www.google.com/maps/search/?api=1&query=${marker.position}" target="_blank">
-                        <h6>Get Directions</h6></a></div>`;
+                        <h6 style="position: absolute; left: calc(50% - 53px);">Get Directions</h6></a></div>`;
 
 
     if (type == "admin") {
@@ -260,9 +260,12 @@ function open_login_edit_modal(type, marker) {
             let tokenLadminLabel = $("#passwordL" + adminLabel).val();
 
             if (tokenLadminLabel == app.getSuperToken()) {
+
                 marker.setMap(null);
                 deleteMissonDB(marker.labelContent);
                 deleteAndHideElement($("#login_edit_modal" + adminLabel), 400);
+
+                // delete icon
                 for (var i = getLocations.length - 1; i >= 0; i--) {
                     if (getLocations[i].label == marker.labelContent) {
                         getLocations.splice(i, 1);

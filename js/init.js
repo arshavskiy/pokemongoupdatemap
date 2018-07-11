@@ -10,7 +10,7 @@ function init(map) {
         map.setZoom(17);
 
         // self locvation marker
-        // addMarker(mapLatLng, map);
+        addMarker(mapLatLng, map);
     });
 
     //add pokestop on click
@@ -25,9 +25,14 @@ function init(map) {
     });
 
     document.getElementById('add_mission').addEventListener("click", (e)=>{
+        panToMyLocation();
+        // app.setGpsAddMisson(true);
+        // $('strong.text-hide').removeClass().addClass('text-show');
+
         startDate = Math.floor(Date.now() / 1000);
         app.setStartDate(startDate);
 
+       
         showMissionModal();
         missionModalHandles(e);
     })

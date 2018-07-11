@@ -23,11 +23,10 @@ form {
 }
 .find-me.btn {
   position: absolute;
-  top: -90px;
-  right: 10px;
-  width: 28px;
+  top: -87px;
+  right: 14px;
+  width: 29px;
   border-radius: 2px;
-  font-size: 15px;
 }
 .box-shadow {
   box-shadow: 1px 1px 2px #999;
@@ -176,6 +175,12 @@ img.padding {
 label.label_icon {
   width: 100%;
 }
+.text-show {
+  color: white;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 600;
+}
 .my-custom-class-for-label {
   display: none !important;
   color: transparent;
@@ -322,6 +327,8 @@ footer {
   background: transparent;
 }
 footer {
+  position: relative;
+  top: -34px;
   color: #000;
   padding: 0;
   display: flex;
@@ -331,6 +338,11 @@ footer {
 footer .img_coby {
   border-radius: 25px;
   height: 23px;
+}
+.compas {
+  width: 20px;
+  background: black;
+  border-radius: 50%;
 }
 nav,
 footer {

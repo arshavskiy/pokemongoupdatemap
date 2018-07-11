@@ -50,7 +50,16 @@ function saveNewMission(gmlinkToParse, event) {
             app.getPokestop_icon()
         );
     }
+}
 
+function panToMyLocation() {
+    navigator.geolocation.getCurrentPosition(function (position) {
+        let lat = position.coords.latitude;
+        let lng = position.coords.longitude;
+        let mapLatLng = new google.maps.LatLng(lat, lng);
+        map.setCenter(mapLatLng);
+        map.setZoom(18);
+    });
 }
 
 function parseGoolgeLink(gmlinkToParse) {
@@ -81,9 +90,8 @@ function showMissionModal() {
         opacity: "1",
         display: "block"
     });
-    $("#password").focus();
 
-    return;
+    $("#password").focus();
 }
 
 function missionModalHandles(event) {
@@ -91,6 +99,7 @@ function missionModalHandles(event) {
         gm_link = $("input[name='gm_link']").val();
         token = $("#password").val();
         if (token == app.getToken()) {
+            // setHeaderGps();
             saveNewMission(gm_link, event);
         }
     });
@@ -105,12 +114,22 @@ function missionModalHandles(event) {
 
         if (e.which == 13) {
             if (token == app.getToken()) {
+                // setHeaderGps();
                 saveNewMission();
             }
             return false; //<---- Add this line
         }
     });
 }
+
+// function setHeaderGps() {
+//     if(app.getGpsAddMisson()){
+//         app.setGpsAddMisson(false);
+//         if ($('strong.text-show').length) {
+//             $('strong.text-show').removeClass().addClass('text-hide');
+//         }
+//     } 
+// }
 
 function validateClick(event, startDate, endDate) {
     if (endDate - startDate >= 2) {
@@ -178,13 +197,15 @@ function addMarker(location, map, label, icon) {
     //     labelInBackground: false
     // });
     let startDate, endDate;
+
     google.maps.event.addListener(marker, "mousedown", function (e) {
         startDate = Math.floor(Date.now() / 1000);
         app.setStartDate(startDate);
     });
+
     google.maps.event.addListener(marker, "mouseup", function (e) {
         endDate = Math.floor(Date.now() / 1000);
-        if (endDate - startDate >= 2) {
+        if (endDate - startDate >= 1) {
             if ($('.login_edit_modal').length == 0) {
                 open_login_edit_modal(null, marker);
             } else return;

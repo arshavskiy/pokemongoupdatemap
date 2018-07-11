@@ -1,9 +1,11 @@
 
 let app = (function () {
     let selection = 0;
-    let locationsDB, startDate, appA, appB, appIcon,
+    let locationsDB, startDate, appA, appB, appIcon, gpsAddMissonClicked,
     initLocation, newLocation, image_pokestop, gooleMap, token='picaro', superToken='pika';
     return {
+        setGpsAddMisson: ()=>gpsAddMissonClicked = '(by GPS Location)',
+        getGpsAddMisson: ()=>gpsAddMissonClicked,
         setGlobalLocation: (loc)=> locationsDB = loc, 
         getGlobalLocation: ()=> locationsDB, 
         setStartDate: (date)=> startDate = date,
