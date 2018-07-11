@@ -5,24 +5,24 @@ function menuEventsSetter(marker) {
             $(this).hide();
             $('.icon-first_menu').empty();
         } else {
+            if (app.getA() && app.getIcon()) return;
             let check_modal = $('.new-modal')[0].id;
             if (check_modal == 'third_menu_modal' || check_modal == 'second_menu_modal') {
                 if (e.target && e.target.src) {
-                        icon = e.target.src;
+                    icon = e.target.src;
                     if (e.target.id == 'b1') {
                         openModal(e.target.id, marker);
                     } else {
                         app.setIcon(icon);
                         setMarkerIcon(icon, marker);
                         objectForSave = e.target;
-                        app.setCount(); console.log('count', app.getCount());
+                        app.setCount();
+                        console.log('count', app.getCount());
                         return;
                     }
                     // saveDB(objectForSave, marker);
                 }
-            }
-            if (app.getA() && app.getIcon()) return;
-            else if (check_modal=='first_menu_modal') openModal(e.target.id, marker);
+            } else if (check_modal == 'first_menu_modal') openModal(e.target.id, marker);
 
         }
     });
@@ -32,8 +32,9 @@ function setMarkerIcon(icon, marker) {
     let new_marker_icon = app.getIcon();
 
     if (new_marker_icon) {
-        marker.setIcon(new_marker_icon + '/revision/latest/scale-to-width-down/'+sizeMap(new_marker_icon));
-        let new_icon_to_save = marker.getIcon();
+        app.setIcon(new_marker_icon + '/revision/latest/scale-to-width-down/' + sizeMap(new_marker_icon));
+        marker.setIcon(app.getIcon());
+        let new_icon_to_save = app.getIcon();
         updateDBicons(marker, new_icon_to_save);
         saveDB();
     }
@@ -73,14 +74,14 @@ function openModal(id, marker) {
 
             console.log('second_menu_modal');
 
-            buildMenu("second_menu_modal", bgColorClass2, subMenuItems|| menuSearcher());
+            buildMenu("second_menu_modal", bgColorClass2, subMenuItems || menuSearcher());
             menuEventsSetter(marker);
 
         } else if (id.includes("b")) {
             if (id === 'b1') {
 
                 if (missionFormater(app.getA()))
-                console.log('third_menu_modal');
+                    console.log('third_menu_modal');
                 buildMenu("third_menu_modal", bgColorClass3, menuSearcher());
                 // menuEventsSetter(marker);
 
@@ -89,11 +90,12 @@ function openModal(id, marker) {
             }
         }
     } else {
-        buildMenu("first_menu_modal", bgColorClass1, menuItems);
-        console.log('first_menu_modal');
-        menuEventsSetter(marker);
+        setTimeout(() => {
+            buildMenu("first_menu_modal", bgColorClass1, menuItems);
+            console.log('first_menu_modal');
+            menuEventsSetter(marker);
+        }, 100);
     }
-
 }
 
 function menuSearcher() {
@@ -155,32 +157,29 @@ function buildMenu(id, bgColorClass, menuItems) {
             fragment.append(cln);
         });
 
-    } else {
+    } else if (menuItems) {
+        menuItems.forEach(function (v) {
+            if ($(".holder").length > 0) {
+                $(".holder").empty();
+                $(".holder").remove();
+            }
 
-        if (menuItems) {
-            menuItems.forEach(function (v) {
-                if ($(".holder").length > 0) {
-                    $(".holder").empty();
-                    $(".holder").remove();
-                }
+            let img = document.createElement("img");
+            img.id = v.id;
+            img.src = v.icon;
+            let p = document.createElement("p");
+            p.innerText = v.name;
 
-                let img = document.createElement("img");
-                img.id = v.id;
-                img.src = v.icon;
-                let p = document.createElement("p");
-                p.innerText = v.name;
+            $("<div>", {
+                class: "holder"
+            }).appendTo(".icon-first_menu");
 
-                $("<div>", {
-                    class: "holder"
-                }).appendTo(".icon-first_menu");
-
-                let div_holder = document.querySelector(".holder");
-                let cln = div_holder.cloneNode(true);
-                cln.appendChild(img);
-                cln.appendChild(p);
-                fragment.append(cln);
-            });
-        }
+            let div_holder = document.querySelector(".holder");
+            let cln = div_holder.cloneNode(true);
+            cln.appendChild(img);
+            cln.appendChild(p);
+            fragment.append(cln);
+        });
     }
 
     document.querySelector(".icon-first_menu").prepend(fragment);
@@ -193,10 +192,11 @@ function buildMenu(id, bgColorClass, menuItems) {
 function open_login_edit_modal(type, marker) {
 
     let header = "Edit Mission?",
-        adminLabel = "", bgColor = 'modal-body-color3';
-        adminIcon = '<i class="fa fa-cogs" id="adminMenu" aria-hidden="true" style="position: absolute;"></i>';
-        //https://www.google.com/maps/search/?api=1&query=31.785492733328045, 35.214104199213125
-        googleMapLink = `<div class="center" style="padding:0">
+        adminLabel = "",
+        bgColor = 'modal-body-color3';
+    adminIcon = '<i class="fa fa-cogs" id="adminMenu" aria-hidden="true" style="position: absolute;"></i>';
+    //https://www.google.com/maps/search/?api=1&query=31.785492733328045, 35.214104199213125
+    googleMapLink = `<div class="center" style="padding:0">
                         <a href="https://www.google.com/maps/search/?api=1&query=${marker.position}" target="_blank">
                         <h6>Get Directions</h6></a></div>`;
 
@@ -204,10 +204,10 @@ function open_login_edit_modal(type, marker) {
     if (type == "admin") {
         header = "Delete Misson?";
         adminLabel = "_admin";
-        adminIcon = "";
-        googleMapLink= "";
+        // adminIcon = "";
+        googleMapLink = "";
         bgColor = 'modal-body-color2';
-                }
+    }
 
     let first_login_modal = `<div id="login_edit_modal${adminLabel}">
     <div class="new-modalL">
@@ -267,7 +267,7 @@ function open_login_edit_modal(type, marker) {
         } else {
             let tokenL = $("#passwordL" + adminLabel).val();
             if (tokenL == app.getToken()) {
-                  deleteAndHideElement($("#login_edit_modal" + adminLabel), 400);
+                deleteAndHideElement($("#login_edit_modal" + adminLabel), 400);
                 openModal(null, marker);
             }
         }

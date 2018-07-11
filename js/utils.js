@@ -13,6 +13,7 @@ function saveNewMission(gmlinkToParse, event) {
     });
 
     // saveDB();
+
     openModalMissionSelector(
         gmLatLng ? gmLatLng : event.latLng,
         map,
@@ -82,7 +83,7 @@ function missionModalHandles(event) {
 }
 
 function validateClick(event, startDate, endDate) {
-    if (endDate - startDate >= 2) {
+    if (endDate - startDate >= 1) {
         let gm_link;
         let token;
 
@@ -107,7 +108,7 @@ function openModalMissionSelector(location, map, label, icon) {
         icon: icon,
         labelContent: label,
         labelClass: "my-custom-class-for-label", // the CSS class for the label
-        zIndex: 10000
+        zIndex: 10000,
         //,icon: "img/marker/tuseiqui.png"
     });
     openModal(null, marker);
@@ -198,22 +199,14 @@ function addSavedLocations(pos, map) {
                 pos[i],
                 map,
                 pos[i].label,
-                pos[i].icon || app.getPokestop_icon()
+                pos[i].icon || '',
             );
         }, i * 50);
     }
 }
 
 function sizeMap(linkIcon) {
-    let sub_menu_map = [
-        'https://vignette.wikia.nocookie.net/pokemongo/images/a/a2/Rare_Candy.png',
-        'https://vignette.wikia.nocookie.net/pokemongo/images/a/a9/Fast_TM.png',
-        'https://vignette.wikia.nocookie.net/pokemongo/images/6/65/Stardust.png',
-        'https://vignette.wikia.nocookie.net/pokemongo/images/2/24/Berries.png',
-        'https://vignette.wikia.nocookie.net/pokemongo/images/3/3e/Pok%C3%A9_Balls.png',
-        'https://vignette.wikia.nocookie.net/pokemongo/images/0/0e/Revives.png',
-        'https://vignette.wikia.nocookie.net/pokemongo/images/a/a8/Potions.png',
-    ];
+  
     let big_size_icon = 56;
     let medium_size_icon = 100;
     let small_size_icon = 120;
@@ -224,7 +217,7 @@ function sizeMap(linkIcon) {
     if (linkIcon.includes('Pok%C3%A9_Balls')) return big_size_icon;
     if (linkIcon.includes('Revives')) return big_size_icon;
     if (linkIcon.includes('Potions')) return big_size_icon;
-    if (linkIcon.includes('Chansey')) return medium_size_icon;
+    if (linkIcon.includes('Chansey')) return big_size_icon;
     if (linkIcon.includes('Lickitung')) return medium_size_icon;
     else return small_size_icon;
 }

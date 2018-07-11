@@ -210,6 +210,7 @@ label.label_icon {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  flex-wrap: wrap;
 }
 .icon_last_menu div.holder {
   width: auto;
