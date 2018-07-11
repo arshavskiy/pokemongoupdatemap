@@ -7,8 +7,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const utils = require('./server/func');
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 app.use(cors({
   allowedHeaders: 'Content-Type, Cache-Control'
@@ -35,8 +35,8 @@ app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
-app.get('/edit',function(req,res){
-  res.sendFile(path.join(__dirname+'/view/edit.html'));
+app.get('/edit', function (req, res) {
+  res.sendFile(path.join(__dirname + '/view/edit.html'));
 });
 
 app.post('/mission', function (req, res) {
@@ -44,13 +44,13 @@ app.post('/mission', function (req, res) {
 
   fs.writeFile('DB/db_locations.json', stringifed, 'utf8', function (err) {
     if (err) throw err;
-   console.log('complete');
-    utils.emailMe(stringifed);
+    console.log('complete');
+    utils.emailMe(stringifed, 'created');
   });
   res.status(200).end('saved');
 });
 
-app.get('/download', function(req, res) {
+app.get('/download', function (req, res) {
   res.download(__dirname + '/DB/db_locations.json', 'jsonFile.json');
   utils.emailMe('file', 'downloaded');
 });
@@ -67,6 +67,15 @@ app.delete('/mission/delete/:label', (req, res) => {
   utils.saveToDB(tempdb);
 
 });
+
+var env = process.env.NODE_ENV || 'development';
+if ('development' == env) {}
+
+if ('production' == env) {
+  console.log(process.env.NODE_TLS_REJECT_UNAUTHORIZED);
+  console.log(process.env.NODE_ENV);
+  console.log(process.env.PORT);
+}
 
 let port = process.env.PORT || 3000;
 // START THE SERVER

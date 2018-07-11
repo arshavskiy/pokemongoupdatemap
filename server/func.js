@@ -27,7 +27,7 @@ function deletFromArray(arr, deleteMemeber) {
 }
 
 
-function emailMe(data, action) {
+function emailMe(data, action='undefined') {
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -39,8 +39,8 @@ function emailMe(data, action) {
   let mailOptions = {
     from: 'pokemon.missions@gmail.com',
     to: 'arshavsky.pasha@gmail.com',
-    subject: 'You got new pokestop',
-    text: 'That was easy!' + action
+    subject: action,
+    text: 'where was change: ' + action
   };
 
   transporter.sendMail(mailOptions, function (error, info) {

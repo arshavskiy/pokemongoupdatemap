@@ -9,20 +9,20 @@ function menuEventsSetter(marker) {
             if (check_modal == 'third_menu_modal' || check_modal == 'second_menu_modal') {
                 if (e.target && e.target.src) {
                         icon = e.target.src;
-                    // if (e.target.id == 'b1') {
-                    //     //   $('#'+e.target.id).hide();
-                    // } else {
+                    if (e.target.id == 'b1') {
+                        openModal(e.target.id, marker);
+                    } else {
                         app.setIcon(icon);
                         setMarkerIcon(icon, marker);
                         objectForSave = e.target;
                         app.setCount(); console.log('count', app.getCount());
                         return;
-                    // }
+                    }
                     // saveDB(objectForSave, marker);
                 }
             }
             if (app.getA() && app.getIcon()) return;
-            else openModal(e.target.id, marker);
+            else if (check_modal=='first_menu_modal') openModal(e.target.id, marker);
 
         }
     });
@@ -82,7 +82,7 @@ function openModal(id, marker) {
                 if (missionFormater(app.getA()))
                 console.log('third_menu_modal');
                 buildMenu("third_menu_modal", bgColorClass3, menuSearcher());
-                menuEventsSetter(marker);
+                // menuEventsSetter(marker);
 
             } else if (isModalOpen.id) {
                 console.log(id);
