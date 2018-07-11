@@ -4,26 +4,56 @@ function saveNewMission(gmlinkToParse, event) {
     gmLatLng = parseGoolgeLink(gmlinkToParse);
     let inputLabel = "new_mission" + Math.floor(Date.now() / 1000);
 
-    getLocations.push({
-        icon: "",
-        label: inputLabel,
-        lat: gmLatLng ? gmLatLng[0] : event.latLng.lat(),
-        lng: gmLatLng ? gmLatLng[1] : event.latLng.lng(),
-        startDate: app.getStartDate()
-    });
+    if (!gmLatLng) {
 
-    // saveDB();
+        $('.lds-ripple').show();
 
-    openModalMissionSelector(
-        gmLatLng ? gmLatLng : event.latLng,
-        map,
-        inputLabel,
-        app.getPokestop_icon()
-    );
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+            let lat = position.coords.latitude;
+            let lng = position.coords.longitude;
+            gmLatLng = [lat, lng];
+
+            getLocations.push({
+                icon: "",
+                label: inputLabel,
+                lat: gmLatLng ? gmLatLng[0] : event.latLng.lat(),
+                lng: gmLatLng ? gmLatLng[1] : event.latLng.lng(),
+                startDate: app.getStartDate()
+            });
+            console.log('gmLatLng', gmLatLng);
+            openModalMissionSelector(
+                gmLatLng ? gmLatLng : event.latLng,
+                map,
+                inputLabel,
+                app.getPokestop_icon()
+            );
+
+            let mapLatLng = new google.maps.LatLng(lat, lng);
+            map.setCenter(mapLatLng);
+            map.setZoom(16);
+        });
+
+    } else {
+        console.log('gmLatLng', gmLatLng);
+        getLocations.push({
+            icon: "",
+            label: inputLabel,
+            lat: gmLatLng ? gmLatLng[0] : event.latLng.lat(),
+            lng: gmLatLng ? gmLatLng[1] : event.latLng.lng(),
+            startDate: app.getStartDate()
+        });
+        openModalMissionSelector(
+            gmLatLng ? gmLatLng : event.latLng,
+            map,
+            inputLabel,
+            app.getPokestop_icon()
+        );
+    }
+
 }
 
 function parseGoolgeLink(gmlinkToParse) {
-
     var expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#,?&//=]*)/gi;
     var regex = new RegExp(expression);
     let google_link_valid = gmlinkToParse.match(regex);
@@ -83,7 +113,7 @@ function missionModalHandles(event) {
 }
 
 function validateClick(event, startDate, endDate) {
-    if (endDate - startDate >= 1) {
+    if (endDate - startDate >= 2) {
         let gm_link;
         let token;
 
@@ -199,14 +229,14 @@ function addSavedLocations(pos, map) {
                 pos[i],
                 map,
                 pos[i].label,
-                pos[i].icon || '',
+                pos[i].icon || ''
             );
         }, i * 50);
     }
 }
 
 function sizeMap(linkIcon) {
-  
+
     let big_size_icon = 56;
     let medium_size_icon = 100;
     let small_size_icon = 120;

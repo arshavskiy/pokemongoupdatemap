@@ -23,6 +23,21 @@ function init(map) {
         endDate = Math.floor(Date.now() / 1000);
         validateClick(event, startDate, endDate);
     });
+
+    document.getElementById('add_mission').addEventListener("click", (e)=>{
+        startDate = Math.floor(Date.now() / 1000);
+        app.setStartDate(startDate);
+
+        showMissionModal();
+        missionModalHandles(e);
+    })
+
+
+    // google.maps.event.addListener(map, 'click', (event)=>{
+    //     app.setStartDate(startDate);
+    //     validateClick(event, startDate);
+    // });
+
 }
 
 function initMap() {

@@ -1,4 +1,7 @@
 function menuEventsSetter(marker) {
+    let catchTheMenu = document.getElementsByClassName("new-modal");
+    console.log(catchTheMenu.length);
+
     document.getElementsByClassName("new-modal")[0].addEventListener("click", function (e) {
         // $('.new-modal').one("click", function (e) {
         if (e.target.id == 'close') {
@@ -26,6 +29,9 @@ function menuEventsSetter(marker) {
 
         }
     });
+    // setTimeout(() => {
+    //     //wait for js
+    // }, 100);
 }
 
 function setMarkerIcon(icon, marker) {
@@ -58,6 +64,7 @@ function missionFormater(item) {
 }
 
 function openModal(id, marker) {
+    $('.lds-ripple').hide();
     let menuItems = db.main_menu;
     let subMenuItems = db.sub_menu;
 
@@ -90,11 +97,10 @@ function openModal(id, marker) {
             }
         }
     } else {
-        setTimeout(() => {
+       
             buildMenu("first_menu_modal", bgColorClass1, menuItems);
             console.log('first_menu_modal');
             menuEventsSetter(marker);
-        }, 100);
     }
 }
 
