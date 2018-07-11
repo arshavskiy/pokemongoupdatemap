@@ -163,28 +163,29 @@ function openModalMissionSelector(location, map, label, icon) {
     openModal(null, marker);
 }
 
-function addMarker(location, map, label, icon) {
-    if (typeof location.lat === "function") {
-        mapLatLng = location;
-    } else {
-        mapLatLng = new google.maps.LatLng(
-            Number(location[0] ? location[0] : location.lat),
-            Number(location[1] ? location[1] : location.lng)
-        );
-    }
+function addMarker(mapLatLng, mymap, label, icon) {
+    // if (typeof location.lat === "function") {
+    //     mapLatLng = location;
+    // } else {
+    //     mapLatLng = [
+    //         Number(location[0] ? location[0] : location.lat),
+    //         Number(location[1] ? location[1] : location.lng)
+    //     ];
+    // }
 
-    let marker = new MarkerWithLabel({
-        position: mapLatLng,
-        map: map,
-        icon: icon,
-        draggable: false,
-        raiseOnDrag: true,
-        labelContent: label,
-        labelClass: "my-custom-class-for-label", // the CSS class for the label
-        zIndex: 10000,
-        animation: google.maps.Animation.DROP
-        //,icon: "img/marker/tuseiqui.png"
-    });
+    let marker = L.marker(mapLatLng).addTo(mymap);
+    // let marker = new MarkerWithLabel({
+    //     position: mapLatLng,
+    //     map: map,
+    //     icon: icon,
+    //     draggable: false,
+    //     raiseOnDrag: true,
+    //     labelContent: label,
+    //     labelClass: "my-custom-class-for-label", // the CSS class for the label
+    //     zIndex: 10000,
+    //     animation: google.maps.Animation.DROP
+    //     //,icon: "img/marker/tuseiqui.png"
+    // });
 
     //defulat marker
     // let marker = new google.maps.Marker({
@@ -198,19 +199,19 @@ function addMarker(location, map, label, icon) {
     // });
     let startDate, endDate;
 
-    google.maps.event.addListener(marker, "mousedown", function (e) {
-        startDate = Math.floor(Date.now() / 1000);
-        app.setStartDate(startDate);
-    });
+    // google.maps.event.addListener(marker, "mousedown", function (e) {
+    //     startDate = Math.floor(Date.now() / 1000);
+    //     app.setStartDate(startDate);
+    // });
 
-    google.maps.event.addListener(marker, "mouseup", function (e) {
-        endDate = Math.floor(Date.now() / 1000);
-        if (endDate - startDate >= 1) {
-            if ($('.login_edit_modal').length == 0) {
-                open_login_edit_modal(null, marker);
-            } else return;
-        }
-    });
+    // google.maps.event.addListener(marker, "mouseup", function (e) {
+    //     endDate = Math.floor(Date.now() / 1000);
+    //     if (endDate - startDate >= 1) {
+    //         if ($('.login_edit_modal').length == 0) {
+    //             open_login_edit_modal(null, marker);
+    //         } else return;
+    //     }
+    // });
 
     // if (typeof location == 'object'){
     //     printCordinates(location.lat, location.lng, label, map, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png');
@@ -235,24 +236,48 @@ function showMyLocation(map, label) {
     navigator.geolocation.getCurrentPosition(function (position) {
         let lat = position.coords.latitude;
         let lng = position.coords.longitude;
-        let mapLatLng = new google.maps.LatLng(lat, lng);
+        // let mapLatLng = new google.maps.LatLng(lat, lng);
 
-        map.setCenter(mapLatLng);
-        map.setZoom(16);
+        // map.setCenter(mapLatLng);
+        // map.setZoom(16);
         // addMarker(mapLatLng, map);
     });
 }
 
-function addSavedLocations(pos, map) {
+function addSavedLocations(pos) {
+    let mymap = app.getGoogleMap();
+  
+    let LeafIcon = L.Icon.extend({
+        options: {
+            shadowUrl: pos[0].icon,
+            iconSize:     [120, 120],
+            shadowSize:   [30, 34],
+            iconAnchor:   [22, 34],
+            shadowAnchor: [4, 32],
+            popupAnchor:  [-3, -36]
+        }
+    });
+
     for (let i = 0; i < pos.length; i++) {
+
+        let new_icon = 'icon' + i;
+        new_icon = new LeafIcon({iconUrl: pos[i].icon});
+
         setTimeout(function () {
-            addMarker(
-                pos[i],
-                map,
-                pos[i].label,
-                pos[i].icon || ''
-            );
-        }, i * 50);
+            // L.marker([pos[i].lat,pos[i].lng]).addTo(mymap);
+            L.marker([pos[i].lat,pos[i].lng], {icon: new_icon}).addTo(mymap).on('click', (e)=>{
+                console.log('e', e);
+                console.log('this', this);
+                console.log('e.latlng', e.latlng);
+                
+            });
+            // addMarker(
+            //     pos[i],
+            //     map,
+            //     pos[i].label,
+            //     pos[i].icon || ''
+            // );
+        }, i * 10);
     }
 }
 
@@ -261,15 +286,15 @@ function sizeMap(linkIcon) {
     let big_size_icon = 56;
     let medium_size_icon = 100;
     let small_size_icon = 120;
-    if (linkIcon.includes('Rare_Candy')) return big_size_icon;
-    if (linkIcon.includes('Fast_TM')) return big_size_icon;
-    if (linkIcon.includes('Stardust')) return big_size_icon;
-    if (linkIcon.includes('Berries')) return big_size_icon;
-    if (linkIcon.includes('Pok%C3%A9_Balls')) return big_size_icon;
-    if (linkIcon.includes('Revives')) return big_size_icon;
-    if (linkIcon.includes('Potions')) return big_size_icon;
-    if (linkIcon.includes('Chansey')) return big_size_icon;
-    if (linkIcon.includes('Lickitung')) return medium_size_icon;
+    if (linkIcon.includes('Rare_Candy')) return small_size_icon;
+    if (linkIcon.includes('Fast_TM')) return small_size_icon;
+    if (linkIcon.includes('Stardust')) return small_size_icon;
+    if (linkIcon.includes('Berries')) return small_size_icon;
+    if (linkIcon.includes('Pok%C3%A9_Balls')) return small_size_icon;
+    if (linkIcon.includes('Revives')) return small_size_icon;
+    if (linkIcon.includes('Potions')) return small_size_icon;
+    if (linkIcon.includes('Chansey')) return small_size_icon;
+    if (linkIcon.includes('Lickitung')) return small_size_icon;
     else return small_size_icon;
 }
 

@@ -1,30 +1,22 @@
 function init(map) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-        let lat = position.coords.latitude;
-        let lng = position.coords.longitude;
-        let mapLatLng = new google.maps.LatLng(lat, lng);
 
-        app.setInitLocation(mapLatLng);
-
-        map.setCenter(mapLatLng);
-        map.setZoom(17);
-
-        // self locvation marker
-        addMarker(mapLatLng, map);
-    });
 
     //add pokestop on click
     let startDate, endDate;
-    google.maps.event.addListener(map, 'mousedown', function (event) {
-        startDate = Math.floor(Date.now() / 1000);
-        app.setStartDate(startDate);
-    });
-    google.maps.event.addListener(map, 'mouseup', function (event) {
-        endDate = Math.floor(Date.now() / 1000);
-        validateClick(event, startDate, endDate);
+    app.getGoogleMap().on('click', function(ev) {
+        console.log('ev', ev); // ev is an event object (MouseEvent in this case)
     });
 
-    document.getElementById('add_mission').addEventListener("click", (e)=>{
+    // google.maps.event.addListener(map, 'mousedown', function (event) {
+    //     startDate = Math.floor(Date.now() / 1000);
+    //     app.setStartDate(startDate);
+    // });
+    // google.maps.event.addListener(map, 'mouseup', function (event) {
+    //     endDate = Math.floor(Date.now() / 1000);
+    //     validateClick(event, startDate, endDate);
+    // });
+
+    document.getElementById('add_mission').addEventListener("click", (e) => {
         panToMyLocation();
         // app.setGpsAddMisson(true);
         // $('strong.text-hide').removeClass().addClass('text-show');
@@ -32,7 +24,6 @@ function init(map) {
         startDate = Math.floor(Date.now() / 1000);
         app.setStartDate(startDate);
 
-       
         showMissionModal();
         missionModalHandles(e);
     })
@@ -46,14 +37,49 @@ function init(map) {
 }
 
 function initMap() {
+    navigator.geolocation.getCurrentPosition(function (position) {
+        let lat = position.coords.latitude;
+        let lng = position.coords.longitude;
+        let mapLatLng = [lat, lng];
+        // app.setInitLocation(mapLatLng);
 
-    let map = new google.maps.Map(document.getElementById('map-canvas'), {
-        // styles: retro
-        gestureHandling: "greedy"
+        let mymap = L.map('map-canvas').setView([lat, lng], 20);
+        // var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYXJzaGF2c2t5IiwiYSI6ImNqamhuaXg5eTNuZDczcG8zeW1maDFzd3QifQ.YWq-0dq132VvGuecFNqRCw', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox.streets'
+        }).addTo(mymap);
+
+        L.marker([lat, lng]).addTo(mymap);
+
+        app.setGoogleMap(mymap);
+
+        L.circle([lat, lng], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.1,
+            radius: 10
+        }).addTo(mymap);
+
+        // map.setCenter(mapLatLng);
+        // map.setZoom(17);
+
+        // self locvation marker
+        // addMarker(mapLatLng, mymap);
+        addSavedLocations(getLocations);
+        init();
     });
+    // let map = new google.maps.Map(document.getElementById('map-canvas'), {
+    //     // styles: retro
+    //     gestureHandling: "greedy"
+    // });
+
     
-    app.setGoogleMap(map);
-    google.maps.event.addDomListener(window, 'load', init(map));
+    // google.maps.event.addDomListener(window, 'load', init(map));
 
     $('.find-me').click(function (e) {
         e.preventDefault();
@@ -70,10 +96,11 @@ getData = (function () {
             } else {
                 app.setGlobalLocation(getLocations = [{}]);
             }
+            initMap(getLocations);
 
-            map = app.getGoogleMap();
+            let mymap = app.getGoogleMap();
 
-            addSavedLocations(getLocations, map);
+           
         })
         .fail(function (jqxhr, textStatus, error) {
             var err = textStatus + ", " + error;
@@ -87,13 +114,12 @@ getData = (function () {
         });
 })();
 
-initMap();
 
 let getLocations = [];
 let markers = [];
 
 window.onload = function () {
-
+  
     $('.lds-ripple').hide();
     // $('body').css('background', 'linear-gradient(315deg, #8fd87d 0, #24ccaa 80%);');
 }
