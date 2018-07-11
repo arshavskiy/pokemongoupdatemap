@@ -1,6 +1,9 @@
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 
+let env = process.env.NODE_ENV || 'development';
+
+
 function saveToDB(data) {
   let stringifed = JSON.stringify(data);
   fs.writeFile('DB/db_locations.json', stringifed, 'utf8', function (err) {
@@ -23,11 +26,13 @@ function deletFromArray(arr, deleteMemeber) {
       break;
     }
   }
-  emailMe(deleteMemeber, 'deleted');
+  if ('production' == env) {
+    emailMe(deleteMemeber, 'deleted');
+  }
 }
 
 
-function emailMe(data, action='undefined') {
+function emailMe(data, action = 'undefined') {
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -56,4 +61,5 @@ module.exports = {
   deletFromArray: deletFromArray,
   saveToDB: saveToDB,
   emailMe: emailMe,
+  env: env,
 };

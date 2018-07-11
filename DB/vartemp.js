@@ -33,7 +33,7 @@ let db = {
         },
         {
             id: 'a2',
-            icon: 'https://vignette.wikia.nocookie.net/pokemongo/images/c/c6/RT-Icon_Item-Reward.png',
+            icon: 'https://vignette.wikia.nocookie.net/pokemongo/images/c/c6/RT-Icon_Item-Reward.png/',
             name: 'Use Berries לתת ברי',
             mission: [{
                 name: 'Use 5 Berries to help catch Pokemmon',

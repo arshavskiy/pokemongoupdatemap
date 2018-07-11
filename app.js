@@ -7,6 +7,15 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const utils = require('./server/func');
+let env = utils.env;
+
+if ('development' == env) {}
+
+if ('production' == env) {
+  console.log(process.env.NODE_TLS_REJECT_UNAUTHORIZED);
+  console.log(process.env.NODE_ENV);
+  console.log(process.env.PORT);
+}
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -45,14 +54,18 @@ app.post('/mission', function (req, res) {
   fs.writeFile('DB/db_locations.json', stringifed, 'utf8', function (err) {
     if (err) throw err;
     console.log('complete');
+    if ('production' == env) {
     utils.emailMe(stringifed, 'created');
+    }
   });
   res.status(200).end('saved');
 });
 
 app.get('/download', function (req, res) {
   res.download(__dirname + '/DB/db_locations.json', 'jsonFile.json');
+  if ('production' == env) {
   utils.emailMe('file', 'downloaded');
+  }
 });
 
 app.delete('/mission/delete/:label', (req, res) => {
@@ -68,14 +81,7 @@ app.delete('/mission/delete/:label', (req, res) => {
 
 });
 
-var env = process.env.NODE_ENV || 'development';
-if ('development' == env) {}
 
-if ('production' == env) {
-  console.log(process.env.NODE_TLS_REJECT_UNAUTHORIZED);
-  console.log(process.env.NODE_ENV);
-  console.log(process.env.PORT);
-}
 
 let port = process.env.PORT || 3000;
 // START THE SERVER

@@ -215,8 +215,8 @@ function sizeMap(linkIcon) {
         'https://vignette.wikia.nocookie.net/pokemongo/images/a/a8/Potions.png',
     ];
     let big_size_icon = 56;
-    let small_size_icon = 150;
-
+    let medium_size_icon = 100;
+    let small_size_icon = 120;
     if (linkIcon.includes('Rare_Candy')) return big_size_icon;
     if (linkIcon.includes('Fast_TM')) return big_size_icon;
     if (linkIcon.includes('Stardust')) return big_size_icon;
@@ -224,6 +224,8 @@ function sizeMap(linkIcon) {
     if (linkIcon.includes('Pok%C3%A9_Balls')) return big_size_icon;
     if (linkIcon.includes('Revives')) return big_size_icon;
     if (linkIcon.includes('Potions')) return big_size_icon;
+    if (linkIcon.includes('Chansey')) return medium_size_icon;
+    if (linkIcon.includes('Lickitung')) return medium_size_icon;
     else return small_size_icon;
 }
 

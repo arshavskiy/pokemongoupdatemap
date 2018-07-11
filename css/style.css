@@ -322,6 +322,10 @@ footer {
 }
 footer {
   color: #000;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 }
 footer .img_coby {
   border-radius: 25px;

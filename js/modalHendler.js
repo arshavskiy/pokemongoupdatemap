@@ -73,7 +73,7 @@ function openModal(id, marker) {
 
             console.log('second_menu_modal');
 
-            buildMenu("second_menu_modal", bgColorClass2, subMenuItems);
+            buildMenu("second_menu_modal", bgColorClass2, subMenuItems|| menuSearcher());
             menuEventsSetter(marker);
 
         } else if (id.includes("b")) {
