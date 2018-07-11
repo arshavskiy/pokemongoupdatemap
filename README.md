@@ -1,7 +1,7 @@
-# Pokemon Go location based Google Map.
-Project JS and jQuery, Node(JSON as DB).
+# Pokemon Go Google Map mission map.
+Project writen in JS and jQuery and Node.js for serving and JSON as DB.
 
-Pokemon stops location emtered with click on map.
+Pokemon missions distributed on click(3 sec mobile first);
 Mission prise updated from markers on map and saved in JSON file.
 
 ## Run
