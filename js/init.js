@@ -9,7 +9,7 @@ function init(map) {
         // validateClick(event, startDate, endDate);
         app.setNewLocation(event.latlng);
 
-        newMarker = new L.Marker(event.latlng);
+        let newMarker = new L.Marker(event.latlng);
         app.setMarker(newMarker);
         // map.addLayer(marker);
 

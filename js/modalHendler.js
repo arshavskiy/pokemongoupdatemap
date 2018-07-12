@@ -2,8 +2,8 @@ function menuEventsSetter(marker) {
     let catchTheMenu = document.getElementsByClassName("new-modal");
     console.log(catchTheMenu.length);
 
-
-    document.getElementsByClassName("new-modal")[0].addEventListener("click", function (e) {
+    $(".new-modal").unbind().click((e) => {
+        // document.getElementsByClassName("new-modal")[0].addEventListener("click", function (e) {
         // $('.new-modal').one("click", function (e) {
         if (e.target.id == 'close') {
             $(this).hide();
@@ -24,22 +24,18 @@ function menuEventsSetter(marker) {
 
                         setMarkerIcon();
 
-                        // let objectForSave = e.target;
-
                         app.setCount();
                         console.log('count', app.getCount());
 
                         return;
                     }
-                    // saveDB(objectForSave, marker);
                 }
-            } else if (check_modal == 'first_menu_modal') openModal(e.target.id);
-            else if (app.getA() && app.getIcon()) return;
+            } else {
+                openModal(e.target.id);
+                // else if (app.getA() && app.getIcon()) return;
+            }
         }
     });
-    // setTimeout(() => {
-    //     //wait for js
-    // }, 100);
 }
 
 function setMarkerIcon() {
@@ -97,14 +93,6 @@ function setMarkerIcon() {
                 open_login_edit_modal(null);
             });
         }
-
-        // L.marker([pos[i].lat, pos[i].lng], {
-        //     icon: new_icon
-        // }).addTo(mymap).on('click', (e) => {
-        //     app.setNewLocation(e.latlng);
-        //     open_login_edit_modal(null);
-
-        // });
 
         let new_icon_to_save = app.getIcon();
         updateDBicons(new_icon_to_save);
@@ -317,17 +305,13 @@ function open_login_edit_modal(type) {
     $(".new-modalL").show();
     $("#passwordL" + adminLabel).focus();
 
-    cBtn = document.getElementById("cancelBtnL" + adminLabel);
-    oBtn = document.getElementById("okBtnL" + adminLabel);
 
-    cBtn.addEventListener("click", function () {
+    $("#cancelBtnL" + adminLabel).unbind().click(() => {
         deleteAndHideElement($("#login_edit_modal" + adminLabel), 400);
     });
-    oBtn.addEventListener("click", function () {
+    $("#okBtnL" + adminLabel).unbind().click(() => {
         if (adminLabel) {
             let tokenLadminLabel = $("#passwordL" + adminLabel).val();
-
-            // if (tokenLadminLabel == app.getSuperToken()) {
 
             // TODO: delete mardkr location.setMap(null);
 

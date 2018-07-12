@@ -5,40 +5,6 @@ function saveNewMission(gmlinkToParse, event) {
 
     app.setLabelMarker(inputLabel);
 
-    //if no googlelink inputed
-    // if (!gmLatLng) {
-
-    //     $('.lds-ripple').show();
-
-    //     console.log('event', event);
-
-    //     navigator.geolocation.getCurrentPosition(function (position) {
-    //         let lat = position.coords.latitude;
-    //         let lng = position.coords.longitude;
-    //         gmLatLng = [lat, lng];
-
-    //         getLocations.push({
-    //             icon: "",
-    //             label: inputLabel,
-    //             lat: gmLatLng ? gmLatLng[0] : event.latLng.lat,
-    //             lng: gmLatLng ? gmLatLng[1] : event.latLng.lng,
-    //             startDate: app.getStartDate()
-    //         });
-
-    //         app.getGoogleMap().setView(gmLatLng, 22);
-
-    //         openModalMissionSelector(
-    //             // gmLatLng ? gmLatLng : event.latLng,
-    //             // map,
-    //             // inputLabel,
-    //             // app.getPokestop_icon()
-    //         );
-
-    //         //TODO: pan map
-    //     });
-
-    // } else {
-
     getLocations.push({
         icon: "",
         label: inputLabel,
@@ -54,7 +20,6 @@ function saveNewMission(gmlinkToParse, event) {
     console.log('2 afte rparse gmLatLng', gmLatLng);
     console.log('3 app.getNewLocation', app.getNewLocation());
 
-    // openModalMissionSelector();
     openModal(null);
 }
 
@@ -125,15 +90,6 @@ function missionModalHandles(event) {
     });
 }
 
-// function setHeaderGps() {
-//     if(app.getGpsAddMisson()){
-//         app.setGpsAddMisson(false);
-//         if ($('strong.text-show').length) {
-//             $('strong.text-show').removeClass().addClass('text-hide');
-//         }
-//     } 
-// }
-
 function validateClick(event, startDate, endDate) {
     if (endDate - startDate >= 2) {
         let gm_link;
@@ -142,30 +98,6 @@ function validateClick(event, startDate, endDate) {
         showMissionModal();
         missionModalHandles(event);
     }
-}
-
-function openModalMissionSelector() {
-    // if (typeof location.lat === "function") {
-    //     mapLatLng = location;
-    // } else {
-    //     mapLatLng = new google.maps.LatLng(
-    //         Number(location[0] ? location[0] : location.lat),
-    //         Number(location[1] ? location[1] : location.lng)
-    //     );
-    // }
-
-    // let marker = new MarkerWithLabel({
-    //     position: mapLatLng,
-    //     map: map,
-    //     icon: icon,
-    //     labelContent: label,
-    //     labelClass: "my-custom-class-for-label", // the CSS class for the label
-    //     zIndex: 10000,
-    //     //,icon: "img/marker/tuseiqui.png"
-    // });
-
-    // addMarker(mapLatLng, mymap);
-    openModal(null);
 }
 
 function deleteAndHideElement(elm, t) {
@@ -217,35 +149,23 @@ function addSavedLocations(pos) {
         let newMarker;
 
         setTimeout(function () {
-            // L.marker([pos[i].lat,pos[i].lng]).addTo(mymap);
             newMarker = new L.Marker([pos[i].lat, pos[i].lng], {
                 icon: new_icon,
                 title: pos[i].label
             });
+
             mymap.addLayer(newMarker);
+
             newMarker.on('click', (e) => {
                 console.log('e', e);
+
                 let marker_label = e.sourceTarget.options.title;
                 app.setNewLocation(e.latlng);
                 app.setLabelMarker(marker_label);
                 app.setMarker(newMarker);
+
                 open_login_edit_modal(null);
             });
-
-            // mymap.removeLayer(newMarker);
-
-            // L.marker([pos[i].lat, pos[i].lng], {
-            //     icon: new_icon,
-            //     title: pos[i].label
-            // }).addTo(mymap).on('click', (e) => {
-            //     console.log('e', e);
-            //     let marker_label = e.sourceTarget.options.title;
-            //     app.setNewLocation(e.latlng);
-            //     app.setLabelMarker(marker_label);
-            //     app.setMarker(e);
-            //     open_login_edit_modal(null);
-            // });
-
         }, i * 100);
     }
 }
