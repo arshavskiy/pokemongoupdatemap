@@ -2,9 +2,20 @@ function init(map) {
 
 
     //add pokestop on click
-    let startDate, endDate;
-    app.getGoogleMap().on('click', function(ev) {
-        console.log('ev', ev); // ev is an event object (MouseEvent in this case)
+    let startDate, endDate, newMarker;
+    app.getGoogleMap().on('click', function (event) {
+        console.log('event', event); // ev is an event object (MouseEvent in this case)
+        startDate = Math.floor(Date.now() / 1000);
+        // validateClick(event, startDate, endDate);
+        app.setNewLocation(event.latlng);
+
+        newMarker = new L.Marker(event.latlng);
+        app.setMarker(newMarker);
+        // map.addLayer(marker);
+
+
+        showMissionModal();
+        missionModalHandles(event);
     });
 
     // google.maps.event.addListener(map, 'mousedown', function (event) {
@@ -26,7 +37,7 @@ function init(map) {
 
         showMissionModal();
         missionModalHandles(e);
-    })
+    });
 
 
     // google.maps.event.addListener(map, 'click', (event)=>{
@@ -58,19 +69,21 @@ function initMap() {
 
         app.setGoogleMap(mymap);
 
-        L.circle([lat, lng], {
-            color: 'red',
-            fillColor: '#f03',
-            fillOpacity: 0.1,
-            radius: 10
-        }).addTo(mymap);
+        // L.circle([lat, lng], {
+        //     color: 'red',
+        //     fillColor: '#f03',
+        //     fillOpacity: 0.1,
+        //     radius: 10
+        // }).addTo(mymap);
 
         // map.setCenter(mapLatLng);
         // map.setZoom(17);
 
         // self locvation marker
         // addMarker(mapLatLng, mymap);
-        addSavedLocations(getLocations);
+        if (getLocations.length) {
+            addSavedLocations(getLocations);
+        }
         init();
     });
     // let map = new google.maps.Map(document.getElementById('map-canvas'), {
@@ -78,7 +91,7 @@ function initMap() {
     //     gestureHandling: "greedy"
     // });
 
-    
+
     // google.maps.event.addDomListener(window, 'load', init(map));
 
     $('.find-me').click(function (e) {
@@ -96,11 +109,7 @@ getData = (function () {
             } else {
                 app.setGlobalLocation(getLocations = [{}]);
             }
-            initMap(getLocations);
-
-            let mymap = app.getGoogleMap();
-
-           
+            // initMap(getLocations);
         })
         .fail(function (jqxhr, textStatus, error) {
             var err = textStatus + ", " + error;
@@ -109,8 +118,10 @@ getData = (function () {
         .always(function (json) {
 
             //json db is cleaned
-            app.setGlobalLocation(json.responseText ? json : []);
-            map = app.getGoogleMap();
+            app.setGlobalLocation(json.responseText ? json : [{}]);
+            initMap(getLocations);
+
+
         });
 })();
 
@@ -119,7 +130,7 @@ let getLocations = [];
 let markers = [];
 
 window.onload = function () {
-  
+
     $('.lds-ripple').hide();
     // $('body').css('background', 'linear-gradient(315deg, #8fd87d 0, #24ccaa 80%);');
 }

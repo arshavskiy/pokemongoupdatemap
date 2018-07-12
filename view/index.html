@@ -18,130 +18,124 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- <link rel="apple-touch-icon" href="https://slot1-images.wikia.nocookie.net/__cb1530700857/common/skins/common/images/wiki.png"
+    <link rel="apple-touch-icon" href="https://slot1-images.wikia.nocookie.net/__cb1530700857/common/skins/common/images/wiki.png"
         sizes="155x155" />
     <link rel="shortcut icon" href="https://vignette.wikia.nocookie.net/pokemongo/images/6/64/Favicon.ico/revision/latest?cb=20170626163724"
-    /> -->
+        </head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121811598-1"></script>
 
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
 
-</head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121811598-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
+    <body>
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
+        <!-- <div class="lds-circle"></div> -->
+        <!-- loader -->
+        <nav class="center" style="padding:0">PokemonGoIsrael</nav>
 
-    gtag('js', new Date());
-    gtag('config', 'UA-121811598-1');
-</script>
-
-<body>
-
-    <!-- <div class="lds-circle"></div> -->
-    <!-- loader -->
-    <nav class="center" style="padding:0">PokemonGoIsrael</nav>
-
-    <div class="lds-ripple">
-        <div></div>
-        <div></div>
-    </div>
-
-    <div id="content"></div>
-
-    <main class="row">
-
-        <div class="col-md-12 no-padding">
-            <div id="map">
-                <div id="map-canvas"></div>
-            </div>
-            <div class="content-center">
-                <input type="text" id='labelName'>
-                <button type="button" class="find-me btn btn-info btn-block">
-                    <i class="fa fa-crosshairs"></i>
-                </button>
-                <button id="add_mission" type="button" class="btn btn-info btn-block box-shadow">
-                    <!-- <i class="fa fa-compass" aria-hidden="true"></i> -->
-                    <img src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png" class="compas" alt="">
-                </button>
-            </div>
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
         </div>
-    </main>
 
-    <!-- login modal -->
-    <section class="modal-login">
-        <div class="col-md-12">
+        <div id="content"></div>
 
-            <div id="exampleModalCenter">
-                <div class="new-modal2">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <div class="col text-center">
-                                        <h4 style="color:#fff">Add new Mission?</h4>
-                                        <!-- <div class="col text-center"><h4 style="color:#fff">Add new Mission <strong class="text-hide"> by GPS</strong>?</h4> -->
-                                        <input style="direction: ltr;" class="mt-4" name="gm_link" type="url" title="Must contain valid google link" placeholder="Google Map link">
-                                        <input style="direction: ltr;" placeholder="Your token.." type="password" id="password" name="password" minLength="4" required>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="center">
-                            <i id="cancelBtn" class="close_button fa fa-times" aria-hidden="true"></i>
-                            <i id="okBtn" class="action_button fa fa-check ml-2" aria-hidden="true"></i>
-                            </form>
-                        </div>
-                    </div>
+        <main class="row">
+
+            <div class="col-md-12 no-padding">
+                <div id="map">
+                    <div id="map-canvas"></div>
+                </div>
+                <div class="content-center">
+                    <input type="text" id='labelName'>
+                    <button type="button" class="find-me btn btn-info btn-block">
+                        <i class="fa fa-crosshairs"></i>
+                    </button>
+                    <button id="add_mission" type="button" class="btn btn-info btn-block box-shadow">
+                        <!-- <i class="fa fa-compass" aria-hidden="true"></i> -->
+                        <img src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png" class="compas" alt="">
+                    </button>
                 </div>
             </div>
-        </div>
-    </section>
+        </main>
 
+        <!-- login modal -->
+        <section class="modal-login">
+            <div class="col-md-12">
 
-    <!-- menu modal -->
-    <section>
-        <div class="col-md-12">
-            <div id="menu_modal_holder" class="new-modal">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="modal-icon">
-                            <div class="header">
-                                <p>Daily Reward</p>
-                                <img id="a3" src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png">
-                                <p>פרס יומי</p>
+                <div id="exampleModalCenter">
+                    <div class="new-modal2">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <div class="col text-center">
+                                            <div class="col text-center">
+                                                <h4 style="color:#fff">Add new Mission?
+                                                    <!-- <strong class="text-hide"> by GPS</strong>?</h4>
+                                                <h4 style="color:#fff">Add new Mission
+                                                    <strong class="text-hide"> by GPS</strong>? -->
+                                                </h4>
+                                                <div class="col text-center">
+                                                    <!-- <h4 style="color:#fff">Add new Mission
+                                                    <strong class="text-hide"> by GPS</strong>?</h4> -->
+                                                    <input style="direction: ltr;" class="mt-4" name="gm_link" type="url" title="Must contain valid google link" placeholder="Google Map link">
+                                                    <input style="direction: ltr;" placeholder="Your token.." type="password" id="password" name="password" minLength="4" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </form>
+                                </div>
+                                <div class="center">
+                                    <i id="cancelBtn" class="close_button fa fa-times" aria-hidden="true"></i>
+                                    <i id="okBtn" class="action_button fa fa-check ml-2" aria-hidden="true"></i>
+                                    </form>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+        </section>
 
-                        <div class="icon-first_menu">
-                        </div>
-                        <div class="center">
-                            <span id="back-second_menu">
-                                <img id="close" src="https://vignette.wikia.nocookie.net/pokemongo/images/2/29/Button_Close.png" alt="close modal">
-                            </span>
+
+        <!-- menu modal -->
+        <section>
+            <div class="col-md-12">
+                <div id="menu_modal_holder" class="new-modal">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="modal-icon">
+                                <div class="header">
+                                    <p>Daily Reward</p>
+                                    <img id="a3" src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png">
+                                    <p>פרס יומי</p>
+                                </div>
+                            </div>
+
+                            <div class="icon-first_menu">
+                            </div>
+                            <div class="center">
+                                <span id="back-second_menu">
+                                    <img id="close" src="https://vignette.wikia.nocookie.net/pokemongo/images/2/29/Button_Close.png" alt="close modal">
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="generate"></div>
-    </section>
-    <footer>
-        <a href="mailto:pokemon.missions@gmail.com" target="_blank" title='Pavel Arshavsky'>Writen by
-            <strong>Pavel Arshavsky</strong> for
-            <strong>Coby Raz
-                <img src="../icons/teddy.png" alt="Coby Raz" class="img_coby">
-            </strong>
-        </a>
-        <a href="https://www.facebook.com/groups/735539106657351/about/" target="_blank">&nbsp; Pokémon GO Israel</a>
-    </footer>
+            <div id="generate"></div>
+        </section>
+        <footer>
+            <a href="mailto:pokemon.missions@gmail.com" target="_blank" title='Pavel Arshavsky'>Writen by
+                <strong>Pavel Arshavsky</strong> for
+                <strong>Coby Raz
+                    <img src="../icons/teddy.png" alt="Coby Raz" class="img_coby">
+                </strong>
+            </a>
+            <a href="https://www.facebook.com/groups/735539106657351/about/" target="_blank">&nbsp; Pokémon GO Israel</a>
+        </footer>
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
-    <!-- <script>
+        <!-- <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiYXJzaGF2c2t5IiwiYSI6ImNqamhuaXg5eTNuZDczcG8zeW1maDFzd3QifQ.YWq-0dq132VvGuecFNqRCw';
         var map = new mapboxgl.Map({
         container: 'map-canvas',
@@ -149,21 +143,21 @@
         });
     </script> -->
 
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-    <!-- <script src="js/moment.min.js"></script> -->
-    <!-- <script src="map style/retro_style.js"></script> -->
+        <!-- <script src="js/bootstrap.min.js"></script> -->
+        <!-- <script src="js/moment.min.js"></script> -->
+        <!-- <script src="map style/retro_style.js"></script> -->
 
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9zjnqXZs64-jzUe9Ze_m3CjhTE1SPVv4" type="text/javascript"></script> -->
-    <!-- <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script> -->
-    <script src="js/app_states.js"></script>
-    <script src="js/data.js"></script>
-    <script src="DB/vars.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/modalHendler.js"></script>
-    <!-- <script src="js/marker.js"></script> -->
-    <script src="js/init.js"></script>
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9zjnqXZs64-jzUe9Ze_m3CjhTE1SPVv4" type="text/javascript"></script> -->
+        <!-- <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script> -->
+        <script src="js/app_states.js"></script>
+        <script src="js/data.js"></script>
+        <script src="DB/vars.js"></script>
+        <script src="js/utils.js"></script>
+        <script src="js/modalHendler.js"></script>
+        <!-- <script src="js/marker.js"></script> -->
+        <script src="js/init.js"></script>
 
 
-</body>
+    </body>
 
 </html>

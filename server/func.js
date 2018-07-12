@@ -5,20 +5,23 @@ let env = process.env.NODE_ENV || 'development';
 
 
 function saveToDB(data) {
+  console.log('saveToDB', data);
   let stringifed = JSON.stringify(data);
   fs.writeFile('DB/db_locations.json', stringifed, 'utf8', function (err) {
     if (err) throw err;
     console.log('complete');
-
   });
   fs.writeFile('DB/temp.json', stringifed, 'utf8', function (err) {
     if (err) throw err;
     console.log('complete temp');
-
   });
 }
 
 function deletFromArray(arr, deleteMemeber) {
+
+  console.log('deletFromArray.arr', arr);
+  console.log('deletFromArray.deleteMemeber', deleteMemeber);
+
   for (var i = arr.length - 1; i >= 0; i--) {
     if (arr[i].label == deleteMemeber) {
       console.log(arr[i]);
@@ -26,6 +29,9 @@ function deletFromArray(arr, deleteMemeber) {
       break;
     }
   }
+
+  saveToDB(arr);
+
   if ('production' == env) {
     emailMe(deleteMemeber, 'deleted');
   }

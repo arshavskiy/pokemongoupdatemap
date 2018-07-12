@@ -5,6 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const _ = require('lodash');
 
 const utils = require('./server/func');
 let env = utils.env;
@@ -55,7 +56,7 @@ app.post('/mission', function (req, res) {
     if (err) throw err;
     console.log('complete');
     if ('production' == env) {
-    utils.emailMe(stringifed, 'created');
+      utils.emailMe(stringifed, 'created');
     }
   });
   res.status(200).end('saved');
@@ -64,20 +65,26 @@ app.post('/mission', function (req, res) {
 app.get('/download', function (req, res) {
   res.download(__dirname + '/DB/db_locations.json', 'jsonFile.json');
   if ('production' == env) {
-  utils.emailMe('file', 'downloaded');
+    utils.emailMe('file', 'downloaded');
   }
 });
 
 app.delete('/mission/delete/:label', (req, res) => {
-  console.log('token', req.params.label);
   let missionToDelete = req.params.label;
-
   let filePath = 'DB/db_locations.json';
   let rawdata = fs.readFileSync(filePath);
   let tempdb = JSON.parse(rawdata);
 
-  utils.deletFromArray(tempdb, missionToDelete);
-  utils.saveToDB(tempdb);
+  try {
+    utils.deletFromArray(tempdb, missionToDelete);
+  } catch (e) {
+    console.log(e);
+    if (e) {
+      res.status(200).end('err deliting mission');
+    }
+  }
+  // utils.saveToDB(tempdb);
+
 
 });
 
@@ -103,12 +110,9 @@ router.get('/delete/:token', function (req, res) {
   let filePath = 'DB/db_locations.json';
   if (req.params.token === 'picaro_db') {
     fs.truncate(filePath, 0, function () {
-      console.log('done')
+      console.log('file deleted');
     });
-    res.json({
-      message: 'delete',
-      filePath: filePath,
-    });
+    res.status(200).end('delete');
   } else res.status(503).end('503');
 });
 

@@ -1,55 +1,61 @@
 function saveNewMission(gmlinkToParse, event) {
-    let gmLatLng;
     $("#exampleModalCenter").hide();
-    gmLatLng = parseGoolgeLink(gmlinkToParse);
+    let gmLatLng = parseGoolgeLink(gmlinkToParse);
     let inputLabel = "new_mission" + Math.floor(Date.now() / 1000);
 
-    if (!gmLatLng) {
+    app.setLabelMarker(inputLabel);
 
-        $('.lds-ripple').show();
+    //if no googlelink inputed
+    // if (!gmLatLng) {
 
+    //     $('.lds-ripple').show();
 
-        navigator.geolocation.getCurrentPosition(function (position) {
-            let lat = position.coords.latitude;
-            let lng = position.coords.longitude;
-            gmLatLng = [lat, lng];
+    //     console.log('event', event);
 
-            getLocations.push({
-                icon: "",
-                label: inputLabel,
-                lat: gmLatLng ? gmLatLng[0] : event.latLng.lat(),
-                lng: gmLatLng ? gmLatLng[1] : event.latLng.lng(),
-                startDate: app.getStartDate()
-            });
-            console.log('gmLatLng', gmLatLng);
-            openModalMissionSelector(
-                gmLatLng ? gmLatLng : event.latLng,
-                map,
-                inputLabel,
-                app.getPokestop_icon()
-            );
+    //     navigator.geolocation.getCurrentPosition(function (position) {
+    //         let lat = position.coords.latitude;
+    //         let lng = position.coords.longitude;
+    //         gmLatLng = [lat, lng];
 
-            let mapLatLng = new google.maps.LatLng(lat, lng);
-            map.setCenter(mapLatLng);
-            map.setZoom(16);
-        });
+    //         getLocations.push({
+    //             icon: "",
+    //             label: inputLabel,
+    //             lat: gmLatLng ? gmLatLng[0] : event.latLng.lat,
+    //             lng: gmLatLng ? gmLatLng[1] : event.latLng.lng,
+    //             startDate: app.getStartDate()
+    //         });
 
-    } else {
-        console.log('gmLatLng', gmLatLng);
-        getLocations.push({
-            icon: "",
-            label: inputLabel,
-            lat: gmLatLng ? gmLatLng[0] : event.latLng.lat(),
-            lng: gmLatLng ? gmLatLng[1] : event.latLng.lng(),
-            startDate: app.getStartDate()
-        });
-        openModalMissionSelector(
-            gmLatLng ? gmLatLng : event.latLng,
-            map,
-            inputLabel,
-            app.getPokestop_icon()
-        );
+    //         app.getGoogleMap().setView(gmLatLng, 22);
+
+    //         openModalMissionSelector(
+    //             // gmLatLng ? gmLatLng : event.latLng,
+    //             // map,
+    //             // inputLabel,
+    //             // app.getPokestop_icon()
+    //         );
+
+    //         //TODO: pan map
+    //     });
+
+    // } else {
+
+    getLocations.push({
+        icon: "",
+        label: inputLabel,
+        lat: gmLatLng ? gmLatLng[0] : event.latlng.lat,
+        lng: gmLatLng ? gmLatLng[1] : event.latlng.lng,
+        startDate: app.getStartDate()
+    });
+
+    if (gmLatLng) {
+        app.setNewLocation(gmLatLng);
     }
+    console.log('1 afte rparse gmLatLng', gmLatLng);
+    console.log('2 afte rparse gmLatLng', gmLatLng);
+    console.log('3 app.getNewLocation', app.getNewLocation());
+
+    // openModalMissionSelector();
+    openModal(null);
 }
 
 function panToMyLocation() {
@@ -72,13 +78,11 @@ function parseGoolgeLink(gmlinkToParse) {
         if (linkToCode.length > 1) {
             linkToCode = linkToCode[1].split("?");
             return gmLatLng = linkToCode[0].split(",");
-            console.log("latLng", gmLatLng[0], gmLatLng[1]);
         } else if (linkToCode.length == 1) {
             linkToCode = linkToCode[0].split("=");
             return gmLatLng = linkToCode[linkToCode.length - 1].split(",");
-            console.log("latLng", gmLatLng[0], gmLatLng[1]);
         }
-    } else return;
+    }
 }
 
 function showMissionModal() {
@@ -90,7 +94,6 @@ function showMissionModal() {
         opacity: "1",
         display: "block"
     });
-
     $("#password").focus();
 }
 
@@ -141,83 +144,28 @@ function validateClick(event, startDate, endDate) {
     }
 }
 
-function openModalMissionSelector(location, map, label, icon) {
-    if (typeof location.lat === "function") {
-        mapLatLng = location;
-    } else {
-        mapLatLng = new google.maps.LatLng(
-            Number(location[0] ? location[0] : location.lat),
-            Number(location[1] ? location[1] : location.lng)
-        );
-    }
-
-    let marker = new MarkerWithLabel({
-        position: mapLatLng,
-        map: map,
-        icon: icon,
-        labelContent: label,
-        labelClass: "my-custom-class-for-label", // the CSS class for the label
-        zIndex: 10000,
-        //,icon: "img/marker/tuseiqui.png"
-    });
-    openModal(null, marker);
-}
-
-function addMarker(mapLatLng, mymap, label, icon) {
+function openModalMissionSelector() {
     // if (typeof location.lat === "function") {
     //     mapLatLng = location;
     // } else {
-    //     mapLatLng = [
+    //     mapLatLng = new google.maps.LatLng(
     //         Number(location[0] ? location[0] : location.lat),
     //         Number(location[1] ? location[1] : location.lng)
-    //     ];
+    //     );
     // }
 
-    let marker = L.marker(mapLatLng).addTo(mymap);
     // let marker = new MarkerWithLabel({
     //     position: mapLatLng,
     //     map: map,
     //     icon: icon,
-    //     draggable: false,
-    //     raiseOnDrag: true,
     //     labelContent: label,
     //     labelClass: "my-custom-class-for-label", // the CSS class for the label
     //     zIndex: 10000,
-    //     animation: google.maps.Animation.DROP
     //     //,icon: "img/marker/tuseiqui.png"
     // });
 
-    //defulat marker
-    // let marker = new google.maps.Marker({
-    //     position: mapLatLng,
-    //     animation: google.maps.Animation.DROP,
-    //     map: map,
-    //     icon: icon,
-    //     label: label,
-    //     labelClass: "my-custom-class-for-label", // your desired CSS class
-    //     labelInBackground: false
-    // });
-    let startDate, endDate;
-
-    // google.maps.event.addListener(marker, "mousedown", function (e) {
-    //     startDate = Math.floor(Date.now() / 1000);
-    //     app.setStartDate(startDate);
-    // });
-
-    // google.maps.event.addListener(marker, "mouseup", function (e) {
-    //     endDate = Math.floor(Date.now() / 1000);
-    //     if (endDate - startDate >= 1) {
-    //         if ($('.login_edit_modal').length == 0) {
-    //             open_login_edit_modal(null, marker);
-    //         } else return;
-    //     }
-    // });
-
-    // if (typeof location == 'object'){
-    //     printCordinates(location.lat, location.lng, label, map, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png');
-    // } else {
-    //     printCordinates(location.lat(), location.lng(), label, map);
-    // }
+    // addMarker(mapLatLng, mymap);
+    openModal(null);
 }
 
 function deleteAndHideElement(elm, t) {
@@ -246,38 +194,59 @@ function showMyLocation(map, label) {
 
 function addSavedLocations(pos) {
     let mymap = app.getGoogleMap();
-  
+
     let LeafIcon = L.Icon.extend({
         options: {
             shadowUrl: pos[0].icon,
-            iconSize:     [120, 120],
-            shadowSize:   [30, 34],
-            iconAnchor:   [22, 34],
+            iconSize: [120, 120],
+            shadowSize: [30, 34],
+            iconAnchor: [22, 34],
             shadowAnchor: [4, 32],
-            popupAnchor:  [-3, -36]
+            popupAnchor: [-3, -36]
         }
     });
+
+    app.setLeafMarker(LeafIcon);
 
     for (let i = 0; i < pos.length; i++) {
 
         let new_icon = 'icon' + i;
-        new_icon = new LeafIcon({iconUrl: pos[i].icon});
+        new_icon = new LeafIcon({
+            iconUrl: pos[i].icon
+        });
+        let newMarker;
 
         setTimeout(function () {
             // L.marker([pos[i].lat,pos[i].lng]).addTo(mymap);
-            L.marker([pos[i].lat,pos[i].lng], {icon: new_icon}).addTo(mymap).on('click', (e)=>{
-                console.log('e', e);
-                console.log('this', this);
-                console.log('e.latlng', e.latlng);
-                
+            newMarker = new L.Marker([pos[i].lat, pos[i].lng], {
+                icon: new_icon,
+                title: pos[i].label
             });
-            // addMarker(
-            //     pos[i],
-            //     map,
-            //     pos[i].label,
-            //     pos[i].icon || ''
-            // );
-        }, i * 10);
+            mymap.addLayer(newMarker);
+            newMarker.on('click', (e) => {
+                console.log('e', e);
+                let marker_label = e.sourceTarget.options.title;
+                app.setNewLocation(e.latlng);
+                app.setLabelMarker(marker_label);
+                app.setMarker(newMarker);
+                open_login_edit_modal(null);
+            });
+
+            // mymap.removeLayer(newMarker);
+
+            // L.marker([pos[i].lat, pos[i].lng], {
+            //     icon: new_icon,
+            //     title: pos[i].label
+            // }).addTo(mymap).on('click', (e) => {
+            //     console.log('e', e);
+            //     let marker_label = e.sourceTarget.options.title;
+            //     app.setNewLocation(e.latlng);
+            //     app.setLabelMarker(marker_label);
+            //     app.setMarker(e);
+            //     open_login_edit_modal(null);
+            // });
+
+        }, i * 100);
     }
 }
 
