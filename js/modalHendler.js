@@ -254,7 +254,7 @@ function open_login_edit_modal(type, marker) {
     cBtn = document.getElementById("cancelBtnL" + adminLabel);
     oBtn = document.getElementById("okBtnL" + adminLabel);
 
-    $("#okBtnL" + adminLabel).off('click').on('click',()=>{
+    $("#cancelBtnL" + adminLabel).off('click').on('click',()=>{
     // cBtn.addEventListener("click", function () {
         deleteAndHideElement($("#login_edit_modal" + adminLabel), 400);
     });

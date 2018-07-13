@@ -231,6 +231,7 @@ label.label_icon {
 #add_mission{
     background: linear-gradient(-105deg, #0da24f 0, #cdf796 93%);
     border-radius: 15px;
+    border: none;
 }
 
 #adminMenu {
