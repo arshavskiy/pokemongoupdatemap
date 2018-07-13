@@ -262,6 +262,7 @@ label.label_icon {
 #back-earn_menu img {
   height: 60px;
   width: 60px;
+  cursor: pointer;
 }
 #back-earn_menu {
   width: 100%;
