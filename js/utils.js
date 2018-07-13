@@ -1,26 +1,81 @@
 function saveNewMission(gmlinkToParse, event) {
+    let gmLatLng;
     $("#exampleModalCenter").hide();
-    let gmLatLng = parseGoolgeLink(gmlinkToParse);
+    gmLatLng = parseGoolgeLink(gmlinkToParse);
     let inputLabel = "new_mission" + Math.floor(Date.now() / 1000);
 
-    app.setLabelMarker(inputLabel);
+    if (!gmLatLng) {
 
-    getLocations.push({
-        icon: "",
-        label: inputLabel,
-        lat: gmLatLng ? gmLatLng[0] : event.latlng.lat,
-        lng: gmLatLng ? gmLatLng[1] : event.latlng.lng,
-        startDate: app.getStartDate()
-    });
+        $('.lds-ripple').show();
+        let btnAddMissionByGPS = app.getGpsAddMisson();
 
-    if (gmLatLng) {
-        app.setNewLocation(gmLatLng);
+        if (btnAddMissionByGPS) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                let lat = position.coords.latitude;
+                let lng = position.coords.longitude;
+                gmLatLng = [lat, lng];
+
+                getLocations.push({
+                    icon: "",
+                    label: inputLabel,
+                    lat: gmLatLng[0],
+                    lng: gmLatLng[1],
+                    startDate: app.getStartDate()
+                });
+                console.log('gmLatLng', gmLatLng);
+
+                openModalMissionSelector(
+                    gmLatLng,
+                    map,
+                    inputLabel,
+                    app.getPokestop_icon()
+                );
+
+                // let mapLatLng = new google.maps.LatLng(lat, lng);
+                // map.setCenter(mapLatLng);
+                // map.setZoom(16);
+            });
+        } else {
+            let lat = event.latLng.lat();
+            let lng = event.latLng.lng();
+
+            getLocations.push({
+                icon: "",
+                label: inputLabel,
+                lat: lat,
+                lng: lng,
+                startDate: app.getStartDate()
+            });
+
+            console.log('gmLatLng', gmLatLng);
+
+            openModalMissionSelector(
+                event.latLng,
+                map,
+                inputLabel,
+                app.getPokestop_icon()
+            );
+        }
+        // let mapLatLng = new google.maps.LatLng(lat, lng);
+        // map.setCenter(mapLatLng);
+        // map.setZoom(16);
+    } else {
+        getLocations.push({
+            icon: "",
+            label: inputLabel,
+            lat: gmLatLng[0],
+            lng: gmLatLng[1],
+            startDate: app.getStartDate(),
+        });
+
+        openModalMissionSelector(
+            gmLatLng,
+            map,
+            inputLabel,
+            app.getPokestop_icon()
+        )
+
     }
-    console.log('1 afte rparse gmLatLng', gmLatLng);
-    console.log('2 afte rparse gmLatLng', gmLatLng);
-    console.log('3 app.getNewLocation', app.getNewLocation());
-
-    openModal(null);
 }
 
 function panToMyLocation() {
@@ -43,11 +98,13 @@ function parseGoolgeLink(gmlinkToParse) {
         if (linkToCode.length > 1) {
             linkToCode = linkToCode[1].split("?");
             return gmLatLng = linkToCode[0].split(",");
+            console.log("latLng", gmLatLng[0], gmLatLng[1]);
         } else if (linkToCode.length == 1) {
             linkToCode = linkToCode[0].split("=");
             return gmLatLng = linkToCode[linkToCode.length - 1].split(",");
+            console.log("latLng", gmLatLng[0], gmLatLng[1]);
         }
-    }
+    } else return;
 }
 
 function showMissionModal() {
@@ -59,11 +116,13 @@ function showMissionModal() {
         opacity: "1",
         display: "block"
     });
+
     $("#password").focus();
 }
 
 function missionModalHandles(event) {
-    document.getElementById("okBtn").addEventListener("click", function () {
+    $("#okBtn").off('click').on('click', function(){
+    // document.getElementById("okBtn").addEventListener("click", function () {
         gm_link = $("input[name='gm_link']").val();
         token = $("#password").val();
         if (token == app.getToken()) {
@@ -71,8 +130,8 @@ function missionModalHandles(event) {
             saveNewMission(gm_link, event);
         }
     });
-
-    document.getElementById("cancelBtn").addEventListener("click", function () {
+    $("#cancelBtn").off('click').on('click', function(){
+    // document.getElementById("cancelBtn").addEventListener("click", function () {
         $("#exampleModalCenter").hide();
     });
 
@@ -90,6 +149,15 @@ function missionModalHandles(event) {
     });
 }
 
+// function setHeaderGps() {
+//     if(app.getGpsAddMisson()){
+//         app.setGpsAddMisson(false);
+//         if ($('strong.text-show').length) {
+//             $('strong.text-show').removeClass().addClass('text-hide');
+//         }
+//     } 
+// }
+
 function validateClick(event, startDate, endDate) {
     if (endDate - startDate >= 2) {
         let gm_link;
@@ -98,6 +166,89 @@ function validateClick(event, startDate, endDate) {
         showMissionModal();
         missionModalHandles(event);
     }
+}
+
+function openModalMissionSelector(location, map, label, icon) {
+
+    console.log('location', location);
+
+    if (typeof location.lat === "function") {
+        mapLatLng = location;
+    } else {
+        mapLatLng = new google.maps.LatLng(
+            Number(location[0] ? location[0] : location.lat),
+            Number(location[1] ? location[1] : location.lng)
+        );
+    }
+
+    console.log('mapLatLng', mapLatLng);
+
+    let marker = new MarkerWithLabel({
+        position: mapLatLng,
+        map: map,
+        icon: icon,
+        labelContent: label,
+        labelClass: "my-custom-class-for-label", // the CSS class for the label
+        zIndex: 10000,
+        //,icon: "img/marker/tuseiqui.png"
+    });
+    openModal(null, marker);
+}
+
+function addMarker(location, map, label, icon) {
+    if (typeof location.lat === "function") {
+        mapLatLng = location;
+    } else {
+        mapLatLng = new google.maps.LatLng(
+            Number(location[0] ? location[0] : location.lat),
+            Number(location[1] ? location[1] : location.lng)
+        );
+    }
+
+    let marker = new MarkerWithLabel({
+        position: mapLatLng,
+        map: map,
+        icon: icon,
+        draggable: false,
+        raiseOnDrag: true,
+        labelContent: label,
+        labelClass: "my-custom-class-for-label", // the CSS class for the label
+        zIndex: 10000,
+        animation: google.maps.Animation.DROP
+        //,icon: "img/marker/tuseiqui.png"
+    });
+
+    //defulat marker
+    // let marker = new google.maps.Marker({
+    //     position: mapLatLng,
+    //     animation: google.maps.Animation.DROP,
+    //     map: map,
+    //     icon: icon,
+    //     label: label,
+    //     labelClass: "my-custom-class-for-label", // your desired CSS class
+    //     labelInBackground: false
+    // });
+    let startDate, endDate;
+
+    google.maps.event.addListener(marker, "mousedown", function (e) {
+        startDate = Math.floor(Date.now() / 1000);
+        app.setStartDate(startDate);
+    });
+
+    google.maps.event.addListener(marker, "mouseup", function (e) {
+        endDate = Math.floor(Date.now() / 1000);
+        if (endDate - startDate >= 1) {
+            if ($('.login_edit_modal').length == 0) {
+                open_login_edit_modal(null, marker);
+            } else return;
+        }
+    });
+
+    // if (typeof location == 'object'){
+    //     printCordinates(location.lat, location.lng, label, map, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png');
+    // } else {
+    //     printCordinates(location.lat(), location.lng(), label, map);
+    // }
 }
 
 function deleteAndHideElement(elm, t) {
@@ -116,57 +267,24 @@ function showMyLocation(map, label) {
     navigator.geolocation.getCurrentPosition(function (position) {
         let lat = position.coords.latitude;
         let lng = position.coords.longitude;
-        // let mapLatLng = new google.maps.LatLng(lat, lng);
+        let mapLatLng = new google.maps.LatLng(lat, lng);
 
-        // map.setCenter(mapLatLng);
-        // map.setZoom(16);
+        map.setCenter(mapLatLng);
+        map.setZoom(16);
         // addMarker(mapLatLng, map);
     });
 }
 
-function addSavedLocations(pos) {
-    let mymap = app.getGoogleMap();
-
-    let LeafIcon = L.Icon.extend({
-        options: {
-            shadowUrl: pos[0].icon,
-            iconSize: [120, 120],
-            shadowSize: [30, 34],
-            iconAnchor: [22, 34],
-            shadowAnchor: [4, 32],
-            popupAnchor: [-3, -36]
-        }
-    });
-
-    app.setLeafMarker(LeafIcon);
-
+function addSavedLocations(pos, map) {
     for (let i = 0; i < pos.length; i++) {
-
-        let new_icon = 'icon' + i;
-        new_icon = new LeafIcon({
-            iconUrl: pos[i].icon
-        });
-        let newMarker;
-
         setTimeout(function () {
-            newMarker = new L.Marker([pos[i].lat, pos[i].lng], {
-                icon: new_icon,
-                title: pos[i].label
-            });
-
-            mymap.addLayer(newMarker);
-
-            newMarker.on('click', (e) => {
-                console.log('e', e);
-
-                let marker_label = e.sourceTarget.options.title;
-                app.setNewLocation(e.latlng);
-                app.setLabelMarker(marker_label);
-                app.setMarker(newMarker);
-
-                open_login_edit_modal(null);
-            });
-        }, i * 100);
+            addMarker(
+                pos[i],
+                map,
+                pos[i].label,
+                pos[i].icon || ''
+            );
+        }, i * 50);
     }
 }
 
@@ -175,15 +293,15 @@ function sizeMap(linkIcon) {
     let big_size_icon = 56;
     let medium_size_icon = 100;
     let small_size_icon = 120;
-    if (linkIcon.includes('Rare_Candy')) return small_size_icon;
-    if (linkIcon.includes('Fast_TM')) return small_size_icon;
-    if (linkIcon.includes('Stardust')) return small_size_icon;
-    if (linkIcon.includes('Berries')) return small_size_icon;
-    if (linkIcon.includes('Pok%C3%A9_Balls')) return small_size_icon;
-    if (linkIcon.includes('Revives')) return small_size_icon;
-    if (linkIcon.includes('Potions')) return small_size_icon;
-    if (linkIcon.includes('Chansey')) return small_size_icon;
-    if (linkIcon.includes('Lickitung')) return small_size_icon;
+    if (linkIcon.includes('Rare_Candy')) return big_size_icon;
+    if (linkIcon.includes('Fast_TM')) return big_size_icon;
+    if (linkIcon.includes('Stardust')) return big_size_icon;
+    if (linkIcon.includes('Berries')) return big_size_icon;
+    if (linkIcon.includes('Pok%C3%A9_Balls')) return big_size_icon;
+    if (linkIcon.includes('Revives')) return big_size_icon;
+    if (linkIcon.includes('Potions')) return big_size_icon;
+    if (linkIcon.includes('Chansey')) return big_size_icon;
+    if (linkIcon.includes('Lickitung')) return medium_size_icon;
     else return small_size_icon;
 }
 
@@ -203,14 +321,16 @@ function printCordinates(latS, lngS, label, map, iconForlist) {
         $("<li/>")
             .html(
                 `<label class="label_icon"><div class="icon_span"><img src="${
-          iconGPSList ? iconGPSList : image_pokemon
-        }" class="padding"><b>${label}</b></div></<label>`
+                    iconGPSList ? iconGPSList : image_pokemon
+                    }" class="padding"><b>${label}</b></div></<label>`
             )
             .appendTo("ul.cordinatedList");
 
         let li = $("ul.cordinatedList li");
         li = li[li.length - 1];
-        li.addEventListener("click", function (e) {
+
+            li.off('click').on('click', (e)=>{
+            // li.addEventListener("click", function (e) {
             map.setCenter({
                 lat: (function () {
                     if (typeof latS == "function") {
