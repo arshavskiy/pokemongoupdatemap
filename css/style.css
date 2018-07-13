@@ -32,7 +32,7 @@ button {
   z-index: 1;
 }
 .box-shadow {
-  box-shadow: 1px 1px 2px #999;
+  box-shadow: 1px 1px 1px #999;
 }
 #labelName {
   display: none;
@@ -228,6 +228,11 @@ label.label_icon {
 .icon_last_menu img {
   width: 90px;
 }
+#add_mission{
+    background: linear-gradient(-105deg, #0da24f 0, #cdf796 93%);
+    border-radius: 15px;
+}
+
 #adminMenu {
   color: #fff;
 }
@@ -346,9 +351,7 @@ footer .img_coby {
   height: 23px;
 }
 .compas {
-  width: 20px;
-  background: black;
-  border-radius: 50%;
+  width: 27px;
 }
 nav,
 footer {
