@@ -220,9 +220,11 @@ label.label_icon {
   align-items: baseline;
   flex-wrap: wrap;
 }
+
 .icon_last_menu div.holder {
-  width: auto;
+  /*width: auto;*/
 }
+
 .icon_last_menu img {
   width: 90px;
 }

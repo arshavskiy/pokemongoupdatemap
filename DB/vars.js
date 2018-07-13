@@ -63,6 +63,12 @@ let db = {
                         options: [
                             'https://vignette.wikia.nocookie.net/pokemongo/images/7/71/Larvitar.png',
                         ]
+                    },
+                    {
+                        name: '5 Nice Throws',
+                        options: [
+                            'https://vignette.wikia.nocookie.net/pokemongo/images/8/80/Voltorb.png',
+                            ]
                     }
                 ]
             },
