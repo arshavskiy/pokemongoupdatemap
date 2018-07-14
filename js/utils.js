@@ -21,7 +21,7 @@ function saveNewMission(gmlinkToParse, event) {
                     lat: gmLatLng[0],
                     lng: gmLatLng[1],
                     startDate: app.getStartDate(),
-                    user: app.getTokenUsed(),
+                    user: app.getUserName(),
                 });
                 console.log('gmLatLng', gmLatLng);
 
@@ -46,7 +46,7 @@ function saveNewMission(gmlinkToParse, event) {
                 lat: lat,
                 lng: lng,
                 startDate: app.getStartDate(),
-                user: app.getTokenUsed(),
+                user: app.getUserName(),
             });
 
             console.log('gmLatLng', gmLatLng);
@@ -68,7 +68,7 @@ function saveNewMission(gmlinkToParse, event) {
             lat: gmLatLng[0],
             lng: gmLatLng[1],
             startDate: app.getStartDate(),
-            user: app.getTokenUsed(),
+            user: app.getUserName(),
         });
 
         openModalMissionSelector(
@@ -127,6 +127,7 @@ function missionModalHandles(event) {
     let gm_link = $("input[name='gm_link']");
     let gm_link_vallue = gm_link.val();
     let input = $("#password");
+    let userName = $('#username').val();
 
 
     $("#okBtn").off('click').on('click', function(){
@@ -136,6 +137,7 @@ function missionModalHandles(event) {
         if (index>=0) {
             // setHeaderGps();
             app.setTokenUsed(token);
+            app.setUserName(userName);
             saveNewMission(gm_link_vallue, event);
 
         } else {

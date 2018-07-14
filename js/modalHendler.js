@@ -1,10 +1,10 @@
 function menuEventsSetter(marker) {
-    let catchTheMenu =  $(".new-modal");
+    let catchTheMenu = $(".new-modal");
     console.log(catchTheMenu.length);
 
-    $(".new-modal")[0].onclick = (e)=>{
-    // $(".new-modal").off('click').on('click', (e)=>{
-    // document.getElementsByClassName("new-modal")[0].addEventListener("click", function (e) {
+    $(".new-modal")[0].onclick = (e) => {
+        // $(".new-modal").off('click').on('click', (e)=>{
+        // document.getElementsByClassName("new-modal")[0].addEventListener("click", function (e) {
         // $('.new-modal').on("click", function (e) {
         if (e.target.id == 'close') {
             $(".new-modal").hide();
@@ -99,10 +99,10 @@ function openModal(id, marker) {
             }
         }
     } else {
-       
-            buildMenu("first_menu_modal", bgColorClass1, menuItems);
-            console.log('first_menu_modal');
-            menuEventsSetter(marker);
+
+        buildMenu("first_menu_modal", bgColorClass1, menuItems);
+        console.log('first_menu_modal');
+        menuEventsSetter(marker);
     }
 }
 
@@ -199,18 +199,33 @@ function buildMenu(id, bgColorClass, menuItems) {
 
 function open_login_edit_modal(type, marker) {
 
-    let header = "Edit Mission?",
+    let  header = `
+        <div class="col text-center">
+            <h4 style="color:#fff">
+            <span>Adit Mission</span>
+            <img src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png" class="compas" alt="">
+            <span>ערוך משימה</span>
+        </h4>
+        `,
         adminLabel = "",
         bgColor = 'modal-body-color3';
     adminIcon = '<i class="fa fa-cogs" id="adminMenu" aria-hidden="true" style="position: absolute;"></i>';
     //https://www.google.com/maps/search/?api=1&query=31.785492733328045, 35.214104199213125
     googleMapLink = `<div class="center" style="padding:0">
                         <a href="https://www.google.com/maps/search/?api=1&query=${marker.position}" target="_blank">
-                        <h6 style="position: absolute; left: calc(50% - 53px);">Get Directions</h6></a></div>`;
+                        <h6 style="font-size:0.8rem; position: absolute; left: calc(50% - 99px); color:#138496;">Get Directions
+                         <img src="https://pokemonil.eu-4.evennode.com/marker.png"> נווט למיקום</h6></a></div>`;
 
 
     if (type == "admin") {
-        header = "Delete Misson?";
+        header = `
+        <div class="col text-center">
+            <h4 style="color:#fff;font-size: 1.3rem;">
+            <span>Delete Mission</span>
+            <img src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png" class="compas" alt="">
+            <span>למחוק משימה</span>
+        </h4>
+        `,
         adminLabel = "_admin";
         // adminIcon = "";
         googleMapLink = "";
@@ -225,10 +240,16 @@ function open_login_edit_modal(type, marker) {
             ${googleMapLink}
                 <form>
                     <div class="form-group">
-                        <div class="col text-center"><h4 style="color:#fff">${header}</h4>
-                            <input style="direction: ltr;" placeholder="Your token.." 
-                            type="password" id="passwordL${adminLabel}" name="passwordL"
-                            minLength="4" required>
+                        <div class="col text-center">
+                        
+                        <h4 style="color:#fff">${header}</h4>
+                        <input style="direction: ltr;" class="mt-4" placeholder="User/משתמש"
+                        type="text" id="usernameL${adminLabel}" name="usernameL" minLength="4" required>
+                        
+                        <input style="direction: ltr;" class="mt-2" placeholder="Password/סיסמה"
+                        type="password" id="passwordL${adminLabel}" name="passwordL"
+                        minLength="4" required>
+                           
                         </div>
                     </div>
                 </form>
@@ -254,12 +275,12 @@ function open_login_edit_modal(type, marker) {
     cBtn = document.getElementById("cancelBtnL" + adminLabel);
     oBtn = document.getElementById("okBtnL" + adminLabel);
 
-    $("#cancelBtnL" + adminLabel).off('click').on('click',()=>{
-    // cBtn.addEventListener("click", function () {
+    $("#cancelBtnL" + adminLabel).off('click').on('click', () => {
+        // cBtn.addEventListener("click", function () {
         deleteAndHideElement($("#login_edit_modal" + adminLabel), 400);
     });
-    $("#okBtnL" + adminLabel).off('click').on('click', function(){
-    // oBtn.addEventListener("click", function () {
+    $("#okBtnL" + adminLabel).off('click').on('click', function () {
+        // oBtn.addEventListener("click", function () {
         if (adminLabel) {
             let tokenLadminLabel = $("#passwordL" + adminLabel).val();
 
@@ -281,9 +302,9 @@ function open_login_edit_modal(type, marker) {
             }
         } else {
             let tokenL = $("#passwordL" + adminLabel).val();
-            let index =  app.getToken(tokenL);
+            let index = app.getToken(tokenL);
 
-            if (index>=0) {
+            if (index >= 0) {
                 app.setTokenUsed(tokenL);
                 deleteAndHideElement($("#login_edit_modal" + adminLabel), 400);
                 openModal(null, marker);
@@ -293,8 +314,8 @@ function open_login_edit_modal(type, marker) {
         }
     });
 
-    $("#adminMenu").off('click').on('click', ()=>{
-    // document.getElementById("adminMenu").addEventListener("click", function () {
+    $("#adminMenu").off('click').on('click', () => {
+        // document.getElementById("adminMenu").addEventListener("click", function () {
         deleteAndHideElement($("#login_edit_modal" + adminLabel), 0);
         open_login_edit_modal("admin", marker);
     });

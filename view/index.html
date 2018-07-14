@@ -2,11 +2,14 @@
 <html lang="en">
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
 
     <meta charset="UTF-8">
     <title>PokémonGO mission map</title>
+    <link rel="canonical" href="http://pokemongo.wikia.com/wiki/List_of_Pok%C3%A9mon_families" />
+    <link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/List_of_Pok%C3%A9mon_families?action=edit" />
+    <link rel="apple-touch-icon" href="https://slot1-images.wikia.nocookie.net/__cb6950056950012/common/skins/common/images/wiki.png" sizes="155x155" />
+    <link rel="shortcut icon" href="https://vignette.wikia.nocookie.net/pokemongo/images/6/64/Favicon.ico/revision/latest?cb=20170626163724" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -56,8 +59,9 @@
                 </button>
                 <button id="add_mission" type="button" class="btn btn-info btn-block box-shadow">
                     <!-- <i class="fa fa-compass" aria-hidden="true"></i> -->
-                    <!--<img src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png" class="compas" alt="">-->
                     <span>Add Mission</span>
+                    <img src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png" class="compas" alt="">
+                    <span>הוספת משימה</span>
                 </button>
             </div>
         </div>
@@ -73,14 +77,26 @@
                         <div class="modal-body">
                             <form>
                                 <div class="form-group">
-                                    <div class="col text-center"><h4 style="color:#fff">Add new Mission?</h4>
+                                    <div class="col text-center">
+                                        <h4 style="color:#fff">
+                                        <span>Add Mission</span>
+                                        <img src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png" class="compas" alt="">
+                                        <span>הוספת משימה</span>
+                                    </h4>
+                                        <p style="    margin-top: 0;    margin-bottom: 1rem;    font-size: 10px;    color: #fff;">מיקום נוכחי או לחיצה ארוכה במיקום לא מצריכים קישור מגוגל מפות
+                                            <br>Current location or a long press at the location does not require a link from Google Maps
+                                        </p>
                                     <!-- <div class="col text-center"><h4 style="color:#fff">Add new Mission <strong class="text-hide"> by GPS</strong>?</h4> -->
                                         <input style="direction: ltr;" class="mt-4" name="gm_link" 
                                         type="url" title="Must contain valid google link"
-                                        placeholder="Google Map link">
-                                        <input style="direction: ltr;" placeholder="Your token.." 
+                                        placeholder="Google Map Link/קישור מגוגל מפות">
+                                        <input style="direction: ltr;" class="mt-2" placeholder="User/משתמש"
+                                               type="text" id="username" name="username"
+                                               minLength="4" required>
+                                        <input style="direction: ltr;" class="mt-2" placeholder="Password/סיסמה"
                                         type="password" id="password" name="password"
                                         minLength="4" required>
+
                                     </div>
                                 </div>
                             </form>
@@ -124,9 +140,11 @@
         </div>
         <div id="generate"></div>
     </section>
-    <footer> 
-        <a href="mailto:pokemon.missions@gmail.com" target="_blank" title='Pavel Arshavsky'>Writen by <strong>Pavel Arshavsky</strong> for 
-        <strong>Coby Raz <img src="../icons/teddy.png" alt="Coby Raz" class="img_coby"></strong></a>
+    <footer>
+        <p>Writen by </p>
+        <a href="mailto:pokemon.missions@gmail.com" target="_blank" title='Pavel Arshavsky'><strong>Pavel Arshavsky</strong></a>
+        <p>for</p>
+        <a href="https://m.me/cobyraz"><strong>Coby Raz </strong><img src="../icons/teddy.png" alt="Coby Raz" class="img_coby"></a>
        </footer>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>

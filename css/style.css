@@ -73,6 +73,12 @@ button {
 .modalLogin {
   padding: 10px;
 }
+
+.form-group input{
+  width:80%;
+  text-align: center;
+}
+
 .center {
   display: flex;
   justify-content: center !important;
@@ -155,6 +161,9 @@ ul.cordinatedList li b {
 }
 * input {
   direction: rtl;
+  border: 1px solid #138496;
+  border-radius: 15px;
+  height: 35px;
 }
 .modal-dialog * input {
   direction: ltr;
@@ -203,6 +212,13 @@ label.label_icon {
   width: 45%;
   display: inline-block;
 }
+.icon-second_menu div {
+  width: 33%;
+  display: inline-block;
+}
+.icon_last_menu div.holder{
+  width: 33%;
+}
 .icon-second_menu img,
 .icon-first_menu img {
   border-radius: 50%;
@@ -229,10 +245,11 @@ label.label_icon {
   width: 90px;
 }
 #add_mission{
-    background: linear-gradient(-90deg, #0da279 0, #cdf796 100%);
+  background: linear-gradient(-90deg, #61D29A 0, #B6DE83 80%);
     border-radius: 25px;
     border: none;
     height: 34px;
+  max-width: 250px;
 }
 #add_mission span{
     color:#fff;
@@ -251,7 +268,7 @@ label.label_icon {
   padding: 0 !important;
 }
 .modal-body-color1 {
-  background: linear-gradient(315deg, #1b7e94 0, #174e61 80%);
+  background: linear-gradient(545deg, #1b7e94 0, #174e61 130%);
 }
 .modal-body-color2 {
   background: linear-gradient(315deg, #8fd87d 0, #1b7e94 80%);
@@ -335,7 +352,7 @@ h5 {
 }
 .new-modalL .modal-content,
 .new-modal2 .modal-content {
-  background: linear-gradient(315deg, #8fd87d 0, #24ccaa 80%);
+  background: linear-gradient(358deg, #E1FFD0 0, #7ED3FF 70%);
 }
 .close_button,
 .action_button {
@@ -353,11 +370,22 @@ nav,
 footer {
   background: transparent;
 }
+
+footer p{
+  color: #138496;
+  margin: 3px;
+}
+
 nav a{
   display: flex;
   font-size: 0.75rem;
   color: #fff;
 }
+
+nav img{
+  margin-right: 3px;
+}
+
 .fa{
   cursor: pointer;
 }
@@ -372,8 +400,8 @@ footer {
   align-items: baseline;
 }
 
-footer a {
-  color:#000;
+footer a{
+  color:#138496;
 }
 
 footer .img_coby {
@@ -405,7 +433,7 @@ footer {
     width: 100%;
     border-radius: 10px;
     /*border: 3px solid #138496;*/
-    border: 2px solid #0b373e;
+    border: 3px solid #138496;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     z-index: 0;
