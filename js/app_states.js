@@ -6,7 +6,7 @@ let app = (function () {
     locationsDB, startDate, appA, appB, appIcon, gpsAddMissonClicked, token_used,user_name,
     initLocation, newLocation, image_pokestop, gooleMap,  superToken='pikapi';
     return {
-        setGpsAddMisson: ()=>gpsAddMissonClicked = '(by GPS Location)',
+        setGpsAddMisson: (btn)=>gpsAddMissonClicked = btn,
         getGpsAddMisson: ()=>gpsAddMissonClicked,
         setGlobalLocation: (loc)=> locationsDB = loc, 
         getGlobalLocation: ()=> locationsDB, 

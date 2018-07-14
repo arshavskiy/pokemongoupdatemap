@@ -123,44 +123,7 @@ function showMissionModal() {
     $("#password").focus();
 }
 
-function missionModalHandles(event) {
-    let gm_link = $("input[name='gm_link']");
-    let gm_link_vallue = gm_link.val();
-    let input = $("#password");
-    let userName = $('#username').val();
 
-
-    $("#okBtn").off('click').on('click', function(){
-    // document.getElementById("okBtn").addEventListener("click", function () {
-        let token = input.val();
-        let index =  app.getToken(token);
-        if (index>=0) {
-            // setHeaderGps();
-            app.setTokenUsed(token);
-            app.setUserName(userName);
-            saveNewMission(gm_link_vallue, event);
-
-        } else {
-            input.toggleClass('wrong');
-        }
-    });
-    $("#cancelBtn").off('click').on('click', function(){
-    // document.getElementById("cancelBtn").addEventListener("click", function () {
-        $("#exampleModalCenter").hide();
-    });
-
-    gm_link.keypress(function (e) {
-
-        if (e.which == 13) {
-            let index =  app.getToken(token);
-            if (index>=0) {
-                // setHeaderGps();
-                saveNewMission();
-            }
-            return false; //<---- Add this line
-        }
-    });
-}
 
 // function setHeaderGps() {
 //     if(app.getGpsAddMisson()){
@@ -175,7 +138,7 @@ function validateClick(event, startDate, endDate) {
     if (endDate - startDate >= 2) {
         let gm_link;
         let token;
-
+        app.setGpsAddMisson(false);
         showMissionModal();
         missionModalHandles(event);
     }

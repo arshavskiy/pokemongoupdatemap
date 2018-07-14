@@ -21,6 +21,7 @@ function init(map) {
     });
     google.maps.event.addListener(map, 'mouseup', function (event) {
         endDate = Math.floor(Date.now() / 1000);
+
         validateClick(event, startDate, endDate);
     });
 
@@ -32,11 +33,9 @@ function init(map) {
 
         startDate = Math.floor(Date.now() / 1000);
         app.setStartDate(startDate);
-
-       
         showMissionModal();
         missionModalHandles(e);
-    })
+    });
 
 
     // google.maps.event.addListener(map, 'click', (event)=>{
@@ -52,7 +51,6 @@ function initMap() {
         // styles: retro
         gestureHandling: "greedy"
     });
-    
     app.setGoogleMap(map);
     google.maps.event.addDomListener(window, 'load', init(map));
 
