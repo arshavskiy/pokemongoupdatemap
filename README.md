@@ -6,6 +6,6 @@ Mission prise updated from markers on map and saved in JSON file.
 
 ## Run
 go to project dir cd/pokemongoupdatemap/npm start
-"picaro" is the token for adding new missions to the map.
+"pika" token for adding new PokemonGo missions to the map.
 
 
