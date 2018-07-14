@@ -53,13 +53,16 @@ app.post('/mission', function (req, res) {
   let stringifed = JSON.stringify(req.body.getLocations);
 
   fs.writeFile('DB/db_locations.json', stringifed, 'utf8', function (err) {
-    if (err) throw err;
-    console.log('complete');
+    if (err) {
+        res.status(400).end('error saving');
+        throw err;
+    }
+    console.log('db saved');
+    res.status(200).end('saved');
     if ('production' == env) {
       utils.emailMe(stringifed, 'created');
     }
   });
-  res.status(200).end('saved');
 });
 
 app.get('/download', function (req, res) {
@@ -67,6 +70,7 @@ app.get('/download', function (req, res) {
   if ('production' == env) {
     utils.emailMe('file', 'downloaded');
   }
+    res.status(200).end('downloaded');
 });
 
 app.delete('/mission/delete/:label', (req, res) => {
@@ -76,19 +80,15 @@ app.delete('/mission/delete/:label', (req, res) => {
   let tempdb = JSON.parse(rawdata);
 
   try {
-    utils.deletFromArray(tempdb, missionToDelete);
+    utils.deletFromArray(tempdb, missionToDelete,res);
   } catch (e) {
     console.log(e);
     if (e) {
-      res.status(200).end('err deliting mission');
+      res.status(400).end('err deleting mission');
     }
   }
   // utils.saveToDB(tempdb);
-
-
 });
-
-
 
 let port = process.env.PORT || 3000;
 // START THE SERVER
@@ -113,7 +113,9 @@ router.get('/delete/:token', function (req, res) {
       console.log('file deleted');
     });
     res.status(200).end('delete');
-  } else res.status(503).end('503');
+  } else {
+      res.status(503).end('503');
+  }
 });
 
 app.use('/api', router);

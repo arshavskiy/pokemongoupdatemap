@@ -4,7 +4,7 @@ const fs = require('fs');
 let env = process.env.NODE_ENV || 'development';
 
 
-function saveToDB(data) {
+function saveToDB(data, res) {
   console.log('saveToDB', data);
   let stringifed = JSON.stringify(data);
   fs.writeFile('DB/db_locations.json', stringifed, 'utf8', function (err) {
@@ -12,12 +12,15 @@ function saveToDB(data) {
     console.log('complete');
   });
   fs.writeFile('DB/temp.json', stringifed, 'utf8', function (err) {
-    if (err) throw err;
-    console.log('complete temp');
+    if (err) {
+        console.log('complete temp');
+        res.status(400).end('saved again');
+      throw err;
+    }
   });
 }
 
-function deletFromArray(arr, deleteMemeber) {
+function deletFromArray(arr, deleteMemeber, res) {
 
   console.log('deletFromArray.arr', arr);
   console.log('deletFromArray.deleteMemeber', deleteMemeber);
@@ -29,8 +32,7 @@ function deletFromArray(arr, deleteMemeber) {
       break;
     }
   }
-
-  saveToDB(arr);
+  saveToDB(arr, res);
 
   if ('production' == env) {
     emailMe(deleteMemeber, 'deleted');
