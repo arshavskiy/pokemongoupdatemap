@@ -319,6 +319,8 @@ function sizeMap(linkIcon) {
     if (linkIcon.includes('Lickitung')) return medium_size_icon;
     if (linkIcon.includes('Onix')) return big_size_icon;
     if (linkIcon.includes('Gastly')) return big_size_icon;
+    if (linkIcon.includes('Jynx')) return big_size_icon;
+    if (linkIcon.includes('Electabuzz')) return big_size_icon;
     else return small_size_icon;
 }
 
