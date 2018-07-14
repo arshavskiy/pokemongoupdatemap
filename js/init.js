@@ -86,7 +86,16 @@ getData = (function () {
         });
 })();
 
+function coockieParser() {
+    let allCookies = document.cookie;
+}
+
+
+
+
 initMap();
+coockieParser()
+
 
 let getLocations = [];
 let markers = [];
