@@ -276,12 +276,19 @@ function open_login_edit_modal(type, marker) {
                         break;
                     }
                 }
+            } else {
+                $("#passwordL" + adminLabel).toggleClass('wrong');
             }
         } else {
             let tokenL = $("#passwordL" + adminLabel).val();
-            if (tokenL == app.getToken()) {
+            let index =  app.getToken(tokenL);
+
+            if (index>=0) {
+                app.setTokenUsed(tokenL);
                 deleteAndHideElement($("#login_edit_modal" + adminLabel), 400);
                 openModal(null, marker);
+            } else {
+                $("#passwordL" + adminLabel).toggleClass('wrong');
             }
         }
     });

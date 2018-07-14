@@ -20,7 +20,8 @@ function saveNewMission(gmlinkToParse, event) {
                     label: inputLabel,
                     lat: gmLatLng[0],
                     lng: gmLatLng[1],
-                    startDate: app.getStartDate()
+                    startDate: app.getStartDate(),
+                    user: app.getTokenUsed(),
                 });
                 console.log('gmLatLng', gmLatLng);
 
@@ -44,7 +45,8 @@ function saveNewMission(gmlinkToParse, event) {
                 label: inputLabel,
                 lat: lat,
                 lng: lng,
-                startDate: app.getStartDate()
+                startDate: app.getStartDate(),
+                user: app.getTokenUsed(),
             });
 
             console.log('gmLatLng', gmLatLng);
@@ -66,6 +68,7 @@ function saveNewMission(gmlinkToParse, event) {
             lat: gmLatLng[0],
             lng: gmLatLng[1],
             startDate: app.getStartDate(),
+            user: app.getTokenUsed(),
         });
 
         openModalMissionSelector(
@@ -121,13 +124,22 @@ function showMissionModal() {
 }
 
 function missionModalHandles(event) {
+    let gm_link = $("input[name='gm_link']");
+    let gm_link_vallue = gm_link.val();
+    let input = $("#password");
+
+
     $("#okBtn").off('click').on('click', function(){
     // document.getElementById("okBtn").addEventListener("click", function () {
-        gm_link = $("input[name='gm_link']").val();
-        token = $("#password").val();
-        if (token == app.getToken()) {
+        let token = input.val();
+        let index =  app.getToken(token);
+        if (index>=0) {
             // setHeaderGps();
-            saveNewMission(gm_link, event);
+            app.setTokenUsed(token);
+            saveNewMission(gm_link_vallue, event);
+
+        } else {
+            input.toggleClass('wrong');
         }
     });
     $("#cancelBtn").off('click').on('click', function(){
@@ -135,12 +147,11 @@ function missionModalHandles(event) {
         $("#exampleModalCenter").hide();
     });
 
-    $("input[name='gm_link']").keypress(function (e) {
-        gm_link = $("input[name='gm_link']").val();
-        token = $("#password").val();
+    gm_link.keypress(function (e) {
 
         if (e.which == 13) {
-            if (token == app.getToken()) {
+            let index =  app.getToken(token);
+            if (index>=0) {
                 // setHeaderGps();
                 saveNewMission();
             }
@@ -302,6 +313,8 @@ function sizeMap(linkIcon) {
     if (linkIcon.includes('Potions')) return big_size_icon;
     if (linkIcon.includes('Chansey')) return big_size_icon;
     if (linkIcon.includes('Lickitung')) return medium_size_icon;
+    if (linkIcon.includes('Onix')) return big_size_icon;
+    if (linkIcon.includes('Gastly')) return big_size_icon;
     else return small_size_icon;
 }
 

@@ -1,8 +1,9 @@
 
 let app = (function () {
-    let selection = 0;
-    let locationsDB, startDate, appA, appB, appIcon, gpsAddMissonClicked,
-    initLocation, newLocation, image_pokestop, gooleMap, token='picaro', superToken='pika';
+    let selection = 0,
+    token=['picaro','picaro1','picaro2','picaro3','picaro4'],
+    locationsDB, startDate, appA, appB, appIcon, gpsAddMissonClicked, token_used,
+    initLocation, newLocation, image_pokestop, gooleMap,  superToken='pika';
     return {
         setGpsAddMisson: ()=>gpsAddMissonClicked = '(by GPS Location)',
         getGpsAddMisson: ()=>gpsAddMissonClicked,
@@ -24,7 +25,9 @@ let app = (function () {
         setNewLocation: (New_location)=> newLocation = New_location,
         getInitLocation: () => initLocation,
         getNewLocation: () => newLocation,
-        getToken:()=> token,
+        getToken: (t)=> token.indexOf(t),
+        setTokenUsed:(t)=> token_used = t,
+        getTokenUsed:()=> token_used,
         getSuperToken:()=> superToken,
         setCount: () => selection++,
         getCount: () => selection,
