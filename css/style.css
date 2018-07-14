@@ -353,9 +353,18 @@ nav,
 footer {
   background: transparent;
 }
+nav a{
+  display: flex;
+  font-size: 0.75rem;
+  color: #fff;
+}
+.fa{
+  cursor: pointer;
+}
+
 footer {
   position: relative;
-  top: -34px;
+  top: -40px;
   color: #000;
   padding: 0;
   display: flex;
@@ -396,7 +405,7 @@ footer {
     width: 100%;
     border-radius: 10px;
     /*border: 3px solid #138496;*/
-    border: 3px solid #0b373e;
+    border: 2px solid #0b373e;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     z-index: 0;

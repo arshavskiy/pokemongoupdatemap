@@ -206,7 +206,11 @@ function openModalMissionSelector(location, map, label, icon) {
     openModal(null, marker);
 }
 
-function addMarker(location, map, label, icon) {
+function addMarker(location, map, label, icon ) {
+    if (!icon){
+        // icon='https://vignette.wikia.nocookie.net/pokemongo/images/4/49/Trainer.png/revision/latest/scale-to-width-down/70';
+        icon='marker.png';
+    }
     if (typeof location.lat === "function") {
         mapLatLng = location;
     } else {
