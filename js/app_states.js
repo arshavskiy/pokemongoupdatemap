@@ -1,9 +1,10 @@
 
 let app = (function () {
+
     let selection = 0,
-    token=['picaro','picaro1','picaro2','picaro3','picaro4'],
+    token=['pika', 'bulba', 'char' , 'squir', 'chiko', 'cynda', 'toto', 'treec', 'torch', 'mudk'],
     locationsDB, startDate, appA, appB, appIcon, gpsAddMissonClicked, token_used,
-    initLocation, newLocation, image_pokestop, gooleMap,  superToken='pika';
+    initLocation, newLocation, image_pokestop, gooleMap,  superToken='pikapi';
     return {
         setGpsAddMisson: ()=>gpsAddMissonClicked = '(by GPS Location)',
         getGpsAddMisson: ()=>gpsAddMissonClicked,
