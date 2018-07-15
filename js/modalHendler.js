@@ -202,15 +202,19 @@ function missionModalHandles(event) {
     let gm_link = $("input[name='gm_link']");
     let gm_link_vallue = gm_link.val();
     let input = $("#password");
-    let userName = $('#username').val();
 
 
-    $("#okBtn").off('click').on('click', function(){
+    $("#okBtn").off('click').on('click', function () {
         // document.getElementById("okBtn").addEventListener("click", function () {
         let token = input.val();
-        let index =  app.getToken(token);
-        if (index>=0 && userName) {
+        let index = app.getToken(token);
+        let userName = $('#username').val();
+
+        if (index >= 0 && userName) {
+            setCookie('mapUserName', userName, 9999);
             // setHeaderGps();
+            $('#username').removeClass('wrong');
+            $("#password").removeClass('wrong');
             app.setTokenUsed(token);
             app.setUserName(userName);
             saveNewMission(gm_link_vallue, event);
@@ -220,7 +224,7 @@ function missionModalHandles(event) {
             $('#username').toggleClass('wrong');
         }
     });
-    $("#cancelBtn").off('click').on('click', function(){
+    $("#cancelBtn").off('click').on('click', function () {
         // document.getElementById("cancelBtn").addEventListener("click", function () {
         $("#exampleModalCenter").hide();
     });
@@ -228,8 +232,8 @@ function missionModalHandles(event) {
     gm_link.keypress(function (e) {
 
         if (e.which == 13) {
-            let index =  app.getToken(token);
-            if (index>=0) {
+            let index = app.getToken(token);
+            if (index >= 0) {
                 // setHeaderGps();
                 saveNewMission();
             }
@@ -240,7 +244,7 @@ function missionModalHandles(event) {
 
 
 function open_login_edit_modal(type, marker) {
-    let  header = `
+    let header = `
         <div class="col text-center">
             <h4 style="color:#fff">
             <span>Adit Mission</span>
@@ -250,13 +254,12 @@ function open_login_edit_modal(type, marker) {
         `,
         adminLabel = "",
         bgColor = 'modal-body-color3';
-    adminIcon = '<i class="fa fa-cogs" id="adminMenu" aria-hidden="true" style="position: absolute;"></i>';
+    adminIcon = '<i id="adminMenu" aria-hidden="true" class="close_button fa fa-trash" aria-hidden="true"></i>';
     //https://www.google.com/maps/search/?api=1&query=31.785492733328045, 35.214104199213125
     googleMapLink = `<div class="center" style="padding:0">
                         <a href="https://www.google.com/maps/search/?api=1&query=${marker.position}" target="_blank">
-                        <h6 style="font-size:0.8rem; position: absolute; left: calc(50% - 99px); color:#138496;">Get Directions
-                         <img src="https://pokemonil.eu-4.evennode.com/marker.png"> נווט למיקום</h6></a></div>`;
-
+                        <h6 style="font-size:1.2rem; position: absolute; left: calc(50% - 128px); color:#138496;">Get Directions
+                         <img src="https://pokemonil.eu-4.evennode.com/marker.png" height="15px"> נווט למיקום</h6></a></div>`;
 
     if (type == "admin") {
         header = `
@@ -267,8 +270,8 @@ function open_login_edit_modal(type, marker) {
             <span>למחוק משימה</span>
         </h4>
         `,
-        adminLabel = "_admin";
-        // adminIcon = "";
+            adminLabel = "_admin";
+        adminIcon = "";
         googleMapLink = "";
         bgColor = 'modal-body-color2';
     }
@@ -277,14 +280,13 @@ function open_login_edit_modal(type, marker) {
     <div class="new-modalL">
         <div class="modal-content" class="${bgColor}">
             <div class="modal-body">
-            ${adminIcon}
             ${googleMapLink}
                 <form>
                     <div class="form-group">
                         <div class="col text-center">
                         
                         <h4 style="color:#fff">${header}</h4>
-                        <input style="direction: ltr;" class="mt-4" placeholder="User/משתמש"
+                        <input style="direction: ltr;" class="mt-2" placeholder="User/משתמש"
                         type="text" id="usernameL${adminLabel}" name="usernameL" minLength="4" required>
                         
                         <input style="direction: ltr;" class="mt-2" placeholder="Password/סיסמה"
@@ -296,9 +298,9 @@ function open_login_edit_modal(type, marker) {
                 </form>
             </div>
             <div class="center">
-               
-                <i id="cancelBtnL${adminLabel}" class="close_button fa fa-times" aria-hidden="true"></i>
-                <i id="okBtnL${adminLabel}" class="action_button fa fa-check ml-2" aria-hidden="true"></i>
+               ${adminIcon}
+                <i id="cancelBtnL${adminLabel}" class="close_button fa fa-times ml-3" aria-hidden="true"></i>
+                <i id="okBtnL${adminLabel}" class="action_button fa fa-check ml-3 aria-hidden="true"></i>
                 </form>
             </div>
         </div>

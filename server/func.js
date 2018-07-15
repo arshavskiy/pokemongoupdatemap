@@ -13,8 +13,8 @@ function saveToDB(data, res) {
   });
   fs.writeFile('DB/temp.json', stringifed, 'utf8', function (err) {
     if (err) {
-        console.log('complete temp');
-        res.status(400).end('saved again');
+      console.log('complete temp');
+      res.status(400).end('saved again');
       throw err;
     }
   });
@@ -53,7 +53,7 @@ function emailMe(data, action = 'undefined') {
     from: 'pokemon.missions@gmail.com',
     to: 'arshavsky.pasha@gmail.com',
     subject: action,
-    text: 'where was change: ' + action
+    text: 'where was change: ' + data,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {

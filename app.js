@@ -10,8 +10,7 @@ const _ = require('lodash');
 const utils = require('./server/func');
 let env = utils.env;
 
-if ('development' == env) {
-}
+if ('development' == env) {}
 
 if ('production' == env) {
     console.log(process.env.NODE_TLS_REJECT_UNAUTHORIZED);
@@ -37,7 +36,6 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(__dirname + '/js'));
 app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/DB'));
-app.use(express.static(__dirname + '/map style'));
 app.use(express.static(__dirname + '/icons'));
 app.use(express.static(__dirname + '/view'));
 app.use(express.static(__dirname + '/'));
@@ -48,6 +46,9 @@ app.get('/', function (req, res) {
 });
 app.get('/edit', function (req, res) {
     res.sendFile(path.join(__dirname + '/view/edit.html'));
+});
+app.get('/db', function (req, res) {
+    res.sendFile(path.join(__dirname + '/DB/db_locations.json'));
 });
 
 app.post('/mission', function (req, res) {
@@ -66,13 +67,23 @@ app.post('/mission', function (req, res) {
     });
 });
 
-app.get('/download', function (req, res) {
-    res.download(__dirname + '/DB/db_locations.json', 'jsonFile.json');
-    if ('production' == env) {
-        utils.emailMe('file', 'downloaded');
-    }
-    res.status(200).end('downloaded');
+app.get('/download/:file(*)', function (req, res) {
+    var file = req.params.file;
+    var fileLocation = path.join('./DB', file);
+    console.log(fileLocation);
+    res.download(fileLocation), file,
+        function (err) {
+            if (err) {
+                res.status(400).end('error downloading');
+            } else {
+                res.status(200).end('downloaded');
+                if ('production' == env) {
+                    utils.emailMe('file', 'downloaded');
+                }
+            }
+        }
 });
+
 
 app.delete('/mission/delete/:label', (req, res) => {
     let missionToDelete = req.params.label;
@@ -117,7 +128,6 @@ router.get('/delete/:token', function (req, res) {
     } else {
         res.status(503).end('503');
     }
-})
-;
+});
 
 app.use('/api', router);

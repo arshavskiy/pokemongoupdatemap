@@ -26,7 +26,7 @@ function init(map) {
     });
 
     // document.getElementById('add_mission').addEventListener("click", (e)=>{
-    $("#add_mission").off('click').on('click', (e)=>{
+    $("#add_mission").off('click').on('click', (e) => {
         panToMyLocation();
         app.setGpsAddMisson(true);
         // $('strong.text-hide').removeClass().addClass('text-show');
@@ -86,16 +86,19 @@ getData = (function () {
         });
 })();
 
-function coockieParser() {
-    let allCookies = document.cookie;
+function greeder() {
+    let userName = getCookie('mapUserName');
+    if (userName) {
+        $.amaran({
+            'message': "Wellcome Back " + userName,
+            position: "top right",
+            theme: 'awesome ok'
+        });
+    }
 }
 
 
-
-
 initMap();
-coockieParser()
-
 
 let getLocations = [];
 let markers = [];
@@ -103,5 +106,7 @@ let markers = [];
 window.onload = function () {
 
     $('.lds-ripple').hide();
+    greeder();
+
     // $('body').css('background', 'linear-gradient(315deg, #8fd87d 0, #24ccaa 80%);');
 }

@@ -7,14 +7,22 @@
     <title>PokémonGO mission map</title>
     <link rel="canonical" href="http://pokemongo.wikia.com/wiki/List_of_Pok%C3%A9mon_families" />
     <link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/List_of_Pok%C3%A9mon_families?action=edit" />
-    <link rel="apple-touch-icon" href="https://slot1-images.wikia.nocookie.net/__cb6950056950012/common/skins/common/images/wiki.png" sizes="155x155" />
-    <link rel="shortcut icon" href="https://vignette.wikia.nocookie.net/pokemongo/images/6/64/Favicon.ico/revision/latest?cb=20170626163724" />
+    <link rel="apple-touch-icon" href="https://slot1-images.wikia.nocookie.net/__cb6950056950012/common/skins/common/images/wiki.png"
+        sizes="155x155" />
+    <link rel="shortcut icon" href="https://vignette.wikia.nocookie.net/pokemongo/images/6/64/Favicon.ico/revision/latest?cb=20170626163724"
+    />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/css/amaran.min.css">
+
+
+
     <link rel="stylesheet" href="css/style.css">
+
 
 </head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121811598-1"></script>
@@ -30,13 +38,16 @@
 </script>
 
 <body>
-  
+
     <!-- <div class="lds-circle"></div> -->
     <!-- loader -->
     <nav class="center" style="padding:0;">
         <a href="https://www.facebook.com/groups/735539106657351/about/" target="_blank" style=" color:#fff;">&nbsp;
-        <img src="https://www.freepngimg.com/download/facebook/3-2-facebook-png-pic.png" alt="Pokémon GO Israel" height="15px">
-         <strong>Pokémon GO Israel</strong></a>
+            <!-- <img src="https://www.freepngimg.com/download/facebook/3-2-facebook-png-pic.png" alt="Pokémon GO Israel" height="20px">
+             -->
+            <i class="fa fa-facebook-official" aria-hidden="true" style="line-height: 22px; color: black; font-size: 16px;"></i>
+            <strong style="font-size: 15px;">Pokémon GO Israel</strong>
+        </a>
     </nav>
 
     <div class="lds-ripple">
@@ -79,31 +90,29 @@
                                 <div class="form-group">
                                     <div class="col text-center">
                                         <h4 style="color:#fff">
-                                        <span>Add Mission</span>
-                                        <img src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png" class="compas" alt="">
-                                        <span>הוספת משימה</span>
-                                    </h4>
-                                        <p style="margin-top: 20px; margin-bottom: 1rem; font-size: 10px; color: #fff;">מיקום נוכחי או לחיצה ארוכה במיקום לא מצריכים קישור מגוגל מפות
-                                            <br>Current location or a long press at the location does not require a link from Google Maps
+                                            <span>Add Mission</span>
+                                            <img src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png" class="compas" alt="">
+                                            <span>הוספת משימה</span>
+                                        </h4>
+                                        <p style="margin-top: 20px; margin-bottom: 1rem; font-size: 10px; color: #138496;">
+                                            מיקום נוכחי או לחיצה ארוכה במיקום לא מצריכים קישור מגוגל מפות
+                                            <br>Current location or a long press at the location does not require a link from
+                                            Google Maps
                                         </p>
-                                    <!-- <div class="col text-center"><h4 style="color:#fff">Add new Mission <strong class="text-hide"> by GPS</strong>?</h4> -->
-                                        <input style="direction: ltr;" class="mt-4" name="gm_link" 
-                                        type="url" title="Must contain valid google link"
-                                        placeholder="Google Map Link/קישור מגוגל מפות">
-                                        <input style="direction: ltr;" class="mt-2" placeholder="User/משתמש"
-                                               type="text" id="username" name="username"
-                                               minLength="4" required>
-                                        <input style="direction: ltr;" class="mt-2" placeholder="Password/סיסמה"
-                                        type="password" id="password" name="password"
-                                        minLength="4" required>
+                                        <!-- <div class="col text-center"><h4 style="color:#fff">Add new Mission <strong class="text-hide"> by GPS</strong>?</h4> -->
+                                        <input style="direction: ltr;" class="mt-2" name="gm_link" type="url" title="Must contain valid google link" placeholder="Google Map Link/קישור מגוגל מפות">
+                                        <input style="direction: ltr;" class="mt-2" placeholder="User/משתמש" type="text" id="username" name="username" minLength="4"
+                                            required>
+                                        <input style="direction: ltr;" class="mt-2" placeholder="Password/סיסמה" type="password" id="password" name="password" minLength="4"
+                                            required>
 
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div class="center">
-                             <i id="cancelBtn" class="close_button fa fa-times" aria-hidden="true"></i>
-                            <i id="okBtn" class="action_button fa fa-check ml-2" aria-hidden="true"></i>
+                            <i id="cancelBtn" class="close_button fa fa-times" aria-hidden="true"></i>
+                            <i id="okBtn" class="action_button fa fa-check ml-3" aria-hidden="true"></i>
                             </form>
                         </div>
                     </div>
@@ -142,12 +151,24 @@
     </section>
     <footer>
         <p>Writen by </p>
-        <a href="mailto:pokemon.missions@gmail.com" target="_blank" title='Pavel Arshavsky'><strong>Pavel Arshavsky</strong></a>
+        <a href="mailto:pokemon.missions@gmail.com" target="_blank" title='Pavel Arshavsky'>
+            <strong>Pavel Arshavsky</strong>
+        </a>
         <p>for</p>
-        <a href="https://m.me/cobyraz"><strong>Coby Raz </strong><img src="../icons/teddy.png" alt="Coby Raz" class="img_coby"></a>
-       </footer>
+        <a href="https://m.me/cobyraz">
+            <strong>Coby Raz </strong>
+            <img src="../icons/teddy.png" alt="Coby Raz" class="img_coby">
+        </a>
+    </footer>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js'></script> -->
+    <script src="/js/jquery.amaran.min.js"></script>
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <!-- <script src="js/moment.min.js"></script> -->
     <!-- <script src="map style/retro_style.js"></script> -->
