@@ -14,16 +14,7 @@ function init(map) {
     });
 
     //add pokestop on click
-    let startDate, endDate;
-    google.maps.event.addListener(map, 'mousedown', function (event) {
-        startDate = Math.floor(Date.now() / 1000);
-        app.setStartDate(startDate);
-    });
-    google.maps.event.addListener(map, 'mouseup', function (event) {
-        endDate = Math.floor(Date.now() / 1000);
-
-        validateClick(event, startDate, endDate);
-    });
+    addMapEventListeners();
 
     // document.getElementById('add_mission').addEventListener("click", (e)=>{
     $("#add_mission").off('click').on('click', (e) => {
@@ -38,6 +29,7 @@ function init(map) {
     });
 
 
+   
     // google.maps.event.addListener(map, 'click', (event)=>{
     //     app.setStartDate(startDate);
     //     validateClick(event, startDate);
@@ -52,6 +44,7 @@ function initMap() {
         gestureHandling: "greedy"
     });
     app.setGoogleMap(map);
+
     google.maps.event.addDomListener(window, 'load', init(map));
 
     $('.find-me').click(function (e) {

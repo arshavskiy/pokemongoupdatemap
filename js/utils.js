@@ -1,6 +1,8 @@
 function saveNewMission(gmlinkToParse, event) {
     let gmLatLng;
+
     $("#exampleModalCenter").hide();
+
     gmLatLng = parseGoolgeLink(gmlinkToParse);
     let inputLabel = "new_mission" + Math.floor(Date.now() / 1000);
 
@@ -123,7 +125,20 @@ function showMissionModal() {
     $("#password").focus();
 }
 
+function addMapEventListeners(){
+    let map = app.getGoogleMap(), 
+    startDate, endDate;
 
+    google.maps.event.addListener(map, 'mousedown', function (event) {
+        startDate = Math.floor(Date.now() / 1000);
+        app.setStartDate(startDate);
+    });
+    google.maps.event.addListener(map, 'mouseup', function (event) {
+        endDate = Math.floor(Date.now() / 1000);
+
+        validateClick(event, startDate, endDate);
+    });
+}
 
 // function setHeaderGps() {
 //     if(app.getGpsAddMisson()){
@@ -208,6 +223,16 @@ function addMarker(location, map, label, icon) {
     //     labelClass: "my-custom-class-for-label", // your desired CSS class
     //     labelInBackground: false
     // });
+    addMapEventListenersOnNewMarkers(marker);
+
+    // if (typeof location == 'object'){
+    //     printCordinates(location.lat, location.lng, label, map, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png');
+    // } else {
+    //     printCordinates(location.lat(), location.lng(), label, map);
+    // }
+}
+
+function addMapEventListenersOnNewMarkers(marker) {
     let startDate, endDate;
 
     google.maps.event.addListener(marker, "mousedown", function (e) {
@@ -223,12 +248,6 @@ function addMarker(location, map, label, icon) {
             } else return;
         }
     });
-
-    // if (typeof location == 'object'){
-    //     printCordinates(location.lat, location.lng, label, map, 'https://raw.githubusercontent.com/arshavskiy/google_maps_api_page/testing/icons/003-insignia.png');
-    // } else {
-    //     printCordinates(location.lat(), location.lng(), label, map);
-    // }
 }
 
 function deleteAndHideElement(elm, t) {

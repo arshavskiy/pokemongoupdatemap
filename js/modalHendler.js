@@ -19,10 +19,12 @@ function menuEventsSetter(marker) {
                         openModal(e.target.id, marker);
                     } else {
                         app.setIcon(icon);
+
                         setMarkerIcon(icon, marker);
-                        objectForSave = e.target;
+
                         app.setCount();
                         console.log('count', app.getCount());
+
                         return;
                     }
                     // saveDB(objectForSave, marker);
@@ -40,9 +42,13 @@ function setMarkerIcon(icon, marker) {
     let new_marker_icon = app.getIcon();
 
     if (new_marker_icon) {
-        app.setIcon(new_marker_icon + '/revision/latest/scale-to-width-down/' + sizeMap(new_marker_icon));
-        marker.setIcon(app.getIcon());
-        let new_icon_to_save = app.getIcon();
+       
+        let new_icon_to_save = app.setIcon(new_marker_icon + '/revision/latest/scale-to-width-down/' + sizeMap(new_marker_icon));
+
+        marker.setIcon(new_icon_to_save);
+
+        addMapEventListenersOnNewMarkers(marker);
+
         updateDBicons(marker, new_icon_to_save);
         saveDB();
     }
@@ -211,14 +217,20 @@ function missionModalHandles(event) {
         let userName = $('#username').val();
 
         if (index >= 0 && userName) {
-            setCookie('mapUserName', userName, 9999);
+
+            let userNameFromCoockie = getCookie('mapUserName');
+            if (!userNameFromCoockie || userNameFromCoockie != userName) {
+                setCookie('mapUserName', userName, 9999);
+            }
             // setHeaderGps();
             $('#username').removeClass('wrong');
             $("#password").removeClass('wrong');
+
             app.setTokenUsed(token);
             app.setUserName(userName);
-            saveNewMission(gm_link_vallue, event);
 
+            saveNewMission(gm_link_vallue, event);
+           
         } else {
             input.toggleClass('wrong');
             $('#username').toggleClass('wrong');

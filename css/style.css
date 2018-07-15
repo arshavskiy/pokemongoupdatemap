@@ -301,12 +301,14 @@ label.label_icon {
 }
 
 #add_mission {
-  /* background: linear-gradient(-90deg, #61D29A 0, #B6DE83 80%); */
   background: linear-gradient(315deg, #8fd87d 0, #1b7e94 80%);
   border-radius: 25px;
   border: none;
   height: 34px;
   max-width: 250px;
+  position: relative;
+  bottom: 59px;
+  /* background: linear-gradient(315deg, #8fd87d 0, #24ccaa 80%); */
 }
 
 #add_mission span {
@@ -477,13 +479,14 @@ nav img {
 }
 
 footer {
-  position: relative;
-  top: -40px;
+
   color: #000;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: baseline;
+  position: relative;
+  bottom: 43px;
 }
 
 footer a {
@@ -518,6 +521,15 @@ footer {
 }
 
 @media (max-width: 576px) {
+  #add_mission {
+    bottom: 0;
+  }
+  
+  footer{
+    position: relative;
+    top: -40px;
+  }
+  
   #map-canvas {
     height: calc(100vh - 110px);
     width: 100%;
