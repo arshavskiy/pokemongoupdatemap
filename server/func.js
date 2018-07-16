@@ -32,7 +32,7 @@ function deletFromArray(arr, deleteMemeber, res) {
       break;
     }
   }
-  saveToDB(arr, res);
+  saveToDB(arr);
 
   if ('production' == env) {
     emailMe(deleteMemeber, 'deleted');

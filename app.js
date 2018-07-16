@@ -5,10 +5,34 @@ const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const http = require('http');
 const _ = require('lodash');
 
 const utils = require('./server/func');
 let env = utils.env;
+
+var mongoPassword = 'udacha3100186681984';
+			
+var server = http.createServer(function(req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+
+  var config = JSON.parse(process.env.APP_CONFIG);
+  var MongoClient = require('mongodb').MongoClient;
+
+  MongoClient.connect(
+    "mongodb://" + config.mongo.user + ":" + encodeURIComponent(mongoPassword) + "@" + 
+    config.mongo.hostString, 
+    function(err, db) {
+      if(!err) {
+        res.end("We are connected to MongoDB");
+      } else {
+        res.end("Error while connecting to MongoDB");
+      }
+    }
+  );
+});
+server.listen(process.env.PORT);
+
 
 if ('development' == env) {}
 
@@ -67,6 +91,24 @@ app.post('/mission', function (req, res) {
     });
 });
 
+app.delete('/mission/delete/:label', (req, res) => {
+    let missionToDelete = req.params.label;
+    let filePath = 'DB/db_locations.json';
+    let rawdata = fs.readFileSync(filePath);
+    let tempdb = JSON.parse(rawdata);
+
+    try {
+        utils.deletFromArray(tempdb, missionToDelete, res);
+    } catch (e) {
+        console.log(e);
+        if (e) {
+            res.status(400).end('err deleting mission');
+        }
+    }
+    
+    // utils.saveToDB(tempdb);
+});
+
 app.get('/download/:file(*)', function (req, res) {
     var file = req.params.file;
     var fileLocation = path.join('./DB', file);
@@ -85,22 +127,6 @@ app.get('/download/:file(*)', function (req, res) {
 });
 
 
-app.delete('/mission/delete/:label', (req, res) => {
-    let missionToDelete = req.params.label;
-    let filePath = 'DB/db_locations.json';
-    let rawdata = fs.readFileSync(filePath);
-    let tempdb = JSON.parse(rawdata);
-
-    try {
-        utils.deletFromArray(tempdb, missionToDelete, res);
-    } catch (e) {
-        console.log(e);
-        if (e) {
-            res.status(400).end('err deleting mission');
-        }
-    }
-    // utils.saveToDB(tempdb);
-});
 
 let port = process.env.PORT || 3000;
 // START THE SERVER

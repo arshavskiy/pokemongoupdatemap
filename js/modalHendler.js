@@ -42,7 +42,7 @@ function setMarkerIcon(icon, marker) {
     let new_marker_icon = app.getIcon();
 
     if (new_marker_icon) {
-       
+
         let new_icon_to_save = app.setIcon(new_marker_icon + '/revision/latest/scale-to-width-down/' + sizeMap(new_marker_icon));
 
         marker.setIcon(new_icon_to_save);
@@ -230,7 +230,7 @@ function missionModalHandles(event) {
             app.setUserName(userName);
 
             saveNewMission(gm_link_vallue, event);
-           
+
         } else {
             input.toggleClass('wrong');
             $('#username').toggleClass('wrong');
@@ -259,19 +259,32 @@ function open_login_edit_modal(type, marker) {
     let header = `
         <div class="col text-center">
             <h4 style="color:#fff">
-            <span>Adit Mission</span>
+            <span>Edit Mission</span>
             <img src="https://vignette.wikia.nocookie.net/pokemongo/images/8/84/Mp-Icon_Research.png" class="compas" alt="">
             <span>ערוך משימה</span>
         </h4>
         `,
         adminLabel = "",
         bgColor = 'modal-body-color3';
-    adminIcon = '<i id="adminMenu" aria-hidden="true" class="close_button fa fa-trash" aria-hidden="true"></i>';
+    // adminIcon = `<div style="display: flex; margin-bottom: 20px; font-size:1.2rem">
+    //                 <h5>Delete Mission</h5>
+    //                 <i id="adminMenu" aria-hidden="true" class="pl-2 pr-2 fa fa-trash" aria-hidden="true"></i>
+    //                 <h5>מחק משימה</h5>
+    //             </div>
+    // `;
     //https://www.google.com/maps/search/?api=1&query=31.785492733328045, 35.214104199213125
-    googleMapLink = `<div class="center" style="padding:0">
+    googleMapLink = `<div style="position:relative; top:-26px">
                         <a href="https://www.google.com/maps/search/?api=1&query=${marker.position}" target="_blank">
-                        <h6 style="font-size:1.2rem; position: absolute; left: calc(50% - 128px); color:#138496;">Get Directions
+                        <h6 style="font-size:1.25rem; left: calc(50% - 128px); color:#138496;">Get Directions
                          <img src="https://pokemonil.eu-4.evennode.com/marker.png" height="15px"> נווט למיקום</h6></a></div>`;
+
+    adminIcon = `
+                    <i id="adminMenu" aria-hidden="true" class="close_button ml-3 fa fa-trash" aria-hidden="true"></i>
+    `;
+    //https://www.google.com/maps/search/?api=1&query=31.785492733328045, 35.214104199213125
+    // googleMapLink = `<div class="animated infinite bounce">
+    //                     <a href="https://www.google.com/maps/search/?api=1&query=${marker.position}" target="_blank">
+    //                      <img src="https://pokemonil.eu-4.evennode.com/marker.png" height="40px"></a></div>`;
 
     if (type == "admin") {
         header = `
@@ -292,11 +305,13 @@ function open_login_edit_modal(type, marker) {
     <div class="new-modalL">
         <div class="modal-content" class="${bgColor}">
             <div class="modal-body">
-            ${googleMapLink}
+            <div class="center" style="padding:0">
+           
+            </div>
                 <form>
                     <div class="form-group">
                         <div class="col text-center">
-                        
+                        ${googleMapLink}
                         <h4 style="color:#fff">${header}</h4>
                         <input style="direction: ltr;" class="mt-2" placeholder="User/משתמש"
                         type="text" id="usernameL${adminLabel}" name="usernameL" minLength="4" required>
@@ -308,9 +323,14 @@ function open_login_edit_modal(type, marker) {
                         </div>
                     </div>
                 </form>
+                <div class="center" style="padding:0">
+              
+              
+                </div>
             </div>
             <div class="center">
-               ${adminIcon}
+           
+            ${adminIcon}
                 <i id="cancelBtnL${adminLabel}" class="close_button fa fa-times ml-3" aria-hidden="true"></i>
                 <i id="okBtnL${adminLabel}" class="action_button fa fa-check ml-3 aria-hidden="true"></i>
                 </form>
