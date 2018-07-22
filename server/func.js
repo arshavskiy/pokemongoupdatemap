@@ -4,11 +4,36 @@ const fs = require('fs');
 let env = process.env.NODE_ENV || 'development';
 
 
+function saveToLogFile(logToSave) {
+  startDate = Math.floor(Date.now() / 1000);
+  fs.appendFile('DB/log.txt', logToSave + 'at: '+ startDate +'\r\n', function (err) {
+      if (err) {
+         throw err;
+      } else {
+          console.log('log saved');
+          if ('production' == env) {
+              emailMe(stringifed, 'log created');
+          }
+      }
+    });
+}
+
 function saveToDB(data, res) {
   console.log('saveToDB', data);
   let stringifed = JSON.stringify(data);
   fs.writeFile('DB/db_locations.json', stringifed, 'utf8', function (err) {
-    if (err) throw err;
+    if (err) {
+     
+      fs.writeFile('DB/error.json', stringifed, 'utf8', function (err) {
+        if (err) {
+          console.log('error temp');
+          res.status(400).end('error again');
+          throw err;
+        }
+      });
+      
+      throw err;
+    }
     console.log('complete');
   });
   fs.writeFile('DB/temp.json', stringifed, 'utf8', function (err) {
@@ -19,6 +44,7 @@ function saveToDB(data, res) {
     }
   });
 }
+
 
 function deletFromArray(arr, deleteMemeber, res) {
 
@@ -70,4 +96,5 @@ module.exports = {
   saveToDB: saveToDB,
   emailMe: emailMe,
   env: env,
+  saveToLogFile, saveToLogFile,
 };

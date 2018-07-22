@@ -123,6 +123,10 @@ function showMissionModal() {
     });
 
     $("#password").focus();
+    let username = $("#username");
+    if (app.getUserFromCoockie()){
+        $('#username').val(app.getUserFromCoockie());
+    }
 }
 
 function addMapEventListeners(){
@@ -242,7 +246,7 @@ function addMapEventListenersOnNewMarkers(marker) {
 
     google.maps.event.addListener(marker, "mouseup", function (e) {
         endDate = Math.floor(Date.now() / 1000);
-        if (endDate - startDate >= 1) {
+        if (endDate - startDate >= 2) {
             if ($('.login_edit_modal').length == 0) {
                 open_login_edit_modal(null, marker);
             } else return;

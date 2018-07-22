@@ -2,7 +2,7 @@ let app = (function () {
 
     let selection = 0,
         token = ['pikapi', 'bulba', 'char', 'squir', 'chiko', 'cynda', 'toto', 'treec', 'torch', 'mudk'],
-        locationsDB, startDate, appA, appB, appIcon, gpsAddMissonClicked, token_used, user_name,
+        locationsDB, startDate, appA, appB, appIcon, gpsAddMissonClicked, token_used, user_name, user_cookie,
         initLocation, newLocation, image_pokestop, gooleMap, superToken = 'pikapi';
     return {
         setGpsAddMisson: (btn) => gpsAddMissonClicked = btn,
@@ -28,6 +28,8 @@ let app = (function () {
         getToken: (t) => token.indexOf(t),
         setTokenUsed: (t) => token_used = t,
         getTokenUsed: () => token_used,
+        setUserFromCoockie: (u)=> user_cookie = u,
+        getUserFromCoockie: ()=> user_cookie,
         setUserName: (u) => user_name = u,
         getUserName: () => user_name,
         getSuperToken: () => superToken,

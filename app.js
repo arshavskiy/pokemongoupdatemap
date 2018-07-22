@@ -11,27 +11,27 @@ const _ = require('lodash');
 const utils = require('./server/func');
 let env = utils.env;
 
-var mongoPassword = 'udacha3100186681984';
+// var mongoPassword = 'udacha3100186681984';
 			
-var server = http.createServer(function(req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
+// var server = http.createServer(function(req, res) {
+//   res.writeHead(200, { 'Content-Type': 'text/plain' });
 
-  var config = JSON.parse(process.env.APP_CONFIG);
-  var MongoClient = require('mongodb').MongoClient;
+//   var config = JSON.parse(process.env.APP_CONFIG);
+//   var MongoClient = require('mongodb').MongoClient;
 
-  MongoClient.connect(
-    "mongodb://" + config.mongo.user + ":" + encodeURIComponent(mongoPassword) + "@" + 
-    config.mongo.hostString, 
-    function(err, db) {
-      if(!err) {
-        res.end("We are connected to MongoDB");
-      } else {
-        res.end("Error while connecting to MongoDB");
-      }
-    }
-  );
-});
-server.listen(process.env.PORT);
+//   MongoClient.connect(
+//     "mongodb://" + config.mongo.user + ":" + encodeURIComponent(mongoPassword) + "@" + 
+//     config.mongo.hostString, 
+//     function(err, db) {
+//       if(!err) {
+//         res.end("We are connected to MongoDB");
+//       } else {
+//         res.end("Error while connecting to MongoDB");
+//       }
+//     }
+//   );
+// });
+// server.listen(process.env.PORT);
 
 
 if ('development' == env) {}
@@ -91,7 +91,17 @@ app.post('/mission', function (req, res) {
     });
 });
 
+app.post('/log', function (req, res) {
+
+    let logToSave = JSON.stringify(req.body.params);
+    utils.saveToLogFile(logToSave, res);
+});
+
+
 app.delete('/mission/delete/:label', (req, res) => {
+
+    utils.saveToLogFile('DB/db_locations.json', res);
+
     let missionToDelete = req.params.label;
     let filePath = 'DB/db_locations.json';
     let rawdata = fs.readFileSync(filePath);
@@ -112,7 +122,11 @@ app.delete('/mission/delete/:label', (req, res) => {
 app.get('/download/:file(*)', function (req, res) {
     var file = req.params.file;
     var fileLocation = path.join('./DB', file);
+
     console.log(fileLocation);
+
+    utils.saveToLogFile('fileLocation');
+
     res.download(fileLocation), file,
         function (err) {
             if (err) {
@@ -137,23 +151,17 @@ app.listen(port, '0.0.0.0', function (err) {
 // ROUTES FOR OUR API
 var router = express.Router();
 
-router.get('/', function (req, res) {
-    res.json({
-        message: 'hooray! welcome to our api!'
-    });
-});
-
-
 router.get('/delete/:token', function (req, res) {
     let filePath = 'DB/db_locations.json';
-    if (req.params.token === 'picaro_db') {
+    if (req.params.token === 'luna') {
         fs.truncate(filePath, 0, function () {
-            console.log('file deleted');
+            console.log('db_locations.json deleted');
         });
         res.status(200).end('delete');
     } else {
         res.status(503).end('503');
     }
 });
+
 
 app.use('/api', router);

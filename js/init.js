@@ -44,7 +44,6 @@ function initMap() {
         gestureHandling: "greedy"
     });
     app.setGoogleMap(map);
-
     google.maps.event.addDomListener(window, 'load', init(map));
 
     $('.find-me').click(function (e) {
@@ -54,8 +53,8 @@ function initMap() {
     });
 }
 
-getData = (function () {
-    return $.getJSON("DB/db_locations.json")
+(function getData(path='DB/db_locations.json') {
+    return $.getJSON(path)
         .done(function (json) {
             if (typeof json === 'object') {
                 app.setGlobalLocation(getLocations = json);
@@ -69,7 +68,12 @@ getData = (function () {
         })
         .fail(function (jqxhr, textStatus, error) {
             var err = textStatus + ", " + error;
-            console.log("Request Failed: " + err);
+
+            saveToLog(err);
+
+            if (app.setCount() > 1) return;
+            getData('DB/temp.json');
+            app.setCount();
         })
         .always(function (json) {
 
@@ -77,11 +81,13 @@ getData = (function () {
             app.setGlobalLocation(json.responseText ? json : []);
             map = app.getGoogleMap();
         });
-})();
+}());
 
 function greeder() {
     let userName = getCookie('mapUserName');
+  
     if (userName) {
+        app.setUserFromCoockie(userName);
         $.amaran({
             'message': "Wellcome Back " + userName,
             position: "top right",

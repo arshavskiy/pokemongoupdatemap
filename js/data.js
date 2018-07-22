@@ -15,14 +15,13 @@ function updateDBicons(marker, new_marker_icon) {
 
 function cleanEmptyMarkers(arr=getLocations, deleteMemeber='') {
 
-    console.log('deletFromArray.arr', arr);
+  
     for (var i = arr.length - 1; i >= 0; i--) {
         if (arr[i].icon == deleteMemeber) {
             console.log(arr[i]);
             arr.splice(i, 1);
         }
     }
-    console.log('deletFromArray.arr', arr);
 }
 
 
@@ -34,10 +33,10 @@ function saveDB() {
         data: {getLocations:getLocations},
         dataType: 'json',
         done: function (status) {
-           console.log(status);
+           saveToLog(status);
         },
         fail: function(error){
-            console.log('error:', error);
+            saveToLog(error);
         }
     });
 }
@@ -48,10 +47,26 @@ function deleteMissonDB(id) {
         url: '/mission/delete/'+id,
         dataType: 'json',
         done: function (status) {
-           console.log(status);
+           saveToLog(status);
         },
         fail: function(error){
-            console.log('error:', error);
+            saveToLog('error:', error);
         }
     });
+}
+
+function saveToLog(params) {
+    $.ajax({
+        type: "POST",
+        url: '/log',
+        data: {params:params},
+        dataType: 'json',
+        done: function (status) {
+            saveToLog(status);
+         },
+         fail: function(error){
+             saveToLog('error:', error);
+         }
+        
+      });
 }

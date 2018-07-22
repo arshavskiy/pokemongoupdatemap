@@ -1,6 +1,5 @@
 function menuEventsSetter(marker) {
     let catchTheMenu = $(".new-modal");
-    console.log(catchTheMenu.length);
 
     $(".new-modal")[0].onclick = (e) => {
         // $(".new-modal").off('click').on('click', (e)=>{
@@ -206,8 +205,10 @@ function buildMenu(id, bgColorClass, menuItems) {
 
 function missionModalHandles(event) {
     let gm_link = $("input[name='gm_link']");
-    let gm_link_vallue = gm_link.val();
     let input = $("#password");
+    if (app.getUserFromCoockie()){
+        $('#username').val(app.getUserFromCoockie());
+    }
 
 
     $("#okBtn").off('click').on('click', function () {
@@ -215,6 +216,7 @@ function missionModalHandles(event) {
         let token = input.val();
         let index = app.getToken(token);
         let userName = $('#username').val();
+        let gm_link_value = gm_link.val();
 
         if (index >= 0 && userName) {
 
@@ -229,7 +231,7 @@ function missionModalHandles(event) {
             app.setTokenUsed(token);
             app.setUserName(userName);
 
-            saveNewMission(gm_link_vallue, event);
+            saveNewMission(gm_link_value, event);
 
         } else {
             input.toggleClass('wrong');
@@ -276,7 +278,7 @@ function open_login_edit_modal(type, marker) {
     googleMapLink = `<div style="position:relative; top:-26px">
                         <a href="https://www.google.com/maps/search/?api=1&query=${marker.position}" target="_blank">
                         <h6 style="font-size:1.25rem; left: calc(50% - 128px); color:#138496;">Get Directions
-                         <img src="https://pokemonil.eu-4.evennode.com/marker.png" height="15px"> נווט למיקום</h6></a></div>`;
+                         <img src="https://pokemonil.eu-4.evennode.com/icons/marker.png" height="15px"> נווט למיקום</h6></a></div>`;
 
     adminIcon = `
                     <i id="adminMenu" aria-hidden="true" class="close_button ml-3 fa fa-trash" aria-hidden="true"></i>
@@ -284,7 +286,7 @@ function open_login_edit_modal(type, marker) {
     //https://www.google.com/maps/search/?api=1&query=31.785492733328045, 35.214104199213125
     // googleMapLink = `<div class="animated infinite bounce">
     //                     <a href="https://www.google.com/maps/search/?api=1&query=${marker.position}" target="_blank">
-    //                      <img src="https://pokemonil.eu-4.evennode.com/marker.png" height="40px"></a></div>`;
+    //                      <img src="https://pokemonil.eu-4.evennode.com/icons/marker.png" height="40px"></a></div>`;
 
     if (type == "admin") {
         header = `
@@ -329,8 +331,7 @@ function open_login_edit_modal(type, marker) {
                 </div>
             </div>
             <div class="center">
-           
-            ${adminIcon}
+                ${adminIcon}
                 <i id="cancelBtnL${adminLabel}" class="close_button fa fa-times ml-3" aria-hidden="true"></i>
                 <i id="okBtnL${adminLabel}" class="action_button fa fa-check ml-3 aria-hidden="true"></i>
                 </form>
@@ -346,6 +347,11 @@ function open_login_edit_modal(type, marker) {
     $("#login_edit_modal" + adminLabel).show();
     $(".new-modalL").show();
     $("#passwordL" + adminLabel).focus();
+
+    let username = $(`#usernameL${adminLabel}`);
+    if (app.getUserFromCoockie()){
+        username.val(app.getUserFromCoockie());
+    }
 
     cBtn = document.getElementById("cancelBtnL" + adminLabel);
     oBtn = document.getElementById("okBtnL" + adminLabel);
