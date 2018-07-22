@@ -122,11 +122,7 @@ app.delete('/mission/delete/:label', (req, res) => {
 app.get('/download/:file(*)', function (req, res) {
     var file = req.params.file;
     var fileLocation = path.join('./DB', file);
-
-    console.log(fileLocation);
-
     utils.saveToLogFile('fileLocation');
-
     res.download(fileLocation), file,
         function (err) {
             if (err) {

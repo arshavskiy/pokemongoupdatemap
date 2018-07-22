@@ -12,14 +12,13 @@ function saveToLogFile(logToSave) {
       } else {
           console.log('log saved');
           if ('production' == env) {
-              emailMe(stringifed, 'log created');
+              emailMe(logToSave, 'log created');
           }
       }
     });
 }
 
 function saveToDB(data, res) {
-  console.log('saveToDB', data);
   let stringifed = JSON.stringify(data);
   fs.writeFile('DB/db_locations.json', stringifed, 'utf8', function (err) {
     if (err) {
