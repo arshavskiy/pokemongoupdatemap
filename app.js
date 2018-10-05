@@ -72,7 +72,12 @@ app.get('/edit', function (req, res) {
     res.sendFile(path.join(__dirname + '/view/edit.html'));
 });
 app.get('/db', function (req, res) {
-    res.sendFile(path.join(__dirname + '/DB/db_locations.json'));
+    try{
+        res.sendFile(path.join(__dirname + '/DB/db_locations.json'));
+    } catch (e){
+        saveToLogFile(e);
+    }
+    
 });
 
 app.post('/mission', function (req, res) {
@@ -94,13 +99,13 @@ app.post('/mission', function (req, res) {
 app.post('/log', function (req, res) {
 
     let logToSave = JSON.stringify(req.body.params);
-    utils.saveToLogFile(logToSave, res);
+    utils.saveToLogFile(logToSave);
 });
 
 
 app.delete('/mission/delete/:label', (req, res) => {
 
-    utils.saveToLogFile('DB/db_locations.json', res);
+    utils.saveToLogFile('DB/db_locations.json');
 
     let missionToDelete = req.params.label;
     let filePath = 'DB/db_locations.json';

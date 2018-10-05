@@ -53,6 +53,20 @@ function initMap() {
     });
 }
 
+function greeder() {
+    let userName = getCookie('mapUserName');
+  
+    if (userName) {
+        app.setUserFromCoockie(userName);
+        $.amaran({
+            'message': "Wellcome Back " + userName,
+            position: "top right",
+            theme: 'awesome ok'
+        });
+    }
+}
+
+
 (function getData(path='DB/db_locations.json') {
     return $.getJSON(path)
         .done(function (json) {
@@ -71,9 +85,9 @@ function initMap() {
 
             saveToLog(err);
 
-            if (app.setCount() > 1) return;
-            getData('DB/temp.json');
-            app.setCount();
+            // if (app.setCount() > 1) return;
+            // getData('DB/temp.json');
+            // app.setCount();
         })
         .always(function (json) {
 
@@ -83,18 +97,6 @@ function initMap() {
         });
 }());
 
-function greeder() {
-    let userName = getCookie('mapUserName');
-  
-    if (userName) {
-        app.setUserFromCoockie(userName);
-        $.amaran({
-            'message': "Wellcome Back " + userName,
-            position: "top right",
-            theme: 'awesome ok'
-        });
-    }
-}
 
 
 initMap();
