@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 const http = require('http');
 const _ = require('lodash');
 
+const puppeteer = require('puppeteer');
+
 const utils = require('./server/func');
 let env = utils.env;
 
@@ -41,9 +43,31 @@ app.use(express.static(__dirname + '/view'));
 app.use(express.static(__dirname + '/'));
 
 app.post('/post', function (req, res){  
-    console.log(req.body);
+    console.log(req.body.data);
     console.log('req received');
-    res.redirect('/edit');
+
+    (async () => {
+        /* Initiate the Puppeteer browser */
+        console.log('======', req.body.data);
+        
+        const browser = await puppeteer.launch({headless:false});
+        const page = await browser.newPage();
+
+        await page.goto('https://' + req.body.data, { waitUntil: 'networkidle2' });
+        console.log(page.url()); 
+
+        let data = await page.evaluate(() => {
+          let p = document.querySelector('img#hplogo');
+          if (p) {
+            p.style.border = '1px solid red';
+            return p
+          } else return 'empty';
+        });
+
+        console.log(data);
+        // await browser.close();
+
+    })();
  
  });
 
