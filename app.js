@@ -30,7 +30,7 @@ app.options('*', cors()); // enable pre-flight
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({
     extended: true
-}));
+  }));
 
 //Store all JS and CSS in Scripts folder.
 app.use(express.static(__dirname + '/js'));
@@ -40,6 +40,12 @@ app.use(express.static(__dirname + '/icons'));
 app.use(express.static(__dirname + '/view'));
 app.use(express.static(__dirname + '/'));
 
+app.post('/post', function (req, res){  
+    console.log(req.body);
+    console.log('req received');
+    res.redirect('/edit');
+ 
+ });
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
