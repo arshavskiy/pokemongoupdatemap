@@ -1,6 +1,5 @@
-// call the packages we need
-const express = require('express'); // call express
-const app = express(); // define our app using express
+const express = require('express'); 
+const app = express();
 const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
@@ -10,29 +9,6 @@ const _ = require('lodash');
 
 const utils = require('./server/func');
 let env = utils.env;
-
-// var mongoPassword = 'udacha3100186681984';
-			
-// var server = http.createServer(function(req, res) {
-//   res.writeHead(200, { 'Content-Type': 'text/plain' });
-
-//   var config = JSON.parse(process.env.APP_CONFIG);
-//   var MongoClient = require('mongodb').MongoClient;
-
-//   MongoClient.connect(
-//     "mongodb://" + config.mongo.user + ":" + encodeURIComponent(mongoPassword) + "@" + 
-//     config.mongo.hostString, 
-//     function(err, db) {
-//       if(!err) {
-//         res.end("We are connected to MongoDB");
-//       } else {
-//         res.end("Error while connecting to MongoDB");
-//       }
-//     }
-//   );
-// });
-// server.listen(process.env.PORT);
-
 
 if ('development' == env) {}
 
@@ -73,11 +49,10 @@ app.get('/edit', function (req, res) {
 });
 app.get('/db', function (req, res) {
     try{
-        res.sendFile(path.join(__dirname + '/DB/db_locations.json'));
+        res.sendFile(path.join(__dirname + '/DB/db.json'));
     } catch (e){
         saveToLogFile(e);
     }
-    
 });
 
 app.post('/mission', function (req, res) {
@@ -95,35 +70,11 @@ app.post('/mission', function (req, res) {
         }
     });
 });
-
 app.post('/log', function (req, res) {
 
     let logToSave = JSON.stringify(req.body.params);
     utils.saveToLogFile(logToSave);
 });
-
-
-app.delete('/mission/delete/:label', (req, res) => {
-
-    utils.saveToLogFile('DB/db_locations.json');
-
-    let missionToDelete = req.params.label;
-    let filePath = 'DB/db_locations.json';
-    let rawdata = fs.readFileSync(filePath);
-    let tempdb = JSON.parse(rawdata);
-
-    try {
-        utils.deletFromArray(tempdb, missionToDelete, res);
-    } catch (e) {
-        console.log(e);
-        if (e) {
-            res.status(400).end('err deleting mission');
-        }
-    }
-    
-    // utils.saveToDB(tempdb);
-});
-
 app.get('/download/:file(*)', function (req, res) {
     var file = req.params.file;
     var fileLocation = path.join('./DB', file);
@@ -141,8 +92,6 @@ app.get('/download/:file(*)', function (req, res) {
         }
 });
 
-
-
 let port = process.env.PORT || 3000;
 // START THE SERVER
 app.listen(port, '0.0.0.0', function (err) {
@@ -151,18 +100,5 @@ app.listen(port, '0.0.0.0', function (err) {
 
 // ROUTES FOR OUR API
 var router = express.Router();
-
-router.get('/delete/:token', function (req, res) {
-    let filePath = 'DB/db_locations.json';
-    if (req.params.token === 'luna') {
-        fs.truncate(filePath, 0, function () {
-            console.log('db_locations.json deleted');
-        });
-        res.status(200).end('delete');
-    } else {
-        res.status(503).end('503');
-    }
-});
-
 
 app.use('/api', router);
