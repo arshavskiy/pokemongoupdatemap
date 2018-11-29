@@ -1,4 +1,4 @@
-const express = require('express'); 
+const express = require('express');
 const app = express();
 const path = require('path');
 const fs = require('fs');
@@ -32,7 +32,7 @@ app.options('*', cors()); // enable pre-flight
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({
     extended: true
-  }));
+}));
 
 //Store all JS and CSS in Scripts folder.
 app.use(express.static(__dirname + '/js'));
@@ -42,34 +42,45 @@ app.use(express.static(__dirname + '/icons'));
 app.use(express.static(__dirname + '/view'));
 app.use(express.static(__dirname + '/'));
 
-app.post('/post', function (req, res){  
+app.post('/post', function (req, res) {
     console.log(req.body.data);
     console.log('req received');
 
-    (async () => {
-        /* Initiate the Puppeteer browser */
-        console.log('======', req.body.data);
-        
-        const browser = await puppeteer.launch({headless:false});
-        const page = await browser.newPage();
+    const go = async () => {
+        try {
+            const browser = await puppeteer.launch({
+                headless: false
+            });
+            const page = await browser.newPage();
+            await page.goto('https://' + req.body.data, {
+                waitUntil: 'networkidle2'
+            });
+            console.log(page.url());
+            const data = await page.evaluateHandle(() => {
+                let p = document.querySelector('img#hplogo');
+                let tds = [...document.querySelectorAll("img")]; // Its gives an array of 
+                if (p) {
+                    p.style.border = '1px solid red';
+                } 
+                const result = tds.map(dom => ({
+                    content: dom
+                }));
+                return result;
+            });
+            return data;
+        } catch (e) {
+            console.log(e);
+        }
+    };
 
-        await page.goto('https://' + req.body.data, { waitUntil: 'networkidle2' });
-        console.log(page.url()); 
-
-        let data = await page.evaluate(() => {
-          let p = document.querySelector('img#hplogo');
-          if (p) {
-            p.style.border = '1px solid red';
-            return p
-          } else return 'empty';
-        });
-
-        console.log(data);
+    (async function main() {
+        const returnedData = await go();
+        console.log(returnedData.length);
+        console.log(returnedData);
         // await browser.close();
-
     })();
- 
- });
+
+});
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
@@ -78,9 +89,9 @@ app.get('/edit', function (req, res) {
     res.sendFile(path.join(__dirname + '/view/edit.html'));
 });
 app.get('/db', function (req, res) {
-    try{
+    try {
         res.sendFile(path.join(__dirname + '/DB/db.json'));
-    } catch (e){
+    } catch (e) {
         saveToLogFile(e);
     }
 });
