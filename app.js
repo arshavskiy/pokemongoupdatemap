@@ -26,7 +26,7 @@ app.use(express.static(__dirname + '/view'));
 app.use(express.static(__dirname + '/'));
 
 function saveToLogFile(logToSave) {
-    let startDate = Date.now();
+    var startDate = Date.now();
     fs.appendFileSync('DB/log_' + startDate + '.csv', logToSave + 'at: '+ startDate +'\r\n', function (err) {
         if (err) {
            throw err;
@@ -95,10 +95,10 @@ app.post('/post', function (req, res) {
             let urlToFilename = req.body.data;
             let screenShotName = urlToFilename.replace(/./g, '_');
             screenShotName = urlToFilename.replace(/\//g, '__');
-            await page.screenshot({ path: './png/' + screenShotName +  Date.now() + '.png', fullPage: true });
+            await page.screenshot({ path: './png/' + screenShotName +  startDate + '.png', fullPage: true });
             await page.emulateMedia('screen');
             await page.pdf({
-                path: './pdf/' + screenShotName + Date.now() + '.pdf', 
+                path: './pdf/' + screenShotName + startDate + '.pdf', 
                 format: 'A4',
                 margin: {
                   top: '1in',
