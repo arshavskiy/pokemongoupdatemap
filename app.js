@@ -125,6 +125,7 @@ app.post('/post', function (req, res) {
             screenShotName = urlToFilename.replace(/\//g, '__');
             await page.screenshot({ path: './png/' + screenShotName +  startDate + '.png', fullPage: true });
             await page.screenshot({ path: './png/' + demo + '.png', fullPage: true });
+            
             await page.emulateMedia('screen');
             await page.pdf({
                 path: './pdf/' + screenShotName + startDate + '.pdf', 
