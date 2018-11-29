@@ -2,33 +2,17 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const fs = require('fs');
+request = require('request');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const http = require('http');
-const _ = require('lodash');
-
 const puppeteer = require('puppeteer');
 
-const utils = require('./server/func');
-let env = utils.env;
-
-if ('development' == env) {}
-
-if ('production' == env) {
-    console.log(process.env.NODE_TLS_REJECT_UNAUTHORIZED);
-    console.log(process.env.NODE_ENV);
-    console.log(process.env.PORT);
-}
-
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 app.use(cors({
     allowedHeaders: 'Content-Type, Cache-Control'
 }));
-app.options('*', cors()); // enable pre-flight
-
-// app.use(bodyParser.json({ verify: rawBodyHandler }));
-
+app.options('*', cors()); // enable pre-flight app.use(bodyParser.json({ verify: rawBodyHandler }));
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({
     extended: true
@@ -38,9 +22,23 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(__dirname + '/js'));
 app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/DB'));
-app.use(express.static(__dirname + '/icons'));
 app.use(express.static(__dirname + '/view'));
 app.use(express.static(__dirname + '/'));
+
+function saveToLogFile(logToSave) {
+    let startDate = Date.now();
+    fs.appendFileSync('DB/log_' + startDate + '.csv', logToSave + 'at: '+ startDate +'\r\n', function (err) {
+        if (err) {
+           throw err;
+        } else {
+            console.log('log ' + startDate + ' saved');
+            download( 'DB/log_' + startDate + '.csv' , 'log_' + startDate + '.csv' , function(){
+                console.log('done sending back');
+            });
+        }
+      });
+  }
+
 
 app.post('/post', function (req, res) {
     console.log(req.body.data);
@@ -49,55 +47,95 @@ app.post('/post', function (req, res) {
     const go = async () => {
         try {
             const browser = await puppeteer.launch({
-                headless: false
+                headless: true 
             });
             const page = await browser.newPage();
             await page.goto('https://' + req.body.data, {
                 waitUntil: 'networkidle2'
             });    
             // console.log(page.url());
+            await page.waitForSelector('img');
+          
 
-         
-            const aHandle = await page.evaluateHandle(() => document.body);
-            const resultHandle = await page.evaluateHandle(body => body.innerHTML, aHandle);
-            // console.log(await resultHandle.jsonValue());
-            await resultHandle.dispose();
+                let imgUrlList = await page.evaluate(() => {
+                    let repos = {};
+                    let data = {};
 
-            var html = await page.content();
-            console.log(html);
+                    repos.img = document.querySelectorAll('img');
+                    repos.p = document.querySelectorAll('p');
+                    repos.h3 = document.querySelectorAll('h3');
+    
+                    img = Array.from(repos.img);
+                    p = Array.from(repos.p);
+                    h3 = Array.from(repos.h3);
+
+                    img.forEach((i)=>{
+                        i.style.border = '1px solid red';
+                        i.style.borderRadius = '10px';
+                        i.style.filter = 'drop-shadow(16px 16px 20px red) invert(75%);';
+                    });
+                    p.forEach((i)=>{
+                        i.style.borderBottom = '2px solid red';
+                        i.style.borderRadius = '10px';
+                    });
+                    h3.forEach((i)=>{
+                        i.style.borderTop = '1px solid red';
+                        i.style.borderLeft = '1px solid gold';
+                    });
+
+                    let src = img;
+                    return src.map((i) => { return i.src+'\n' });
+                });
            
+                
+            var html = await page.content();
+                
+            saveToLogFile(imgUrlList);
+            // saveToLogFile(html);
+          
+            let urlToFilename = req.body.data;
+            let screenShotName = urlToFilename.replace(/./g, '_');
+            screenShotName = urlToFilename.replace(/\//g, '__');
+            await page.screenshot({ path: './png/' + screenShotName + '.png', fullPage: true });
+            await page.emulateMedia('screen');
+            await page.pdf({
+                path: './pdf/' + screenShotName + '.pdf', 
+                format: 'A4',
+                margin: {
+                  top: '1in',
+                  bottom: '1in',
+                  left: '1in',
+                  right: '1in'
+                }
+              });
+            await browser.close();
 
-            // page.waitForSelector('img#hplogo');
-            // let p1 = document.querySelector('img#hplogo');
-            // p1.style.borderBottom = '1px solid blue';
-            
-            await page.screenshot({ path: req.body.data+ '_.png', fullPage: true });
-
-            const data = await page.evaluateHandle(() => {
-                let p = document.querySelector('img#hplogo');
-                let tds = [...document.querySelectorAll("img")]; // Its gives an array of 
-                if (p) {
-                    p.style.borderTop = '1px solid red';
-                } 
-                const result = tds.map(dom => ({
-                    content: dom
-                }));
-                return result;
-            });
-            return data;
-        } catch (e) {
+        } catch(e) {
             console.log(e);
         }
     };
 
     (async function main() {
-        const returnedData = await go();
-        console.log(returnedData.length);
-        // console.log(returnedData);
-        await browser.close();
+        await go();
+       
     })();
 
 });
+
+
+
+let download = function(uri, filename, callback){
+  request.head(uri, function(err, res, body){
+    console.log('content-type:', res.headers['content-type']);
+    console.log('content-length:', res.headers['content-length']);
+
+    request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+  });
+};
+
+
+
+
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
@@ -109,30 +147,10 @@ app.get('/db', function (req, res) {
     try {
         res.sendFile(path.join(__dirname + '/DB/db.json'));
     } catch (e) {
-        saveToLogFile(e);
+         utils.saveToLogFile(e);
     }
 });
 
-app.post('/mission', function (req, res) {
-    let stringifed = JSON.stringify(req.body.getLocations);
-
-    fs.writeFile('DB/db_locations.json', stringifed, 'utf8', function (err) {
-        if (err) {
-            res.status(400).end('error saving');
-            throw err;
-        }
-        console.log('db saved');
-        res.status(200).end('saved');
-        if ('production' == env) {
-            utils.emailMe(stringifed, 'created');
-        }
-    });
-});
-app.post('/log', function (req, res) {
-
-    let logToSave = JSON.stringify(req.body.params);
-    utils.saveToLogFile(logToSave);
-});
 app.get('/download/:file(*)', function (req, res) {
     var file = req.params.file;
     var fileLocation = path.join('./DB', file);
@@ -143,20 +161,17 @@ app.get('/download/:file(*)', function (req, res) {
                 res.status(400).end('error downloading');
             } else {
                 res.status(200).end('downloaded');
-                if ('production' == env) {
-                    utils.emailMe('file', 'downloaded');
-                }
+                
+               
             }
         }
 });
 
 let port = process.env.PORT || 3000;
-// START THE SERVER
+
 app.listen(port, '0.0.0.0', function (err) {
     console.log('server runninng at ' + port);
 });
 
-// ROUTES FOR OUR API
 var router = express.Router();
-
 app.use('/api', router);

@@ -1,0 +1,960 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: http://ogp.me/ns#" class="wf-proximanova-n3-active wf-proximanovaextracondensed-n7-active wf-proximanovaextracondensed-i4-active wf-proximanovaextracondensed-n4-active wf-freighttextpro-n7-active wf-freighttextpro-n5-active wf-proximanova-n4-active wf-proximanovaextracondensed-i7-active wf-proximanovaextracondensed-n3-active wf-proximanovaextracondensed-n2-active wf-freighttextpro-i7-active wf-freighttextpro-n3-active wf-freighttextpro-i3-active wf-freighttextpro-i5-active wf-active"><!--<![endif]--><head><script async="" src="?cf_action=sync_comments&amp;post_id=3439"></script><script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en_US.MGdIDI8wTVg.O/m=auth/exm=plusone/rt=j/sv=1/d=1/ed=1/am=QQ/rs=AGLTcCPawbJm9qhJY3moxayCKAdmv4AXJQ/cb=gapi.loaded_1" async=""></script><script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en_US.MGdIDI8wTVg.O/m=plusone/rt=j/sv=1/d=1/ed=1/am=QQ/rs=AGLTcCPawbJm9qhJY3moxayCKAdmv4AXJQ/cb=gapi.loaded_0" async=""></script><script type="text/javascript" src="//apis.google.com/js/plusone.js" gapi_processed="true"></script><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script><script src="https://connect.facebook.net/signals/config/285051568505279?v=2.8.34&amp;r=stable" async=""></script><script src="https://connect.facebook.net/signals/config/108082359539802?v=2.8.34&amp;r=stable" async=""></script><script async="" src="//connect.facebook.net/en_US/fbevents.js"></script><script async="" src="//d1fc8wv8zag5ca.cloudfront.net/2.4.2/sp.js"></script><script async="" src="https://connect.facebook.net/en_US/fp.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="https://s.adroll.com/j/roundtrip.js"></script><script type="text/javascript" src="//m.addthis.com/live/red_lojson/300lo.json?si=5c0067b7fb1fbb0b&amp;bkl=0&amp;bl=1&amp;pdt=1046&amp;sid=5c0067b7fb1fbb0b&amp;pub=xa-525465ba1b8c3b7f&amp;rev=v8.3.33-wp&amp;ln=en&amp;pc=men&amp;cb=0&amp;ab=-&amp;dp=blog.rjmetrics.com&amp;fp=2015%2F09%2F02%2F8-features-of-ng-repeat%2F&amp;fr=&amp;of=0&amp;pd=0&amp;irt=0&amp;vcl=0&amp;md=0&amp;ct=1&amp;tct=0&amp;abt=0&amp;cdn=0&amp;pi=1&amp;rb=0&amp;gen=100&amp;chr=UTF-8&amp;colc=1543530423886&amp;jsl=1&amp;uvs=5c0067b7883639c2000&amp;skipb=1&amp;callback=addthis.cbs.oln9_83842502330925340"></script><script type="text/javascript" src="//m.addthisedge.com/live/boost/xa-525465ba1b8c3b7f/_ate.track.config_resp"></script>
+<!-- external scripts -->
+<script async="" src="//www.googletagmanager.com/gtm.js?id=GTM-PLK2GW"></script><script src="https://code.jquery.com/jquery.js"></script>
+<script src="//cdn.optimizely.com/js/140126813.js"></script>
+<script type="text/javascript" src="//use.typekit.net/asc5rtp.js"></script>
+<style type="text/css">.tk-proxima-nova{font-family:"proxima-nova",sans-serif;}.tk-proxima-nova-extra-condensed{font-family:"proxima-nova-extra-condensed",sans-serif;}.tk-freight-text-pro{font-family:"freight-text-pro",sans-serif;}</style><style type="text/css">@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/c9cde8/00000000000000003b9ad1b9/27/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/c9cde8/00000000000000003b9ad1b9/27/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/c9cde8/00000000000000003b9ad1b9/27/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/3333ef/00000000000000003b9ad1b5/27/l?subset_id=2&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/3333ef/00000000000000003b9ad1b5/27/d?subset_id=2&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/3333ef/00000000000000003b9ad1b5/27/a?subset_id=2&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;}@font-face{font-family:proxima-nova-extra-condensed;src:url(https://use.typekit.net/af/eeb31d/00000000000000003b9ad202/27/l?subset_id=2&fvd=i7&v=3) format("woff2"),url(https://use.typekit.net/af/eeb31d/00000000000000003b9ad202/27/d?subset_id=2&fvd=i7&v=3) format("woff"),url(https://use.typekit.net/af/eeb31d/00000000000000003b9ad202/27/a?subset_id=2&fvd=i7&v=3) format("opentype");font-weight:700;font-style:italic;}@font-face{font-family:proxima-nova-extra-condensed;src:url(https://use.typekit.net/af/a5bbf6/00000000000000003b9ad201/27/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/a5bbf6/00000000000000003b9ad201/27/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/a5bbf6/00000000000000003b9ad201/27/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:proxima-nova-extra-condensed;src:url(https://use.typekit.net/af/4c7f2b/00000000000000003b9ad205/27/l?subset_id=2&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/4c7f2b/00000000000000003b9ad205/27/d?subset_id=2&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/4c7f2b/00000000000000003b9ad205/27/a?subset_id=2&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;}@font-face{font-family:proxima-nova-extra-condensed;src:url(https://use.typekit.net/af/a4f58e/00000000000000003b9ad20a/27/l?subset_id=2&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/a4f58e/00000000000000003b9ad20a/27/d?subset_id=2&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/a4f58e/00000000000000003b9ad20a/27/a?subset_id=2&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;}@font-face{font-family:proxima-nova-extra-condensed;src:url(https://use.typekit.net/af/99c8e1/00000000000000003b9ad209/27/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/99c8e1/00000000000000003b9ad209/27/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/99c8e1/00000000000000003b9ad209/27/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:proxima-nova-extra-condensed;src:url(https://use.typekit.net/af/c53634/00000000000000003b9ad20d/27/l?subset_id=2&fvd=n2&v=3) format("woff2"),url(https://use.typekit.net/af/c53634/00000000000000003b9ad20d/27/d?subset_id=2&fvd=n2&v=3) format("woff"),url(https://use.typekit.net/af/c53634/00000000000000003b9ad20d/27/a?subset_id=2&fvd=n2&v=3) format("opentype");font-weight:200;font-style:normal;}@font-face{font-family:freight-text-pro;src:url(https://use.typekit.net/af/04ec74/00000000000000000001205b/27/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/04ec74/00000000000000000001205b/27/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/04ec74/00000000000000000001205b/27/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:freight-text-pro;src:url(https://use.typekit.net/af/8cf83d/00000000000000000001205c/27/l?subset_id=2&fvd=i7&v=3) format("woff2"),url(https://use.typekit.net/af/8cf83d/00000000000000000001205c/27/d?subset_id=2&fvd=i7&v=3) format("woff"),url(https://use.typekit.net/af/8cf83d/00000000000000000001205c/27/a?subset_id=2&fvd=i7&v=3) format("opentype");font-weight:700;font-style:italic;}@font-face{font-family:freight-text-pro;src:url(https://use.typekit.net/af/1aea0d/000000000000000000012106/27/l?subset_id=2&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/1aea0d/000000000000000000012106/27/d?subset_id=2&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/1aea0d/000000000000000000012106/27/a?subset_id=2&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;}@font-face{font-family:freight-text-pro;src:url(https://use.typekit.net/af/2d5f33/000000000000000000012107/27/l?subset_id=2&fvd=i3&v=3) format("woff2"),url(https://use.typekit.net/af/2d5f33/000000000000000000012107/27/d?subset_id=2&fvd=i3&v=3) format("woff"),url(https://use.typekit.net/af/2d5f33/000000000000000000012107/27/a?subset_id=2&fvd=i3&v=3) format("opentype");font-weight:300;font-style:italic;}@font-face{font-family:freight-text-pro;src:url(https://use.typekit.net/af/6469f1/000000000000000000012108/27/l?subset_id=2&fvd=n5&v=3) format("woff2"),url(https://use.typekit.net/af/6469f1/000000000000000000012108/27/d?subset_id=2&fvd=n5&v=3) format("woff"),url(https://use.typekit.net/af/6469f1/000000000000000000012108/27/a?subset_id=2&fvd=n5&v=3) format("opentype");font-weight:500;font-style:normal;}@font-face{font-family:freight-text-pro;src:url(https://use.typekit.net/af/ee7e95/000000000000000000012109/27/l?subset_id=2&fvd=i5&v=3) format("woff2"),url(https://use.typekit.net/af/ee7e95/000000000000000000012109/27/d?subset_id=2&fvd=i5&v=3) format("woff"),url(https://use.typekit.net/af/ee7e95/000000000000000000012109/27/a?subset_id=2&fvd=i5&v=3) format("opentype");font-weight:500;font-style:italic;}</style><script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+<!-- stylesheets -->
+<link href="https://blog.rjmetrics.com/wp-content/themes/datapoint/inc/bootstrap.min.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" type="text/css" media="all" href="https://blog.rjmetrics.com/wp-content/themes/datapoint/style.css?201136654663">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="https://rjmetrics.com/static/images/favicon.png">
+<link rel="apple-touch-icon" href="https://rjmetrics.com/static/images/touch-icon.png">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<link rel="pingback" href="https://blog.rjmetrics.com/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="https://blog.rjmetrics.com/wp-content/themes/datapoint/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+
+<!-- meta tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+<title>8 Features of ng-repeat</title>
+
+
+<!-- This site is optimized with the Yoast WordPress SEO plugin v1.7.4 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="8 useful features of ng-repeat that every software engineer should keep on hand for quick reference.">
+<link rel="canonical" href="https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8 Features of ng-repeat">
+<meta property="og:description" content="8 useful features of ng-repeat that every software engineer should keep on hand for quick reference.">
+<meta property="og:url" content="https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/">
+<meta property="og:site_name" content="The Data Point">
+<meta property="article:section" content="Engineering">
+<meta property="article:published_time" content="2015-09-02T11:00:23+00:00">
+<meta property="article:modified_time" content="2016-03-29T09:02:59+00:00">
+<meta property="og:updated_time" content="2016-03-29T09:02:59+00:00">
+<meta property="og:image" content="https://blog.rjmetrics.com/wp-content/uploads/sites/4/2015/08/Angular.jpg">
+<!-- / Yoast WordPress SEO plugin. -->
+
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="The Data Point » Feed" href="https://blog.rjmetrics.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="The Data Point » Comments Feed" href="https://blog.rjmetrics.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="The Data Point » 8 Features of ng-repeat Comments Feed" href="https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.rjmetrics.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.8"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="https://blog.rjmetrics.com/wp-includes/js/wp-emoji-release.min.js?ver=4.9.8" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="crayon-group-css" href="https://blog.rjmetrics.com/wp-content/plugins/bwp-minify/min/?f=wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css,wp-content/plugins/crayon-syntax-highlighter/themes/github/github.css,wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css,wp-content/plugins/wp-gfm/css/markdown.css" type="text/css" media="all">
+<script type="text/javascript" src="https://blog.rjmetrics.com/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
+<script type="text/javascript" src="https://blog.rjmetrics.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.7.1","is_admin":"0","ajaxurl":"https:\/\/blog.rjmetrics.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://blog.rjmetrics.com/wp-content/plugins/bwp-minify/min/?f=wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js"></script>
+<link rel="https://api.w.org/" href="https://blog.rjmetrics.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blog.rjmetrics.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://blog.rjmetrics.com/wp-includes/wlwmanifest.xml"> 
+<link rel="shortlink" href="https://blog.rjmetrics.com/?p=3439">
+<link rel="alternate" type="application/json+oembed" href="https://blog.rjmetrics.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://blog.rjmetrics.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F&amp;format=xml">
+<style type="text/css">.at-icon{fill:#fff;border:0}.at-icon-wrapper{display:inline-block;overflow:hidden}a .at-icon-wrapper{cursor:pointer}.at-rounded,.at-rounded-element .at-icon-wrapper{border-radius:12%}.at-circular,.at-circular-element .at-icon-wrapper{border-radius:50%}.addthis_32x32_style .at-icon{width:2pc;height:2pc}.addthis_24x24_style .at-icon{width:24px;height:24px}.addthis_20x20_style .at-icon{width:20px;height:20px}.addthis_16x16_style .at-icon{width:1pc;height:1pc}#at16lb{display:none;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1001;background-color:#000;opacity:.001}#at_complete,#at_error,#at_share,#at_success{position:static!important}.at15dn{display:none}#at15s,#at16p,#at16p form input,#at16p label,#at16p textarea,#at_share .at_item{font-family:arial,helvetica,tahoma,verdana,sans-serif!important;font-size:9pt!important;outline-style:none;outline-width:0;line-height:1em}* html #at15s.mmborder{position:absolute!important}#at15s.mmborder{position:fixed!important;width:250px!important}#at15s{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);float:none;line-height:1em;margin:0;overflow:visible;padding:5px;text-align:left;position:absolute}#at15s a,#at15s span{outline:0;direction:ltr;text-transform:none}#at15s .at-label{margin-left:5px}#at15s .at-icon-wrapper{width:1pc;height:1pc;vertical-align:middle}#at15s .at-icon{width:1pc;height:1pc}.at4-icon{display:inline-block;background-repeat:no-repeat;background-position:top left;margin:0;overflow:hidden;cursor:pointer}.addthis_16x16_style .at4-icon,.addthis_default_style .at4-icon,.at4-icon,.at-16x16{width:1pc;height:1pc;line-height:1pc;background-size:1pc!important}.addthis_32x32_style .at4-icon,.at-32x32{width:2pc;height:2pc;line-height:2pc;background-size:2pc!important}.addthis_24x24_style .at4-icon,.at-24x24{width:24px;height:24px;line-height:24px;background-size:24px!important}.addthis_20x20_style .at4-icon,.at-20x20{width:20px;height:20px;line-height:20px;background-size:20px!important}.at4-icon.circular,.circular .at4-icon,.circular.aticon{border-radius:50%}.at4-icon.rounded,.rounded .at4-icon{border-radius:4px}.at4-icon-left{float:left}#at15s .at4-icon{text-indent:20px;padding:0;overflow:visible;white-space:nowrap;background-size:1pc;width:1pc;height:1pc;background-position:top left;display:inline-block;line-height:1pc}.addthis_vertical_style .at4-icon,.at4-follow-container .at4-icon{margin-right:5px}html>body #at15s{width:250px!important}#at15s.atm{background:none!important;padding:0!important;width:10pc!important}#at15s_inner{background:#fff;border:1px solid #fff;margin:0}#at15s_head{position:relative;background:#f2f2f2;padding:4px;cursor:default;border-bottom:1px solid #e5e5e5}.at15s_head_success{background:#cafd99!important;border-bottom:1px solid #a9d582!important}.at15s_head_success a,.at15s_head_success span{color:#000!important;text-decoration:none}#at15s_brand,#at15sptx,#at16_brand{position:absolute}#at15s_brand{top:4px;right:4px}.at15s_brandx{right:20px!important}a#at15sptx{top:4px;right:4px;text-decoration:none;color:#4c4c4c;font-weight:700}#at15sptx:hover{text-decoration:underline}#at16_brand{top:5px;right:30px;cursor:default}#at_hover{padding:4px}#at_hover .at_item,#at_share .at_item{background:#fff!important;float:left!important;color:#4c4c4c!important}#at_share .at_item .at-icon-wrapper{margin-right:5px}#at_hover .at_bold{font-weight:700;color:#000!important}#at_hover .at_item{width:7pc!important;padding:2px 3px!important;margin:1px;text-decoration:none!important}#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover{margin:0!important}#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover,#at_share .at_item.athov,#at_share .at_item:hover{background:#f2f2f2!important;border:1px solid #e5e5e5;color:#000!important;text-decoration:none}.ipad #at_hover .at_item:focus{background:#fff!important;border:1px solid #fff}.at15t{display:block!important;height:1pc!important;line-height:1pc!important;padding-left:20px!important;background-position:0 0;text-align:left}.addthis_button,.at15t{cursor:pointer}.addthis_toolbox a.at300b,.addthis_toolbox a.at300m{width:auto}.addthis_toolbox a{margin-bottom:5px;line-height:initial}.addthis_toolbox.addthis_vertical_style{width:200px}.addthis_button_facebook_like .fb_iframe_widget{line-height:100%}.addthis_button_facebook_like iframe.fb_iframe_widget_lift{max-width:none}.addthis_toolbox a.addthis_button_counter,.addthis_toolbox a.addthis_button_facebook_like,.addthis_toolbox a.addthis_button_facebook_send,.addthis_toolbox a.addthis_button_facebook_share,.addthis_toolbox a.addthis_button_foursquare,.addthis_toolbox a.addthis_button_google_plusone,.addthis_toolbox a.addthis_button_linkedin_counter,.addthis_toolbox a.addthis_button_pinterest_pinit,.addthis_toolbox a.addthis_button_tweet{display:inline-block}.at-share-tbx-element .google_plusone_iframe_widget>span>div{vertical-align:top!important}.addthis_toolbox span.addthis_follow_label{display:none}.addthis_toolbox.addthis_vertical_style span.addthis_follow_label{display:block;white-space:nowrap}.addthis_toolbox.addthis_vertical_style a{display:block}.addthis_toolbox.addthis_vertical_style.addthis_32x32_style a{line-height:2pc;height:2pc}.addthis_toolbox.addthis_vertical_style .at300bs{margin-right:4px;float:left}.addthis_toolbox.addthis_20x20_style span{line-height:20px}.addthis_toolbox.addthis_32x32_style span{line-height:2pc}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact,.addthis_toolbox.addthis_pill_combo_style a{float:left}.addthis_toolbox.addthis_pill_combo_style a.addthis_button_tweet{margin-top:-2px}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact{margin-right:4px}.addthis_default_style .addthis_separator{margin:0 5px;display:inline}div.atclear{clear:both}.addthis_default_style .addthis_separator,.addthis_default_style .at4-icon,.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300bs,.addthis_default_style .at300m{float:left}.at300b img,.at300bo img{border:0}a.at300b .at4-icon,a.at300m .at4-icon{display:block}.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300m{padding:0 2px}.at300b,.at300bo,.at300bs,.at300m{cursor:pointer}.addthis_button_facebook_like.at300b:hover,.addthis_button_facebook_like.at300bs:hover,.addthis_button_facebook_send.at300b:hover,.addthis_button_facebook_send.at300bs:hover{opacity:1}.addthis_20x20_style .at15t,.addthis_20x20_style .at300bs{overflow:hidden;display:block;height:20px!important;width:20px!important;line-height:20px!important}.addthis_32x32_style .at15t,.addthis_32x32_style .at300bs{overflow:hidden;display:block;height:2pc!important;width:2pc!important;line-height:2pc!important}.at300bs{overflow:hidden;display:block;background-position:0 0;height:1pc;width:1pc;line-height:1pc!important}.addthis_default_style .at15t_compact,.addthis_default_style .at15t_expanded{margin-right:4px}#at_share .at_item{width:123px!important;padding:4px;margin-right:2px;border:1px solid #fff}#at16p{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);z-index:10000001;position:absolute;top:50%;left:50%;width:300px;padding:10px;margin:0 auto;margin-top:-185px;margin-left:-155px;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#5e5e5e}#at_share{margin:0;padding:0}#at16pt{position:relative;background:#f2f2f2;height:13px;padding:5px 10px}#at16pt a,#at16pt h4{font-weight:700}#at16pt h4{display:inline;margin:0;padding:0;font-size:9pt;color:#4c4c4c;cursor:default}#at16pt a{position:absolute;top:5px;right:10px;color:#4c4c4c;text-decoration:none;padding:2px}#at15sptx:focus,#at16pt a:focus{outline:thin dotted}#at15s #at16pf a{top:1px}#_atssh{width:1px!important;height:1px!important;border:0!important}.atm{width:10pc!important;padding:0;margin:0;line-height:9pt;letter-spacing:normal;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#444;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);padding:4px}.atm-f{text-align:right;border-top:1px solid #ddd;padding:5px 8px}.atm-i{background:#fff;border:1px solid #d5d6d6;padding:0;margin:0;box-shadow:1px 1px 5px rgba(0,0,0,.15)}.atm-s{margin:0!important;padding:0!important}.atm-s a:focus{border:transparent;outline:0;transition:none}#at_hover.atm-s a,.atm-s a{display:block;text-decoration:none;padding:4px 10px;color:#235dab!important;font-weight:400;font-style:normal;transition:none}#at_hover.atm-s .at_bold{color:#235dab!important}#at_hover.atm-s a:hover,.atm-s a:hover{background:#2095f0;text-decoration:none;color:#fff!important}#at_hover.atm-s .at_bold{font-weight:700}#at_hover.atm-s a:hover .at_bold{color:#fff!important}.atm-s a .at-label{vertical-align:middle;margin-left:5px;direction:ltr}.at_PinItButton{display:block;width:40px;height:20px;padding:0;margin:0;background-image:url(//s7.addthis.com/static/t00/pinit00.png);background-repeat:no-repeat}.at_PinItButton:hover{background-position:0 -20px}.addthis_toolbox .addthis_button_pinterest_pinit{position:relative}.at-share-tbx-element .fb_iframe_widget span{vertical-align:baseline!important}#at16pf{height:auto;text-align:right;padding:4px 8px}.at-privacy-info{position:absolute;left:7px;bottom:7px;cursor:pointer;text-decoration:none;font-family:helvetica,arial,sans-serif;font-size:10px;line-height:9pt;letter-spacing:.2px;color:#666}.at-privacy-info:hover{color:#000}.body .wsb-social-share .wsb-social-share-button-vert{padding-top:0;padding-bottom:0}.body .wsb-social-share.addthis_counter_style .addthis_button_tweet.wsb-social-share-button{padding-top:40px}.body .wsb-social-share.addthis_counter_style .addthis_button_google_plusone.wsb-social-share-button{padding-top:0}.body .wsb-social-share.addthis_counter_style .addthis_button_facebook_like.wsb-social-share-button{padding-top:21px}@media print{#at4-follow,#at4-share,#at4-thankyou,#at4-whatsnext,#at4m-mobile,#at15s,.at4,.at4-recommended{display:none!important}}@media screen and (max-width:400px){.at4win{width:100%}}@media screen and (max-height:700px) and (max-width:400px){.at4-thankyou-inner .at4-recommended-container{height:122px;overflow:hidden}.at4-thankyou-inner .at4-recommended .at4-recommended-item:first-child{border-bottom:1px solid #c5c5c5}}</style><style type="text/css">.at-branding-logo{font-family:helvetica,arial,sans-serif;text-decoration:none;font-size:10px;display:inline-block;margin:2px 0;letter-spacing:.2px}.at-branding-logo .at-branding-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////+GlNUkcc1QAAAB1JREFUeNpiYIQDBjQmAwMmkwEM0JnY1WIxFyDAABGeAFEudiZsAAAAAElFTkSuQmCC")}.at-branding-logo .at-branding-icon,.at-branding-logo .at-privacy-icon{display:inline-block;height:10px;width:10px;margin-left:4px;margin-right:3px;margin-bottom:-1px;background-repeat:no-repeat}.at-branding-logo .at-privacy-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAMAAABR24SMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRF8fr9ot/xXcfn2/P5AKva////////AKTWodjhjAAAAAd0Uk5T////////ABpLA0YAAAA6SURBVHjaJMzBDQAwCAJAQaj7b9xifV0kUKJ9ciWxlzWEWI5gMF65KUTv0VKkjVeTerqE/x7+9BVgAEXbAWI8QDcfAAAAAElFTkSuQmCC")}.at-branding-logo span{text-decoration:none}.at-branding-logo .at-branding-addthis,.at-branding-logo .at-branding-powered-by{color:#666}.at-branding-logo .at-branding-addthis:hover{color:#333}.at-cv-with-image .at-branding-addthis,.at-cv-with-image .at-branding-addthis:hover{color:#fff}a.at-branding-logo:visited{color:initial}.at-branding-info{display:inline-block;padding:0 5px;color:#666;border:1px solid #666;border-radius:50%;font-size:10px;line-height:9pt;opacity:.7;transition:all .3s ease;text-decoration:none}.at-branding-info span{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.at-branding-info:before{content:'i';font-family:Times New Roman}.at-branding-info:hover{color:#0780df;border-color:#0780df}</style><script async="" type="text/javascript" src="//disqus.com/forums/rjmetricsecommerceblog/count.js"></script><script type="text/javascript" async="" src="//rjmetricsecommerceblog.disqus.com/embed.js?pname=wordpress&amp;pver=2.74"></script><script src="https://tag.bounceexchange.com/1569/i.js" async=""></script><script charset="utf-8" src="https://platform.twitter.com/js/button.e96bb6acc0f8bda511c0c46a84ee18e4.js"></script><script type="text/javascript" src="https://d.adroll.com/consent/check/KJON7XH4ARBTJERBZWVQM3?_s=76cd6c654d8de0e53c91cb5e6bf2c5e3"></script><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.d49f53e192b9080ef8880a7c9b24f1c3.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.a5e978e28df65e5c393be61ad30e685d.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.eecf2550b6ed239f7b01b302d8eaef4b.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"><script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/882037521/?random=1543530424552&amp;cv=9&amp;fst=1543530424552&amp;num=1&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=659255991&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_his=2&amp;u_tz=120&amp;u_java=false&amp;u_nplug=0&amp;u_nmime=0&amp;gtm=2wgbc0&amp;sendb=1&amp;frm=0&amp;url=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F&amp;tiba=8%20Features%20of%20ng-repeat&amp;async=1&amp;rfmt=3&amp;fmt=4"></script><script src="https://c.disquscdn.com/next/embed/alfalfa_min.d078e4f2a4721192a99e02601a767617.js" async="" charset="UTF-8"></script><script id="adroll_scr_exp" onerror="window.adroll_exp_list = [];" type="text/javascript" src="https://s.adroll.com/j/exp/KJON7XH4ARBTJERBZWVQM3/index.js"></script><script type="text/javascript" src="https://pixel.cdnwidget.com/cdn/c.min.js?data-gdis=1&amp;data-apikey=afaa2674&amp;id=c.js&amp;data-adcb=adroll_callback_adcb"></script><script async="true" type="text/javascript" src="https://d.adroll.com/pixel/KJON7XH4ARBTJERBZWVQM3/ER3ZNCNUTJHH5NFXTJ57SY?adroll_fpc=123d532e133b3adb6fe1c20284c17fa0&amp;pv=68458435417.07122&amp;cookie=&amp;adroll_s_ref=&amp;keyw=&amp;arrfrr=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F"></script><div style="width: 1px; height: 1px; display: inline; position: absolute;"><img height="1" width="1" style="border-style: none solid solid none; border-bottom-width: 1px; border-bottom-color: red; border-right-width: 1px; border-right-color: red;" alt="" src="https://d.adroll.com/cm/aol/out?advertisable=KJON7XH4ARBTJERBZWVQM3"><img height="1" width="1" style="border-style: none solid solid none; border-bottom-width: 1px; border-bottom-color: red; border-right-width: 1px; border-right-color: red;" alt="" src="https://d.adroll.com/cm/index/out?advertisable=KJON7XH4ARBTJERBZWVQM3"><img height="1" width="1" style="border-style: none solid solid none; border-bottom-width: 1px; border-bottom-color: red; border-right-width: 1px; border-right-color: red;" alt="" src="https://d.adroll.com/cm/n/out?advertisable=KJON7XH4ARBTJERBZWVQM3"><img height="1" width="1" style="border-style: none solid solid none; border-bottom-width: 1px; border-bottom-color: red; border-right-width: 1px; border-right-color: red;" alt="" src="https://d.adroll.com/cm/outbrain/out?advertisable=KJON7XH4ARBTJERBZWVQM3"><img height="1" width="1" style="border-style: none solid solid none; border-bottom-width: 1px; border-bottom-color: red; border-right-width: 1px; border-right-color: red;" alt="" src="https://d.adroll.com/cm/pubmatic/out?advertisable=KJON7XH4ARBTJERBZWVQM3"><img height="1" width="1" style="border-style: none solid solid none; border-bottom-width: 1px; border-bottom-color: red; border-right-width: 1px; border-right-color: red;" alt="" src="https://d.adroll.com/cm/taboola/out?advertisable=KJON7XH4ARBTJERBZWVQM3"><img height="1" width="1" style="border-style: none solid solid none; border-bottom-width: 1px; border-bottom-color: red; border-right-width: 1px; border-right-color: red;" alt="" src="https://d.adroll.com/cm/triplelift/out?advertisable=KJON7XH4ARBTJERBZWVQM3"></div><div style="width: 1px; height: 1px; display: inline; position: absolute;"><img height="1" width="1" style="border-style: none solid solid none; border-bottom-width: 1px; border-bottom-color: red; border-right-width: 1px; border-right-color: red;" alt="" src="https://d.adroll.com/cm/r/out?advertisable=KJON7XH4ARBTJERBZWVQM3">
+<img height="1" width="1" style="border-style: none solid solid none; border-bottom-width: 1px; border-bottom-color: red; border-right-width: 1px; border-right-color: red;" alt="" src="https://d.adroll.com/cm/b/out?advertisable=KJON7XH4ARBTJERBZWVQM3">
+<img height="1" width="1" style="border-style: none solid solid none; border-bottom-width: 1px; border-bottom-color: red; border-right-width: 1px; border-right-color: red;" alt="" src="https://d.adroll.com/cm/x/out?advertisable=KJON7XH4ARBTJERBZWVQM3">
+<img height="1" width="1" style="border-style: none solid solid none; border-bottom-width: 1px; border-bottom-color: red; border-right-width: 1px; border-right-color: red;" alt="" src="https://d.adroll.com/cm/l/out?advertisable=KJON7XH4ARBTJERBZWVQM3">
+<img height="1" width="1" style="border-style: none solid solid none; border-bottom-width: 1px; border-bottom-color: red; border-right-width: 1px; border-right-color: red;" alt="" src="https://d.adroll.com/cm/o/out?advertisable=KJON7XH4ARBTJERBZWVQM3">
+<img height="1" width="1" style="border-style: none solid solid none; border-bottom-width: 1px; border-bottom-color: red; border-right-width: 1px; border-right-color: red;" alt="" src="https://d.adroll.com/cm/g/out?advertisable=KJON7XH4ARBTJERBZWVQM3&amp;google_nid=adroll5">
+</div></head>
+
+<body class="post-template-default single single-post postid-3439 single-format-standard singular two-column right-sidebar">
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PLK2GW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PLK2GW');</script>
+<!-- End Google Tag Manager -->
+
+<div id="page" class="hfeed no-touch">
+	
+<div class="row">
+
+	<header class="blog-single">
+		<div class="overlay" style="background-image:url('https://blog.rjmetrics.com/wp-content/uploads/sites/4/2015/08/Angular.jpg');">
+		</div>
+		<div class="container">
+			<ul id="breadcrumbs"><li><a href="https://blog.rjmetrics.com">TheDataPoint</a></li><li class="separator"></li><li><a href="https://blog.rjmetrics.com/category/about-us/engineering/" rel="category tag">Engineering</a></li><li class="separator"></li><li>8 Features of ng-repeat</li></ul>			<a href="http://rjmetrics.com"><img src="https://blog.rjmetrics.com/wp-content/themes/datapoint/images/top-logo.svg" class="logo-rjm" style="border-bottom: 1px solid red; border-right: 1px solid red;"></a>
+			<div class="entry-title">
+								<h1>8 Features of ng-repeat</h1>
+				<a href="https://blog.rjmetrics.com/author/bgarvey/" rel="author" class="top-author"><h2>Ben Garvey | <span>September 2, 2015 </span></h2></a>
+			</div>
+		</div>
+	</header><!-- #branding -->
+	
+
+	<div id="main">
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<div class="hidden-desktop">
+	<ul id="breadcrumbs"><li><a href="https://blog.rjmetrics.com">TheDataPoint</a></li><li class="separator"></li><li><a href="https://blog.rjmetrics.com/category/about-us/engineering/" rel="category tag">Engineering</a></li><li class="separator"></li><li>8 Features of ng-repeat</li></ul>	<!-- AddThis Button BEGIN -->
+	<div class="addthis_toolbox addthis_default_style addthis_compact">
+		<a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"><div class="fb-like fb_iframe_widget" data-layout="button_count" data-show_faces="false" data-share="false" data-action="like" data-width="90" data-height="25" data-font="arial" data-href="https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/" data-send="false" style="height: 25px;" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=172525162793917&amp;container_width=0&amp;font=arial&amp;height=25&amp;href=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;share=false&amp;show_faces=false&amp;width=90"><span style="vertical-align: bottom; width: 0px; height: 0px;"><iframe name="f73a3fac2bb3" width="90px" height="25px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" title="fb:like Facebook Social Plugin" src="https://www.facebook.com/v2.6/plugins/like.php?action=like&amp;app_id=172525162793917&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FafATJJjxKE6.js%3Fversion%3D43%23cb%3Df3511d61482a348%26domain%3Dblog.rjmetrics.com%26origin%3Dhttps%253A%252F%252Fblog.rjmetrics.com%252Ff388c5cf03640d%26relation%3Dparent.parent&amp;container_width=0&amp;font=arial&amp;height=25&amp;href=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;share=false&amp;show_faces=false&amp;width=90" class="" style="border: none; visibility: visible; width: 0px; height: 0px;"></iframe></span></div></a>
+		<a class="addthis_button_tweet at300b"><div class="tweet_iframe_widget" style="width: 62px; height: 25px;"><span><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="https://platform.twitter.com/widgets/tweet_button.0568ee90c37ccf52b40a4b1e312811ff.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F&amp;size=m&amp;text=8%20Features%20of%20ng-repeat%3A&amp;time=1543530424562&amp;type=share&amp;url=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F%23.XABntzpmGSw.twitter" data-url="https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/#.XABntzpmGSw.twitter" style="position: static; visibility: visible; width: 1px; height: 1px;"></iframe></span></div></a>
+		<a class="addthis_button_linkedin_counter at300b"><div class="linkedin_counter_iframe_widget" style="width: 57px; height: 25px;"><span><iframe title="AddThis | LinkedIn Button" frameborder="0" role="presentation" scrolling="no" allowtransparency="true" scrollbars="no" style="width:57px; height:25px;" src="//s7.addthis.com/static/linkedin.html#href=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F&amp;dr=&amp;conf=product%3Dtbx-300%26username%3Dxa-525465ba1b8c3b7f%26pubid%3Dxa-525465ba1b8c3b7f&amp;share=imp_url%3D0%26url%3Dhttps%253A%252F%252Fblog.rjmetrics.com%252F2015%252F09%252F02%252F8-features-of-ng-repeat%252F%26title%3D8%252520Features%252520of%252520ng-repeat%26description%3D8%2520useful%2520features%2520of%2520ng-repeat%2520that%2520every%2520software%2520engineer%2520should%2520keep%2520on%2520hand%2520for%2520quick%2520reference.%26smd%3Drsi%253D%2526rxi%253Dundefined%2526gen%253D0%2526rsc%253D%2526dr%253D%2526sta%253DAT-xa-525465ba1b8c3b7f%25252F-%25252F-%25252F5c0067b7fb1fbb0b%25252F1%26passthrough%3Dlinkedin%253D&amp;li="></iframe></span></div></a>
+		<a class="addthis_button_google_plusone at300b"><div class="google_plusone_iframe_widget" style="width: 90px; height: 25px;"><span><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 24px; height: 15px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 24px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 15px;" tabindex="0" vspace="0" width="100%" id="I0_1543530424917" name="I0_1543530424917" src="https://apis.google.com/se/0/_/+1/fastbutton?usegapi=1&amp;size=small&amp;hl=en-US&amp;origin=https%3A%2F%2Fblog.rjmetrics.com&amp;url=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.MGdIDI8wTVg.O%2Fam%3DQQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCPawbJm9qhJY3moxayCKAdmv4AXJQ%2Fm%3D__features__#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh&amp;id=I0_1543530424917&amp;_gfid=I0_1543530424917&amp;parent=https%3A%2F%2Fblog.rjmetrics.com&amp;pfname=&amp;rpctoken=36122205" data-gapiattached="true" title="G+"></iframe></div></span></div></a>
+	<div class="atclear"></div></div>
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-525465ba1b8c3b7f"></script>
+	<!-- AddThis Button END -->
+</div>
+<article id="post-3439" class="post-3439 post type-post status-publish format-standard has-post-thumbnail hentry category-engineering">
+	<div class="entry-content">
+		<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><a href="https://docs.angularjs.org/api/ng/directive/ngRepeat" target="_blank">ng-repeat</a> is my favorite of all the core <a href="https://angularjs.org/" target="_blank">AngularJS</a> directives. A huge amount of front end programming time goes into displaying lists of things in helpful ways and ng-repeat helps make that easier, but it’s also filled to the brim with gotchas. Even worse, when something doesn’t work it fails silently and you’re left to figure out why your list isn’t sorting or filtering correctly.</p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;">Because of these gotchas, I put together a presentation last year for our Angular-Philly meetup titled, <a href="https://docs.google.com/presentation/d/1E95SENVLmj2uyyoSxrYbqYUTuT0ecaMEkWeEw5lyY3s/edit?usp=sharing" target="_blank">14 Slides on ng-repeat</a>. I frequently refer back to it to check my syntax so I figured it might be a useful blog post.  Here are 8 features of ng-repeat!</p>
+<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">Plain ng-repeat</h3>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Model</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297ec70392932225" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">$scope.names = [‘Ben’, ‘Nate’, ‘Austin’, ‘Yiannis’, ‘Matt M’, ‘Matt B’];</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297ec70392932225-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297ec70392932225-1"><span class="crayon-sy">$</span><span class="crayon-v">scope</span><span class="crayon-sy">.</span><span class="crayon-v">names</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span>‘<span class="crayon-i">Ben</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Nate</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Austin</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Yiannis</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Matt</span><span class="crayon-h"> </span><span class="crayon-i">M</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Matt</span><span class="crayon-h"> </span><span class="crayon-i">B</span>’<span class="crayon-sy">]</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0011 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Template</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297ec7d337904052" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">&lt;ul&gt;
+  &lt;li ng-repeat=”name in names”&gt;{{name}}&lt;/li&gt;
+&lt;/ul&gt;</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297ec7d337904052-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ec7d337904052-2">2</div><div class="crayon-num" data-line="crayon-5c0066297ec7d337904052-3">3</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297ec7d337904052-1"><span class="crayon-o">&lt;</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ec7d337904052-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">li </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">repeat</span><span class="crayon-o">=</span>”<span class="crayon-e">name</span><span class="crayon-h"> </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-e">names</span>”<span class="crayon-o">&gt;</span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-v">name</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">li</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5c0066297ec7d337904052-3"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0008 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>View</strong><br>
+Ben<br>
+Nate<br>
+Austin<br>
+Yiannis<br>
+Matt M<br>
+Matt B</p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;">Very simple. We have an array of strings and we’re creating an unordered list and populating each list item with a string from the names array.  The data is bound to $scope and Angular keeps the model and the view consistent. </p>
+<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">track by</h3>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Model</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297ec81232163935" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">$scope.names = [‘Ben’, ‘Nate’, ‘Austin’, ‘Yiannis’, ‘Matt’, ‘Matt’];</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297ec81232163935-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297ec81232163935-1"><span class="crayon-sy">$</span><span class="crayon-v">scope</span><span class="crayon-sy">.</span><span class="crayon-v">names</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span>‘<span class="crayon-i">Ben</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Nate</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Austin</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Yiannis</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Matt</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Matt</span>’<span class="crayon-sy">]</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0009 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Template</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297ec85943946496" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">&lt;ul&gt;
+  &lt;li ng-repeat=”name in names track by $index”&gt;{{name}}&lt;/li&gt;
+&lt;/ul&gt;</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297ec85943946496-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ec85943946496-2">2</div><div class="crayon-num" data-line="crayon-5c0066297ec85943946496-3">3</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297ec85943946496-1"><span class="crayon-o">&lt;</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ec85943946496-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">li </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">repeat</span><span class="crayon-o">=</span>”<span class="crayon-e">name</span><span class="crayon-h"> </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-e">names</span><span class="crayon-h"> </span><span class="crayon-e">track</span><span class="crayon-h"> </span><span class="crayon-e">by</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-e">index</span>”<span class="crayon-o">&gt;</span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-v">name</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">li</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5c0066297ec85943946496-3"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0010 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>View</strong><br>
+Ben<br>
+Nate<br>
+Austin<br>
+Yiannis<br>
+Matt<br>
+Matt</p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;">Around Angular 1.3 they started requiring <strong>track by</strong> for any list that may include duplicate values. Using track by also speeds up list changes significantly. If you don’t use <code>track by</code> in this case, you get the error:  <code>Duplicates in a repeater are not allowed</code></p>
+<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">filter</h3>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Model</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297ec89062463423" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">$scope.names = [‘Ben’, ‘Nate’, ‘Austin’, ‘Yiannis’, ‘Matt M’, ‘Matt B’];</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297ec89062463423-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297ec89062463423-1"><span class="crayon-sy">$</span><span class="crayon-v">scope</span><span class="crayon-sy">.</span><span class="crayon-v">names</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span>‘<span class="crayon-i">Ben</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Nate</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Austin</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Yiannis</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Matt</span><span class="crayon-h"> </span><span class="crayon-i">M</span>’<span class="crayon-sy">,</span><span class="crayon-h"> </span>‘<span class="crayon-i">Matt</span><span class="crayon-h"> </span><span class="crayon-i">B</span>’<span class="crayon-sy">]</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0010 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Template</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297ec8d218407072" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">&lt;ul&gt;
+  &lt;input type=”text” ng-model=”searchBox”&gt;
+  &lt;li ng-repeat=”name in names | filter:searchBox track by $index”&gt;
+    {{name}}
+  &lt;/li&gt;
+&lt;/ul&gt;</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297ec8d218407072-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ec8d218407072-2">2</div><div class="crayon-num" data-line="crayon-5c0066297ec8d218407072-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ec8d218407072-4">4</div><div class="crayon-num" data-line="crayon-5c0066297ec8d218407072-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ec8d218407072-6">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297ec8d218407072-1"><span class="crayon-o">&lt;</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ec8d218407072-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">input </span><span class="crayon-v">type</span><span class="crayon-o">=</span>”<span class="crayon-i">text</span>”<span class="crayon-h"> </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">model</span><span class="crayon-o">=</span>”<span class="crayon-i">searchBox</span>”<span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5c0066297ec8d218407072-3"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">li </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">repeat</span><span class="crayon-o">=</span>”<span class="crayon-e">name </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-v">names</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-v">filter</span><span class="crayon-o">:</span><span class="crayon-e">searchBox</span><span class="crayon-h"> </span><span class="crayon-e">track</span><span class="crayon-h"> </span><span class="crayon-e">by</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-e">index</span>”<span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ec8d218407072-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-v">name</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5c0066297ec8d218407072-5"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">li</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ec8d218407072-6"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0014 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>View</strong><br>
+<input type="text" value="Matt"><br>
+Matt M<br>
+Matt B</p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;">By binding the filter to the searchBox, you can create an easy way to find the list item you want.  A common mistake is to put the filter after the track by like this.  <code>name in names track by $index | filter:searchBox</code>.  Don’t do it!</p>
+<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">object</h3>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Model</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297ec91743739835" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; z-index: 4;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">$scope.statuses = {"Ben": true, "Nate": true, "Austin": false};</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297ec91743739835-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297ec91743739835-1"><span class="crayon-sy">$</span><span class="crayon-v">scope</span><span class="crayon-sy">.</span><span class="crayon-v">statuses</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-s">"Ben"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-t">true</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"Nate"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-t">true</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"Austin"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-t">false</span><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0008 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Template</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297ec94480022075" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">&lt;ul&gt;
+  &lt;li ng-repeat=”(key, value) in statuses”&gt;
+    {{key}} {{value}}
+  &lt;/li&gt;
+&lt;/ul&gt;</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297ec94480022075-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ec94480022075-2">2</div><div class="crayon-num" data-line="crayon-5c0066297ec94480022075-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ec94480022075-4">4</div><div class="crayon-num" data-line="crayon-5c0066297ec94480022075-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297ec94480022075-1"><span class="crayon-o">&lt;</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ec94480022075-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">li </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">repeat</span><span class="crayon-o">=</span>”<span class="crayon-sy">(</span><span class="crayon-v">key</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">value</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-e">statuses</span>”<span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5c0066297ec94480022075-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-v">key</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-v">value</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ec94480022075-4"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">li</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5c0066297ec94480022075-5"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0011 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>View</strong><br>
+Ben true<br>
+Nate true<br>
+Austin false</p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;">Yes, you can iterate over objects with ng-repeat, but don’t do it! You’ll regret it. All the cool stuff like sorting and filtering either doesn’t work or gets way more complicated. If you’re iterating over an object with ng-repeat, you’ve already screwed up.</p>
+<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">array of objects</h3>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Model</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297ec98758046505" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">$scope.users = [ 
+  {“name”: "Ben", “status”: true}, 
+  {“name”: “Nate”, “status”: true}, 
+  {“name”: “Austin”, “status”: false}
+];</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297ec98758046505-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ec98758046505-2">2</div><div class="crayon-num" data-line="crayon-5c0066297ec98758046505-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ec98758046505-4">4</div><div class="crayon-num" data-line="crayon-5c0066297ec98758046505-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297ec98758046505-1"><span class="crayon-sy">$</span><span class="crayon-v">scope</span><span class="crayon-sy">.</span><span class="crayon-v">users</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ec98758046505-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">{</span>“<span class="crayon-i">name</span>”<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"Ben"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>“<span class="crayon-i">status</span>”<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-t">true</span><span class="crayon-sy">}</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5c0066297ec98758046505-3"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">{</span>“<span class="crayon-i">name</span>”<span class="crayon-o">:</span><span class="crayon-h"> </span>“<span class="crayon-i">Nate</span>”<span class="crayon-sy">,</span><span class="crayon-h"> </span>“<span class="crayon-i">status</span>”<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-t">true</span><span class="crayon-sy">}</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ec98758046505-4"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">{</span>“<span class="crayon-i">name</span>”<span class="crayon-o">:</span><span class="crayon-h"> </span>“<span class="crayon-i">Austin</span>”<span class="crayon-sy">,</span><span class="crayon-h"> </span>“<span class="crayon-i">status</span>”<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-t">false</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5c0066297ec98758046505-5"><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0017 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Template</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297ec9c343376587" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">&lt;ul&gt;
+  &lt;input type=”text” ng-model=”searchBox”/&gt;
+  &lt;li ng-repeat=”user in users | filter:searchBox:user.name”&gt;
+    {{user.name}} {{user.status}}
+  &lt;/li&gt;
+&lt;/ul&gt;</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297ec9c343376587-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ec9c343376587-2">2</div><div class="crayon-num" data-line="crayon-5c0066297ec9c343376587-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ec9c343376587-4">4</div><div class="crayon-num" data-line="crayon-5c0066297ec9c343376587-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ec9c343376587-6">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297ec9c343376587-1"><span class="crayon-o">&lt;</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ec9c343376587-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">input </span><span class="crayon-v">type</span><span class="crayon-o">=</span>”<span class="crayon-i">text</span>”<span class="crayon-h"> </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">model</span><span class="crayon-o">=</span>”<span class="crayon-i">searchBox</span>”<span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5c0066297ec9c343376587-3"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">li </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">repeat</span><span class="crayon-o">=</span>”<span class="crayon-e">user </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-v">users</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-v">filter</span><span class="crayon-o">:</span><span class="crayon-v">searchBox</span><span class="crayon-o">:</span><span class="crayon-v">user</span><span class="crayon-sy">.</span><span class="crayon-i">name</span>”<span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ec9c343376587-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-v">user</span><span class="crayon-sy">.</span><span class="crayon-v">name</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-v">user</span><span class="crayon-sy">.</span><span class="crayon-v">status</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5c0066297ec9c343376587-5"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">li</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ec9c343376587-6"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0016 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>View</strong><br>
+<input type="text" value="Ben"><br>
+Ben true</p>
+<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">stacked filters</h3>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Model</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297ec9f741392897" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">$scope.users = [ 
+  {“name”: "Ben", “status”: true}, 
+  {“name”: “Nate”, “status”: true}, 
+  {“name”: “Austin”, “status”: false}
+];</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297ec9f741392897-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ec9f741392897-2">2</div><div class="crayon-num" data-line="crayon-5c0066297ec9f741392897-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ec9f741392897-4">4</div><div class="crayon-num" data-line="crayon-5c0066297ec9f741392897-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297ec9f741392897-1"><span class="crayon-sy">$</span><span class="crayon-v">scope</span><span class="crayon-sy">.</span><span class="crayon-v">users</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ec9f741392897-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">{</span>“<span class="crayon-i">name</span>”<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"Ben"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>“<span class="crayon-i">status</span>”<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-t">true</span><span class="crayon-sy">}</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5c0066297ec9f741392897-3"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">{</span>“<span class="crayon-i">name</span>”<span class="crayon-o">:</span><span class="crayon-h"> </span>“<span class="crayon-i">Nate</span>”<span class="crayon-sy">,</span><span class="crayon-h"> </span>“<span class="crayon-i">status</span>”<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-t">true</span><span class="crayon-sy">}</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ec9f741392897-4"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">{</span>“<span class="crayon-i">name</span>”<span class="crayon-o">:</span><span class="crayon-h"> </span>“<span class="crayon-i">Austin</span>”<span class="crayon-sy">,</span><span class="crayon-h"> </span>“<span class="crayon-i">status</span>”<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-t">false</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5c0066297ec9f741392897-5"><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0016 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Template</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297eca3182435510" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">&lt;ul&gt;
+  &lt;input type=”text” ng-model=”searchBox”/&gt;
+  &lt;li ng-repeat=”user in users | filter:searchBox:user.name | filter:true:user.status”&gt;
+    {{user.name}} {{user.status}}
+  &lt;/li&gt;
+&lt;/ul&gt;</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297eca3182435510-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297eca3182435510-2">2</div><div class="crayon-num" data-line="crayon-5c0066297eca3182435510-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297eca3182435510-4">4</div><div class="crayon-num" data-line="crayon-5c0066297eca3182435510-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297eca3182435510-6">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297eca3182435510-1"><span class="crayon-o">&lt;</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297eca3182435510-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">input </span><span class="crayon-v">type</span><span class="crayon-o">=</span>”<span class="crayon-i">text</span>”<span class="crayon-h"> </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">model</span><span class="crayon-o">=</span>”<span class="crayon-i">searchBox</span>”<span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5c0066297eca3182435510-3"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">li </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">repeat</span><span class="crayon-o">=</span>”<span class="crayon-e">user </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-v">users</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-v">filter</span><span class="crayon-o">:</span><span class="crayon-v">searchBox</span><span class="crayon-o">:</span><span class="crayon-v">user</span><span class="crayon-sy">.</span><span class="crayon-v">name</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-v">filter</span><span class="crayon-o">:</span><span class="crayon-t">true</span><span class="crayon-o">:</span><span class="crayon-v">user</span><span class="crayon-sy">.</span><span class="crayon-i">status</span>”<span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297eca3182435510-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-v">user</span><span class="crayon-sy">.</span><span class="crayon-v">name</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-v">user</span><span class="crayon-sy">.</span><span class="crayon-v">status</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5c0066297eca3182435510-5"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">li</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297eca3182435510-6"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0020 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>View</strong><br>
+<input type="text" value=""><br>
+Ben true<br>
+Nate true</p>
+<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">nested loops</h3>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Model</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297eca7312982584" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">$scope.statuses = ["away", "ready", "busy"];
+$scope.users = [
+  {"name": "Ben", "status": "ready"}, 
+  {"name": "Nate", "status": "ready"}, 
+  {"name": "Austin", "status": "busy"}
+];</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297eca7312982584-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297eca7312982584-2">2</div><div class="crayon-num" data-line="crayon-5c0066297eca7312982584-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297eca7312982584-4">4</div><div class="crayon-num" data-line="crayon-5c0066297eca7312982584-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297eca7312982584-6">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297eca7312982584-1"><span class="crayon-sy">$</span><span class="crayon-v">scope</span><span class="crayon-sy">.</span><span class="crayon-v">statuses</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-s">"away"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"ready"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"busy"</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297eca7312982584-2"><span class="crayon-sy">$</span><span class="crayon-v">scope</span><span class="crayon-sy">.</span><span class="crayon-v">users</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span></div><div class="crayon-line" id="crayon-5c0066297eca7312982584-3"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">{</span><span class="crayon-s">"name"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"Ben"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"status"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"ready"</span><span class="crayon-sy">}</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297eca7312982584-4"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">{</span><span class="crayon-s">"name"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"Nate"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"status"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"ready"</span><span class="crayon-sy">}</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5c0066297eca7312982584-5"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">{</span><span class="crayon-s">"name"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"Austin"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"status"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"busy"</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297eca7312982584-6"><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0021 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Template</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297ecab346964786" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">  &lt;ul&gt;
+      &lt;li&gt;&lt;input type="text" ng-model="searchBox"/&gt;&lt;/li&gt;
+          &lt;li ng-repeat="user in users | filter:searchBox:user.name"&gt;
+              {{user.name}}
+              &lt;select ng-model="user.status" ng-options="status for status in statuses"&gt;&lt;/select&gt;
+          &lt;/li&gt;
+  &lt;/ul&gt;</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297ecab346964786-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ecab346964786-2">2</div><div class="crayon-num" data-line="crayon-5c0066297ecab346964786-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ecab346964786-4">4</div><div class="crayon-num" data-line="crayon-5c0066297ecab346964786-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ecab346964786-6">6</div><div class="crayon-num" data-line="crayon-5c0066297ecab346964786-7">7</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297ecab346964786-1"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ecab346964786-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-v">li</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">input </span><span class="crayon-v">type</span><span class="crayon-o">=</span><span class="crayon-s">"text"</span><span class="crayon-h"> </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">model</span><span class="crayon-o">=</span><span class="crayon-s">"searchBox"</span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">li</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5c0066297ecab346964786-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">li </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">repeat</span><span class="crayon-o">=</span><span class="crayon-s">"user in users | filter:searchBox:user.name"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ecab346964786-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-v">user</span><span class="crayon-sy">.</span><span class="crayon-v">name</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5c0066297ecab346964786-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">select </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">model</span><span class="crayon-o">=</span><span class="crayon-s">"user.status"</span><span class="crayon-h"> </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">options</span><span class="crayon-o">=</span><span class="crayon-s">"status for status in statuses"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">select</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ecab346964786-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">li</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5c0066297ecab346964786-7"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0019 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>View</strong><br>
+<input type="text" value=""><br>
+Nate <select><option>away&gt;</option><option selected="">ready</option><option>busy</option></select><br>
+Ben <select><option>away&gt;</option><option selected="">ready</option><option>busy</option></select><br>
+Austin <select><option>away&gt;</option><option>ready</option><option selected="">busy</option></select></p>
+<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">order by</h3>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Model</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297ecaf286290137" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">$scope.statuses = ["away", "ready", "busy"];
+$scope.users = [
+  {"name": "Ben", "status": "ready"}, 
+  {"name": "Nate", "status": "ready"},
+  {"name": "Austin", "status": "busy"},
+];</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297ecaf286290137-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ecaf286290137-2">2</div><div class="crayon-num" data-line="crayon-5c0066297ecaf286290137-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ecaf286290137-4">4</div><div class="crayon-num" data-line="crayon-5c0066297ecaf286290137-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ecaf286290137-6">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297ecaf286290137-1"><span class="crayon-sy">$</span><span class="crayon-v">scope</span><span class="crayon-sy">.</span><span class="crayon-v">statuses</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-s">"away"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"ready"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"busy"</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ecaf286290137-2"><span class="crayon-sy">$</span><span class="crayon-v">scope</span><span class="crayon-sy">.</span><span class="crayon-v">users</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span></div><div class="crayon-line" id="crayon-5c0066297ecaf286290137-3"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">{</span><span class="crayon-s">"name"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"Ben"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"status"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"ready"</span><span class="crayon-sy">}</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ecaf286290137-4"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">{</span><span class="crayon-s">"name"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"Nate"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"status"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"ready"</span><span class="crayon-sy">}</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="crayon-5c0066297ecaf286290137-5"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">{</span><span class="crayon-s">"name"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"Austin"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"status"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"busy"</span><span class="crayon-sy">}</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ecaf286290137-6"><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0017 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>Template</strong></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5c0066297ecb4009641499" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; margin-left: 50px; font-size: 12px !important; line-height: 21px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 21px !important; z-index: 0; opacity: 0; overflow: hidden;">  &lt;ul&gt;
+      &lt;li&gt;&lt;input type="text" ng-model="searchBox"/&gt;&lt;/li&gt;
+          &lt;li ng-repeat="user in users | filter:searchBox:user.name | orderBy:’name’"&gt;
+              {{user.name}}
+              &lt;select ng-model="user.status" ng-options="status for status in statuses"&gt;&lt;/select&gt;
+          &lt;/li&gt;
+  &lt;/ul&gt;</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 21px !important;"><div class="crayon-num" data-line="crayon-5c0066297ecb4009641499-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ecb4009641499-2">2</div><div class="crayon-num" data-line="crayon-5c0066297ecb4009641499-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ecb4009641499-4">4</div><div class="crayon-num" data-line="crayon-5c0066297ecb4009641499-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c0066297ecb4009641499-6">6</div><div class="crayon-num" data-line="crayon-5c0066297ecb4009641499-7">7</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 21px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c0066297ecb4009641499-1"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ecb4009641499-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-v">li</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">input </span><span class="crayon-v">type</span><span class="crayon-o">=</span><span class="crayon-s">"text"</span><span class="crayon-h"> </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">model</span><span class="crayon-o">=</span><span class="crayon-s">"searchBox"</span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">li</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5c0066297ecb4009641499-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">li </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">repeat</span><span class="crayon-o">=</span><span class="crayon-s">"user in users | filter:searchBox:user.name | orderBy:’name’"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ecb4009641499-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-v">user</span><span class="crayon-sy">.</span><span class="crayon-v">name</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5c0066297ecb4009641499-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">select </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">model</span><span class="crayon-o">=</span><span class="crayon-s">"user.status"</span><span class="crayon-h"> </span><span class="crayon-v">ng</span><span class="crayon-o">-</span><span class="crayon-v">options</span><span class="crayon-o">=</span><span class="crayon-s">"status for status in statuses"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">select</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c0066297ecb4009641499-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">li</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5c0066297ecb4009641499-7"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">ul</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0018 seconds] -->
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><strong>View</strong><br>
+<input type="text" value=""><br>
+Austin <select><option>away&gt;</option><option>ready</option><option selected="">busy</option></select><br>
+Ben <select><option>away&gt;</option><option selected="">ready</option><option>busy</option></select><br>
+Nate <select><option>away&gt;</option><option selected="">ready</option><option>busy</option></select></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;">Don’t forget the orderBy value has to be a string.  Don’t do this! <code>ng-repeat="user in users | filter:searchBox:user.name | orderBy:name"</code></p>
+<p style="border-bottom: 1px solid red; border-right: 1px solid red;"><a href="rjmetrics.com/product/pipeline" target="_blank"><img src="https://blog.rjmetrics.com/wp-content/uploads/sites/4/2015/10/pipeline-ad-blog.png" alt="pipeline-ad-blog" width="900" height="330" class="alignnone size-full wp-image-3682" srcset="https://blog.rjmetrics.com/wp-content/uploads/sites/4/2015/10/pipeline-ad-blog.png 900w, https://blog.rjmetrics.com/wp-content/uploads/sites/4/2015/10/pipeline-ad-blog-300x110.png 300w, https://blog.rjmetrics.com/wp-content/uploads/sites/4/2015/10/pipeline-ad-blog-500x183.png 500w" sizes="(max-width: 900px) 100vw, 900px" style="border-bottom: 1px solid red; border-right: 1px solid red;"></a></p>
+
+		
+		<div class="blog-tags"></div>
+				
+	</div><!-- .entry-content -->
+	<div class="entry-meta footer">
+				<div class="author-info">
+			<h1>About The Author</h1>
+			<table class="author-pic">
+				<tbody><tr>
+					<td>
+						<img alt="" src="https://secure.gravatar.com/avatar/b45cbf5d47fa3a901b19b6024a7a5590?s=68&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/b45cbf5d47fa3a901b19b6024a7a5590?s=136&amp;d=mm&amp;r=g 2x" class="avatar avatar-68 photo" height="68" width="68" style="border-bottom: 1px solid red; border-right: 1px solid red;">					</td>
+					<td class="author-name">
+						<h2>Ben Garvey</h2>
+						<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;"></h3>
+					</td>
+				</tr>
+			</tbody></table><!-- #author-avatar -->
+			<div class="author-description">
+				Ben Garvey is a software engineer at RJMetrics and you can follow him on twitter @bengarvey				<div class="twitter_follow">
+					<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=bengarvey" style="width:300px; height:20px;"></iframe>
+				</div>
+			</div><!-- #author-description -->
+		</div><!-- #author-info -->
+		
+				<div class="blog-related">
+		 	<h1>You Might Also Enjoy</h1>
+			<table>
+							<tbody><tr>
+					<td>
+						<div class="related-pic" style="background-image:url('https://blog.rjmetrics.com/wp-content/uploads/sites/4/2015/02/transit-copy.jpg');"></div>
+					</td>
+					<td class="related-info">
+						<a href="https://blog.rjmetrics.com/2015/02/04/the-five-indicators-of-breakout-ecommerce-growth/">
+							<h2>The Five Indicators of Breakout Ecommerce Growth</h2>
+							<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">Janessa Lantz<span>|</span>February 4, 2015</h3>
+						</a>
+					</td>
+				</tr>
+							<tr>
+					<td>
+						<div class="related-pic" style="background-image:url('https://blog.rjmetrics.com/wp-content/uploads/sites/4/2014/12/book-copy.jpg');"></div>
+					</td>
+					<td class="related-info">
+						<a href="https://blog.rjmetrics.com/2017/02/09/introducing-rjmetrics-analysis-library/">
+							<h2>Introducing: The RJMetrics Analysis Library</h2>
+							<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">Jim Roddy<span>|</span>February 9, 2017</h3>
+						</a>
+					</td>
+				</tr>
+							<tr>
+					<td>
+						<div class="related-pic" style="background-image:url('https://blog.rjmetrics.com/wp-content/uploads/sites/4/2015/01/BlogHeaderImage.png');"></div>
+					</td>
+					<td class="related-info">
+						<a href="https://blog.rjmetrics.com/2015/01/23/what-you-missed-the-growth-hacking-skill-no-ones-talking-about/">
+							<h2>What You Missed: The Growth-Hacking Skill No One’s Talking About</h2>
+							<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">Anna Kegler<span>|</span>January 23, 2015</h3>
+						</a>
+					</td>
+				</tr>
+					  				<tr>
+					<td>
+						<div class="related-pic" style="background-image:url('https://blog.rjmetrics.com/wp-content/uploads/sites/4/2014/07/BlurryWarehouse.png');"></div>
+					</td>
+					<td class="related-info">
+						<a href="https://blog.rjmetrics.com/2017/02/16/understanding-your-magento-data-series-the-balancing-act-of-returns/">
+							<h2>Understanding your Magento Data Series: The Balancing Act of Returns</h2>
+							<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">Chris Schmid<span>|</span>February 16, 2017</h3>
+						</a>
+					</td>
+				</tr>
+							<tr>
+					<td>
+						<div class="related-pic" style="background-image:url('https://blog.rjmetrics.com/wp-content/uploads/sites/4/2014/10/photo-2-copy.png');"></div>
+					</td>
+					<td class="related-info">
+						<a href="https://blog.rjmetrics.com/2014/10/15/customer-success-and-the-evolution-of-saas-metrics-churn-ltv-and-cac/">
+							<h2>Customer Success and the Evolution of SaaS Metrics: Churn, LTV, and CAC</h2>
+							<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">Karan Mehandru<span>|</span>October 15, 2014</h3>
+						</a>
+					</td>
+				</tr>
+							<tr>
+					<td>
+						<div class="related-pic" style="background-image:url('https://blog.rjmetrics.com/wp-content/uploads/sites/4/2017/02/rank_title.png');"></div>
+					</td>
+					<td class="related-info">
+						<a href="https://blog.rjmetrics.com/2017/02/23/some-downright-fancy-sql-visualizations/">
+							<h2>Some Downright Fancy SQL Visualizations</h2>
+							<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">Akash Agrawal<span>|</span>February 23, 2017</h3>
+						</a>
+					</td>
+				</tr>
+					      <script type="text/javascript">
+    // <![CDATA[
+        var disqus_shortname = 'rjmetricsecommerceblog';
+        (function () {
+            var nodes = document.getElementsByTagName('span');
+            for (var i = 0, url; i < nodes.length; i++) {
+                if (nodes[i].className.indexOf('dsq-postid') != -1) {
+                    nodes[i].parentNode.setAttribute('data-disqus-identifier', nodes[i].getAttribute('rel'));
+                    url = nodes[i].parentNode.href.split('#', 1);
+                    if (url.length == 1) { url = url[0]; }
+                    else { url = url[1]; }
+                    nodes[i].parentNode.href = url + '#disqus_thread';
+                }
+            }
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + 'disqus.com/forums/' + disqus_shortname + '/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    //]]>
+    </script>
+			</tbody></table>
+		</div>
+	</div><!-- .entry-meta -->
+</article><!-- #post-3439 -->
+<script>
+$(document).ready(function(){
+	tweetThis();
+    //rjm.page();
+
+})
+</script>
+
+					
+<div id="disqus_thread"><iframe id="dsq-app1554" name="dsq-app1554" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" sandbox="allow-forms allow-popups allow-same-origin allow-scripts" width="100%" src="//disqusads.com/ads-iframe/adsnative/?category=0&amp;display_bidding_enabled=0&amp;stories_allowed=1&amp;service=dynamic&amp;position=top&amp;display_allowed=1&amp;video_allowed=1&amp;provider=adsnative&amp;thumbnails_allowed=1&amp;experiment=network_default&amp;variant=fallthrough&amp;display_only=0&amp;sandbox_display=1&amp;links_allowed=1&amp;doublewide_allowed=1&amp;shortname=rjmetricsecommerceblog&amp;forum_pk=2549340&amp;forum_shortname=rjmetricsecommerceblog&amp;safetylevel=30&amp;t=1543530421&amp;anchorColor=%23f37621&amp;colorScheme=light&amp;sourceUrl=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F&amp;typeface=sans-serif&amp;canonicalUrl=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F&amp;disqus_version=4c3a286" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 0px !important;"></iframe><iframe id="dsq-app1551" name="dsq-app1551" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="https://disqus.com/embed/comments/?base=default&amp;f=rjmetricsecommerceblog&amp;t_i=3439%20https%3A%2F%2Fblog.rjmetrics.com%2F%3Fp%3D3439&amp;t_u=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F&amp;t_e=8%20Features%20of%20ng-repeat&amp;t_d=8%20Features%20of%20ng-repeat&amp;t_t=8%20Features%20of%20ng-repeat&amp;s_o=default&amp;l=#version=21f08b9bd4ed8ca7dc72ac98c35093bc" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 1530px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe><iframe id="indicator-north" name="indicator-north" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" style="width: 654px !important; border: none !important; overflow: hidden !important; top: 0px !important; min-width: 654px !important; max-width: 654px !important; position: fixed !important; z-index: 2147483646 !important; height: 0px !important; min-height: 0px !important; max-height: 0px !important; display: none !important;"></iframe><iframe id="indicator-south" name="indicator-south" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" style="width: 654px !important; border: none !important; overflow: hidden !important; bottom: 0px !important; min-width: 654px !important; max-width: 654px !important; position: fixed !important; z-index: 2147483646 !important; height: 0px !important; min-height: 0px !important; max-height: 0px !important; display: none !important;"></iframe></div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+    var disqus_url = 'https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/';
+    var disqus_identifier = '3439 https://blog.rjmetrics.com/?p=3439';
+    var disqus_container_id = 'disqus_thread';
+    var disqus_domain = 'disqus.com';
+    var disqus_shortname = 'rjmetricsecommerceblog';
+    var disqus_title = "8 Features of ng-repeat";
+        var disqus_config = function () {
+        var config = this; // Access to the config object
+        config.language = '';
+
+        /*
+           All currently supported events:
+            * preData — fires just before we request for initial data
+            * preInit - fires after we get initial data but before we load any dependencies
+            * onInit  - fires when all dependencies are resolved but before dtpl template is rendered
+            * afterRender - fires when template is rendered but before we show it
+            * onReady - everything is done
+         */
+
+        config.callbacks.preData.push(function() {
+            // clear out the container (its filled for SEO/legacy purposes)
+            document.getElementById(disqus_container_id).innerHTML = '';
+        });
+                config.callbacks.onReady.push(function() {
+            // sync comments in the background so we don't block the page
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = '?cf_action=sync_comments&post_id=3439';
+
+            var firstScript = document.getElementsByTagName( "script" )[0];
+            firstScript.parentNode.insertBefore(script, firstScript);
+        });
+                    };
+/* ]]> */
+</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+    var DsqLocal = {
+        'trackbacks': [
+        ],
+        'trackback_url': "https:\/\/blog.rjmetrics.com\/2015\/09\/02\/8-features-of-ng-repeat\/trackback\/"    };
+/* ]]> */
+</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.' + 'disqus.com' + '/embed.js?pname=wordpress&pver=2.74';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+/* ]]> */
+</script>
+
+								
+			</div><!-- #content -->
+		</div><!-- #primary -->
+	</div><!-- #main -->
+		<div id="sidebar" class="widget-area" role="complementary">
+			<div id="post-author">
+				<a href="https://blog.rjmetrics.com/author/bgarvey/" rel="author"><div class="author-pic">
+					<img alt="" src="https://secure.gravatar.com/avatar/b45cbf5d47fa3a901b19b6024a7a5590?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/b45cbf5d47fa3a901b19b6024a7a5590?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" style="border-bottom: 1px solid red; border-right: 1px solid red;">				</div><!-- #author-avatar -->
+				<div class="author-info">
+					<p style="border-bottom: 1px solid red; border-right: 1px solid red;">Ben Garvey<br>September 2, 2015</p>
+
+				</div><!-- #author-description	--></a>
+			</div><!-- #author-info -->
+			<div class="socialShare clearfix loaded">
+				<ul class="icons clearfix">
+					<li class="icon twitter social" data-social="twitter"><a target="_blank" href="https://twitter.com/share" data-url="https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/" data-text="8 Features of ng-repeat"><span class="count"><div class="soc"></div></span></a><a class="bar" target="_blank" href="https://twitter.com/share" data-url="https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/" data-text="8 Features of ng-repeat"></a></li>
+					<li class="icon google social" data-social="google"><a target="_blank" href="https://plus.google.com/share" data-url="https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/"><span class="count"><div class="soc"></div></span></a><a class="bar" target="_blank" href="https://plus.google.com/share" data-url="https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/"></a></li>
+					<li class="icon facebook social" data-social="facebook"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php" data-url="https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/" data-text="8 Features of ng-repeat https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/"><span class="count"><div class="soc"></div></span></a><a class="bar" target="_blank" href="https://www.facebook.com/sharer/sharer.php" data-url="https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/" data-text="8 Features of ng-repeat https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/"></a></li>
+					<li class="icon linkedin social" data-social="linkedin"><a target="_blank" href="http://www.linkedin.com/shareArticle" data-url="https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/" data-text="8 Features of ng-repeat"><span class="count"><div class="soc"></div></span></a><a class="bar" target="_blank" href="http://www.linkedin.com/shareArticle" data-url="https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/" data-text="8 Features of ng-repeat"></a></li>
+				</ul>
+				<script>
+					$(document).ready(function(){
+						parseSharedCount("https://blog.rjmetrics.com/2015/09/02/8-features-of-ng-repeat/");
+					})
+				</script>
+			</div>
+		</div><!-- #secondary .widget-area -->
+<script type="text/javascript">
+$(document).ready(function(){
+	sidebarVanish();
+	openNewTab();
+	postTrack();
+
+	$(window).scroll(function() {
+		var scrolled = $(window).scrollTop();
+		if (scrolled > 600) {
+			$(".category_cta").addClass('slid');
+		}
+		if (scrolled > 1500) {
+			checkScroll();
+			$('.category_cta').removeClass('cta-fixed-unscrolled');
+		}
+	});
+
+	$('.category_cta .close-cta').click(function() {
+		$('.category_cta').fadeOut();
+		shrinkCta();
+	});
+
+	$('.cta-btn-grow').click(function() {
+		growCta();
+	});
+
+	$('#demo-trigger').on('click','#myModal',function(){
+		$(this).modal();
+	});
+})
+</script>
+
+</div>
+	<footer>
+		<div class="row foot-nav">
+			<div class="col-sm-4 blog-cat">
+				<div class="hidden-xs"><ul id="menu-footer-nav" class="menu-footer nav"><li id="menu-item-2107" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2107"><a title="Data Journalism" href="https://blog.rjmetrics.com/category/data-journalism/">Data Journalism</a></li>
+<li id="menu-item-2106" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-2106 dropdown yamm-fw"><a title="Applications of Data" href="https://blog.rjmetrics.com/category/applications-of-data/" aria-haspopup="true">Applications of Data </a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-2110" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2110"><a title="Growth" href="https://blog.rjmetrics.com/category/applications-of-data/growth/">Growth</a></li>
+	<li id="menu-item-2111" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2111"><a title="Mobile" href="https://blog.rjmetrics.com/category/applications-of-data/mobile/">Mobile</a></li>
+	<li id="menu-item-2112" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2112"><a title="SaaS" href="https://blog.rjmetrics.com/category/applications-of-data/saas/">SaaS</a></li>
+	<li id="menu-item-2109" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2109"><a title="Ecommerce" href="https://blog.rjmetrics.com/category/applications-of-data/ecommerce/">Ecommerce</a></li>
+</ul>
+</li>
+<li id="menu-item-2108" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2108"><a title="Thinking in Data" href="https://blog.rjmetrics.com/category/thinking-in-data/">Thinking in Data</a></li>
+<li id="menu-item-2283" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-2283 dropdown yamm-fw"><a title="About Us" href="https://blog.rjmetrics.com/category/about-us/" aria-haspopup="true">About Us </a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-2284" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-2284 open "><a title="Engineering" href="https://blog.rjmetrics.com/category/about-us/engineering/">Engineering</a></li>
+	<li id="menu-item-2285" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2285"><a title="Product Update" href="https://blog.rjmetrics.com/category/about-us/product-update/">Product Update</a></li>
+	<li id="menu-item-2286" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2286"><a title="RJMetrics News" href="https://blog.rjmetrics.com/category/about-us/rjmetrics-news/">RJMetrics News</a></li>
+</ul>
+</li>
+</ul></div>			    <ul id="menu-main-nav" class="menu-footer nav text-center visible-xs">
+			    	<li><a title="Data Journalism" href="/category/data-journalism/">Data Journalism</a></li>
+					<li><a title="Applications of Data" href="/category/applications-of-data/" aria-haspopup="true">Applications of Data</a></li>
+					<li><a title="Thinking in Data" href="/category/thinking-in-data/">Thinking in Data</a></li>
+					<li><a title="Author Bios" href="/category/about-us">About Us</a></li>
+					<li><a title="Author Bios" href="https://rjmetrics.com/contact">Connect With Us</a></li>
+						<span class="soc-icon">
+							<a href="https://www.twitter.com/RJMetrics"><img src="https://blog.rjmetrics.com/wp-content/themes/datapoint/images/social-twitter.svg" style="border-bottom: 1px solid red; border-right: 1px solid red;"></a>
+							<a href="https://www.facebook.com/RJMetrics"><img src="https://blog.rjmetrics.com/wp-content/themes/datapoint/images/social-fb.svg" style="border-bottom: 1px solid red; border-right: 1px solid red;"></a>
+							<a href="https://www.linkedin.com/company/rjmetrics"><img src="https://blog.rjmetrics.com/wp-content/themes/datapoint/images/social-ln.svg" style="border-bottom: 1px solid red; border-right: 1px solid red;"></a>
+						</span>
+				</ul>
+			</div>
+			<div class="hidden-xs">
+				<div class="col-sm-4 footer-section authors">
+					<div class="row">
+						<h1>The Authors</h1>
+						
+						      <div class="col-sm-6 footer-author">
+						      	<a href="https://blog.rjmetrics.com/author/mwasley/"><h3 style="border-bottom: 1px solid red; border-right: 1px solid red;"><img alt="" src="https://secure.gravatar.com/avatar/a610f945d2ce88d61f97f3bf5d951c29?s=96&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a610f945d2ce88d61f97f3bf5d951c29?s=192&amp;d=mm&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" style="border-bottom: 1px solid red; border-right: 1px solid red;">						      	mwasley<br>2 Posts</h3></a>
+						      </div>
+						    
+						      <div class="col-sm-6 footer-author">
+						      	<a href="https://blog.rjmetrics.com/author/cschmid/"><h3 style="border-bottom: 1px solid red; border-right: 1px solid red;"><img alt="" src="https://secure.gravatar.com/avatar/21bdb5d434513d09bae3d41d19c852b5?s=96&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/21bdb5d434513d09bae3d41d19c852b5?s=192&amp;d=mm&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" style="border-bottom: 1px solid red; border-right: 1px solid red;">						      	Chris Schmid<br>3 Posts</h3></a>
+						      </div>
+						    
+						      <div class="col-sm-6 footer-author">
+						      	<a href="https://blog.rjmetrics.com/author/tbaw/"><h3 style="border-bottom: 1px solid red; border-right: 1px solid red;"><img alt="" src="https://secure.gravatar.com/avatar/0a32a1d5a87a3e26aa33979ac6422598?s=96&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/0a32a1d5a87a3e26aa33979ac6422598?s=192&amp;d=mm&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" style="border-bottom: 1px solid red; border-right: 1px solid red;">						      	Tommy Baw<br>1 Posts</h3></a>
+						      </div>
+						    
+						      <div class="col-sm-6 footer-author">
+						      	<a href="https://blog.rjmetrics.com/author/aandrews/"><h3 style="border-bottom: 1px solid red; border-right: 1px solid red;"><img alt="" src="https://secure.gravatar.com/avatar/5cf8b82d55679316e5a815de68f7d055?s=96&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/5cf8b82d55679316e5a815de68f7d055?s=192&amp;d=mm&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" style="border-bottom: 1px solid red; border-right: 1px solid red;">						      	Anita Andrews<br>12 Posts</h3></a>
+						      </div>
+						    
+						      <div class="col-sm-6 footer-author">
+						      	<a href="https://blog.rjmetrics.com/author/rwilliams/"><h3 style="border-bottom: 1px solid red; border-right: 1px solid red;"><img alt="" src="https://secure.gravatar.com/avatar/9a1db957848d1415d6ead2629b0c020b?s=96&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/9a1db957848d1415d6ead2629b0c020b?s=192&amp;d=mm&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" style="border-bottom: 1px solid red; border-right: 1px solid red;">						      	Ryan Williams<br>6 Posts</h3></a>
+						      </div>
+						    
+						      <div class="col-sm-6 footer-author">
+						      	<a href="https://blog.rjmetrics.com/author/bgarvey/"><h3 style="border-bottom: 1px solid red; border-right: 1px solid red;"><img alt="" src="https://secure.gravatar.com/avatar/b45cbf5d47fa3a901b19b6024a7a5590?s=96&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/b45cbf5d47fa3a901b19b6024a7a5590?s=192&amp;d=mm&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" style="border-bottom: 1px solid red; border-right: 1px solid red;">						      	Ben Garvey<br>4 Posts</h3></a>
+						      </div>
+						    					</div>
+				</div>
+				<div class="col-sm-4 misc">
+					<div class="socials footer-section ">
+						<h1>Connect with us</h1>
+						<a href="https://www.twitter.com/RJMetrics"><img src="https://blog.rjmetrics.com/wp-content/themes/datapoint/images/social-twitter.svg" style="border-bottom: 1px solid red; border-right: 1px solid red;"></a>
+						<a href="https://www.facebook.com/RJMetrics"><img src="https://blog.rjmetrics.com/wp-content/themes/datapoint/images/social-fb.svg" style="border-bottom: 1px solid red; border-right: 1px solid red;"></a>
+						<a href="https://www.linkedin.com/company/rjmetrics"><img src="https://blog.rjmetrics.com/wp-content/themes/datapoint/images/social-ln.svg" style="border-bottom: 1px solid red; border-right: 1px solid red;"></a>
+					</div>
+					<div class="guest footer-section ">
+						<i><h2>Be a Guest Blogger</h2>
+						<h3 style="border-bottom: 1px solid red; border-right: 1px solid red;">Over 30,000 visitors come to our blog every month to learn how to grow their online businesses with data. If you have something to teach them, let us know!</h3></i>
+						<h2 class="email"><a href="mailto:editor@rjmetrics.com"><img src="https://blog.rjmetrics.com/wp-content/themes/datapoint/images/email-icon.svg" style="border-bottom: 1px solid red; border-right: 1px solid red;">editor@rjmetrics.com</a></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="foot-brand">
+			<div class="col-sm-12">
+				<h2><img src="https://blog.rjmetrics.com/wp-content/themes/datapoint/images/rj-logo-white.svg" class="logo" style="border-bottom: 1px solid red; border-right: 1px solid red;"></h2>
+			</div>
+		</div>
+	</footer><!-- #colophon -->
+</div><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; top: -9999px; z-index: 100000;"><iframe id="_atssh739" title="AddThis utility frame" style="height: 1px; width: 1px; position: absolute; top: 0px; z-index: 100000; border: 0px; left: 0px;" src="https://s7.addthis.com/static/sh.e4e8af4de595fdb10ec1459d.html#rand=0.9253045270487372&amp;iit=1543530423881&amp;tmr=load%3D1543530423508%26core%3D1543530423535%26main%3D1543530423876%26ifr%3D1543530423884&amp;cb=0&amp;cdn=0&amp;md=0&amp;kw=&amp;ab=-&amp;dh=blog.rjmetrics.com&amp;dr=&amp;du=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F&amp;href=https%3A%2F%2Fblog.rjmetrics.com%2F2015%2F09%2F02%2F8-features-of-ng-repeat%2F&amp;dt=8%20Features%20of%20ng-repeat&amp;dbg=0&amp;cap=tc%3D0%26ab%3D0&amp;inst=1&amp;jsl=1&amp;prod=undefined&amp;lng=en&amp;ogt=image%2Cupdated_time%2Csite_name%2Curl%2Cdescription%2Ctitle%2Ctype%3Darticle&amp;pc=men&amp;pub=xa-525465ba1b8c3b7f&amp;ssl=1&amp;sid=5c0067b7fb1fbb0b&amp;srf=0.01&amp;ver=300&amp;xck=0&amp;xtr=0&amp;og=locale%3Den_US%26type%3Darticle%26title%3D8%2520Features%2520of%2520ng-repeat%26description%3D8%2520useful%2520features%2520of%2520ng-repeat%2520that%2520every%2520software%2520engineer%2520should%2520keep%2520on%2520hand%2520for%2520quick%2520reference.%26url%3Dhttps%253A%252F%252Fblog.rjmetrics.com%252F2015%252F09%252F02%252F8-features-of-ng-repeat%252F%26site_name%3DThe%2520Data%2520Point%26updated_time%3D2016-03-29T09%253A02%253A59%252B00%253A00%26image%3Dhttps%253A%252F%252Fblog.rjmetrics.com%252Fwp-content%252Fuploads%252Fsites%252F4%252F2015%252F08%252FAngular.jpg&amp;csi=undefined&amp;rev=v8.3.33-wp&amp;ct=1&amp;xld=1&amp;xd=1"></iframe></div><style id="service-icons-0"></style><!-- #page -->
+<script type="text/javascript">
+	if ('ontouchstart' in document.documentElement) {
+	    $('#page').removeClass('no-touch');
+	}
+	$(document).ready(function(){
+		blogTrack();
+
+		$(window).bind("load", function() {
+			mixpanel.track('page viewed', {
+			    'url' : window.location.pathname
+			});
+		});
+
+		piAId = '22192';
+		piCId = '6872';
+
+		(function() {
+			function async_load(){
+				var s = document.createElement('script'); s.type = 'text/javascript';
+				s.src = ('https:' == document.location.protocol ? 'https://pi' : 'https://cdn') + '.pardot.com/pd.js';
+				var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+			}
+			if(window.attachEvent) { window.attachEvent('onload', async_load); }
+			else { window.addEventListener('load', async_load, false); }
+		})();
+	})
+</script>
+<script type="text/javascript" src="https://blog.rjmetrics.com/wp-content/plugins/bwp-minify/min/?f=wp-includes/js/wp-embed.min.js"></script>
+	<!-- <script type="text/javascript" src="https://blog.rjmetrics.com/wp-content/themes/datapoint/js/highcharts233/highcharts.2.3.3.js"></script>
+	<script type="text/javascript" src="https://blog.rjmetrics.com/wp-content/themes/datapoint/js/plugins/jquery.cookie.js"></script> -->
+	<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<!-- <script type="text/javascript" src="/wp-content/themes/ecommerce/js/modernizr.js"></script> -->
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="https://blog.rjmetrics.com/wp-content/themes/datapoint/js/rjmetrics.js"></script>
+	<script type="text/javascript" src="https://blog.rjmetrics.com/wp-content/themes/datapoint/js/sharedcount.js?454"></script>
+
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="https://platform.twitter.com/widgets/widget_iframe.0568ee90c37ccf52b40a4b1e312811ff.html?origin=https%3A%2F%2Fblog.rjmetrics.com&amp;settingsEndpoint=https%3A%2F%2Fsyndication.twitter.com%2Fsettings" title="Twitter settings iframe" style="display: none;"></iframe>
+
+        <script type="text/javascript" id="">(function(a){var b=a.createElement("script");b.src=a.location.protocol+"//tag.bounceexchange.com/1569/i.js";b.async=!0;a.getElementsByTagName("head")[0].appendChild(b)})(document);</script>
+
+<script type="text/javascript" id="">(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b;a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)};a[b].l=1*new Date;c=e.createElement(f);d=e.getElementsByTagName(f)[0];c.async=1;c.src=g;d.parentNode.insertBefore(c,d)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create","UA-6044853-1","auto");window.optimizely=window.optimizely||[];window.optimizely.push("activateUniversalAnalytics");ga("send","pageview");</script><script type="text/javascript" id="">var fbparam={pixelid:"6006664313105",value:"0.00"};(function(){var a=document.createElement("script");a.async=!0;a.src=("http:"==location.protocol?"http":"https")+"://connect.facebook.net/en_US/fp.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><script type="text/javascript" id="">piAId="22192";piCId="3861";(function(){function a(){var b=document.createElement("script");b.type="text/javascript";b.src=("https:"==document.location.protocol?"https://pi":"http://cdn")+".pardot.com/pd.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)}window.attachEvent?window.attachEvent("onload",a):window.addEventListener("load",a,!1)})();</script><div style="display: none; visibility: hidden;"><script type="text/javascript">document.write('\x3cimg src\x3d"https://ci51.actonsoftware.com/acton/bn/8271/visitor.gif?ts\x3d'+(new Date).getTime()+"\x26ref\x3d"+escape(document.referrer)+'"\x3e');var aoAccountId="8271",aoCookieMode="STANDARD",aoCookieDomain="actonsoftware.com",aoServerContext="https://ci51.actonsoftware.com/acton";</script><img src="https://ci51.actonsoftware.com/acton/bn/8271/visitor.gif?ts=1543530424067&amp;ref=" style="border-bottom: 1px solid red; border-right: 1px solid red;"></div><script type="text/javascript" id="">var cookie_key="visitor_id21192",loaded_at=Date.now(),getRJMCookie=function(){for(var a=cookie_key+"\x3d",b=document.cookie.split(";"),e=0;e<b.length;e++){for(var c=b[e];" "==c.charAt(0);)c=c.substring(1);if(0==c.indexOf(a))return c.substring(a.length,c.length)}return""},is_new=0==getRJMCookie().length;
+(function(a,b,e,c,d,f,g){a[d]||(a.GlobalSnowplowNamespace=a.GlobalSnowplowNamespace||[],a.GlobalSnowplowNamespace.push(d),a[d]=function(){(a[d].q=a[d].q||[]).push(arguments)},a[d].q=a[d].q||[],f=b.createElement(e),g=b.getElementsByTagName(e)[0],f.async=1,f.src=c,g.parentNode.insertBefore(f,g))})(window,document,"script","//d1fc8wv8zag5ca.cloudfront.net/2.4.2/sp.js","snowplow");window.snowplow("newTracker","cf","collector.rjmetrics.com",{appId:"marketing_site",cookieDomain:".rjmetrics.com"});
+window.snowplow("setUserIdFromCookie",cookie_key);window.snowplow("enableActivityTracking",30,10);window.snowplow("trackPageView");window.snowplow("enableLinkClickTracking");window.snowplow("enableFormTracking");function try_to_send(){var a=getRJMCookie();if(a&&0!=a.length){var b=Date.now()-loaded_at;window.snowplow("setUserId",a);window.snowplow("trackStructEvent","Identify","user",b,"pardot_id",a);return!0}return!1}var timeout_ms=1E3;
+is_new&&!try_to_send()&&function loop(){setTimeout(function(){var b=try_to_send();b||loop()},timeout_ms)}();</script>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","//connect.facebook.net/en_US/fbevents.js");fbq("init","108082359539802");fbq("track","PageView");fbq("track","ViewContent");fbq("track","Lead");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=108082359539802&amp;ev=PageView&amp;noscript=1"></noscript>
+<div style="display: none; visibility: hidden;"><script type="text/javascript" src="https://go.pardot.com/dcjs/21192/735/dc.js"></script></div><div id="fb-root" class=" fb_reset"><script src="//connect.facebook.net/en_US/sdk.js#version=v2.6" async=""></script><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="https://staticxx.facebook.com/connect/xd_arbiter/r/afATJJjxKE6.js?version=43#channel=f388c5cf03640d&amp;origin=https%3A%2F%2Fblog.rjmetrics.com" style="border: none;"></iframe></div></div></div><iframe style="display: none;"></iframe><iframe name="oauth2relay395749122" id="oauth2relay395749122" src="https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fblog.rjmetrics.com&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.MGdIDI8wTVg.O%2Fam%3DQQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCPawbJm9qhJY3moxayCKAdmv4AXJQ%2Fm%3D__features__#rpctoken=896094315&amp;forcesecure=1" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>at: 1543530428817
