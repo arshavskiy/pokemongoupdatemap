@@ -24,9 +24,37 @@ app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/DB'));
 app.use(express.static(__dirname + '/view'));
 app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/pdf'));
+app.use(express.static(__dirname + '/png'));
+
+app.get('/pdf', function(req, res){
+    var file = __dirname + '/pdf/demo.pdf';
+    res.download(file);
+  });
+  app.get('/png', function(req, res){
+    var file = __dirname + '/png/demo.png';
+    res.download(file);
+  });
+
+
+  app.get('/download/:file(*)', function (req, res) {
+    var file = req.params.file;
+    var fileLocation = path.join('./DB', file);
+    res.download(fileLocation), file,
+        function (err) {
+            if (err) {
+                res.status(400).end('error downloading');
+            } else {
+                res.status(200).end('downloaded');
+                
+               
+            }
+        }
+});
+
 
 function saveToLogFile(logToSave) {
-    var startDate = Date.now();
+    startDate = Date.now();
     fs.appendFileSync('DB/log_' + startDate + '.csv', logToSave + 'at: '+ startDate +'\r\n', function (err) {
         if (err) {
            throw err;
@@ -96,9 +124,21 @@ app.post('/post', function (req, res) {
             let screenShotName = urlToFilename.replace(/./g, '_');
             screenShotName = urlToFilename.replace(/\//g, '__');
             await page.screenshot({ path: './png/' + screenShotName +  startDate + '.png', fullPage: true });
+            await page.screenshot({ path: './png/' + demo + '.png', fullPage: true });
             await page.emulateMedia('screen');
             await page.pdf({
                 path: './pdf/' + screenShotName + startDate + '.pdf', 
+                format: 'A4',
+                margin: {
+                  top: '1in',
+                  bottom: '1in',
+                  left: '1in',
+                  right: '1in'
+                }
+              });
+
+              await page.pdf({
+                path: './pdf/' + demo + '.pdf', 
                 format: 'A4',
                 margin: {
                   top: '1in',
@@ -142,29 +182,7 @@ app.get('/', function (req, res) {
 app.get('/edit', function (req, res) {
     res.sendFile(path.join(__dirname + '/view/edit.html'));
 });
-app.get('/db', function (req, res) {
-    try {
-        res.sendFile(path.join(__dirname + '/DB/db.json'));
-    } catch (e) {
-         utils.saveToLogFile(e);
-    }
-});
 
-app.get('/download/:file(*)', function (req, res) {
-    var file = req.params.file;
-    var fileLocation = path.join('./DB', file);
-    utils.saveToLogFile('fileLocation');
-    res.download(fileLocation), file,
-        function (err) {
-            if (err) {
-                res.status(400).end('error downloading');
-            } else {
-                res.status(200).end('downloaded');
-                
-               
-            }
-        }
-});
 
 let port = process.env.PORT || 3000;
 
