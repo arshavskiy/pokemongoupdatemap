@@ -124,8 +124,8 @@ app.post('/post', function (req, res) {
             let screenShotName = urlToFilename.replace(/./g, '_');
             screenShotName = urlToFilename.replace(/\//g, '__');
             await page.screenshot({ path: './png/' + screenShotName +  startDate + '.png', fullPage: true });
-            await page.screenshot({ path: './png/' + demo + '.png', fullPage: true });
-            
+            await page.screenshot({ path: './png/demo.png', fullPage: true });
+
             await page.emulateMedia('screen');
             await page.pdf({
                 path: './pdf/' + screenShotName + startDate + '.pdf', 
@@ -139,7 +139,7 @@ app.post('/post', function (req, res) {
               });
 
               await page.pdf({
-                path: './pdf/' + demo + '.pdf', 
+                path: './pdf/demo.pdf', 
                 format: 'A4',
                 margin: {
                   top: '1in',
