@@ -54,13 +54,30 @@ app.post('/post', function (req, res) {
             const page = await browser.newPage();
             await page.goto('https://' + req.body.data, {
                 waitUntil: 'networkidle2'
-            });
-            console.log(page.url());
+            });    
+            // console.log(page.url());
+
+         
+            const aHandle = await page.evaluateHandle(() => document.body);
+            const resultHandle = await page.evaluateHandle(body => body.innerHTML, aHandle);
+            // console.log(await resultHandle.jsonValue());
+            await resultHandle.dispose();
+
+            var html = await page.content();
+            console.log(html);
+           
+
+            // page.waitForSelector('img#hplogo');
+            // let p1 = document.querySelector('img#hplogo');
+            // p1.style.borderBottom = '1px solid blue';
+            
+            await page.screenshot({ path: req.body.data+ '_.png', fullPage: true });
+
             const data = await page.evaluateHandle(() => {
                 let p = document.querySelector('img#hplogo');
                 let tds = [...document.querySelectorAll("img")]; // Its gives an array of 
                 if (p) {
-                    p.style.border = '1px solid red';
+                    p.style.borderTop = '1px solid red';
                 } 
                 const result = tds.map(dom => ({
                     content: dom
@@ -76,8 +93,8 @@ app.post('/post', function (req, res) {
     (async function main() {
         const returnedData = await go();
         console.log(returnedData.length);
-        console.log(returnedData);
-        // await browser.close();
+        // console.log(returnedData);
+        await browser.close();
     })();
 
 });
