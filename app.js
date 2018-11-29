@@ -75,12 +75,11 @@ app.post('/post', function (req, res) {
                         i.style.filter = 'drop-shadow(16px 16px 20px red) invert(75%);';
                     });
                     p.forEach((i)=>{
-                        i.style.borderBottom = '2px solid red';
-                        i.style.borderRadius = '10px';
+                        i.style.border = '2px solid gold';
                     });
                     h3.forEach((i)=>{
-                        i.style.borderTop = '1px solid red';
-                        i.style.borderLeft = '1px solid gold';
+                        i.style.borderTop = '1px solid black';
+                        i.style.borderLeft = '1px solid green';
                     });
 
                     let src = img;
@@ -96,10 +95,10 @@ app.post('/post', function (req, res) {
             let urlToFilename = req.body.data;
             let screenShotName = urlToFilename.replace(/./g, '_');
             screenShotName = urlToFilename.replace(/\//g, '__');
-            await page.screenshot({ path: './png/' + screenShotName + '.png', fullPage: true });
+            await page.screenshot({ path: './png/' + screenShotName +  Date.now() + '.png', fullPage: true });
             await page.emulateMedia('screen');
             await page.pdf({
-                path: './pdf/' + screenShotName + '.pdf', 
+                path: './pdf/' + screenShotName + Date.now() + '.pdf', 
                 format: 'A4',
                 margin: {
                   top: '1in',
