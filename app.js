@@ -92,15 +92,16 @@ app.post('/post', function (req, res) {
                     repos.img = document.querySelectorAll('img');
                     repos.p = document.querySelectorAll('p');
                     repos.h3 = document.querySelectorAll('h3');
+                    repos.a = document.querySelectorAll('a');
     
                     img = Array.from(repos.img);
                     p = Array.from(repos.p);
                     h3 = Array.from(repos.h3);
+                    a = Array.from(repos.a);
 
                     img.forEach((i)=>{
                         i.style.border = '1px solid red';
                         i.style.borderRadius = '10px';
-                        i.style.filter = 'drop-shadow(16px 16px 20px red) invert(75%);';
                     });
                     p.forEach((i)=>{
                         i.style.border = '2px solid gold';
@@ -108,6 +109,9 @@ app.post('/post', function (req, res) {
                     h3.forEach((i)=>{
                         i.style.borderTop = '1px solid black';
                         i.style.borderLeft = '1px solid green';
+                    });
+                    a.forEach((i)=>{
+                        i.style.border = '1px solid gold';
                     });
 
                     let src = img;

@@ -1,0 +1,23 @@
+#generate{
+    width: 100%;
+    height: 100%;
+}
+
+section#input{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    width: 50vw;
+    height: 2rem;
+    margin:0 1rem;
+    padding: 0 1rem;
+    background-color: transparent;
+    border: 1px solid rgba(0,0,0,.87);
+    color: rgba(0,0,0,.87);
+    word-wrap: break-word;
+    
+}
