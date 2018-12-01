@@ -26,15 +26,16 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
-    "ejs": "^2.6.1",
     "express": "^4.16.3",
     "http": "0.0.0",
     "lodash": "^4.17.10",
     "nodemailer": "^4.6.7",
     "nodemon": "^1.18.7",
     "path": "^0.12.7",
+    "pug": "^2.0.3",
     "puppeteer": "^1.10.0",
     "request": "^2.88.0",
-    "serve-static": "^1.13.2"
+    "serve-static": "^1.13.2",
+    "socket.io": "^2.2.0"
   }
 }

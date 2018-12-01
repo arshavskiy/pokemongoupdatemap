@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+  head
+    // Global site tag (gtag.js) - Google Analytics
+    meta(charset='UTF-8')
+    title automation test
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+    script(src='js/client.js')
+  body
+    section#input
+      h4 #{title}
+      div.input_top
+        input(name='scrap', value='', placeholder='')
+        menu
+          button#download_png.btn save image file
+          button#download_pdf.btn save pdf file
+          button#go_to_html.btn open link
+      button#enter scan
+   
+    section#generate(style='width: 100vw; height: 80vh')
+      iframe#my_iframe(style="display:none;")
+      object#my_object_rendered(width='100%', height='100%', type='text/html')
+        section
+        
+      

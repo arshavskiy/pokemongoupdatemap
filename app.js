@@ -9,6 +9,7 @@ const http = require('http');
 const puppeteer = require('puppeteer');
 
 
+
 app.use(cors({
     allowedHeaders: 'Content-Type, Cache-Control'
 }));
@@ -22,10 +23,13 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(__dirname + '/js'));
 app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/DB'));
-app.use(express.static(__dirname + '/view'));
+// app.use(express.static(__dirname + '/view'));
 app.use(express.static(__dirname + '/'));
 app.use(express.static(__dirname + '/pdf'));
 app.use(express.static(__dirname + '/png'));
+
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 
 app.get('/pdf', function(req, res){
     var file = __dirname + '/pdf/demo.pdf';
@@ -37,14 +41,18 @@ app.get('/png', function(req, res){
     res.download(file);
   });
 
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+
+// app.get('/', function (req, res) {
+//     res.sendFile(path.join(__dirname + '/index.html'));
+// });
+app.get('/', function(req, res, next){
+    return res.render('index', { title: 'Automation' });
 });
 
 app.get('/edit', async function (req, res, next) {
-    await html 
+    // res.send(html);
+    await html
     res.send(html);
-    // res.sendFile(path.join(__dirname + '/view/edit.html'));
 });
 
 app.get('/download/:file(*)', function (req, res) {
@@ -126,8 +134,15 @@ app.post('/post', function (req, res) {
                     return src.map((i) => { return i.src+'\n' });
                 });
            
-                
+            htmlUrl = '//' + req.body.data;
             html = await page.content();
+
+            fs.writeFile("./html/demo.html", html, function(err) {
+                if(err) {
+                    return console.log(err);
+                }
+                console.log("The file was saved!");
+            }); 
                 
             saveToLogFile(imgUrlList);
             // saveToLogFile(html);

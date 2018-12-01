@@ -1,3 +1,0 @@
-https://developers.google.com/maps/documentation/javascript/examples/directions-simple
-https://developers.google.com/maps/documentation/javascript/geolocation
-https://developers.google.com/s/results/?q=calculateAndDisplayRoute&p=%2Fmaps%2Fdocumentation%2Fjavascript%2F
