@@ -44,10 +44,8 @@ function gotoRenderedFile(params) {
         request.open("GET", "/edit");
         // request.addEventListener("load", ()=>{
         //     if( this.responseText){
-        //         // document.getElementById('my_object').style.display = 'none';
-        //         document.getElementById('my_object').style.display = 'block';
+        //         document.getElementById('my_object_rendered').style.display = 'block';
         //         document.getElementById('my_object_rendered').data ='html/demo.html';
-        //         document.getElementById('my_iframe_rendered').src = 'html/demo.html';
                 
         //     }
         // });

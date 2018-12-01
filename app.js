@@ -32,12 +32,12 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/pdf', function(req, res){
-    var file = __dirname + '/pdf/demo.pdf';
+    var file = __dirname + '/pdf/' + screenShotName + '_demo.pdf';
     res.download(file);
   });
 
 app.get('/png', function(req, res){
-    var file = __dirname + '/png/demo.png';
+    var file = __dirname + '/png/' + screenShotName +'_demo.png';
     res.download(file);
   });
 
@@ -148,14 +148,25 @@ app.post('/post', function (req, res) {
             // saveToLogFile(html);
           
             let urlToFilename = req.body.data;
-            let screenShotName = urlToFilename.replace(/./g, '_');
+            screenShotName = urlToFilename.replace(/./g, '_');
             screenShotName = urlToFilename.replace(/\//g, '__');
             await page.screenshot({ path: './png/' + screenShotName +  startDate + '.png', fullPage: true });
-            await page.screenshot({ path: './png/demo.png', fullPage: true });
+            await page.screenshot({ path: './png/'+ screenShotName + '_demo.png', fullPage: true });
 
             await page.emulateMedia('screen');
-            await page.pdf({
-                path: './pdf/' + screenShotName + startDate + '.pdf', 
+            // await page.pdf({
+            //     path: './pdf/' + screenShotName + startDate + '.pdf', 
+            //     format: 'A4',
+            //     margin: {
+            //       top: '1in',
+            //       bottom: '1in',
+            //       left: '1in',
+            //       right: '1in'
+            //     }
+            //   });
+
+              await page.pdf({
+                path: './pdf/'+ screenShotName + '_demo.pdf', 
                 format: 'A4',
                 margin: {
                   top: '1in',
@@ -165,16 +176,6 @@ app.post('/post', function (req, res) {
                 }
               });
 
-              await page.pdf({
-                path: './pdf/demo.pdf', 
-                format: 'A4',
-                margin: {
-                  top: '1in',
-                  bottom: '1in',
-                  left: '1in',
-                  right: '1in'
-                }
-              });
             await browser.close();
 
         } catch(e) {

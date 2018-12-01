@@ -1,2003 +1,300 @@
 <!DOCTYPE html><html><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Вирусдай — Антивирус для сайтов и серверов</title>
-<meta name="description" content="Мощные инструменты для лечения и защиты сайтов, собранные в одном месте.">
-
-<style>
-
-html, body { height:100%;}
-body { margin:0; padding:0 490px 0 0; font:14px/20px 'Open Sans', sans-serif; font-weight:400; color:#999; background:#fcfcfc;}
-.invert {color:#fcfcfc;}
-.invertbold {color:#fcfcfc; font-weight: 600;}
-.clr { font-size:1px; line-height:1px; height:1px; clear:both;}
-.clearfix {
-	*zoom:1;
-}
-.clearfix:before,
-.clearfix:after {
-	display:table;
-	content:"";
-	line-height:0;
-}
-.clearfix:after {
-	clear:both;
-}
-
-h1 { padding:0; margin:0 0 25px 0; font:22px/28px 'Open Sans', sans-serif; font-weight:400; color:#111;}
-h1 u { text-decoration:none; border-bottom:#ddd 2px solid;}
-h1.m10 { margin-right:-10px;}
-h1.m0 { margin:0;}
-h2 { padding:0; margin:0 0 25px 0; font:22px/28px 'Open Sans', sans-serif; font-weight:400; color:#111;}
-h2 u { text-decoration:none; border-bottom:#ddd 2px solid;}
-h2.m10 { margin-right:-10px;}
-h2.m0 { margin:0;}
-h3 { padding:0; margin:0 0 25px 0; font:18px/20px 'Open Sans', sans-serif; font-weight:400; color:#111;}
-h4 { padding:0; margin:0 0 5px 0; font:14px/20px 'Open Sans', sans-serif; font-weight:400; text-transform:uppercase;}
-
-a, a:link, a:visited, a:active { color:inherit; text-decoration:underline; outline:none;}
-a:hover { text-decoration:none;}
-a.dashed { text-decoration:none; border-bottom:1px dashed;}
-a.dashed:hover { border:none;}
-
-a.sidebarlink {border-radius: 12px;
-	background: #15273b;
-	padding-right: 10px;
-	padding-left: 10px;
-	padding-top: 2px;
-	padding-bottom: 4px;
-	border-bottom: none!important;
-	color: #fcfcfc!important;
-}
-a.sidebarlink.hover {border-radius: 12px;
-	background: #15273b;
-	padding-right: 10px;
-	padding-left: 10px;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	border-bottom: none!important;
-	color: #fcfcfc!important;
-}
-
-p { padding:0; margin:0 0 25px 0;}
-p.green { padding:5px 10px; background:#00ad82; color:#fcfcfc;}
-img { border:0;}
-form { margin:0; padding:0;}
-
-img { max-width:100%; height:auto;}
-img.styled { border-radius:5px; box-shadow:0 0 8px rgba(0,0,0,0.4);}
-
-strong, b { font-weight:600;}
-
-hr { margin:0 auto 25px auto; padding:0; height:3px; width:65%; background:#ddd; border:0;}
-.re-set-block hr { height:2px; width:100%; background:#646f7a; border:0;}
-hr.nomargin { margin:-15px 0 10px 0!important;}
-
-a.btn, input.btn { display:inline-block; padding:0 18px; font:16px/42px 'Open Sans', sans-serif; color:#15273b; background:none; border:#15273b 2px solid; border-width:2px!important; text-decoration:none; border-radius:2px; transition:all 0.3s ease-in-out; cursor:pointer;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	box-sizing:border-box;
-}
-a.btn small, input.btn small { text-transform:uppercase; font-size:12px; line-height:initial;}
-a.btn:hover, input.btn:hover { background:#15273b; color:#fcfcfc; border-width:2px!important;}
-a.btn.green, input.btn.green { border-color:#00ad82; background:#00ad82; color:#fcfcfc;}
-a.btn.green:hover, input.btn.green:hover { border-color:#00ad82; background:#fcfcfc; color:#00ad82;}
-a.btn.white, input.btn.white { border-color:#fcfcfc; background:none; color:#fcfcfc;}
-a.btn.white:hover, input.btn.white:hover { border-color:#fcfcfc; background:#fcfcfc; color:#00ad82;}
-a.btn.reg, input.btn.reg { border-color:#15273b; background:#15273b; color:#fcfcfc;}
-a.btn.reg:hover, input.btn.reg:hover { border-color:#15273b; background:#fcfcfc; color:#15273b;}
-
-.main-row a.btn { margin:2px 10px 2px 0; padding:10px 18px; line-height:normal;}
-
-.center { text-align:center;}
-.black { color:#111; margin:0 0 5px 0;}
-.f16 { font-size:16px;}
-.upper { text-transform:uppercase;}
-.blue { color:#15273b;}
-
-.opacity { opacity:0.35; transition:all 0.5s ease;}
-.opacity:hover { opacity:1;}
-
-.preview { -webkit-transform: rotateX(-10deg) rotateZ(-31deg); transform: rotateX(-10deg) rotateZ(-31deg); -webkit-transform-style: preserve-3d; transform-style: preserve-3d; -webkit-transform-origin:left center; transform-origin:left center; width:200%;}
-
-
-.ico { display:inline-block; width:26px; height:26px; vertical-align:middle;}
-.ico.ico-unchecked { background:url(/landing/landing-img/ico-unchecked.png) center no-repeat;}
-.ico.ico-checked { background:url(/landing/landing-img/ico-checked.png) center no-repeat;}
-.ico.ico-scan { background:url(/landing/landing-img/ico-scan.png) center no-repeat;}
-.ico.ico-clean { background:url(/landing/landing-img/ico-clean.png) center no-repeat;}
-.ico.ico-clean.light { background:url(/landing/landing-img/ico-clean-light.png) center no-repeat;}
-.ico.ico-firewall { background:url(/landing/landing-img/ico-firewall.png) center no-repeat;}
-.ico.ico-firewall.light { background:url(/landing/landing-img/ico-firewall-light.png) center no-repeat;}
-.ico.ico-folder { background:url(/landing/landing-img/ico-folder.png) center no-repeat;}
-.ico.ico-folder.light { background:url(/landing/landing-img/ico-folder-light.png) center no-repeat;}
-.ico.ico-search { background:url(/landing/landing-img/ico-search.png) center no-repeat;}
-.ico.ico-search.light { background:url(/landing/landing-img/ico-search-light.png) center no-repeat;}
-.ico.ico-blacklist { background:url(/landing/landing-img/ico-blacklist.png) center no-repeat;}
-.ico.ico-blacklist.light { background:url(/landing/landing-img/ico-blacklist-light.png) center no-repeat;}
-.ico.ico-restore { background:url(/landing/landing-img/ico-restore.png) center no-repeat;}
-.ico.ico-restore.light { background:url(/landing/landing-img/ico-restore-light.png) center no-repeat;}
-.ico.ico-support { background:url(/landing/landing-img/ico-support.png) center no-repeat;}
-.ico.ico-support.light { background:url(/landing/landing-img/ico-support-light.png) center no-repeat;}
-.ico.ico-expertinc { background:url(/landing/landing-img/ico-expertinc.png) center no-repeat;}
-.ico.ico-eye { background:url(/landing/landing-img/ico-eye.png) center no-repeat;}
-.ico.ico-edit { background:url(/landing/landing-img/ico-edit.png) center no-repeat;}
-.ico.ico-code { background:url(/landing/landing-img/ico-code.png) center no-repeat;}
-.ico.ico-code.light { background:url(/landing/landing-img/ico-code-light.png) center no-repeat;}
-.ico.ico-clock { background:url(/landing/landing-img/ico-clock.png) center no-repeat;}
-
-.ico.ico-c-mailru { background:url(/landing/landing-img/ico-c-mailru.png) center no-repeat;}
-.ico.ico-c-1vds { background:url(/landing/landing-img/ico-c-1vds.png) center no-repeat;}
-.ico.ico-c-ispsystem { background:url(/landing/landing-img/ico-c-ispsystem.png) center no-repeat;}
-.ico.ico-c-regcom { background:url(/landing/landing-img/ico-c-regcom.png) center no-repeat;}
-.ico.ico-c-myhosti { background:url(/landing/landing-img/ico-c-myhosti.png) center no-repeat;}
-.ico.ico-c-timeweb { background:url(/landing/landing-img/ico-c-timeweb.png) center no-repeat;}
-.ico.ico-c-eurobyte { background:url(/landing/landing-img/ico-c-eurobyte.png) center no-repeat;}
-.ico.ico-c-im360 { background:url(/landing/landing-img/ico-c-im360.png) center no-repeat;}
-.ico.ico-c-cl { background:url(/landing/landing-img/ico-c-cl.png) center no-repeat;}
-
-.site-row { padding:30px 20px; overflow:hidden;}
-.higher { padding-top:0;}
-.gray { background:#f5f5f5;}
-.darkgray { background:#e7e7e7;}
-.bluegrad {background: -webkit-gradient(linear,left top,right bottom,from(#242a2f),to(#15273b));  background: -webkit-linear-gradient(top left,#242a2f 0,#15273b 100%); background: linear-gradient(to bottom right,#242a2f 0,#15273b 100%);}
-.regru { background: #0068ba;}
-.expertplan { background: #15273b;}
-.darkblue { padding-top:40px; padding-bottom:25px; background:#15273b; color:#fcfcfc;}
-.darkblue a { color:#fcfcfc;}
-.dark { padding-top:15px; padding-bottom:15px; background:#242a2f; color:#fcfcfc;}
-.dark a { color:#fcfcfc; text-decoration:none;}
-.wrapper { max-width:780px; margin:0 auto;}
-
-#inner-sidebar { float:right; width:165px; padding:15px; margin:0; background:#f5f5f5;}
-.sidebar-heading { margin:0 0 15px 0; color:#111; font-size:18px;}
-#inner-sidebar ul { padding:0; margin:0 0 20px 0; list-style:none;}
-#inner-sidebar ul li { padding:0 0 0 12px; margin:5px 0; list-style:none;}
-#inner-sidebar a { color:#15273b;}
-#inner-sidebar a.active { color:#999; text-decoration:none;}
-
-#content { margin:0 225px 0 0; text-align:left;}
-#content-fix { float:left; width:100%;}
-
-#content-fix ul { margin:0 0 25px 0;}
-#content-fix .carousel ul { margin:0;}
-
-.text-with-img {
-	display:flex;
-	flex-flow:row nowrap;
-	justify-content:space-between;
-	align-items:center;
-	padding:0 0 40px 0;
-}
-.text-with-img .twi-img { width:35%; text-align:center;}
-.text-with-img.even .twi-img { order:2;}
-.text-with-img .twi-img img { display:inline-block; margin:0; vertical-align:middle;}
-.text-with-img .twi-text { width:60%;}
-.text-with-img.even .twi-text { order:1;}
-.text-with-img .twi-text p:last-child { margin:0;}
-
-#verdict-details { padding:0 0 15px 0; margin:0 0 30px 0; border-bottom:#ccc 1px solid;}
-#verdict-details table { width:100%; padding:0; margin:0; border:0; border-collapse:collapse;}
-#verdict-details table tr td { padding:3px 0; margin:0; vertical-align:top;}
-#verdict-details table tr td:first-child { color:#000; width:1%; padding-right:20px; font-weight:400; white-space:nowrap;}
-ul.threat-magnitude { padding:7px 0 0 0; margin:0; list-style:none;}
-ul.threat-magnitude li { display:block; float:left; padding:0; margin:0 1px 0 0; width:24px; height:10px; background:#ccc;}
-ul.threat-magnitude li.red { background:#fc3b3f;}
-
-#mainnav-block { padding:15px 0 40px 0;
-	/*
-	display:flex;
-	flex-flow:row nowrap;
-	justify-content:space-between;
-	align-items:center;
-	*/
-}
-.mainnav-column { float:right;}
-.mainnav-column:first-child { float:left;}
-#mainnav-block ul a { text-decoration:none; border-bottom:1px dashed;}
-#mainnav-block ul a:hover { border:none;}
-a#logo, a#logo:hover { float:left; display:block; width:85px; height:21px; border:none; background:url(/landing/landing-img/vdlogo.png) left top no-repeat;}
-.re-set-block a#logo, .re-set-block a#logo:hover { float:none; display:inline-block; vertical-align:-3px;}
-.re-set-block .sidebar-back { float:right;}
-.mainnav-column ul { display:inline-block; padding:0; margin:0; list-style:none;}
-.mainnav-column ul li { display:inline-block; padding:2px 0 0 0; margin:0 0 0 12px;}
-.mainnav-column ul li#show-sidebar a { color:#15273b;}
-
-#sidebar-clone-links { display:none;}
-#sidebar-clone-links a { text-decoration:underline!important; border:0!important;}
-#sidebar-clone-links a:hover, #sidebar-clone-links a.active { color:#15273b!important; text-decoration:none!important; border:0!important;}
-
-#top-img-container { position:relative; padding-right:10.89%; margin:0 0 -10% 0;}
-#img-phone { position:absolute; right:-2.5%; top:20%; width:26.6%;}
-
-.logos-block {
-	display:flex;
-	flex-flow:row nowrap;
-	justify-content:space-between;
-	align-items:center;
-}
-.logos-block .item { padding-right:10px; min-width:1px;}
-.logos-block .item:last-child { padding-right:0;}
-.logos-block img { display:block; margin:0;}
-
-.two-elements-block {
-	display:flex;
-	flex-flow:row nowrap;
-	justify-content:space-between;
-	align-items:center;
-	padding:40px 0;
-}
-.two-elements-block .img-column, .two-elements-block .rocket-column { /* width:50%; */ text-align:center;}
-.two-elements-block .img-column img, .two-elements-block .rocket-column img { display:inline-block; margin:0; vertical-align:middle;}
-.two-elements-block .text-column { width:42.3%;}
-.two-elements-block .text-column p:last-child { margin:0;}
-
-.site-row.rocket { padding-bottom:0;}
-.site-row.rocket .two-elements-block { padding-bottom:0;}
-.site-row.rocket .text-column { padding-bottom:50px;}
-
-.carousel-wrapper { position:relative; max-width:551px; margin:0 auto;}
-.carousel { position:relative; overflow:hidden; width:100%;}
-.carousel > ul { width:20000em; position:relative; list-style:none; margin:0; padding:0;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-}
-.carousel > ul > li { width:200px; padding:8px; float:left; text-align:left; font-size:14px;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	box-sizing:border-box;
-}
-.carousel img { display:block; margin:0;}
-.carousel .slide-description { display:none;}
-
-.carousel-prev, .carousel-next { position:absolute; top:50%; margin-top:-30px; width:31px; height:31px; border-radius:50%; background:url(/landing/landing-img/slider-arrows.png) left top no-repeat; cursor:pointer;}
-.carousel-prev { left:-115px; transition:all 0.3;}
-.carousel-next { right:-115px; background-position:right top; transition:all 0.3;}
-#content-fix .carousel-prev { left:-29px;}
-#content-fix .carousel-next { right:-29px;}
-
-.carousel-pagination { width:75%; max-width:415px; height:3px; margin:40px auto 75px auto; background:#ddd;
-	display:flex;
-	flex-flow:row nowrap;
-	justify-content:space-between;
-	align-items:center;
-}
-.carousel-pagination a { position:relative; height:12px; width:12px; background:#ddd; border-radius:50%; text-decoration:none; transition:background 0.3s;}
-.carousel-pagination a.active { background:#00ad82;}
-
-.carousel-pagination .point-descr { position:absolute; left:50%; top:33px; padding:0 5px; font-size:16px; line-height:40px; text-align:left; white-space:nowrap; border-radius:4px;
-	-webkit-transform: translate(-50%, 0);
-	-ms-transform: translate(-50%, 0);
-	transform: translate(-50%, 0);
-}
-a.active .point-descr { color:#fff; background:#00ad82;}
-a.active .point-descr:before { position:absolute; left:50%; top:-10px; display:block; width:15px; height:10px; margin:0 0 0 -8px; background:url(/landing/landing-img/point-descr-arrow.png) center no-repeat; content:'';}
-
-.carousel-pagination a .point-descr { display:none;}
-.carousel-pagination a.active .point-descr { display:block;}
-
-.testimonial-heading { margin:0 0 30px 0; font-size:16px; line-height:22px;}
-.testimonial-heading-avatar, .testimonial-heading-text { position:relative; float:left; width:50%;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	box-sizing:border-box;
-}
-.testimonial-heading-avatar { padding-right:135px; text-align:right;}
-.testimonial-heading-avatar img { display:inline-block; border-radius:50%;}
-.testimonial-heading-text { margin-left:-98px; padding-top:18px;}
-
-#leaders img { float:left; margin:0 30px 0 0;}
-
-.price { margin:0 0 7px 0; color:#111;}
-.price-value { display:inline-block; font-size:32px; line-height:32px; text-align:left;}
-.currency { display:inline-block; width:18px; height:24px; margin-left:3px; font-size:36px; vertical-align:-1px; overflow:hidden; text-indent:-100px; background:url(/landing/landing-img/ruble-black.png) center no-repeat; background-size:contain;}
-.currencywhite { display:inline-block; width:18px; height:24px; margin-left:3px; font-size:36px; vertical-align:-1px; overflow:hidden; text-indent:-100px; background:url(/landing/landing-img/ruble-white.png) center no-repeat; background-size:contain;}
-.price-descr { display:inline-block; font-size:14px; line-height:13px; text-align:left; padding-left:4px; text-transform:uppercase;}
-.freq, .per { display:block;}
-
-.capability-row { text-align:left; margin:0 0 25px 0;}
-.capability-column-left { float:left;}
-.capability-column-right { float:right;}
-.capability-column { margin:0 37px;}
-.capability-column p { margin:0;}
-
-#reasons-block { margin:5px 0 25px 0; text-align:left;}
-.reason {}
-.reason-img { float:left; width:80px; margin:0;}
-.reason-txt { margin:0 0 0 105px;}
-.reason-txtn { margin:0 0 0 0;}
-
-#price-interval { position:relative; width:75%; max-width:415px; height:3px; margin:50px auto 95px auto; background:#ddd;}
-#intervals { position:absolute; top:0; left:0; width:100%;}
-#intervals > div { cursor:pointer; position:relative; float:left; top:-4px; width:20%; height:12px;}
-#intervals > div .interval-line { position:relative; top:4px; width:100%; height:3px; transition:background 0.3s;}
-#intervals > div .interval-descr { display:none; cursor:auto; position:absolute; left:50%; bottom:-60px; padding:0 5px; font-size:16px; line-height:40px; text-align:left; white-space:nowrap; color:#fff; background:#00ad82; border-radius:4px;
-	-webkit-transform: translate(-50%, 0);
-	-ms-transform: translate(-50%, 0);
-	transform: translate(-50%, 0);
-}
-#intervals > div .interval-descr:before { position:absolute; left:50%; top:-10px; display:block; width:15px; height:10px; margin:0 0 0 -8px; background:url(/landing/landing-img/point-descr-arrow.png) center no-repeat; content:'';}
-#intervals > div.active .interval-line { background:#00ad82;}
-#intervals > div.active .interval-descr { display:block;}
-.interval-descr small { text-transform:uppercase; font-size:12px; line-height:initial;}
-
-#dots { height:3px;
-	display:flex;
-	flex-flow:row nowrap;
-	justify-content:space-between;
-	align-items:center;
-}
-#dots > div { cursor:pointer; position:relative; height:12px; width:12px; background:#ddd; border-radius:50%; text-decoration:none; transition:background 0.3s;}
-#dots > div:last-child { width:0px; height:12px;}
-#dots > div.active { background:#00ad82;}
-#dots .top-point-descr { position:absolute; left:50%; top:-35px; padding:0 5px; line-height:40px; text-align:left; white-space:nowrap; border-radius:4px;
-	-webkit-transform: translate(-50%, 0);
-	-ms-transform: translate(-50%, 0);
-	transform: translate(-50%, 0);
-}
-
-#footer-menu-block { margin:0 0 10px 0;
-	display:flex;
-	flex-flow:row nowrap;
-	justify-content:space-between;
-	align-items:flex-start;
-}
-.footer-menu-column { width:18%; text-align:left;}
-#footer-menu-block ul { padding:0; margin:0 0 15px 0; list-style:none;}
-#footer-menu-block ul li { padding:0; margin:0;}
-#footer-menu-block p { margin:0 0 15px 0;}
-
-#software-reg-block { padding:15px 0 0 0; margin:0 0 -15px 0; border-top:#8b969a 1px solid;
-	display:flex;
-	flex-flow:row wrap;
-	justify-content:space-between;
-	align-items:flex-start;
-}
-#software-reg-block > div { min-height:25px; padding:6px 0 15px 35px; text-align:left;}
-.tm { background:url(/landing/landing-img/reg_software-1.png) left top no-repeat;}
-.minkom { background:url(/landing/landing-img/reg_software-2.png) left top no-repeat;}
-
-#footer-block {
-	display:flex;
-	flex-flow:row wrap;
-	justify-content:space-between;
-	align-items:center;
-}
-.footer-column { text-align:left;}
-.vk:before { display:inline-block; width:31px; height:31px; vertical-align:-11px; background:url(/landing/landing-img/vk.png) center no-repeat; content:'';}
-.share:before { display:inline-block; width:31px; height:31px; vertical-align:-11px; background:url(/landing/landing-img/share.png) center no-repeat; content:'';}
-.instagram:before { display:inline-block; width:31px; height:31px; vertical-align:-11px; background:url(/landing/landing-img/instagram.png) center no-repeat; content:'';}
-.tweet:before { display:inline-block; width:31px; height:31px; vertical-align:-11px; background:url(/landing/landing-img/tweet.png) center no-repeat; content:'';}
-#gototop { display:inline-block; width:31px; height:31px; vertical-align:-11px; background:url(/landing/landing-img/gototop.png) center no-repeat; text-indent:-1000px; overflow:hidden; cursor:pointer;}
-
-.sidebar { z-index:150; position:fixed; right:0; top:0; bottom:0; width:0px; background:#262a32; color:#fcfcfc; overflow:hidden; transition:all 0.3s;}
-.sidebar.opened { width:490px;}
-.sidebar-background { position:absolute; left:0; top:0; right:0; bottom:0; background:url(/landing/landing-img/sidebar-bg.jpg) left top no-repeat;
-	/*	-webkit-filter:blur(25px);
-		-moz-filter:blur(25px);
-		-ms-filter:blur(25px);
-		-o-filter:blur(25px);
-		filter:blur(25px);
-	*/
-}
-.sidebar-background-overlay { position:absolute; left:0; top:0; right:0; bottom:0; background:#15202f; background:rgba(17,25,32,0.8);}
-
-.sidebar-inner { position:absolute; left:0; top:0; right:0; bottom:0; min-width:490px; padding:0 50px; z-index:100;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	box-sizing:border-box;
-	display:flex;
-	flex-flow:column nowrap;
-	justify-content:space-between;
-	align-items:center;
-	align-content:space-between;
-}
-.sidebar-block { width:100%;}
-.sidebar-inner .sidebar-block:first-child, .sidebar-inner .sidebar-block:last-child { height:65px; line-height:65px;}
-
-.sidebar a.btn { margin-right:12px; color:#fcfcfc; background:none; border:#fcfcfc 2px solid;}
-.sidebar a.btn:hover { background:#fcfcfc; color:#15273b;}
-
-.sidebar .price { color:#fcfcfc; margin:0 0 21px 0;}
-.sidebar .currency { background:url(/landing/landing-img/ruble-white.png) center no-repeat;}
-.sidebar .price-descr { display:inline-block; font-size:12px; line-height:14px; text-align:left; padding-left:4px; text-transform:uppercase;}
-.sidebar .freq { font-weight:400;}
-.sidebar .per { font-weight:300;}
-
-ul.tab-switcher { display:block; margin:0 0 15px 0; padding:0; list-style:none; border:#fcfcfc 2px solid; border-radius:2px;}
-ul.tab-switcher li { display:block; float:left; margin:0; padding:0; width:50%; text-align:center; font-size:16px; line-height:28px;}
-ul.tab-switcher a { display:block; text-decoration:none!important;}
-ul.tab-switcher a.active { color:#15273b!important; background:#fcfcfc;}
-
-.tab { display:none;}
-.tab.active { display:block; min-height:280px;}
-
-.form-row { position:relative;  margin:0 0 14px 0;}
-.tab .form-row:last-child { margin:0;}
-.form-row.chk-pad-fix { padding-top:5px;}
-.input-fields input { width:100%; margin:0; padding:15px; border:0; border-bottom:#cacaca 1px solid; font:16px 'Open Sans', sans-serif; background:#f2f3f3; background:rgba(252,252,252,0.95);
-	border-radius:0;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	box-sizing:border-box;
-}
-.input-fields input:first-child { border-radius:2px 2px 0 0;}
-.input-fields input:last-child { border-radius:0 0 2px 2px; border:0;}
-.input-fields input:nth-last-child(1):first-child { border-radius:2px;}
-
-input.input-chk { position:absolute; left:0; z-index:1; opacity:0;}
-input.input-chk + label span { z-index:2; position:relative; display:inline-block; width:32px; height:32px; margin:-5px 10px 0 0; vertical-align:middle; background:url(/landing/landing-img/checkbox.png) left bottom no-repeat; cursor:pointer;}
-input.input-chk:checked + label span { background-position:left top;}
-.sidebar input.input-chk + label { float:left;}
-.re-set-block input.input-chk + label { float:left;}
-
-.submit-descr { display:inline-block; vertical-align:-10px;}
-.submit-descr p { display:block; padding:0; margin:0; line-height:22px;}
-
-#progress-block { padding:10px 0 0 0;}
-#progress { height:3px; background:#999;}
-#progress span { display:block; width:0; height:3px; background:#fcfcfc; transition:none;}
-#progress.go span { width:100%; transition:all 2.4s linear; transition-delay:0.3s;}
-
-ul.sidebar-bottom-menu { padding:0; margin:0; list-style:none;}
-ul.sidebar-bottom-menu li { display:inline-block; margin-right:12px;}
-
-#mobile-nav-ico { display:none;}
-
-body#re-set { background:#122438; color:#fcfcfc;}
-#re-set-flex { position:absolute; left:20px; top:0; right:20px; bottom:0;
-	display:flex;
-	flex-flow:column nowrap;
-	justify-content:space-between;
-	align-items:center;
-	align-content:space-between;
-}
-#re-set-flex h2 { color:#fcfcfc;}
-#re-set-flex a.btn, #re-set-flex input.btn { margin-right:12px; color:#fcfcfc; background:none; border:#fcfcfc 2px solid;}
-#re-set-flex a.btn:hover, #re-set-flex input.btn:hover { background:#fcfcfc; color:#15273b;}
-
-#re-set-flex a.btn.green, #re-set-flex input.btn.green { color:#fcfcfc; background:#00ad82; border:#00ad82 2px solid;}
-#re-set-flex a.btn.green:hover, #re-set-flex input.btn.green:hover { color:#15273b; background:#fcfcfc; border-color:#fcfcfc;}
-
-#re-set-flex .re-set-block { width:100%; max-width:390px;}
-#re-set-flex .re-set-block:first-child, #re-set-flex .re-set-block:last-child { height:65px; line-height:65px;}
-
-ul#instruments-list { padding:0; margin:0; list-style:none;}
-ul#instruments-list li { padding:0; margin:0 0 15px 0;}
-.il-left { float:left;}
-.il-right { margin:0 0 0 40px;}
-
-
-#team { display:flex;
-	flex-flow:row wrap;
-	justify-content:space-between;
-	align-content:space-between;
-}
-.team-item { width:80px; margin:0 0 25px 0; text-align:center;}
-.ti-avatar img { margin:0; border-radius:50%;}
-.ti-name { color:#000;}
-.ti-position { font-size:10px; line-height:12px;}
-
-
-#ph-line { position:relative; z-index:1000; padding:18px 10px; background:#ff450c; font-size:20px; color:#fff; text-align:center;}
-#ph-overlay { display:flex; position:fixed; z-index:999; left:0; top:0; right:0; bottom:0; padding:70px 10px 10px 10px;}
-#ph-modal { position:relative; width:100%; max-width:690px; margin:auto; padding:30px 40px; background:#ff450c; font-size:16px; color:#fff; border-radius:7px;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	box-sizing:border-box;
-}
-#ph-modal h2 { font-size:22px; padding:0; margin:0 0 5px 0; color:#fff;}
-#ph-picture { text-align:center; padding:0 40px; margin:0 0 20px 0;}
-#ph-picture img { max-width:100%;}
-#ph-modal .btn { border-color:#fff; color:#fff;}
-#ph-close { outline:0; border:0; padding:0; margin:0; text-indent:-9999px; width:20px; height:20px; position:absolute; top:25px; right:25px; background:url(/landing/landing-img/ph-close.png) no-repeat center center;}
-
-
-@media screen and (min-width:1250px) and (max-width:1440px) {
-
-	#content-fix .carousel-prev, #content-fix .carousel-next { display:none;}
-
-}
-
-@media screen and (min-width:1410px) {
-
-	#show-sidebar { display:none;}
-	#sidebar { width:490px;}
-	#sidebar a.sidebar-close { visibility:hidden;}
-	#ph-line { margin-right:-490px;}
-
-}
-
-@media screen and (min-width:750px) {
-
-	#reasons-block {
-		display:flex;
-		flex-wrap:wrap;
-		justify-content:space-between;
-		align-items:flex-start;
-	}
-	#reasons-block:before, #reasons-block:after { display:none;}
-	.reason { width:48%;}
-
-}
-
-@media screen and (max-width:1409px) {
-
-	body { padding:0;}
-
-}
-
-@media screen and (min-width:750px) and (max-width:940px) {
-
-	#content-fix .carousel-prev, #content-fix .carousel-next { display:none;}
-
-}
-
-@media screen and (max-width:750px) {
-
-	.carousel-prev { left:-40px;}
-	.carousel-next { right:-40px;}
-	#footer-menu-block { flex-flow:row wrap;}
-	.footer-menu-column { width:40%;}
-
-	#inner-sidebar { display:none;}
-	#content { margin:0;}
-
-	#main-nav.with-sidebar-clone { padding-top:4px; text-align:right;}
-	#main-nav.with-sidebar-clone #mobile-nav-ico { position:relative; z-index:99; display:block; float:right; width:24px; height:16px; background:url(/landing/landing-img/mobile-nav-ico.png) left top no-repeat; cursor:pointer;}
-	#main-nav.with-sidebar-clone.opened #mobile-nav-ico { position:fixed; top:50px; right:20px; float:none; background-position:left bottom;}
-	#main-nav.with-sidebar-clone #main-nav-inner { display:none; position:absolute; z-index:98; right:7px; top:30px; padding:40px 15px 15px 15px; background:#fcfcfc; white-space:nowrap; line-height:28px;}
-	#main-nav.with-sidebar-clone.opened #main-nav-inner { position:fixed; display:block; bottom:20px; min-width:235px;}
-	#main-nav.with-sidebar-clone.opened #main-nav-scroll { position:absolute; left:15px; top:40px; right:0; bottom:20px; overflow:auto; padding-right:15px;}
-	#main-nav.with-sidebar-clone #main-nav-overlay { position:fixed; z-index:95; left:0; top:0; right:0; height:0; background:#000; opacity:0; transition:all 0.3s;}
-	#main-nav.with-sidebar-clone.opened #main-nav-overlay { height:auto; bottom:0; opacity:0.5; transition:all 0.3s;}
-
-	#sidebar-clone-links { display:block;}
-	#main-nav.with-sidebar-clone .sidebar-heading { margin:0;}
-	#main-nav.with-sidebar-clone ul { margin:0 0 30px 0;}
-	#main-nav.with-sidebar-clone ul li { display:block; text-align:right;}
-
-}
-
-@media screen and (max-width:650px) {
-
-	.carousel-prev, .carousel-next { display:none;}
-	a.tweet { display:inline-block; width:37px; height:32px; overflow:hidden; vertical-align:middle;}
-	a.share { display:inline-block; width:32px; height:32px; overflow:hidden; vertical-align:middle;}
-
-}
-
-@media screen and (max-width:550px) {
-
-	.mainnav-column ul li { display:block; text-align:right;}
-	#main-nav { padding-top:4px; text-align:right;}
-	#mobile-nav-ico { position:relative; z-index:99; display:block; float:right; width:24px; height:16px; background:url(/landing/landing-img/mobile-nav-ico.png) left top no-repeat; cursor:pointer;}
-	#main-nav.opened #mobile-nav-ico { position:fixed; top:50px; right:20px; float:none; background-position:left bottom;}
-	#main-nav-inner { display:none; position:absolute; z-index:98; right:7px; top:30px; padding:40px 15px 15px 15px; background:#fcfcfc; white-space:nowrap; line-height:28px;}
-	#main-nav.opened #main-nav-inner { position:fixed; display:block;}
-	#main-nav-overlay { position:fixed; z-index:95; left:0; top:0; right:0; height:0; background:#000; opacity:0; transition:all 0.3s;}
-	#main-nav.opened #main-nav-overlay { height:auto; bottom:0; opacity:0.5; transition:all 0.3s;}
-
-	#ph-line { font-size:18px;}
-
-}
-
-@media screen and (max-width:490px) {
-
-	.sidebar.opened { width:100%;}
-	.sidebar-inner { min-width:0; padding:0 20px;}
-	.sidebar-inner a.btn { display:block; margin:0 0 20px 0; text-align:center;}
-	.sidebar-inner a#sign-up.btn { margin:0;}
-
-	.chk-pad-fix { font-size:13px;}
-	.hide-on-490 { display:none!important;}
-
-	.text-with-img { flex-flow:column nowrap;}
-	.text-with-img .twi-text, .text-with-img.even .twi-text { order:1; width:100%; margin-bottom:30px;}
-	.text-with-img .twi-img, .text-with-img.even .twi-img { order:2; width:70%;}
-
-	.team-item { width:120px;}
-
-	.reason-img { width:45px;}
-	.reason-txt { margin:0 0 0 70px;}
-	.reason-txtn { margin:0 0 0 0;}
-
-}
-
-@media screen and (max-width:450px) {
-
-	.hide-on-450 { display:none!important;}
-
-	.site-row { text-align:center;}
-	.site-row.main-row { text-align:left;}
-
-	.two-elements-block { flex-flow:column nowrap;}
-	.two-elements-block .text-column { order:1; width:100%; margin-bottom:30px;}
-	.site-row.rocket .text-column { margin-bottom:0;}
-	.two-elements-block .img-column, .two-elements-block .rocket-column { order:2; width:100%;}
-	.two-elements-block .rocket-column { border-bottom:#e7e7e7 1px solid;}
-
-	.site-row a.btn { display:block; margin:10px 0; text-align:center;}
-
-	body#re-set a.btn, body#re-set input.btn { display:block; width:100%; margin:0 0 15px 0; text-align:center;}
-
-	.footer-column:first-child { width:100%; margin:0 0 15px 0;}
-
-}
-
-@media screen and (max-width:400px) {
-
-	#footer-menu-block { flex-flow:column nowrap;}
-	.footer-menu-column { width:100%;}
-
-}
-/*-- pricing --*/
-.agileits-pricing-grid {
-	float: left;
-	width: 31.5%;
-}
-.agileits-pricing-grid:nth-child(2){
-	margin:0 1em;
-}
-.pricing {
-	margin: 0 auto;
-	border-radius: 2px;
-	-webkit-border-radius: 2px;
-	-ms-border-radius: 2px;
-	-moz-border-radius: 2px;
-	-o-border-radius: 2px;
-}
-.pricing-top{
-	padding: 1.2em 0;
-	background: #00ad82;
-	text-align: center;
-	border-top-left-radius: 2px;
-	-webkit-border-top-left-radius: 2px;
-	-moz-border-top-left-radius: 2px;
-	-ms-border-top-left-radius: 2px;
-	-o-border-top-left-radius: 2px;
-	border-top-right-radius: 2px;
-	-webkit-border-top-right-radius: 2px;
-	-moz-border-top-right-radius: 2px;
-	-ms-border-top-right-radius: 2px;
-	-o-border-top-right-radius: 2px;
-}
-.blue-top{
-	background: #15273b !important;
-}
-.green-top{
-	background: #e7e7e7 !important;
-}
-
-.pricing-top h3{
-	margin: 0;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-}
-.wthree-pricing-info{
-	padding: 1em 0;
-	background: #00ad82;
-
-	text-align: center;
-	border-bottom-left-radius: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-moz-border-bottom-left-radius: 5px;
-	-ms-border-bottom-left-radius: 5px;
-	-o-border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	-webkit-border-bottom-right-radius: 5px;
-	-moz-border-bottom-right-radius: 5px;
-	-ms-border-bottom-right-radius: 5px;
-	-o-border-bottom-right-radius: 5px;
-}
-.wthree-pricing-info p{
-	color:#FFFFFF;
-	font-size:1em;
-	margin:0;
-}
-.wthree-pricing-info p span{
-	font-size: 3em;
-	font-weight: 600;
-}
-.pricing-bottom{
-	text-align: center;
-	padding: 0em 0 2em 0;
-	border-bottom-left-radius: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-moz-border-bottom-left-radius: 5px;
-	-ms-border-bottom-left-radius: 5px;
-	-o-border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	-webkit-border-bottom-right-radius: 5px;
-	-moz-border-bottom-right-radius: 5px;
-	-ms-border-bottom-right-radius: 5px;
-	-o-border-bottom-right-radius: 5px;
-}
-.pricing-bottom-top {
-	padding: 1em 0;
-	background: #f5f5f5;
-}
-.pricing-bottom-top p{
-	color: #111;
-	margin: 0;
-}
-.pricing-bottom-bottom{
-	padding: 1em 0;
-	border-top: solid 1px #999;
-	background: #f5f5f5;
-}
-.pricing-bottom-bottom p{
-	color: #111;
-	margin: 0 0 1em 0;
-}
-.pricing-bottom-bottom p span{
-	font-weight:600;
-	color:#212121;
-}
-p.text {
-	margin-bottom: 0;
-}
-.buy-button {
-	margin: 1.5em 0 0 0;
-}
-.buy-button a{
-	background: #212121;
-	padding: .5em 2em;
-	border: solid 1px #333;
-	color: #fff;
-	border-radius: 2px;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	-o-border-radius: 2px;
-	-ms-border-radius: 2px;
-}
-.buy-button a:hover{
-	background: none;
-	border: solid 1px #212121;
-	color:#212121;
-	transition: 0.5s all;
-	-webkit-transition: 0.5s all;
-	-moz-transition: 0.5s all;
-	-o-transition: 0.5s all;
-	-ms-transition: 0.5s all;
-	text-decoration: none;
-}
-.blue-pricing-bottom-top{
-	background: #e7e7e7;
-}
-.blue-pricing-bottom-top:nth-child(2){
-	border-top: solid 1px #999;
-}
-.green-pricing-bottom-top{
-	background: #f5f5f5;
-}
-.green-pricing-bottom-top:nth-child(2){
-	border-top: solid 1px #999;
-}
-.copyright {
-	text-align: center;
-	margin: 2em 0 0 0;
-}
-.copyright p {
-	color: #FFFFFF;
-	font-size: .9em;
-	margin: 0;
-}
-.copyright p a {
-	color: #FFFFFF;
-	text-decoration: none;
-}
-.copyright p a:hover {
-	color: #FD5C63;
-}
-/*-- //pricing --*/
-#small-dialog,#small-dialog1,#small-dialog2,#small-dialog3,#small-dialog4,#small-dialog5{
-	background: white;
-	padding: 0;
-	max-width: 500px;
-	margin: 39px auto;
-	position: relative;
-	text-align: center;
-	border-radius: 5px;
-}
-/* start state */
-.my-mfp-zoom-in #small-dialog {
-	opacity: 0;
-	-webkit-transition: all 0.2s ease-in-out;
-	-moz-transition: all 0.2s ease-in-out;
-	-o-transition: all 0.2s ease-in-out;
-	transition: all 0.2s ease-in-out;
-	-webkit-transform: scale(0.8);
-	-moz-transform: scale(0.8);
-	-ms-transform: scale(0.8);
-	-o-transform: scale(0.8);
-	transform: scale(0.8);
-}
-/* animate in */
-.my-mfp-zoom-in.mfp-ready #small-dialog {
-	opacity: 1;
-	-webkit-transform: scale(1);
-	-moz-transform: scale(1);
-	-ms-transform: scale(1);
-	-o-transform: scale(1);
-	transform: scale(1);
-}
-/* animate out */
-.my-mfp-zoom-in.mfp-removing #small-dialog {
-	-webkit-transform: scale(0.8);
-	-moz-transform: scale(0.8);
-	-ms-transform: scale(0.8);
-	-o-transform: scale(0.8);
-	transform: scale(0.8);
-	opacity: 0;
-}
-/* Dark overlay, start state */
-.my-mfp-zoom-in.mfp-bg {
-	opacity: 0;
-	-webkit-transition: opacity 0.3s ease-out;
-	-moz-transition: opacity 0.3s ease-out;
-	-o-transition: opacity 0.3s ease-out;
-	transition: opacity 0.3s ease-out;
-}
-/* animate in */
-.my-mfp-zoom-in.mfp-ready.mfp-bg {
-	opacity: 0.8;
-}
-/* animate out */
-.my-mfp-zoom-in.mfp-removing.mfp-bg {
-	opacity: 0;
-}
-/**
-/* Magnific Popup CSS */
-.mfp-bg {
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1042;
-	overflow: hidden;
-	position: fixed;
-	background:#151515;
-	opacity: 0.8;
-	filter: alpha(opacity=80); }
-.mfp-wrap {
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1043;
-	position: fixed;
-	outline: none !important;
-	-webkit-backface-visibility: hidden; }
-.mfp-container {
-	text-align: center;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	padding: 0 8px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box; }
-.mfp-container:before {
-	content: '';
-	display: inline-block;
-	height: 100%;
-	vertical-align: middle; }
-.mfp-align-top .mfp-container:before {
-	display: none; }
-.mfp-content {
-	position: relative;
-	display: inline-block;
-	vertical-align: middle;
-	margin: 0 auto;
-	text-align: left;
-	z-index: 1045; }
-.mfp-inline-holder .mfp-content,
-.mfp-ajax-holder .mfp-content {
-	width: 100%;
-	cursor: auto; }
-.mfp-ajax-cur {
-	cursor: progress; }
-.mfp-zoom-out-cur, .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
-	cursor: -moz-zoom-out;
-	cursor: -webkit-zoom-out;
-	cursor: zoom-out; }
-.mfp-zoom {
-	cursor: pointer;
-	cursor: -webkit-zoom-in;
-	cursor: -moz-zoom-in;
-	cursor: zoom-in;
-}
-.mfp-auto-cursor .mfp-content {
-	cursor: auto; }
-.mfp-close, .mfp-arrow, .mfp-preloader, .mfp-counter {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
-}
-.mfp-loading.mfp-figure {
-	display: none; }
-.mfp-hide {
-	display: none !important;
-}
-.mfp-content iframe{
-	width:100%;
-	min-height:500px;
-}
-.mfp-preloader {
-	color: #cccccc;
-	position: absolute;
-	top: 50%;
-	width: auto;
-	text-align: center;
-	margin-top: -0.8em;
-	left: 8px;
-	right: 8px;
-	z-index: 1044;
-}
-.mfp-preloader a {
-	color: #cccccc;
-}
-.mfp-preloader a:hover {
-	color: white;
-}
-.mfp-s-ready .mfp-preloader {
-	display: none;
-}
-.mfp-s-error .mfp-content {
-	display: none;
-}
-button.mfp-close,button.mfp-arrow {
-	overflow: visible;
-	cursor: pointer;
-	border: 0;
-	background: #dadada;
-	-webkit-appearance: none;
-	display: block;
-	padding: 0;
-	z-index: 1046;
-}
-button::-moz-focus-inner {
-	padding: 0;
-	border: 0;
-}
-.mfp-close {
-	width: 35px;
-	height: 35px;
-	line-height: 17px;
-	position: absolute;
-	right: 0%;
-	top:0%;
-	text-decoration: none;
-	text-align: center;
-	color: white;
-	font-style: normal;
-	font-size: 28px;
-	outline: none;
-	padding: 0 !important;
-}
-.mfp-close:hover, .mfp-close:focus {
-	opacity: 1;
-}
-.mfp-close-btn-in .mfp-close {
-	color: #212121;
-	padding: 0 0 7px 0px;
-}
-.mfp-image-holder .mfp-close,.mfp-iframe-holder .mfp-close {
-	color: white;
-	right: -6px;
-	text-align: right;
-	padding-right: 6px;
-	width: 100%;
-}
-/*-- registration --*/
-.signin-form {
-	background: #ffffff;
-	background-size: cover;
-	padding: 2em 2em;
-	text-align: center;
-	margin: 0 auto;
-}
-.signin-form h3 {
-	font-size: 2em;
-	color: #212121;
-	font-weight: 700;
-	margin: 1em 0;
-	text-transform: uppercase;
-}
-.signin-form h3 span {
-	color: #67e1ff;
-}
-.signin-form img {
-	border-radius: 50%;
-}
-.login-form {
-	margin: 1em 0 2.5em;
-}
-.signin-form input[type="email"],.signin-form input[type="text"], .signin-form input[type="password"] {
-	width: 94%;
-	padding: 1em 1em 1em 1em;
-	font-size: 0.8em;
-	margin: 1em 0;
-	outline: none;
-	color: #212121;
-	border: none;
-	border-bottom: 2px solid #212121;
-	letter-spacing: 1px;
-	text-align: center;
-}
-.signin-form input[type="email"] {
-	background: none;
-	display: block;
-}
-.signin-form input[type="text"] {
-	background: none;
-	display: block;
-}
-.signin-form input[type="password"] {
-	background: none;
-	display: block;
-}
-::-webkit-input-placeholder{
-	color:#999 !important;
-}
-.signin-form input[type="submit"] {
-	outline: none;
-	padding: 0.9em 0;
-	width: 100%;
-	text-align: center;
-	font-size: 1em;
-	margin-top: 1em;
-	border: none;
-	color: #FFFFFF;
-	cursor: pointer;
-	background: #7ac143;
-	box-shadow: 0px 2px 1px rgba(28, 28, 29, 0.42);
-}
-.signin-form input[type="submit"]:hover {
-	color: #fff;
-	background: #212121;
-	transition: .5s all;
-	-webkit-transition: .5s all;
-	-moz-transition: .5s all;
-	-o-transition: .5s all;
-	-ms-transition: .5s all;
-}
-.signin-form p a {
-	font-size: 0.875em;
-	color: #212121;
-	letter-spacing: 1px;
-}
-/*-- responsive --*/
-@media(max-width:1280px){
-	.wrap {
-		width: 100%;
-	}
-}
-@media(max-width:1080px){
-	.wrap {
-		width: 100%;
-	}
-}
-@media(max-width:800px){
-	.wrap {
-		width: 100%;
-	}
-}
-@media(max-width:780px){
-	.agileits-pricing-grid {
-		float: none;
-		width: 100%;
-	}
-	.agileits-pricing-grid:nth-child(2) {
-		margin: 1em 0;
-	}
-	.wrap {
-		width: 100%;
-	}
-}
-@media(max-width:780px){
-	h1 {
-		font-size: 2em;
-	}
-}
-@media(max-width:490px){
-	.wrap {
-		width: 100%;
-	}
-}
-@media(max-width:450px){
-	h1 {
-		font-size: 1.5em;
-	}
-}
-@media(max-width:320px){
-	.wthree-dot {
-		padding: 2em 0;
-	}
-}
-/*-- //responsive --*/
-
-</style>
-
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108243656-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Socket.IO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SOCKET.IO 2.0 IS HERE     FEATURING THE FASTEST AND MOST RELIABLE REAL-TIME ENGINE                            ~/Projects/tweets/index.js                                  var io = require('soc">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Комплексная безопасность и автоматические инструменты для лечения и защиты сайтов от вирусов и угроз, собранные в одном месте. Рекомендуем!">
-<meta property="og:description" content="Комплексная безопасность и автоматические инструменты для лечения и защиты сайтов от вирусов и угроз. Вирусдай позволяет автоматически проверить сайт на вирусы онлайн. Автоматически очищает сайты от заражений. Показывает вредоносный код в файлах. Помогает защищать сайты от угроз, XSS/SQL инъекций, DoS атак, загрузки вредоносных файлов и подозрительной активности.">
-<meta property="og:image" content="https://virusdie.ru/landing/landing-img/fb-preview.png">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&amp;amp;subset=cyrillic"></head>
+<meta property="og:title" content="Socket.IO">
+<meta property="og:url" content="https://socket.io/index.html">
+<meta property="og:site_name" content="Socket.IO">
+<meta property="og:description" content="SOCKET.IO 2.0 IS HERE     FEATURING THE FASTEST AND MOST RELIABLE REAL-TIME ENGINE                            ~/Projects/tweets/index.js                                  var io = require('soc">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-01T21:50:55.541Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Socket.IO">
+<meta name="twitter:description" content="SOCKET.IO 2.0 IS HERE     FEATURING THE FASTEST AND MOST RELIABLE REAL-TIME ENGINE                            ~/Projects/tweets/index.js                                  var io = require('soc">
+  
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
 
-<body>
+  <link rel="stylesheet" href="/css/home.css">
 
-<div class="site-row" id="top">
-	<div class="wrapper clearfix">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet" type="text/css">
 
-		<div id="mainnav-block">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+<script id="_carbonads_projs" type="text/javascript" src="//srv.carbonads.net/ads/CKYIL53N.json?segment=placement:socketio&amp;callback=_carbonads_go"></script></head>
 
-			<div class="mainnav-column">
-				<a href="/" id="logo" style="border: 1px solid gold;"></a>
-			</div>
+<body style="">
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <a id="logo" href="/" style="border: 1px solid gold;"></a>
+  <nav class="main-nav">
+    <ul class="nav-items">
+      <li>
+        <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;"><input id="docsearch-input" type="text" placeholder="Search..." class="ds-input" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;Open Sans&quot;, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="ds-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class="ds-dataset-1"></div></span></span>
+      </li>
+      <li>
+        <div class="dropdown">
+          <span class="dropdown-toggle nav-item">Learn</span>
+          <ul class="dropdown-content">
+            <li>
+              <a href="/get-started/chat/" class="nav-link" style="border: 1px solid gold;">Get started</a>
+            </li>
+            <li>
+              <a href="/docs/" class="nav-link" style="border: 1px solid gold;">Documentation</a>
+            </li>
+            <li>
+              <a href="/demos/chat/" class="nav-link" style="border: 1px solid gold;">Demos</a>
+            </li>
+            <li class="anchor"></li>
+            <li>
+              <a href="/docs/server-api/" class="nav-link" style="border: 1px solid gold;">Server API</a>
+            </li>
+            <li>
+              <a href="/docs/client-api/" class="nav-link" style="border: 1px solid gold;">Client API</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="dropdown">
+          <span class="dropdown-toggle nav-item">Resources</span>
+          <ul class="dropdown-content">
+            <li>
+              <span class="nav-links-header">Getting help</span>
+              <ul>
+                <li>
+                  <a href="https://slackin-socketio.now.sh/" target="_blank" class="nav-link" style="border: 1px solid gold;">Slack</a>
+                </li>
+                <li>
+                  <a href="https://stackoverflow.com/questions/tagged/socket.io" target="_blank" class="nav-link" style="border: 1px solid gold;">Stack Overflow</a>
+                </li>
+              </ul>
+            </li>
+            <li class="anchor"></li>
+            <li>
+              <span class="nav-links-header">News</span>
+              <ul>
+                <li>
+                  <a href="/blog/" class="nav-link" style="border: 1px solid gold;">Blog</a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/SocketIO" target="_blank" class="nav-link" style="border: 1px solid gold;">Twitter</a>
+                </li>
+              </ul>
+            </li>
+            <li class="anchor"></li>
+            <li>
+              <span class="nav-links-header">Links</span>
+              <ul>
+                <li>
+                  <a href="https://github.com/socketio/socket.io" target="_blank" class="nav-link" style="border: 1px solid gold;">GitHub</a>
+                </li>
+                <li>
+                  <a href="https://cdnjs.com/libraries/socket.io" target="_blank" class="nav-link" style="border: 1px solid gold;">CDN</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href="https://opencollective.com/socketio" target="_blank" class="nav-item" style="border: 1px solid gold;">Support Socket.IO</a>
+      </li>
+    </ul>
+  </nav>
+</header>
 
-			<div class="mainnav-column">
-				<div id="main-nav">
-					<div id="mobile-nav-ico"></div>
-					<div id="main-nav-inner">
-						<ul>
-							<li><a href="#features" style="border: 1px solid gold;">Возможности</a></li>
-							<li><a href="#pricing" style="border: 1px solid gold;">Стоимость</a></li>
-							<li class="hide-on-450"><a href="#customers" style="border: 1px solid gold;">Мнение&nbsp;экспертов</a></li>
-							<li id="show-sidebar"><a href="#" style="border: 1px solid gold;">Регистрация и Вход</a></li>
-						</ul>
-					</div>
-					<div id="main-nav-overlay"></div>
-				</div>
-			</div>
 
-		</div>
+      
 
-	</div>
+<aside id="sidebar">
+
+  
+    <ol>
+      
+    </ol>
+  
+
+</aside>
+
+      <script async="" type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIL53N&amp;placement=socketio" id="_carbonads_js"></script><div id="carbonads"><span><span class="carbon-wrap"><a href="//srv.carbonads.net/ads/click/x/GTND42QWCKSD527NCKB4YKQMCE7I5K77C6YI4Z3JCWBDC2QJC6YD4KJKC6BIVK7NF6YDEK3EHJNCLSIZ?segment=placement:socketio;" class="carbon-img" target="_blank" rel="noopener" style="border: 1px solid gold;"><img src="https://cdn4.buysellads.net/uu/1/21673/1538328304-Slack-pink_logo.png" alt="" border="0" height="100" width="130" style="max-width: 130px; border: 1px solid red; border-radius: 10px;"></a><a href="//srv.carbonads.net/ads/click/x/GTND42QWCKSD527NCKB4YKQMCE7I5K77C6YI4Z3JCWBDC2QJC6YD4KJKC6BIVK7NF6YDEK3EHJNCLSIZ?segment=placement:socketio;" class="carbon-text" target="_blank" rel="noopener" style="border: 1px solid gold;">It's teamwork, but simpler, more pleasant and more productive.</a></span><a href="http://carbonads.net/?utm_source=socketio&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener" style="border: 1px solid gold;">ads via Carbon</a><img src="https://ad.doubleclick.net/ddm/trackimp/N32602.3091281BUYSELLADS/B21259774.226039675;dc_trk_aid=424126896;dc_trk_cid=104189842;ord=154369431;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=?" border="0" height="1" width="1" style="display: none; border: 1px solid red; border-radius: 10px;"><img src="https://slack.sp1.convertro.com/view/vt/v1/slack/0/cvo.gif?cvosrc=display.carbon.pink%20dev&amp;utm_source=carbon&amp;utm_medium=display&amp;utm_campaign=pink%20dev" border="0" height="1" width="1" style="display: none; border: 1px solid red; border-radius: 10px;"></span></div>
+      
+<div id="sponsors">
+  <span class="sponsors-header">Sponsors</span>
+
+  <ul class="sponsor-list">
+    <li class="sponsor">
+      <a href="https://icons8.com/" target="_blank" style="border: 1px solid gold;">
+        <img src="/images/icons8.png" class="sponsor-image" style="border: 1px solid red; border-radius: 10px;">
+      </a>
+    </li>
+    <li class="sponsor">
+      <a href="https://mixmax.com/" target="_blank" style="border: 1px solid gold;">
+        <img src="/images/mixmax.png" class="sponsor-image" style="border: 1px solid red; border-radius: 10px;">
+      </a>
+    </li>
+    <li class="sponsor">
+      <a href="https://www.codeinwp.com/blog/" target="_blank" style="border: 1px solid gold;">
+        <img src="/images/codeinwp.png" class="sponsor-image" style="border: 1px solid red; border-radius: 10px;">
+      </a>
+    </li>
+  </ul>
 </div>
 
-<div class="site-row main-row">
-	<div class="wrapper clearfix" style="text-align:center;">
-		<p style="text-align: center; font-size: 34px; line-height: 42px; color: rgb(17, 17, 17); font-weight: 400; border: 2px solid gold;">Автоматическое лечение и защита сайтов</p>
-		<h1 class="m10" style="text-align:left;">Автоматическое <u>лечение и защита сайтов от вирусов</u>, снятие санкций и блокировок хостинг-провайдера, экспертная помощь и сопровождение</h1>
-		<p class="f16" style="text-align: justify; border: 2px solid gold;">Сервис помогает проверить сайты и серверы на вирусы и уязвимости. Автоматически устранить вредоносный код и заражения. Удалить сайт из черных списков. Защитить от угроз, XSS/SQL инъекций и подозрительной активности или воспользоваться услугами экспертного отдела.</p>
-		<p style="border: 2px solid gold;">
-							<a href="/user/website/" class="btn green" style="border: 1px solid gold;">Подключить сайт</a>
-				<a href="/about" class="btn" style="border: 1px solid gold;">Как это работает</a>
-					</p>
-
-	</div>
-</div>
-<div class="site-row dark hide-on-450" id="features">
-	<div class="wrapper clearfix">
-		<div class="logos-block opacity">
-			<div class="item">
-				<img src="/landing/landing-img/jlogo.png" alt="Joomla" title="Joomla" style="border: 1px solid red; border-radius: 10px;">
-			</div>
-			<div class="item">
-				<img src="/landing/landing-img/wplogo.png" alt="WordPress" title="WordPress" style="border: 1px solid red; border-radius: 10px;">
-			</div>
-			<div class="item">
-				<img src="/landing/landing-img/btrlogo.png" alt="1С.Битрикс" title="1С.Битрикс" style="border: 1px solid red; border-radius: 10px;">
-			</div>
-			<div class="item">
-				<img src="/landing/landing-img/dlogo.png" alt="Drupal" title="Drupal" style="border: 1px solid red; border-radius: 10px;">
-			</div>
-			<div class="item">
-				<img src="/landing/landing-img/mlogo.png" alt="Magento" title="Magento" style="border: 1px solid red; border-radius: 10px;">
-			</div>
-			<div class="item">
-				<a href="/about/#platforms" style="border: 1px solid gold; color: rgb(204, 204, 204);">Все платформы</a>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="site-row bluegrad main-row center">
-	<div class="wrapper clearfix invert">
-		<h2 class="invert">Всё для безопасности ваших сайтов собрано в одном месте</h2>
-		<p style="text-align: justify; border: 2px solid gold;">Лечите и защищайте все ваши сайты с помощью автоматических инструментов. Работайте самостоятельно или воспользуйтесь помощью экспертов по безопасности для решения сложных задач. Тысячи веб-мастеров, экспертов, администраторов, seo-оптимизаторов и владельцев сайтов выбрали Вирусдай. Присоединяйтесь!</p>
-		<div id="top-img-container">
-			<img src="/landing/landing-img/main-img.png" alt="Панель управления Вирусдай" class="styled" style="border: 1px solid red; border-radius: 10px;">
-			<div id="img-phone">
-				<img src="/landing/landing-img/img-phone.png" alt="Панель управления Вирусдай, мобильная версия" style="border: 1px solid red; border-radius: 10px;">
-			</div>
-		</div>
-	</div>
-</div>
-<div class="site-row gray">
-	<div class="wrapper clearfix">
-		<div class="two-elements-block">
-			<div class="img-column">
-				<img src="/landing/landing-img/santivirus.png" alt="Антивирус для сайта Virusdie" class="styled" style="border: 1px solid red; border-radius: 10px;">
-			</div>
-
-			<div class="text-column">
-				<h2>Антивирус для сайта</h2>
-				<p class="f16 black" style="border: 2px solid gold;">Лечите ваши сайты за секунды</p>
-				<p style="border: 2px solid gold;">Поместите файл синхронизации в корень вашего сайта. <a href="/faq/antivirus/" style="border: 1px solid gold;">Робот</a> сам начнет поиск и автоматическую очистку сайта от редиректов, шелов, троянов и другого вредоносного кода.</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="site-row">
-	<div class="wrapper clearfix">
-
-		<div class="two-elements-block">
-
-			<div class="text-column">
-				<h2>Фаервол для сайта</h2>
-				<p class="f16 black" style="border: 2px solid gold;">Защищайте ваши сайты от угроз</p>
-				<p style="border: 2px solid gold;"><a href="/faq/firewall/" style="border: 1px solid gold;">Фаервол</a> помогает защищать ваши сайты от злоумышленников, вирусов, атак, XSS/SQL инъекций, загрузки вредоносных файлов и подозрительной активности.</p>
-			</div>
-
-			<div class="img-column">
-				<img src="/landing/landing-img/sfirewall.png" alt="Фаервол для сайта Virusdie" class="styled" style="border: 1px solid red; border-radius: 10px;">
-			</div>
-
-		</div>
-
-	</div>
-</div>
-<div class="site-row gray center" style="padding-bottom:0px!important;">
-	<div class="wrapper clearfix">
-		<h2>Дополнительные встроенные инструменты:</h2>
-		<br>
-		<div id="reasons-block" class="clearfix">
-			<div class="reason" style="margin-bottom:20px;">
-				<div class="reason-img">
-					<img src="/landing/landing-img/tool-1.png" alt="Проверка сайта по черным спискам" style="border: 1px solid red; border-radius: 10px;">
-				</div>
-				<div class="reason-txt">
-					<h2>Черные списки</h2>
-					<p class="f16 black" style="border: 2px solid gold;">Знайте о санкциях и снимайте их</p>
-					<p style="border: 2px solid gold;">Автоматическая проверка сайта по <a href="/faq/blacklist/" style="border: 1px solid gold;">черным спискам</a> Google, Yandex, Kaspersky и других 50+ поставщиков, позволит вам быть уверенным в отсутствии санкций, а антивирус и наши эксперты помогут снять их.</p>
-				</div>
-			</div>
-			<div class="reason">
-				<div class="reason-img">
-					<img src="/landing/landing-img/tool-2.png" alt="Файловый менеджер" style="border: 1px solid red; border-radius: 10px;">
-				</div>
-				<div class="reason-txt">
-					<h2>Менеджер файлов</h2>
-					<p class="f16 black" style="border: 2px solid gold;">Управляйте файлами</p>
-					<p style="border: 2px solid gold;">Встроенный <a href="/faq/filemanager/" style="border: 1px solid gold;">менеджер файлов</a> делает навигацию по структуре вашего сайта предельно простой. Инфицированные файлы и каталоги отмечаются красными маркерами.</p>
-				</div>
-			</div>
-
-			<div class="reason" style="margin-bottom:20px;">
-				<div class="reason-img">
-					<img src="/landing/landing-img/tool-3.png" alt="Редактирование файлов" style="border: 1px solid red; border-radius: 10px;">
-				</div>
-				<div class="reason-txt">
-					<h2>Редактор файлов</h2>
-					<p class="f16 black" style="border: 2px solid gold;">Легкая работа с контентом</p>
-					<p style="border: 2px solid gold;"><a href="/faq/fileeditor/" style="border: 1px solid gold;">Редактор</a> с возможностью изменения прав и разметкой синтаксиса делает вашу работу удобной. Фрагменты вредоносного и подозрительного кода автоматически подсвечиваются.</p>
-				</div>
-			</div>
-
-			
-			<div class="reason">
-				<div class="reason-img">
-					<img src="/landing/landing-img/tool-4.png" alt="Поиск регулярными выражениями" style="border: 1px solid red; border-radius: 10px;">
-				</div>
-				<div class="reason-txt">
-					<h2>Поиск по файлам</h2>
-					<p class="f16 black" style="border: 2px solid gold;">Ищите контент по запросу</p>
-					<p style="border: 2px solid gold;">Встроенный <a href="/faq/search/" style="border: 1px solid gold;">инструмент поиска</a> помогает найти произвольный код в файлах ваших ресурсов по регулярному выражению или простому текстовому запросу.</p>
-				</div>
-			</div><div class="reason">
-				<div class="reason-img">
-					<img src="/landing/landing-img/tool-5.png" alt="Внешняя проверка сайта" style="border: 1px solid red; border-radius: 10px;">
-				</div>
-				<div class="reason-txt">
-					<h2>URL-сканирование</h2>
-					<p class="f16 black" style="border: 2px solid gold;">Проверка HTML, ссылок и подключаемых файлов</p>
-					<p style="border: 2px solid gold;">При <a href="/faq/externalscan/" style="border: 1px solid gold;">внешнем сканировании</a> сайта выявляются Drive-by-Download атаки, угрозы в подключаемых кодах и ссылки на фишинговые ресурсы. Проверка дополняет внутреннее <a href="/faq/antivirus/" style="border: 1px solid gold;">сканирование файлов</a> сайта.</p>
-				</div>
-			</div>
-			<div class="reason">
-				<div class="reason-img">
-					<img src="/landing/landing-img/tool-6.png" alt="Анализ неизлечимых файлов" style="border: 1px solid red; border-radius: 10px;">
-				</div>
-				<div class="reason-txt">
-					<h2>Анализ файлов</h2>
-					<p class="f16 black" style="border: 2px solid gold;">Передавайте неизлечимые файлы на анализ экспертам</p>
-					<p style="border: 2px solid gold;">Если ваш сайт находится не на плане экспертного обслуживания и сервис обнаружил угрозу, которую не может устранить автоматически, а сами вы не готовы редактировать код - просто <a href="/faq/analysis/" style="border: 1px solid gold;">передайте файл на анализ</a> экспертам.</p>
-				</div>
-			</div>
-	</div>
-</div>
-</div>
-<div class="site-row center">
-	<div class="wrapper clearfix">
-		<h2 style="margin-bottom:7px!important;">Если у вас много сайтов —</h2>
-		<p class="upper" style="border: 2px solid gold;">используйте удобные опции для их обслуживания</p>
-		<br>
-		<div id="reasons-block" class="clearfix">
-			<div class="reason">
-				<div class="reason-img">
-					<img src="/landing/landing-img/rep_2.png" alt="Автоматические сводные отчеты Вирусдай" style="border: 1px solid red; border-radius: 10px;">
-				</div>
-				<div class="reason-txt">
-					<p class="f16 black" style="border: 2px solid gold;">Делитесь вашей статистикой</p>
-					<p style="border: 2px solid gold;">Делитесь любым сводным отчётом по сайту за период или отчетами антивируса в один клик. Укажите дополнительный Email в настройках нужного сайта или кликните на иконку «Поделиться».</p>
-				</div>
-			</div>
-
-			<div class="reason">
-				<div class="reason-img">
-					<img src="/landing/landing-img/rep_3.png" alt="Специальные оптовые цены Virusdie" style="border: 1px solid red; border-radius: 10px;">
-				</div>
-				<div class="reason-txt">
-					<p class="f16 black" style="border: 2px solid gold;">Получите скидку от числа сайтов</p>
-					<p style="border: 2px solid gold;">Три подключаемых к автоматическим инструментам сайта оплачиваются по цене 1499 рублей в год за каждый, а следующие, начиная с четвёртого подключенного — 249 рублей в год за каждый сайт. <a href="/rules/termsofuse/#section7" style="color: rgb(0, 173, 130); border: 1px solid gold;" target="_blank">Подробнее</a></p>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!--googleoff: all-->
-<div class="site-row bluegrad center">
-	<div class="wrapper clearfix">
-		<h2 class="invert" style="margin-bottom:0px;">Решения для ISPmanager, серверов без панели,<br>хостинг-провайдеров и разработчиков.</h2>
-<br><br>
-		<div id="reasons-block" class="clearfix">
-			<div class="reason">
-				<div class="reason-img">
-					<img src="/landing/landing-img/ispmods.png" alt="Модуль Virusdie для ISPmanager" style="border: 1px solid red; border-radius: 10px;">
-				</div>
-				<div class="reason-txt">
-					<p class="f16 invertbold" style="margin-bottom: 5px !important; border: 2px solid gold;"><a href="https://www.ispsystem.ru/addons-modules/virusdie" style="color: rgb(0, 173, 130); font-weight: bold; border: 1px solid gold;" target="_blank" rel="nofollow">Для ISPmanager</a></p>
-					<p class="invert" style="border: 2px solid gold;">Решение компании ISPsystem для автоматической проверки и удаления угроз на серверах и сайтах. Включены email оповещения, проверка чёрных списков и запуск по расписанию.</p>
-					
-				</div>
-			</div>
-
-			<div class="reason">
-				<div class="reason-img">
-					<img src="/landing/landing-img/avvds.png" alt="Virusdie.Server antivirus for servers" style="border: 1px solid red; border-radius: 10px;">
-				</div>
-				<div class="reason-txt">
-					<p class="f16 invertbold" style="margin-bottom: 5px !important; border: 2px solid gold;"><a href="/partners/virusdieserver/" style="color: rgb(0, 173, 130); font-weight: bold; border: 1px solid gold;" target="_blank" rel="nofollow">Для разработчиков</a></p>
-					<p class="invert" style="border: 2px solid gold;">Серверный stand-alone антивирус Virusdie.Server для интеграции в архитектуру Shared-хостинга и разработки программных продуктов для безопасности сайтов и серверов.</p>
-					
-				</div>
-			</div>
-
-		</div>
-	</div>
-</div>
-
-<noindex>
-	<div class="site-row darkgray center hide-on-450" id="customers">
-		<div class="wrapper clearfix">
-
-			<h2 style="margin-bottom:7px!important;">Вы в хорошей компании</h2>
-			<p class="upper" style="border: 2px solid gold;">Эксперты, разработчики, хостинг-провайдеры, веб-мастера, студии и владельцы сайтов по всему миру используют продукты Virusdie для развития, улучшения качества и защиты своего бизнеса</p>
-
-			<div class="capability-row clearfix" style="margin-bottom:0px; border-bottom:4px solid #e7e7e7;">
-				<div class="capability-column-right" style="border-left:4px solid #e7e7e7;">
-					<i class="ico ico-c-mailru" style="min-width: 190px;min-height: 69px;background-color: #2a7fc2;text-align: center;"></i>
-				</div>
-				<div class="capability-column-right" style="border-left:4px solid #e7e7e7;">
-					<i class="ico ico-c-1vds" style="min-width: 190px;min-height: 69px;background-color: #f5f5f5;text-align: center;"></i>
-				</div>
-
-				<div class="capability-column-right" style="border-left:4px solid #e7e7e7;">
-					<i class="ico ico-c-ispsystem" style="min-width: 190px;min-height: 69px;background-color: #f5f5f5;text-align: center;"></i>
-				</div>
-				<div class="capability-column-right">
-					<i class="ico ico-c-regcom" style="min-width: 190px;min-height: 69px;background-color: #f5f5f5;text-align: center;"></i>
-				</div>
-			</div>
-			<div class="capability-row clearfix" style="margin-bottom:0px;">
-				<div class="capability-column-right" style="border-left:4px solid #e7e7e7;">
-					<i class="ico ico-c-eurobyte" style="min-width: 190px;min-height: 69px;background-color: #f5f5f5;text-align: center;"></i>
-				</div>
-				<div class="capability-column-right" style="border-left:4px solid #e7e7e7;">
-					<i class="ico ico-c-timeweb" style="min-width: 190px;min-height: 69px;background-color: #f5f5f5;text-align: center;"></i>
-				</div>
-
-				<div class="capability-column-right" style="border-left:4px solid #e7e7e7;">
-					<i class="ico ico-c-im360" style="min-width: 190px;min-height: 69px;background-color: #f5f5f5;text-align: center;"></i>
-				</div>
-				<div class="capability-column-right">
-					<i class="ico ico-c-cl" style="min-width: 190px;min-height: 69px;background-color: #2a7fc2;text-align: center;"></i>
-				</div>
-			</div>
-			<div class="capability-row clearfix" style="margin-bottom:30px;">
-				<div class="capability-column">
-				</div>
-			</div>
-
-			<p class="f16 greenlink" style="border: 2px solid gold;"><a href="/partners/" style="color: rgb(0, 173, 130); border: 1px solid gold;">Узнайте больше о продуктах для партнёров</a></p>
-		</div>
-	</div>
-</noindex>
-<!--googleon: all-->
-<div class="site-row gray center hide-on-450" id="leaders">
-	<div class="wrapper clearfix">
-			<h2 style="margin-bottom:7px!important;">Мнения экспертов</h2>
-		<div class="carousel-wrapper">
-			<div class="carousel" data-jcarousel="true">
-				<ul style="left: 0px; top: 0px;">
-					<li style="width: 649px;">
-						<img src="/landing/landing-img/av-6en.png" alt="Алексей Королюк, REG.RU" style="border: 1px solid red; border-radius: 10px;">
-						<p style="border: 2px solid gold;">Мы начали предоставлять пользователям встроенное решение для поиска и автоматического удаления угроз с их сайтов. Решение на основе <a href="/partners/forhosters/" style="border: 1px solid gold;">Вирусдай.Сервер</a> доступно клиентам виртуального хостинга. Теперь из собственного кабинета пользователи могут проверить сайт на вирусы и запустить высокоточное автоматическое устранение вредоносного кода. Что важно,— сайты продолжают работать стабильно после автоматического лечения.<br><br><strong>Алексей Королюк</strong>, Генеральный директор <a href="https://reg.ru/" style="color: rgb(0, 173, 130); border: 1px solid gold;" rel="nofollow" target="_blank">REG.RU</a></p>
-					</li>
-					<li style="width: 649px;">
-						<img src="/landing/landing-img/av-7en.png" alt="Павел Гуральник, ISPsystem" style="border: 1px solid red; border-radius: 10px;">
-						<p style="border: 2px solid gold;">Тысячи владельцев сайтов уже успели оценить высокий уровень защиты и лечения сайтов, который предлагает Virusdie. До недавнего времени удобное использование сервиса через графическую оболочку было доступно лишь пользователям SaaS. Теперь же, с выходом <a href="/partners/forhosters/" style="border: 1px solid gold;">интеграции Virusdie</a> с одной из самых популярных на рынке <a href="/partners/isplitemodule/" style="border: 1px solid gold;">панелей управления сервером ISPmanager</a>, такую возможность получили владельцы VPS и выделенных серверов.<br><br><strong>Павел Гуральник</strong>, Генеральный директор <a href="https://ispsystem.ru/" style="color: rgb(0, 173, 130); border: 1px solid gold;" rel="nofollow" target="_blank">ISPsystem</a></p>
-					</li>
-					<li style="width: 649px;">
-						<img src="/landing/landing-img/av-5en.png" alt="Александр Горный, Mail.Ru Group" style="border: 1px solid red; border-radius: 10px;">
-						<p style="border: 2px solid gold;">В Mail.Ru Group создан свой собственный сервис статистики для веб-мастеров с более чем 1 миллионом подключенных сайтов — top.mail.ru. Мы используем <a href="/partners/externalsitecheck/" style="border: 1px solid gold;">API для внешней проверки сайтов</a> сервиса Вирусдай для детектирования вредоносного кода. Он имеет достаточную производительность для нашего проекта, позволяет предоставлять услугу ежедневной проверки безопасности сайтов top.mail.ru и информировать клиентов об угрозах.<br><br><strong>Александр Горный</strong>, Mail.Ru Group</p>
-					</li>
-					<li style="width: 649px;">
-						<img src="/landing/landing-img/av-8en.png" alt="Роман Клевцов, Optimism.ru" style="border: 1px solid red; border-radius: 10px;">
-						<p style="border: 2px solid gold;">Зараженный сайт часто теряет работоспособность, а его позиции понижаются в поисковой выдаче. Для владельцев это, порой, чревато серьезными финансовыми потерями. Гораздо проще предотвратить заражение, чем вылечить файлы от вредоносного кода. В то же время, в случае взлома сайта, проблему устранения уже имеющегося заражения необходимо решать в кратчайшие сроки. Именно поэтому мы рекомендуем нашим клиентам пользоваться Вирусдай.<br><br><strong>Роман Клевцов</strong>, Optimism.ru</p>
-					</li>
-					<li style="width: 649px;">
-						<img src="/landing/landing-img/av-4en.png" alt="Виталий Альхимович, ILoveFiniki" style="border: 1px solid red; border-radius: 10px;">
-						<p style="border: 2px solid gold;">Рад появлению этого сервиса. Раньше, чтобы вылечить один сайт от вирусов, приходилось перелопачивать все файлы, искать вставки вируса в код. Теперь же достаточно просто подключить к Вирусдаю, просканировать и удалить вирусы. Дел на 5 минут. Мы уже начали особо важных клиентов подключать к антивирусу не дожидаясь заражения, чтобы потом было меньше головной боли.<br><br><strong>Виталий Альхимович</strong>, ILoveFiniki</p>
-					</li>
-					<li style="width: 649px;">
-						<img src="/landing/landing-img/av-2en.png" alt="Дмитрий Робионек" style="border: 1px solid red; border-radius: 10px;">
-						<p style="border: 2px solid gold;">Первый по-настоящему удобный антивирус для блогеров и веб-мастеров. Я посчитал и понял, что Вирусдай экономит мне примерно 3 часа в неделю. Это 156 часов или 6,5 суток в год. Если пересчитать в рабочие восьмичасовые дни — это 19,5 дней! Для меня именно это стало решающим плюсом в пользу Вирусдая, так как я веду несколько проектов. Теперь же очистка сайта от вирусов у меня занимает минимальное время, либо происходит полностью автоматически.<br><br><strong>Дмитрий Робионек</strong>, Блогер</p>
-					</li>
-				</ul>
-			</div>
-			<div class="carousel-prev hide-on-450" data-jcarouselcontrol="true"></div>
-			<div class="carousel-next hide-on-450" data-jcarouselcontrol="true"></div>
-		</div>
-
-	</div>
-</div>
-
-<div class="site-row center" id="pricing">
-	<div class="wrapper clearfix">
-
-		<h2>Стоимость</h2>
-		<div class="price">
-			<div class="price-value">
-				<span id="price-for-interval">1499</span><span class="currency">Руб.</span>
-			</div>
-			<div class="price-descr">
-				<span class="freq">в год</span>
-				<span class="per">за 1 сайт</span>
-			</div>
-
-		</div>
-		<p class="upper" style="border: 2px solid gold;">Один день бесплатно для новых сайтов.<br>249 рублей в год за каждый сайт, начиная с четвертого подключенного</p>
-
-		<div class="capability-row clearfix">
-			<div class="capability-column-left">
-				<i class="ico ico-scan"></i>
-			</div>
-			<div class="capability-column-right">
-				<i class="ico ico-checked"></i>
-			</div>
-			<div class="capability-column">
-				<p style="border: 2px solid gold;"><span class="black"><a href="/faq/antivirus/" style="border: 1px solid gold;">Постоянная проверка сайта на вирусы и уязвимости</a></span><br>
-					Регулярная автоматическая проверка вашего ресурса каждые 6, 12, 24 часа или в заданное время. Позволяет находить редиректы, трояны, шелы, бэкдоры, вредоносный и потенциально опасный код; Также, вы можете запускать проверку сайта самостоятельно, просто нажав на кнопку сканирования.</p>
-			</div>
-		</div>
-
-		<div class="capability-row clearfix">
-			<div class="capability-column-left">
-				<i class="ico ico-clean"></i>
-			</div>
-			<div class="capability-column-right">
-				<i class="ico ico-checked"></i>
-			</div>
-			<div class="capability-column">
-				<p style="border: 2px solid gold;"><span class="black"><a href="/faq/antivirus/" style="border: 1px solid gold;">Автоматическое лечение сайта от вирусов</a></span><br>
-					Автоматическое быстрое лечение файлов сайта от обнаруженных вирусов и угроз с высокой точностью. Распределенная по времени и объему запросов низкая нагрузка на сервер. Ваш сайт продолжает работать стабильно после автоматического лечения.</p>
-			</div>
-		</div>
-
-		<div class="capability-row clearfix">
-			<div class="capability-column-left">
-				<i class="ico ico-firewall"></i>
-			</div>
-			<div class="capability-column-right">
-				<i class="ico ico-checked"></i>
-			</div>
-			<div class="capability-column">
-				<p style="border: 2px solid gold;"><span class="black"><a href="/faq/firewall/" style="border: 1px solid gold;">Фаервол для сайта</a></span><br>
-					Автоматическая 24/7 защита сайта от угроз и XSS/SQL инъекций. Снижает подозрительную активность на вашем сайте, повышает его безопасность, защищает данные и затрудняет взлом.</p>
-			</div>
-		</div>
-
-		<div class="capability-row clearfix">
-			<div class="capability-column-left">
-				<i class="ico ico-blacklist"></i>
-			</div>
-			<div class="capability-column-right">
-				<i class="ico ico-checked"></i>
-			</div>
-			<div class="capability-column">
-				<p style="border: 2px solid gold;"><span class="black"><a href="/faq/blacklist/" style="border: 1px solid gold;">Проверка по черным спискам</a> и <a href="/faq/externalscan/" style="border: 1px solid gold;">проверка страниц сайта</a></span><br>
-					Постоянная ежедневная проверка вашего сайта на присутствие в черных списках более 60 поставщиков данных, в том числе Google и Yandex. Дополнительная внешняя проверка кода страниц и поведения вашего сайта и способно распознавать вредоносные редиректы, ссылки на фишинговые сайты, атаки вида Drive-by-download и вредоносный код в подключаемых файлах.</p>
-			</div>
-		</div>
-
-		<div class="capability-row clearfix">
-			<div class="capability-column-left">
-				<i class="ico ico-folder"></i>
-			</div>
-			<div class="capability-column-right">
-				<i class="ico ico-checked"></i>
-			</div>
-			<div class="capability-column">
-				<p style="border: 2px solid gold;"><span class="black">Встроенный <a href="/faq/filemanager/" style="border: 1px solid gold;">менеджер файлов</a> с выделением инфицированных файлов и каталогов</span><br>
-					Полноценная навигация по файловой структуре ваших сайтов, редактирование и удаление файлов. Вредоносные файлы и инфицированные каталоги выделяются красными маркерами.</p>
-			</div>
-		</div>
-
-		<div class="capability-row clearfix">
-			<div class="capability-column-left">
-				<i class="ico ico-edit"></i>
-			</div>
-			<div class="capability-column-right">
-				<i class="ico ico-checked"></i>
-			</div>
-			<div class="capability-column">
-				<p style="border: 2px solid gold;"><span class="black">Встроенный <a href="/faq/fileeditor/" style="border: 1px solid gold;">редактор файлов</a> с разметкой синтаксиса</span><br>
-					Редактируйте файлы ваших сайтов из любой точки мира через одну панель. Полноценный редактор файлов с разметкой синтаксиса, возможностью изменения прав файла и расширенной информацией помогает вам быстро визуально воспринимать контент файлов.</p>
-			</div>
-		</div>
-
-		<div class="capability-row clearfix">
-			<div class="capability-column-left">
-				<i class="ico ico-code"></i>
-			</div>
-			<div class="capability-column-right">
-				<i class="ico ico-checked"></i>
-			</div>
-			<div class="capability-column">
-				<p style="border: 2px solid gold;"><span class="black"><a href="/faq/fileeditor/" style="border: 1px solid gold;">Подсветка вредоносного и подозрительного кода</a> в редакторе файлов</span><br>
-					Сервис способен показывать и подсвечивать найденный вредоносный код в редакторе. Это помогает вам быстрее и проще анализировать, радактировать и удалять (при необходимости) подозрительные и инфицированные файлы, которые антивирус не смог вылечить автоматически.</p>
-			</div>
-		</div>
-
-		<div class="capability-row clearfix">
-			<div class="capability-column-left">
-				<i class="ico ico-search"></i>
-			</div>
-			<div class="capability-column-right">
-				<i class="ico ico-checked"></i>
-			</div>
-			<div class="capability-column">
-				<p style="border: 2px solid gold;"><span class="black"><a href="/faq/search/" style="border: 1px solid gold;">Поиск по регулярным выражениям и текстовый поиск</a></span><br>
-					Находите контент в файлах одного или сразу всех ваших сайтов, задав регулярное выражение или используйте простой текстовый поиск. Используйте этот инструмент, если вы опытный пользователь.</p>
-			</div>
-		</div>
-
-		<div class="capability-row clearfix">
-			<div class="capability-column-left">
-				<i class="ico ico-restore"></i>
-			</div>
-			<div class="capability-column-right">
-				<i class="ico ico-checked"></i>
-			</div>
-			<div class="capability-column">
-				<p style="border: 2px solid gold;"><span class="black">Автоматическое <a href="/faq/backups/" style="border: 1px solid gold;">бэкапирование файлов и восстановление</a></span><br>
-					Вы можете восстановить вылеченные антивирусом или удаленные им файлы, используя переключатель «Текущая версия файла» / «Бэкап» во встроенном <a href="/faq/fileeditor/" style="border: 1px solid gold;">редакторе файлов</a>.</p>
-			</div>
-		</div>
-
-
-		<div class="capability-row clearfix">
-			<div class="capability-column-left">
-				<i class="ico ico-expertinc"></i>
-			</div>
-			<div class="capability-column-right">
-				<i class="ico ico-unchecked"></i>
-			</div>
-			<div class="capability-column">
-				<p style="border: 2px solid gold;"><span class="black">Экспертный <a href="/faq/analysis/" style="border: 1px solid gold;">анализ неизлечимых файлов</a> и их очистка</span><br>
-					Для анализа неизлечимых файлов просто отправьте их в техническую поддержку, используя встроенную систему тикетов. Каждый файл будет проанализирован нашими экспертами по цене 50 рублей за 1 файл и, в случае необходимости, очищен от вредоносного кода.</p>
-			</div>
-		</div>
-
-		<div class="capability-row clearfix">
-			<div class="capability-column-left">
-				<i class="ico ico-support"></i>
-			</div>
-			<div class="capability-column-right">
-				<i class="ico ico-checked"></i>
-			</div>
-			<div class="capability-column">
-				<p style="border: 2px solid gold;"><span class="black">Техническая поддержка</span><br>
-					8/5 техническая поддержка со встроенной системой тикетов помогает вам решать сложные задачи и получать консультации каждый день, круглый год. Написать запрос возможно из вашего кабинета.</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="site-row center gray hide-on-450">
-    <div class="wrapper clearfix" style="padding-top:40px;">
-
-<div id="reasons-block" class="clearfix">
-			<div class="reason">
-				<div class="reason-img">
-					<img src="/landing/landing-img/vds252.png" alt="Обновление Virusdie.Server 2.5.2 исправление ошибки" style="border: 1px solid red; border-radius: 10px;">
-				</div>
-				<div class="reason-txt">
-					<p class="f16 black" style="border: 2px solid gold;">30 октября 2018</p>
-					<p style="border: 2px solid gold;">Обновление <a href="https://cdn.virusdie.com/files/vdserver/docs/history_ru.html" rel="nofollow" target="_blank" style="color: rgb(0, 173, 130); border: 1px solid gold;">Virusdie.Server v.2.5.2</a><br><br>Обновлена версия серверного антивируса Вирусдай.Сервер.<br><br>Исправлены ошибки, приводящие в некоторых случаях к снижению процента детектирования и повышению доли False Positive.</p>
-				</div>
-			</div>
-
-			<div class="reason">
-				<div class="reason-img">
-					<img src="/landing/landing-img/vds25080.png" alt="Обновление Virusdie.Server и процесса сканирования" style="border: 1px solid red; border-radius: 10px;">
-				</div>
-				<div class="reason-txt">
-					<p class="f16 black" style="border: 2px solid gold;">26 сентября 2018</p>
-					<p style="border: 2px solid gold;">Обновление <a href="https://cdn.virusdie.com/files/vdserver/docs/history_ru.html" rel="nofollow" target="_blank" style="color: rgb(0, 173, 130); border: 1px solid gold;">Virusdie.Server v.2.5.0</a><br><br>Благодаря новому подходу к процессу сканирования скорость проверки увеличена более, чем вдвое. Также, снижена вычислительная сложность.<br><br>Новый подход ко сканированию также применен на сервисе Virusdie.ru.</p>
-				</div>
-			</div>
-</div>
-<p class="f16 center" style="border: 2px solid gold;"><a href="/blog/" style="color: rgb(0, 173, 130); border: 1px solid gold;">Ещё новости</a></p>
-	</div>
-</div>
-<div class="site-row darkgray">
-	<div class="wrapper clearfix">
-
-		<div class="logos-block">
-
-			<div class="item">
-				<img src="/landing/landing-img/bill-logo-visa.png" alt="Visa" title="Visa" style="border: 1px solid red; border-radius: 10px;">
-			</div>
-			<div class="item">
-				<img src="/landing/landing-img/bill-logo-mastercard.png" alt="MasterCard" title="MasterCard" style="border: 1px solid red; border-radius: 10px;">
-			</div>
-			<div class="item">
-				<img src="/landing/landing-img/bill-logo-yandex.png" alt="Яндекс.Деньги" title="Яндекс.Деньги" style="border: 1px solid red; border-radius: 10px;">
-			</div>
-			<div class="item">
-				<img src="/landing/landing-img/bill-logo-webmoney.png" alt="WebMoney" title="WebMoney" style="border: 1px solid red; border-radius: 10px;">
-			</div>
-			<div class="item">
-				<img src="/landing/landing-img/bill-logo-qiwi.png" alt="QIWI Кошелёк" title="QIWI Кошелёк" style="border: 1px solid red; border-radius: 10px;">
-			</div>
-			<div class="item">
-				<img src="/landing/landing-img/bill-logo-uriki.png" alt="Оплата для юридических лиц" title="Оплата для юридических лиц" style="border: 1px solid red; border-radius: 10px;">
-			</div>
-
-		</div>
-
-	</div>
-</div>
-
-<div class="site-row darkblue">
-	<div class="wrapper clearfix">
-
-		<div id="footer-menu-block">
-			<div class="footer-menu-column">
-				<h4>Инструменты</h4>
-				<ul>
-					<li><a href="/faq/antivirus/" style="border: 1px solid gold;">Антивирус&nbsp;для&nbsp;сайта</a></li>
-					<li><a href="/faq/firewall/" style="border: 1px solid gold;">Фаервол&nbsp;для&nbsp;сайта</a></li>
-					<li><a href="/faq/filemanager/" style="border: 1px solid gold;">Менеджер&nbsp;файлов</a></li>
-					<li><a href="/faq/fileeditor/" style="border: 1px solid gold;">Редактор&nbsp;файлов</a></li>
-					<li><a href="/faq/search/" style="border: 1px solid gold;">Поиск&nbsp;по&nbsp;файлам&nbsp;сайта</a></li>
-					<li><a href="/faq/blacklist/" style="border: 1px solid gold;">Проверка&nbsp;черных&nbsp;списков</a></li>
-					<li><a href="/faq/externalscan/" style="border: 1px solid gold;">Внешняя&nbsp;проверка&nbsp;сайта</a></li>
-					<li><a href="/faq/backups/" style="border: 1px solid gold;">Бэкапирование&nbsp;файлов</a></li>
-				</ul>
-				<h4>Партнерам</h4>
-				<ul>
-					<li><a href="/partners/affiliateprogram/" style="border: 1px solid gold;">Реферальная&nbsp;программа</a></li>
-				</ul>
-
-			</div>
-			<div class="footer-menu-column">
-				<h4>Услуги</h4>
-				<ul>
-					<li><a href="/faq/antivirus/" style="border: 1px solid gold;">Лечение&nbsp;сайта&nbsp;от&nbsp;вирусов</a></li>
-					<li><a href="/faq/firewall/" style="border: 1px solid gold;">Защита&nbsp;сайта&nbsp;от&nbsp;заражений</a></li>
-				</ul>
-
-				<h4>Хостинг&nbsp;провайдерам</h4>
-				<ul>
-					<li><a href="/partners/forhosters/" style="border: 1px solid gold;">Для&nbsp;Shared&nbsp;хостинга</a></li>
-					<li><a href="/partners/isplitemodule/" style="border: 1px solid gold;">Модуль&nbsp;для&nbsp;ISPmanager</a></li>
-				</ul>
-				<h4>Разработчикам</h4>
-				<ul>
-					<li><a href="/partners/virusdieserver/" style="border: 1px solid gold;">Вирусдай.Сервер&nbsp;(SDK)</a></li>
-					<li><a href="/partners/filecleanupapi/" style="border: 1px solid gold;">API&nbsp;лечения&nbsp;файлов</a></li>
-					<li><a href="/partners/externalsitecheck/" style="border: 1px solid gold;">API&nbsp;внешней&nbsp;проверки</a></li>
-				</ul>
-			</div>
-			<div class="footer-menu-column">
-				<h4>Помощь</h4>
-				<ul>
-					<li><a href="/faq/" style="border: 1px solid gold;">Частые вопросы</a></li>
-				</ul>
-				<ul>
-					<li><a href="/blog/analiz-saita-na-uyazvimosti-online/" style="border: 1px solid gold;">Анализ&nbsp;сайта&nbsp;на&nbsp;уязвимости</a></li>
-					<li><a href="/blog/checkthewebsite/" style="border: 1px solid gold;">Как&nbsp;проверить&nbsp;сайт&nbsp;на вирусы&nbsp;онлайн</a></li>
-					<li><a href="/blog/iframemalware/" style="border: 1px solid gold;">Как&nbsp;найти&nbsp;и&nbsp;распознать вредоносный&nbsp;код</a></li>
-				</ul>
-				<p style="border: 2px solid gold;">Напишите нам: <a href="mailto:support@virusdie.ru" style="border: 1px solid gold;">support@virusdie.ru</a></p>
-				<ul>
-					<li>+7 (495) 139 68 58</li>
-					<li>&nbsp;&nbsp;8 (800) 770 07 63</li>
-				</ul>
-			</div>
-			<div class="footer-menu-column">
-				<h4>О&nbsp;сервисе</h4>
-				<ul>
-					<li><a href="/about/" style="border: 1px solid gold;">Как&nbsp;это&nbsp;работает</a></li>
-					<li><a href="/about/story/" style="border: 1px solid gold;">История&nbsp;сервиса</a></li>
-					<li><a href="/rules/termsofuse/" style="border: 1px solid gold;">Польз. соглашение</a></li>
-					<li><a href="/rules/privacypolicy/" style="border: 1px solid gold;">Политика&nbsp;конфид.</a></li>
-					<li><a href="/faq/security/" style="border: 1px solid gold;">Безопасность</a></li>
-					<li><a href="/about/card/" style="border: 1px solid gold;">Реквизиты</a></li>
-					<li><a href="/contacts/" style="border: 1px solid gold;">Контакты</a></li>
-					<li><a href="/blog/" style="border: 1px solid gold;">Блог</a></li>
-				</ul>
-			</div>
-		</div>
-
-		<div id="software-reg-block">
-			<div class="tm">
-				Товарный знак № <a href="http://www1.fips.ru/fips_servl/fips_servlet?DB=RUTM&amp;DocNumber=564597" target="_blank" style="border: 1px solid gold;">564597</a>, регистрация ПО № <a href="http://www1.fips.ru/fips_servl/fips_servlet?DB=EVM&amp;rn=592&amp;DocNumber=2015660597&amp;TypeFile=html" target="_blank" style="border: 1px solid gold;">2015660597</a>
-			</div>
-			<div class="minkom">
-				Аккредитация Минкомсвязь России № <a href="http://minsvyaz.ru/opendata/7710474375-registergosaccred/" target="_blank" style="border: 1px solid gold;">5969</a>
-			</div>
-		</div>
-
-	</div>
-</div>
-
-<div class="site-row dark">
-	<div class="wrapper clearfix">
-
-		<div id="footer-block">
-			<div class="footer-column">
-				© ООО «Вирусдай»
-			</div>
-			<div class="footer-column">
-				<a href="https://vk.com/virusdie" target="_blank" class="vk" style="border: 1px solid gold;"></a>
-			</div>
-			<div class="footer-column">
-				<a href="https://www.facebook.com/Virusdie-1431512477069640/" target="_blank" class="share" style="border: 1px solid gold;"></a>
-			</div>
-			<div class="footer-column">
-				<a href="https://www.instagram.com/virusdiecloud/" target="_blank" class="instagram" style="border: 1px solid gold;"></a>
-			</div>
-			<div class="footer-column">
-				<a href="https://twitter.com/VirusdieRu" target="_blank" class="tweet" style="border: 1px solid gold;"></a>
-			</div>
-			<div class="footer-column">
-				<a href="#top" id="gototop" style="border: 1px solid gold;">Наверх</a>
-			</div>
-		</div>
-
-	</div>
-</div>
-
-
-<div class="sidebar" id="sidebar">
-	<div class="sidebar-background"></div>
-	<div class="sidebar-background-overlay"></div>
-
-	
-		<div class="sidebar-inner">
-
-			<div class="sidebar-block">
-				<a href="#" class="sidebar-close dashed" style="border: 1px solid gold;">Закрыть</a>
-			</div>
-
-			<div class="sidebar-block">
-
-				<div class="price">
-					<div class="price-value"><span id="price-for-interval-s">1499</span><span class="currency">Руб.</span></div>
-					<div class="price-descr">
-						<span class="freq">за сайт в год</span>
-						<span class="per">один день бесплатно для новых сайтов</span>
-					</div>
-				</div>
-
-				<ul class="tab-switcher clearfix">
-					<li><a href="#tab-1" class="active" style="border: 1px solid gold;">Регистрация</a></li>
-					<li><a href="#tab-2" class="" style="border: 1px solid gold;">Вход</a></li>
-				</ul>
-				<div class="tabs clearfix">
-
-					<div class="tab active" id="tab-1">
-						<form action="#" method="post">
-							<div class="form-row input-fields clearfix">
-								<input name="login" autocomplete="on" type="text" class="input-txt login" value="" placeholder="Email">
-								<input name="password1" autocomplete="on" type="password" class="input-txt pass" value="" placeholder="Пароль">
-								<input name="password2" autocomplete="on" type="password" class="input-txt repass" value="" placeholder="Пароль еще раз">
-							</div>
-							<div class="form-row chk-pad-fix clearfix">
-								<input type="checkbox" class="input-chk" value="" id="terms" name="terms"><label for="terms"><span></span></label>
-								Я принимаю <a href="/rules/termsofuse" style="border: 1px solid gold;">Пользовательское соглашение</a> и <a href="/rules/privacypolicy" style="border: 1px solid gold;">Политику конфиденциальности</a>
-							</div>
-							<div class="form-row clearfix">
-								<a id="sign-up" href="#" class="btn submit" style="border: 1px solid gold;">Начать бесплатно</a>
-								<div class="submit-descr hide-on-490">
-									<p style="border: 2px solid gold;"></p>
-									<p style="border: 2px solid gold;"></p>
-								</div>
-							</div>
-						</form>
-					</div>
-
-					<div class="tab" id="tab-2">
-						<form action="#" method="post">
-							<div class="form-row input-fields clearfix">
-								<input name="login" autocomplete="on" type="text" class="input-txt login" value="" placeholder="Email">
-								<input name="password" autocomplete="on" type="password" class="input-txt pass" value="" placeholder="Пароль">
-							</div>
-							<div class="form-row clearfix">
-								<a id="sign-in" href="#" class="btn submit" style="border: 1px solid gold;">Войти</a>
-								<a href="#" id="forgot" class="dashed" style="border: 1px solid gold;">Забыли пароль?</a>
-							</div>
-						</form>
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="sidebar-block">
-				<ul class="sidebar-bottom-menu">
-					<li><a href="/about/" style="border: 1px solid gold;"><strong>Как это работает</strong></a></li>
-					<li><a href="/blog/" style="border: 1px solid gold;">Блог</a></li>
-					<li><a href="/contacts/" style="border: 1px solid gold;">Контакты</a></li>
-				</ul>
-			</div>
-
-		</div>
-
-	</div>
-
-
-<div class="sidebar" id="sidebar-restore">
-	<div class="sidebar-background"></div>
-	<div class="sidebar-background-overlay"></div>
-
-	<div class="sidebar-inner">
-
-		<div class="sidebar-block">
-			<a href="#" class="sidebar-close dashed" style="border: 1px solid gold;">Назад</a>
-		</div>
-
-		<div class="sidebar-block">
-
-			<div class="price">
-				<span class="price-value">&nbsp;</span>
-				<div class="price-descr">
-					<span class="freq">&nbsp;</span>
-					<span class="per">&nbsp;</span>
-				</div>
-			</div>
-
-			<div class="tabs clearfix">
-				<div class="tab active">
-					<form action="#" method="post">
-						<div class="form-row input-fields clearfix">
-							<input name="login" autocomplete="on" type="text" class="input-txt email" value="" placeholder="Email">
-						</div>
-						<div class="form-row clearfix">
-							<a id="recovery-go" href="#" class="btn submit" style="border: 1px solid gold;">Восстановить пароль</a>
-						</div>
-					</form>
-				</div>
-			</div>
-
-		</div>
-
-		<div class="sidebar-block">
-			<ul class="sidebar-bottom-menu">
-				<li><a href="/about/" style="border: 1px solid gold;"><strong>Как это работает</strong></a></li>
-				<li><a href="/blog/" style="border: 1px solid gold;">Блог</a></li>
-				<li><a href="/contacts/" style="border: 1px solid gold;">Контакты</a></li>
-			</ul>
-		</div>
-
-	</div>
-
-</div>
-
-
-<div class="sidebar" id="sidebar-check-pause">
-	<div class="sidebar-background"></div>
-	<div class="sidebar-background-overlay"></div>
-
-	<div class="sidebar-inner">
-
-		<div class="sidebar-block">
-			<a href="#" class="sidebar-close dashed" style="border: 1px solid gold;">Войти</a>
-		</div>
-
-		<div class="sidebar-block">
-
-			<div class="price">
-				<span class="price-value">&nbsp;</span>
-				<div class="price-descr">
-					<span class="freq">&nbsp;</span>
-					<span class="per">&nbsp;</span>
-				</div>
-			</div>
-
-			<div class="tabs clearfix">
-				<div class="tab active">
-					<div class="form-row clearfix">
-
-						<strong><span class="sidebar-title">Ошибка</span></strong><br>
-						<span class="sidebar-content">Нет пользователя с таким emali</span>
-
-						<div id="progress-block">
-							<div id="progress">
-								<span></span>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-		<div class="sidebar-block">
-			<ul class="sidebar-bottom-menu">
-				<li><a href="/about/" style="border: 1px solid gold;"><strong>Как это работает</strong></a></li>
-				<li><a href="/blog/" style="border: 1px solid gold;">Блог</a></li>
-				<li><a href="/contacts/" style="border: 1px solid gold;">Контакты</a></li>
-			</ul>
-		</div>
-
-	</div>
-
-</div>
-
-
-<!-- js -->
-<script src="/landing/landing-js/jquery-2.2.0.min.js" defer=""></script>
-<script src="/landing/landing-js/jquery-ui.min.js" defer=""></script>
-<script src="/landing/landing-js/jquery.jcarousel.min.js" defer=""></script>
-<script src="/landing/landing-js/scripts.js" defer=""></script>
-<script src="/landing/landing-js/reg.js" defer=""></script>
-
-<script src="/js-main/cookie.js" defer=""></script>
-<script src="/js-main/lang.js" defer=""></script>
-<script src="/js-main/html.js" defer=""></script>
-<script src="/api/client/?1543611600" defer=""></script>
-<script src="/js-main/active.js?1543611600" defer=""></script>
-<script src="/js-main/virusdie.js?1543611600" defer=""></script>
-
-<script src="/landing/landing-js/init.carousels.js" defer=""></script>
-
-<!-- /js -->
-	<script src="/js-main/counter.js" async=""></script>
-	<noscript><div><img src="https://mc.yandex.ru/watch/41420329" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
-<script>
-	function b(){
-		var a = document.createElement("link");
-		a.rel = "stylesheet";
-		a.href = "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&amp;subset=cyrillic";
-		document.getElementsByTagName("head")[0].appendChild(a);
-	}
-	var c = requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;
-	c ? c(b) : window.addEventListener("load",b);
+      
+
+<article id="page-" class="article">
+  
+<main class="site-main home" role="main">
+  <header class="entry-header fading">
+    <h1 class="entry-title">SOCKET.IO 2.0 IS HERE</h1>
+    <h2 class="entry-subtitle"><span class="row">FEATURING THE FASTEST AND MOST RELIABLE</span> <span class="row">REAL-TIME ENGINE</span></h2>
+  </header><!-- .entry-header -->
+  <div id="screen-fill">
+
+    <div class="window editor fading">
+      <div class="header">
+        <span class="bullet bullet-red"></span><span class="bullet bullet-yellow"></span><span class="bullet bullet-green"></span><span class="title">~/Projects/tweets/index.js</span>
+      </div>
+      <div class="body">
+        <ol class="code">
+          <li><span class="code"><span class="v">var</span> io = <span class="io">require('socket.io')(80)</span>;</span></li>
+          <li><span class="code"><span class="v">var</span> cfg = require('./config.json');</span></li>
+          <li><span class="code"><span class="v">var</span> tw = require('node-tweet-stream')(cfg);</span></li>
+          <li><span class="code">tw.track('socket.io');</span></li>
+          <li><span class="code">tw.track('javascript');</span></li>
+          <li><span class="code">tw.on('tweet', <span class="fn">function</span>(tweet){</span></li>
+          <li><span class="code">&nbsp;&nbsp;<span class="io">io.emit('tweet', tweet)</span>;</span></li>
+          <li><span class="code">});</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="window browser fading">
+      <div class="header">
+        <span class="bullet bullet-red"></span><span class="bullet bullet-yellow"></span><span class="bullet bullet-green"></span><span class="title"><span class="scheme">https://</span>your-node-app.com</span>
+      </div>
+      <div class="body">
+        <p style="border: 2px solid gold;">Tweets about <b>socket.io</b> and <b>javascript</b></p>
+        <ul id="tweets" class="tweets"></ul>
+      </div>
+    </div>
+
+    <span class="arrow fading"><a href="#examples" style="border: 1px solid gold;">B</a></span>
+  </div>
+
+  <div class="entry-content">
+    <p class="centered" style="border: 2px solid gold;">
+      <i class="larger">Socket.IO enables real-time, bidirectional and event-based communication.</i><br>
+      <i>It works on every platform, browser or device, focusing equally on reliability and speed.</i>
+    </p>
+
+    <div id="entries">
+      <div id="examples">
+        <div class="example-column left">
+          <div class="example-entry icon analytics">
+            <h2>Real-time analytics</h2>
+            <p style="border: 2px solid gold;">Push data to clients that gets represented as real-time counters, charts or logs.</p>
+          </div>
+          <div class="repel"></div>
+          <div class="example-entry icon binary">
+            <h2>Binary streaming</h2>
+            <p style="border: 2px solid gold;">Starting in 1.0, it's possible to send any blob back and forth: image, audio, video.</p>
+          </div>
+        </div>
+
+        <div class="example-column right">
+          <div class="example-entry icon chat">
+            <h2>Instant messaging and chat</h2>
+            <p style="border: 2px solid gold;">Socket.IO's "Hello world" is a chat app in just a few lines of code.</p>
+          </div>
+          <div class="repel"></div>
+          <div class="example-entry icon collab">
+            <h2>Document collaboration</h2>
+            <p style="border: 2px solid gold;">Allow users to concurrently edit a document and see each other's changes.</p>
+          </div>
+        </div>
+      </div><!-- #examples -->
+
+      <div id="information">
+        <div class="information-column left">
+          <div class="information-entry">
+            <h3 style="border-top: 1px solid black; border-left: 1px solid green;">USED BY EVERYONE</h3>
+            <p style="border: 2px solid gold;">From Microsoft Office, Yammer, Zendesk, Trello... to hackathon winners and little startups.</p>
+            <p style="border: 2px solid gold;">One of the most powerful JavaScript frameworks on GitHub, and most depended-upon npm module.</p>
+          </div>
+        </div>
+
+        <div class="information-column right">
+          <div class="information-entry">
+            <h3 style="border-top: 1px solid black; border-left: 1px solid green;">IMMENSELY POWERFUL, YET EASY TO USE</h3>
+            <p style="border: 2px solid gold;">Our getting started guide will show you how to create lots of amazing applications in fewer than 200 lines of code.</p>
+            <p style="border: 2px solid gold;">We're not making that up. Get started <a href="/get-started/chat" style="border: 1px solid gold;">now</a>.</p>
+          </div>
+          <div class="repel"></div>
+          <div class="information-entry">
+            <h3 style="border-top: 1px solid black; border-left: 1px solid green;">JOIN THE COMMUNITY</h3>
+            <ul style="margin-left: 0px; list-style-type: none; padding-left: 0">
+              <li style="margin-bottom: 5px;">Real-time help? Find us on <a href="https://slackin-socketio.now.sh/" target="_blank" rel="noopener" style="border: 1px solid gold;">Slack</a></li>
+              <li style="margin-bottom: 5px;">Contribute code or report issues on <a href="https://github.com/socketio/socket.io" target="_blank" rel="noopener" style="border: 1px solid gold;">GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+  
+</article>
+
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<!-- Algolia DocSearch -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+  apiKey: '58123f8fe0926bd32287730dbc483f6d',
+  indexName: 'socket_io',
+  inputSelector: '#docsearch-input',
+  debug: true  // Set debug to true if you want to inspect the dropdown
+});
 </script>
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+
+  <script src="/js/home.js"></script>
+
+
+  </div>
 
 </body></html>
