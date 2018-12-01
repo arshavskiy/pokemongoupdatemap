@@ -31,13 +31,23 @@ app.get('/pdf', function(req, res){
     var file = __dirname + '/pdf/demo.pdf';
     res.download(file);
   });
-  app.get('/png', function(req, res){
+
+app.get('/png', function(req, res){
     var file = __dirname + '/png/demo.png';
     res.download(file);
   });
 
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
 
-  app.get('/download/:file(*)', function (req, res) {
+app.get('/edit', async function (req, res, next) {
+    await html 
+    res.send(html);
+    // res.sendFile(path.join(__dirname + '/view/edit.html'));
+});
+
+app.get('/download/:file(*)', function (req, res) {
     var file = req.params.file;
     var fileLocation = path.join('./DB', file);
     res.download(fileLocation), file,
@@ -46,8 +56,6 @@ app.get('/pdf', function(req, res){
                 res.status(400).end('error downloading');
             } else {
                 res.status(200).end('downloaded');
-                
-               
             }
         }
 });
@@ -119,7 +127,7 @@ app.post('/post', function (req, res) {
                 });
            
                 
-            var html = await page.content();
+            html = await page.content();
                 
             saveToLogFile(imgUrlList);
             // saveToLogFile(html);
@@ -178,15 +186,6 @@ let download = function(uri, filename, callback){
 };
 
 
-
-
-
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
-});
-app.get('/edit', function (req, res) {
-    res.sendFile(path.join(__dirname + '/view/edit.html'));
-});
 
 
 let port = process.env.PORT || 3000;
