@@ -8,8 +8,6 @@ const bodyParser = require('body-parser');
 const http = require('http');
 const puppeteer = require('puppeteer');
 
-
-
 app.use(cors({
     allowedHeaders: 'Content-Type, Cache-Control'
 }));
@@ -49,10 +47,22 @@ app.get('/', function(req, res, next){
     return res.render('index', { title: 'Automation' });
 });
 
-app.get('/edit', async function (req, res, next) {
+app.get('/edit', function (req, res, next) {
     // res.send(html);
-    await html
-    res.send(html);
+    // let answer = await html
+    // answer.then(()=>{
+    //     res.send(html);
+    // })
+
+    let promise1 = new Promise(function(resolve, reject) {
+        resolve(html);
+      });
+      
+      promise1.then(function(value) {
+        // expected output: "Success!"
+        res.send(value);
+      });
+   
 });
 
 app.get('/download/:file(*)', function (req, res) {
@@ -83,7 +93,6 @@ function saveToLogFile(logToSave) {
       });
   }
 
-
 app.post('/post', function (req, res) {
     console.log(req.body.data);
     console.log('req received');
@@ -91,7 +100,7 @@ app.post('/post', function (req, res) {
     const go = async () => {
         try {
             const browser = await puppeteer.launch({
-                headless: true 
+                headless: true
             });
             const page = await browser.newPage();
             await page.goto('https://' + req.body.data, {
@@ -164,19 +173,23 @@ app.post('/post', function (req, res) {
             //       right: '1in'
             //     }
             //   });
+            
+            try {
+                let makeMYPDF = await page.pdf({
+                    path: './pdf/'+ screenShotName + '_demo.pdf', 
+                    format: 'A4',
+                    margin: {
+                      top: '1in',
+                      bottom: '1in',
+                      left: '1in',
+                      right: '1in'
+                    }
+                  });
+            } catch (error) {
+                console.log(error);
+            }
 
-              await page.pdf({
-                path: './pdf/'+ screenShotName + '_demo.pdf', 
-                format: 'A4',
-                margin: {
-                  top: '1in',
-                  bottom: '1in',
-                  left: '1in',
-                  right: '1in'
-                }
-              });
-
-            await browser.close();
+            let closeBroser = await browser.close();
 
         } catch(e) {
             console.log(e);

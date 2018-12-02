@@ -90,4 +90,5 @@ init = () => {
 var request = new XMLHttpRequest();
 var actionBtnWasClicked = false;
 
+
 window.addEventListener('load', init, false);
