@@ -16,7 +16,7 @@ function reqListener () {
 function fire() {
     let url_to_scrap = document.querySelector('input[name=scrap]');
 
-    let urlFromUser = url_to_scrap.value;
+    urlFromUser = url_to_scrap.value;
 
     // open url in iframe
 
@@ -60,6 +60,9 @@ function gotoRenderedFile(params) {
 function getPng() {
     if (actionBtnWasClicked) {
         document.getElementById('my_iframe').src = '/png';
+        document.querySelector('#img img').src = '/png/' + urlFromUser + '_demo.png'  ;
+
+       
         request.open("GET", "/png");
         request.addEventListener("load", reqListener);
         request.send();
