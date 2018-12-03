@@ -40,9 +40,10 @@ app.get('/png', function(req, res){
   });
 
 
-// app.get('/', function (req, res) {
-//     res.sendFile(path.join(__dirname + '/index.html'));
-// });
+app.get('/demo', function (req, res) {
+    res.sendFile(path.join(__dirname + '/html/demo.html'));
+});
+
 app.get('/', function(req, res, next){
     return res.render('index', { title: 'Automation' });
 });
@@ -56,10 +57,10 @@ app.get('/edit', function (req, res, next) {
 
     let promise1 = new Promise(function(resolve, reject) {
         resolve(html);
+        console.log('resolve(html)');
       });
       
       promise1.then(function(value) {
-        // expected output: "Success!"
         res.send(value);
       });
    
@@ -106,9 +107,10 @@ app.post('/post', function (req, res) {
             await page.goto('https://' + req.body.data, {
                 waitUntil: 'networkidle2'
             });    
-            // console.log(page.url());
+            await page.setViewport({ width: 800, height: 600 });
+            console.log(page.url());
+           
             await page.waitForSelector('img');
-          
 
                 let imgUrlList = await page.evaluate(() => {
                     let repos = {};
@@ -145,6 +147,8 @@ app.post('/post', function (req, res) {
            
             htmlUrl = '//' + req.body.data;
             html = await page.content();
+            console.log('got(html)');
+            res.send(html);
 
             fs.writeFile("./html/demo.html", html, function(err) {
                 if(err) {

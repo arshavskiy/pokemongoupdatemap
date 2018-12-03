@@ -9,17 +9,22 @@ function getMyData() {
 
 function reqListener () {
     console.log(this.statusText);
-   
 }
+
+
 
 function fire() {
     let url_to_scrap = document.querySelector('input[name=scrap]');
+
     let urlFromUser = url_to_scrap.value;
 
-  
-    iframe.style.display = 'block';
+    // open url in iframe
 
-    iframe.data = '//' + urlFromUser;
+    iframe.style.display = 'block';
+    iframe2.style.display = 'block';
+    // iframe.data = '//' + urlFromUser;
+    iframe2.src = '//' + urlFromUser;
+
     var someUrl = "/post"; //URL here
     var dataObj = {'data' : urlFromUser };
 
@@ -31,6 +36,13 @@ function fire() {
     request.open('POST', someUrl);
     request.setRequestHeader('Content-Type', 'application/json');
     request.send( JSON.stringify(dataObj) );
+    request.onreadystatechange = function() {
+        if (request.readyState == XMLHttpRequest.DONE) {
+            // alert(request.responseText);
+            document.getElementById('my_object_rendered').style.display = 'block';
+            document.getElementById('my_object_rendered').data = '/edit';
+        }
+    }
  
 
     actionBtnWasClicked = true;
@@ -38,17 +50,9 @@ function fire() {
 
 function gotoRenderedFile(params) {
     if (actionBtnWasClicked) {
-        // document.getElementById('my_iframe_rendered').src = '/edit';
         document.getElementById('my_object_rendered').style.display = 'block';
         document.getElementById('my_object_rendered').data = '/edit';
         request.open("GET", "/edit");
-        // request.addEventListener("load", ()=>{
-        //     if( this.responseText){
-        //         document.getElementById('my_object_rendered').style.display = 'block';
-        //         document.getElementById('my_object_rendered').data ='html/demo.html';
-                
-        //     }
-        // });
         request.send();
     }
 }
@@ -74,6 +78,7 @@ function getPdf() {
 
 init = () => {
     iframe = document.getElementById('my_object_rendered');
+    iframe2 = document.getElementById('my_object_rendered2');
     let actionBtn = document.querySelector('#enter');
     let downloadPng = document.querySelector('#download_png');
     let downloadPdf = document.querySelector('#download_pdf');
