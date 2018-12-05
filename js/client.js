@@ -20,7 +20,7 @@ function fire() {
 
     // open url in iframe
 
-    iframe.style.display = 'block';
+    // iframe.style.display = 'block';
     iframe2.style.display = 'block';
     // iframe.data = '//' + urlFromUser;
     iframe2.src = '//' + urlFromUser;
@@ -39,8 +39,11 @@ function fire() {
     request.onreadystatechange = function() {
         if (request.readyState == XMLHttpRequest.DONE) {
             // alert(request.responseText);
-            document.getElementById('my_object_rendered').style.display = 'block';
-            document.getElementById('my_object_rendered').data = '/edit';
+            // document.getElementById('my_object_rendered').style.display = 'block';
+            // document.getElementById('my_object_rendered').data = '/edit';
+            // document.getElementById('my_iframe').src = '';
+            document.querySelector('section#img').style.display = 'block';
+            document.querySelector('#img img').src = '/png/' + urlFromUser + '_demo.png'  ;
         }
     }
  
@@ -50,8 +53,9 @@ function fire() {
 
 function gotoRenderedFile(params) {
     if (actionBtnWasClicked) {
-        document.getElementById('my_object_rendered').style.display = 'block';
-        document.getElementById('my_object_rendered').data = '/edit';
+        let dom = document.getElementById('my_object_rendered');
+        dom.style.display = 'block';
+        dom.data = '/edit';
         request.open("GET", "/edit");
         request.send();
     }
@@ -59,9 +63,10 @@ function gotoRenderedFile(params) {
 
 function getPng() {
     if (actionBtnWasClicked) {
+        
         document.getElementById('my_iframe').src = '/png';
+        document.querySelector('section#img').style.display = 'block';
         document.querySelector('#img img').src = '/png/' + urlFromUser + '_demo.png'  ;
-
        
         request.open("GET", "/png");
         request.addEventListener("load", reqListener);
@@ -92,7 +97,7 @@ init = () => {
     actionBtn.addEventListener('click', fire);
     downloadPng.addEventListener('click', getPng);
     downloadPdf.addEventListener('click', getPdf);
-    actionGoToPainted.addEventListener('click', gotoRenderedFile);
+    actionGoToPainted.addEventListener('click', getPng);
 };
 
 var request = new XMLHttpRequest();

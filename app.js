@@ -104,9 +104,15 @@ app.post('/post', function (req, res) {
                 headless: true
             });
             const page = await browser.newPage();
-            await page.goto('https://' + req.body.data, {
-                waitUntil: 'networkidle2'
-            });    
+            
+            try {
+                await page.goto('https://' + req.body.data, {
+                    waitUntil: 'networkidle2'
+                });    
+            } catch (error) {
+                console.log(error);
+            }
+           
             await page.setViewport({ width: 800, height: 600 });
             console.log(page.url());
            
