@@ -39,6 +39,17 @@ app.get('/png', function(req, res){
     res.download(file);
   });
 
+app.get('/csv', function(req, res){
+    let promise2 = new Promise(function(resolve, reject) {
+        resolve(imgUrlList);
+        console.log('resolve(imgUrlList)');
+      });
+      
+      promise2.then(function(value) {
+        res.send(value);
+      });
+});
+
 
 app.get('/demo', function (req, res) {
     res.sendFile(path.join(__dirname + '/html/demo.html'));
@@ -82,6 +93,16 @@ app.get('/download/:file(*)', function (req, res) {
 
 function saveToLogFile(logToSave) {
     startDate = Date.now();
+    fs.appendFileSync('DB/log.csv', logToSave + 'at: '+ startDate +'\r\n', function (err) {
+        if (err) {
+           throw err;
+        } else {
+            console.log('log ' + ' saved');
+            download( 'DB/log.csv' , 'log.csv' , function(){
+                console.log('done sending back');
+            });
+        }
+      });
     fs.appendFileSync('DB/log_' + startDate + '.csv', logToSave + 'at: '+ startDate +'\r\n', function (err) {
         if (err) {
            throw err;
@@ -118,10 +139,9 @@ app.post('/post', function (req, res) {
            
             await page.waitForSelector('img');
 
-                let imgUrlList = await page.evaluate(() => {
+                imgUrlList = await page.evaluate(() => {
                     let repos = {};
                     let data = {};
-
 
                     repos.div = document.querySelectorAll('div');
                     repos.img = document.querySelectorAll('img');

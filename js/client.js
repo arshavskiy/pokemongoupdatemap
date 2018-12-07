@@ -53,9 +53,9 @@ function fire() {
 
 function gotoRenderedFile(params) {
     if (actionBtnWasClicked) {
-        let dom = document.getElementById('my_object_rendered');
+        let dom = document.getElementById('my_iframe');
         dom.style.display = 'block';
-        dom.data = '/edit';
+        dom.src = '/edit';
         request.open("GET", "/edit");
         request.send();
     }
@@ -83,6 +83,17 @@ function getPdf() {
     }
 }
 
+function makeTable(table) {
+
+    request.open("GET", "/csv");
+    request.send();
+    request.onreadystatechange = function() {
+        if (request.readyState == XMLHttpRequest.DONE) {
+            var tableData = JSON.parse(request.responseText);
+            console.debug(tableData);
+        }
+    }
+}
 
 init = () => {
     iframe = document.getElementById('my_object_rendered');
@@ -91,6 +102,7 @@ init = () => {
     let downloadPng = document.querySelector('#download_png');
     let downloadPdf = document.querySelector('#download_pdf');
     let actionGoToPainted = document.querySelector('#go_to_html');
+    let dataTable = document.querySelector('#go_to_rendered_html');
 
     let actionColor = document.querySelector('object');
 
@@ -98,6 +110,7 @@ init = () => {
     downloadPng.addEventListener('click', getPng);
     downloadPdf.addEventListener('click', getPdf);
     actionGoToPainted.addEventListener('click', getPng);
+    dataTable.addEventListener('click', makeTable);
 };
 
 var request = new XMLHttpRequest();

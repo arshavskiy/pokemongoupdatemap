@@ -8,6 +8,7 @@ html(lang='en')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css')
     link(rel='stylesheet', href='/css/style.css')
     script(src='js/client.js')
+    //- script(src="https://d3js.org/d3.v5.min.js")
 
   body
     section#input
@@ -18,10 +19,11 @@ html(lang='en')
           button#download_png.btn save image file
           button#download_pdf.btn save pdf file
           button#go_to_html.btn open link
+          button#go_to_rendered_html.btn table
       button#enter scan
    
     section#generate(style='width: 100vw; height: 80vh')
-      iframe#my_iframe(style="display:none;")
+      iframe#my_iframe(style="display:none;" target="_blank")
       //- object#my_object_rendered2(width='100%', height='100%', type='text/html')
       iframe#my_object_rendered2(width='50%', height='100%')
         section
