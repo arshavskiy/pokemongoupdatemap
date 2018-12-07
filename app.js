@@ -122,15 +122,23 @@ app.post('/post', function (req, res) {
                     let repos = {};
                     let data = {};
 
+
+                    repos.div = document.querySelectorAll('div');
                     repos.img = document.querySelectorAll('img');
                     repos.p = document.querySelectorAll('p');
                     repos.h3 = document.querySelectorAll('h3');
                     repos.a = document.querySelectorAll('a');
     
+                    // div = Array.from(repos.div);
                     img = Array.from(repos.img);
                     p = Array.from(repos.p);
                     h3 = Array.from(repos.h3);
                     a = Array.from(repos.a);
+
+                    // div.forEach((d)=>{
+                    //     d.style.color = '#000';
+                    //     d.style.background = '#fff';
+                    // });
 
                     img.forEach((i)=>{
                         i.style.border = '1px solid red';
@@ -148,7 +156,9 @@ app.post('/post', function (req, res) {
                     });
 
                     let src = img;
+
                     return src.map((i) => { return i.src+'\n' });
+                    
                 });
            
             htmlUrl = '//' + req.body.data;
@@ -164,6 +174,7 @@ app.post('/post', function (req, res) {
             }); 
                 
             saveToLogFile(imgUrlList);
+          
             // saveToLogFile(html);
           
             let urlToFilename = req.body.data;
