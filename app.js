@@ -115,6 +115,8 @@ function saveToLogFile(logToSave) {
       });
   }
 
+
+
 app.post('/post', function (req, res) {
     console.log(req.body.data);
     console.log('req received');
@@ -139,50 +141,60 @@ app.post('/post', function (req, res) {
            
             await page.waitForSelector('img');
 
-                imgUrlList = await page.evaluate(() => {
-                    let repos = {};
-                    let data = {};
+            imgUrlList = await page.evaluate(() => {
+                let repos = {};
+                let data = {};
 
-                    repos.div = document.querySelectorAll('div');
-                    repos.img = document.querySelectorAll('img');
-                    repos.p = document.querySelectorAll('p');
-                    repos.h3 = document.querySelectorAll('h3');
-                    repos.a = document.querySelectorAll('a');
-    
-                    // div = Array.from(repos.div);
-                    img = Array.from(repos.img);
-                    p = Array.from(repos.p);
-                    h3 = Array.from(repos.h3);
-                    a = Array.from(repos.a);
+                repos.div = document.querySelectorAll('div');
+                repos.p = document.querySelectorAll('p');
+                repos.h3 = document.querySelectorAll('h3');
+                repos.a = document.querySelectorAll('a');
 
-                    // div.forEach((d)=>{
-                    //     d.style.color = '#000';
-                    //     d.style.background = '#fff';
-                    // });
+                repos.img = document.querySelectorAll('img');
+                
+                img = Array.from(repos.img);
+                p = Array.from(repos.p);
+                h3 = Array.from(repos.h3);
+                a = Array.from(repos.a);
 
-                    img.forEach((i)=>{
-                        i.style.border = '1px solid red';
-                        i.style.borderRadius = '10px';
-                    });
-                    p.forEach((i)=>{
-                        i.style.border = '2px solid gold';
-                    });
-                    h3.forEach((i)=>{
-                        i.style.borderTop = '1px solid black';
-                        i.style.borderLeft = '1px solid green';
-                    });
-                    a.forEach((i)=>{
-                        i.style.border = '1px solid gold';
-                    });
-
-                    let src = img;
-
-                    return src.map((i) => { return i.src+'\n' });
-                    
+                img.forEach((i)=>{
+                    i.style.border = '1px solid red';
+                    i.style.borderRadius = '10px';
                 });
+
+                let src = img;
+                let alt = img;
+                src = src.map(i => i.src+'\n');
+                alt = alt.map(i => i.alt+'\n');
+
+                // div = Array.from(repos.div);
+                // div.forEach((d)=>{
+                //     d.style.color = '#000';
+                //     d.style.background = '#fff';
+                // });
+            
+                p.forEach((i) => {
+                    i.style.border = '2px solid gold';
+                });
+                h3.forEach((i) => {
+                    i.style.borderTop = '1px solid black';
+                    i.style.borderLeft = '1px solid green';
+                });
+                a.forEach((i) => {
+                    i.style.border = '1px solid gold';
+                });
+
+                return {src, alt}
+                
+            });
+
+           
+
+          
            
             htmlUrl = '//' + req.body.data;
-            html = await page.content();
+
+            html = await page.content();  
             console.log('got(html)');
             res.send(html);
 
@@ -239,7 +251,6 @@ app.post('/post', function (req, res) {
 
     (async function main() {
         await go();
-       
     })();
 
 });
@@ -254,8 +265,6 @@ let download = function(uri, filename, callback){
     request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
   });
 };
-
-
 
 
 let port = process.env.PORT || 3000;

@@ -17,6 +17,7 @@ function fire() {
     let url_to_scrap = document.querySelector('input[name=scrap]');
 
     urlFromUser = url_to_scrap.value;
+   
 
     // open url in iframe
 
@@ -63,10 +64,13 @@ function gotoRenderedFile(params) {
 
 function getPng() {
     if (actionBtnWasClicked) {
-        
+
+        urlParsed = urlFromUser.replace(/./g, '_');
+        urlParsed = urlParsed.replace(/\//g, '__');
+
         document.getElementById('my_iframe').src = '/png';
         document.querySelector('section#img').style.display = 'block';
-        document.querySelector('#img img').src = '/png/' + urlFromUser + '_demo.png'  ;
+        document.querySelector('#img img').src = '/png/' + urlParsed + '_demo.png'  ;
        
         request.open("GET", "/png");
         request.addEventListener("load", reqListener);
@@ -83,7 +87,7 @@ function getPdf() {
     }
 }
 
-function makeTable(table) {
+function makeTable() {
 
     request.open("GET", "/csv");
     request.send();
@@ -91,8 +95,48 @@ function makeTable(table) {
         if (request.readyState == XMLHttpRequest.DONE) {
             var tableData = JSON.parse(request.responseText);
             console.debug(tableData);
+            tableCreate(tableData);
         }
     }
+}
+
+function tableCreate(data){
+    var body = document.body,
+        tbl  = document.createElement('table');
+        tbl.style.height = '200px';
+    tbl.style.width  = window.innerWidth * .9;
+    tbl.style.border = '1px solid black';
+    
+    src = data.src;
+    alt = data.alt;
+
+    let tl = src.length;
+
+
+    for(var i = 0; i < tl; i++){
+        var tr = tbl.insertRow();
+        for(var j = 0; j < 2; j++){
+            if(j == 0 ){
+                var td = tr.insertCell();
+                let img = document.createElement('img');
+                img.src = src[i-1];
+                img.style.maxHeight = '80px';
+                let div = document.createElement('div')
+                td.appendChild(  div.appendChild(img) );
+                td.style.border = '1px solid blue';
+            } else {
+                var td = tr.insertCell();
+                td.appendChild(document.createTextNode(alt[i-1]));
+                td.style.border = '1px solid black';
+                // if(i == 1 && j == 1){
+                //     td.setAttribute('rowSpan', '2');
+                // }
+            }
+        }
+    }
+    let table = document.querySelector('#table');
+    table.style.display = 'block';
+    table.appendChild(tbl);
 }
 
 init = () => {

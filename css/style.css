@@ -7,7 +7,6 @@ body{
 }
 
 section#input{
-    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,13 +69,27 @@ section#img{
     display: none;
 }
 
-table {
+#table{
+    height: 400px;
+    overflow-y: scroll;
+    display: none;
+    width: 500px;
+    margin-left: 15px
+    
+}
+
+#table table{
     border-collapse: collapse;
     border: 2px black solid;
     font: 12px sans-serif;
+    width: 100%;
+    overflow-x:auto;
+   
 }
 
-td {
-    border: 1px black solid;
+#table table td {
+    border: 2px black solid;
     padding: 5px;
 }
+
+#table table tr:nth-child(even) {background-color: #f2f2f2;}
