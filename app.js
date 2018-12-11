@@ -118,7 +118,10 @@ function saveToLogFile(logToSave) {
 
 
 app.post('/post', function (req, res) {
-    console.log(req.body.data);
+    let parameters = req.body.parameters;
+
+    console.log( req.body.data );
+    console.log( parameters.split(',') );
     console.log('req received');
 
     const go = async () => {
@@ -188,10 +191,6 @@ app.post('/post', function (req, res) {
                 
             });
 
-           
-
-          
-           
             htmlUrl = '//' + req.body.data;
 
             html = await page.content();  
@@ -210,10 +209,12 @@ app.post('/post', function (req, res) {
             // saveToLogFile(html);
           
             let urlToFilename = req.body.data;
-            screenShotName = urlToFilename.replace(/./g, '_');
-            screenShotName = urlToFilename.replace(/\//g, '__');
+            // screenShotName = urlToFilename.replace(/./g, '_');
+
+            screenShotName = urlToFilename.replace(/\//g, '_');
+
+            await page.screenshot({ path: './png/demo.png', fullPage: true });
             await page.screenshot({ path: './png/' + screenShotName +  startDate + '.png', fullPage: true });
-            await page.screenshot({ path: './png/'+ screenShotName + '_demo.png', fullPage: true });
 
             await page.emulateMedia('screen');
             // await page.pdf({

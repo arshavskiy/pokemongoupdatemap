@@ -15,10 +15,11 @@ function reqListener () {
 
 function fire() {
     let url_to_scrap = document.querySelector('input[name=scrap]');
+    let parameters = document.querySelector('input[name=parameters]');
 
     urlFromUser = url_to_scrap.value;
+    parametersFromUser = parameters.value;
    
-
     // open url in iframe
 
     // iframe.style.display = 'block';
@@ -27,7 +28,10 @@ function fire() {
     iframe2.src = '//' + urlFromUser;
 
     var someUrl = "/post"; //URL here
-    var dataObj = {'data' : urlFromUser };
+    var dataObj = { 
+        'data' : urlFromUser,
+        'parameters': parametersFromUser 
+    };
 
     request.addEventListener("load", reqListener);
     request.addEventListener("progress", reqListener);
@@ -44,7 +48,8 @@ function fire() {
             // document.getElementById('my_object_rendered').data = '/edit';
             // document.getElementById('my_iframe').src = '';
             document.querySelector('section#img').style.display = 'block';
-            document.querySelector('#img img').src = '/png/' + urlFromUser + '_demo.png'  ;
+            // document.querySelector('#img img').src = '/png/' + urlFromUser + '_demo.png'  ;
+            document.querySelector('#img img').src = '/png/demo.png'  ;
         }
     }
  
@@ -65,12 +70,14 @@ function gotoRenderedFile(params) {
 function getPng() {
     if (actionBtnWasClicked) {
 
-        urlParsed = urlFromUser.replace(/./g, '_');
-        urlParsed = urlParsed.replace(/\//g, '__');
+        // urlParsed = urlFromUser.replace(/./g, '_');
+        // urlParsed = urlParsed.replace(/\//g, '__');
+
+        urlParsed = urlFromUser.replace(/\//g, '_');
 
         document.getElementById('my_iframe').src = '/png';
         document.querySelector('section#img').style.display = 'block';
-        document.querySelector('#img img').src = '/png/' + urlParsed + '_demo.png'  ;
+        document.querySelector('#img img').src = '/png/demo.png'  ;
        
         request.open("GET", "/png");
         request.addEventListener("load", reqListener);

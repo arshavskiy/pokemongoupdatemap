@@ -77,6 +77,12 @@ section#img{
     margin-left: 15px
     
 }
+input#find{
+    position: absolute;
+    left: 0%;
+    top: 80px;
+    width: 200px;
+}
 
 #table table{
     border-collapse: collapse;
@@ -93,3 +99,9 @@ section#img{
 }
 
 #table table tr:nth-child(even) {background-color: #f2f2f2;}
+
+#generate{
+    margin-top: 2.5rem;
+    width: 90vw; 
+    height: 80vh;
+}

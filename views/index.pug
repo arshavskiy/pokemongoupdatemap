@@ -14,7 +14,8 @@ html(lang='en')
     section#input
       h4 #{title}
       div.input_top
-        input(name='scrap', value='', placeholder='')
+        input(name='scrap', value='', placeholder='Url here')
+        input#find(name='parameters', value='', placeholder='Find')
         menu
           button#download_png.btn save image file
           button#download_pdf.btn save pdf file
@@ -22,7 +23,7 @@ html(lang='en')
           button#go_to_rendered_html.btn table
       button#enter scan
    
-    section#generate(style='width: 90vw; height: 80vh')
+    section#generate
       iframe#my_iframe(style="display:none;" target="_blank")
       //- object#my_object_rendered2(width='100%', height='100%', type='text/html')
       iframe#my_object_rendered2(width='50%', height='100%')
