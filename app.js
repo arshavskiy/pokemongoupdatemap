@@ -35,7 +35,7 @@ app.get('/pdf', function(req, res){
   });
 
 app.get('/png', function(req, res){
-    var file = __dirname + '/png/' + screenShotName +'_demo.png';
+    var file = __dirname + '/png/demo.png';
     res.download(file);
   });
 
@@ -116,13 +116,15 @@ function saveToLogFile(logToSave) {
   }
 
 
+  var parameters = [];
 
 app.post('/post', function (req, res) {
-    let parameters = req.body.parameters;
+   
+    let urlFromClient = req.body.data;
 
-    console.log( req.body.data );
-    console.log( parameters.split(',') );
-    console.log('req received');
+    parameters = req.body.parameters.split(',');
+
+    console.log('parameters1', parameters);
 
     const go = async () => {
         try {
@@ -132,7 +134,7 @@ app.post('/post', function (req, res) {
             const page = await browser.newPage();
             
             try {
-                await page.goto('https://' + req.body.data, {
+                await page.goto('https://' + urlFromClient, {
                     waitUntil: 'networkidle2'
                 });    
             } catch (error) {
@@ -140,58 +142,78 @@ app.post('/post', function (req, res) {
             }
            
             await page.setViewport({ width: 800, height: 600 });
-            console.log(page.url());
-           
             await page.waitForSelector('img');
 
-            imgUrlList = await page.evaluate(() => {
+            console.log('parameters2', parameters);
+
+            imgUrlList = await page.evaluate();
                 let repos = {};
                 let data = {};
 
-                repos.div = document.querySelectorAll('div');
-                repos.p = document.querySelectorAll('p');
-                repos.h3 = document.querySelectorAll('h3');
+                repos.h1 = document.querySelectorAll('h1');
+                repos.h2 = document.querySelectorAll('h2');
                 repos.a = document.querySelectorAll('a');
 
                 repos.img = document.querySelectorAll('img');
                 
+                console.log('parameters3', parameters);
+
+                try {
+
+                    console.log('parameters4', parameters);
+
+                    parameters.forEach((elm)=>{
+                        let find = document.querySelectorAll(`[class$="${elm}"]`);
+                        find = Array.from(find);
+    
+                        console.log('find', find);
+    
+                        div = Array.from(document.querySelectorAll('span'));
+                        div.forEach((d)=>{
+                            if (d.textContent && d.textContent.contains(`"${elm}`)){
+                                d.style.background = 'gold';
+                            };
+                        });
+    
+                        if (find.length === 0){
+    
+                        }
+                    });
+
+                } catch(e){
+                    console.log(e);
+                }
+                
                 img = Array.from(repos.img);
-                p = Array.from(repos.p);
-                h3 = Array.from(repos.h3);
+                h1 = Array.from(repos.h1);
+                h2 = Array.from(repos.h2);
                 a = Array.from(repos.a);
 
                 img.forEach((i)=>{
                     i.style.border = '1px solid red';
                     i.style.borderRadius = '10px';
                 });
+                h1.forEach((i) => {
+                    i.style.borderLeft = '5px solid blue';
+                });
+                h2.forEach((i) => {
+                    i.style.borderLeft = '5px solid green';
+                });
+                a.forEach((i) => {
+                    i.style.background = '5px solid gold';
+                });
+
 
                 let src = img;
                 let alt = img;
                 src = src.map(i => i.src+'\n');
                 alt = alt.map(i => i.alt+'\n');
 
-                // div = Array.from(repos.div);
-                // div.forEach((d)=>{
-                //     d.style.color = '#000';
-                //     d.style.background = '#fff';
-                // });
-            
-                p.forEach((i) => {
-                    i.style.border = '2px solid gold';
-                });
-                h3.forEach((i) => {
-                    i.style.borderTop = '1px solid black';
-                    i.style.borderLeft = '1px solid green';
-                });
-                a.forEach((i) => {
-                    i.style.border = '1px solid gold';
-                });
-
                 return {src, alt}
                 
-            });
+           
 
-            htmlUrl = '//' + req.body.data;
+            htmlUrl = '//' + urlFromClient;
 
             html = await page.content();  
             console.log('got(html)');
@@ -208,25 +230,15 @@ app.post('/post', function (req, res) {
           
             // saveToLogFile(html);
           
-            let urlToFilename = req.body.data;
+            let urlToFilename = urlFromClient;
             // screenShotName = urlToFilename.replace(/./g, '_');
 
             screenShotName = urlToFilename.replace(/\//g, '_');
 
             await page.screenshot({ path: './png/demo.png', fullPage: true });
-            await page.screenshot({ path: './png/' + screenShotName +  startDate + '.png', fullPage: true });
+            // await page.screenshot({ path: './png/' + screenShotName +  startDate + '.png', fullPage: true });
 
             await page.emulateMedia('screen');
-            // await page.pdf({
-            //     path: './pdf/' + screenShotName + startDate + '.pdf', 
-            //     format: 'A4',
-            //     margin: {
-            //       top: '1in',
-            //       bottom: '1in',
-            //       left: '1in',
-            //       right: '1in'
-            //     }
-            //   });
             
             try {
                 let makeMYPDF = await page.pdf({
@@ -245,7 +257,7 @@ app.post('/post', function (req, res) {
 
             let closeBroser = await browser.close();
 
-        } catch(e) {
+        } catch (e) {
             console.log(e);
         }
     };
