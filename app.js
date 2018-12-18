@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 const http = require('http');
 const puppeteer = require('puppeteer');
 
+parameters = [];
+
 app.use(cors({
     allowedHeaders: 'Content-Type, Cache-Control'
 }));
@@ -116,7 +118,47 @@ function saveToLogFile(logToSave) {
   }
 
 
-  var parameters = [];
+app.post('/params', (req, res)=>{
+    let urlFromClient = req.body.data;
+    parameters = req.body.parameters.split(',');
+
+    console.log('parameters1', parameters);
+
+    const go2 = async () => {
+        try {
+
+            alert(parameters);
+
+            parameters.forEach((elm)=>{
+                let find = document.querySelectorAll(`[class$="${elm}"]`);
+                find = Array.from(find);
+
+                console.log('find', find);
+
+                alert(find);
+
+                div = Array.from(document.querySelectorAll('span'));
+                div.forEach((d)=>{
+                    if (d.textContent && d.textContent.contains(`"${elm}`)){
+                        d.style.background = 'gold';
+                    };
+                });
+
+                if (find.length === 0){
+
+                };
+            });
+
+        } catch(e){
+            console.log(e);
+        };
+    }
+    (async function main() {
+        await go2();
+    })();
+});
+
+
 
 app.post('/post', function (req, res) {
    
@@ -129,7 +171,7 @@ app.post('/post', function (req, res) {
     const go = async () => {
         try {
             const browser = await puppeteer.launch({
-                headless: true
+                headless: false
             });
             const page = await browser.newPage();
             
@@ -144,9 +186,7 @@ app.post('/post', function (req, res) {
             await page.setViewport({ width: 800, height: 600 });
             await page.waitForSelector('img');
 
-            console.log('parameters2', parameters);
-
-            imgUrlList = await page.evaluate();
+            imgUrlList = await page.evaluate(() => {
                 let repos = {};
                 let data = {};
 
@@ -155,34 +195,6 @@ app.post('/post', function (req, res) {
                 repos.a = document.querySelectorAll('a');
 
                 repos.img = document.querySelectorAll('img');
-                
-                console.log('parameters3', parameters);
-
-                try {
-
-                    console.log('parameters4', parameters);
-
-                    parameters.forEach((elm)=>{
-                        let find = document.querySelectorAll(`[class$="${elm}"]`);
-                        find = Array.from(find);
-    
-                        console.log('find', find);
-    
-                        div = Array.from(document.querySelectorAll('span'));
-                        div.forEach((d)=>{
-                            if (d.textContent && d.textContent.contains(`"${elm}`)){
-                                d.style.background = 'gold';
-                            };
-                        });
-    
-                        if (find.length === 0){
-    
-                        }
-                    });
-
-                } catch(e){
-                    console.log(e);
-                }
                 
                 img = Array.from(repos.img);
                 h1 = Array.from(repos.h1);
@@ -211,7 +223,7 @@ app.post('/post', function (req, res) {
 
                 return {src, alt}
                 
-           
+            });
 
             htmlUrl = '//' + urlFromClient;
 
@@ -255,7 +267,7 @@ app.post('/post', function (req, res) {
                 console.log(error);
             }
 
-            let closeBroser = await browser.close();
+            // let closeBroser = await browser.close();
 
         } catch (e) {
             console.log(e);

@@ -11,7 +11,38 @@ function reqListener () {
     console.log(this.statusText);
 }
 
+function dataBtn() {
+    let parameters = document.querySelector('input[name=parameters]');
 
+    log();
+
+    let someUrl = "/params"; //URL here
+    let dataObj = { 
+        // 'data' : urlFromUser,
+        'parameters': parametersFromUser 
+    };
+
+    request.open('POST', someUrl);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send( JSON.stringify(dataObj) );
+    request.onreadystatechange = function() {
+        if (request.readyState == XMLHttpRequest.DONE) {
+            document.querySelector('section#img').style.display = 'block';
+            document.querySelector('#img img').src = '/png/demo.png'  ;
+        }
+    }
+    
+    actionBtnWasClicked = true;
+
+
+}
+
+function log(){
+    request.addEventListener("load", reqListener);
+    request.addEventListener("progress", reqListener);
+    request.addEventListener("error", reqListener);
+    request.addEventListener("abort", reqListener);
+}
 
 function fire() {
     let url_to_scrap = document.querySelector('input[name=scrap]');
@@ -20,35 +51,23 @@ function fire() {
     urlFromUser = url_to_scrap.value;
     parametersFromUser = parameters.value;
    
-    // open url in iframe
-
-    // iframe.style.display = 'block';
     iframe2.style.display = 'block';
-    // iframe.data = '//' + urlFromUser;
     iframe2.src = '//' + urlFromUser;
 
-    var someUrl = "/post"; //URL here
-    var dataObj = { 
+    let someUrl = "/post"; //URL here
+    let dataObj = { 
         'data' : urlFromUser,
-        'parameters': parametersFromUser 
+        // 'parameters': parametersFromUser 
     };
 
-    request.addEventListener("load", reqListener);
-    request.addEventListener("progress", reqListener);
-    request.addEventListener("error", reqListener);
-    request.addEventListener("abort", reqListener);
+    log();
 
     request.open('POST', someUrl);
     request.setRequestHeader('Content-Type', 'application/json');
     request.send( JSON.stringify(dataObj) );
     request.onreadystatechange = function() {
         if (request.readyState == XMLHttpRequest.DONE) {
-            // alert(request.responseText);
-            // document.getElementById('my_object_rendered').style.display = 'block';
-            // document.getElementById('my_object_rendered').data = '/edit';
-            // document.getElementById('my_iframe').src = '';
             document.querySelector('section#img').style.display = 'block';
-            // document.querySelector('#img img').src = '/png/' + urlFromUser + '_demo.png'  ;
             document.querySelector('#img img').src = '/png/demo.png'  ;
         }
     }
@@ -150,6 +169,7 @@ init = () => {
     iframe = document.getElementById('my_object_rendered');
     iframe2 = document.getElementById('my_object_rendered2');
     let actionBtn = document.querySelector('#enter');
+    let dataBtn = document.querySelector('#data');
     let downloadPng = document.querySelector('#download_png');
     let downloadPdf = document.querySelector('#download_pdf');
     let actionGoToPainted = document.querySelector('#go_to_html');
@@ -158,6 +178,7 @@ init = () => {
     let actionColor = document.querySelector('object');
 
     actionBtn.addEventListener('click', fire);
+    dataBtn.addEventListener('click', fireData);
     downloadPng.addEventListener('click', getPng);
     downloadPdf.addEventListener('click', getPdf);
     actionGoToPainted.addEventListener('click', getPng);
