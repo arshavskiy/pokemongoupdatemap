@@ -145,8 +145,13 @@ app.post('/params', (req, res)=>{
 
             console.log('parameters2', parameters);
 
-            imgUrlList = await page2.evaluateHandle(mine(parameters));
-            
+            // imgUrlList = await page2.evaluateHandle(mine(parameters));
+
+            html = await page.content();  
+            htmlJson = Array.from(html)
+
+            console.log('got(html)', htmlJson);
+
             function mine(parameters) {
                 parameters.forEach((elm)=>{
                     let find = document.querySelectorAll(`[class$="${elm}"]`);
@@ -248,7 +253,7 @@ app.post('/post', function (req, res) {
                 src = src.map(i => i.src+'\n');
                 alt = alt.map(i => i.alt+'\n');
 
-                if (parameters.length>0){
+                if (parameters && parameters.length > 0){
                     parameters.forEach((elm)=>{
                         let find = document.querySelectorAll(`[class$="${elm}"]`);
                         find = Array.from(find);
@@ -275,6 +280,8 @@ app.post('/post', function (req, res) {
 
             htmlUrl = '//' + urlFromClient;
 
+            await page.screenshot({ path: './png/demo.png', fullPage: true });
+
             html = await page.content();  
             console.log('got(html)');
             res.send(html);
@@ -282,8 +289,9 @@ app.post('/post', function (req, res) {
             fs.writeFile("./html/demo.html", html, function(err) {
                 if(err) {
                     return console.log(err);
+                } else {
+                    console.log("The file was saved!");
                 }
-                console.log("The file was saved!");
             }); 
                 
             saveToLogFile(imgUrlList);
