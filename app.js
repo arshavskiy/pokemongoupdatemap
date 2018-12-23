@@ -119,76 +119,103 @@ function saveToLogFile(logToSave) {
 
 
 app.post('/params', (req, res)=>{
-    let urlFromClient = req.body.data;
-    parameters = req.body.parameters.split(',');
 
+    let urlFromClient = req.body.url;
+
+    let parameters = req.body.parameters.split(',');
     console.log('parameters1', parameters);
 
-    const go2 = async () => {
-        try {
-
-            alert(parameters);
-
-            parameters.forEach((elm)=>{
-                let find = document.querySelectorAll(`[class$="${elm}"]`);
-                find = Array.from(find);
-
-                console.log('find', find);
-
-                alert(find);
-
-                div = Array.from(document.querySelectorAll('span'));
-                div.forEach((d)=>{
-                    if (d.textContent && d.textContent.contains(`"${elm}`)){
-                        d.style.background = 'gold';
-                    };
-                });
-
-                if (find.length === 0){
-
-                };
-            });
-
-        } catch(e){
-            console.log(e);
-        };
-    }
-    (async function main() {
-        await go2();
-    })();
-});
-
-
-
-app.post('/post', function (req, res) {
-   
-    let urlFromClient = req.body.data;
-
-    parameters = req.body.parameters.split(',');
-
-    console.log('parameters1', parameters);
-
-    const go = async () => {
+    (async (parameters) => {
         try {
             const browser = await puppeteer.launch({
-                headless: false
+                headless: true
             });
-            const page = await browser.newPage();
+            const page2 = await browser.newPage();
             
             try {
-                await page.goto('https://' + urlFromClient, {
+                await page2.goto('https://' + urlFromClient, {
                     waitUntil: 'networkidle2'
                 });    
             } catch (error) {
                 console.log(error);
             }
            
-            await page.setViewport({ width: 800, height: 600 });
+            await page2.setViewport({ width: 1280, height: 800 });
+            await page2.waitForSelector('img');
+
+            console.log('parameters2', parameters);
+
+            imgUrlList = await page2.evaluateHandle(mine(parameters));
+            
+            function mine(parameters) {
+                parameters.forEach((elm)=>{
+                    let find = document.querySelectorAll(`[class$="${elm}"]`);
+                    find = Array.from(find);
+    
+                    console.log('find', find);
+    
+                    div = Array.from(document.querySelectorAll('span'));
+                    div.forEach((d)=>{
+                        if (d.textContent && d.textContent.contains(`"${elm}`)){
+                            d.style.background = 'gold';
+                        };
+                    });
+    
+                    if (find.length === 0){
+    
+                    };
+                });
+                return find;
+
+            };
+
+        } catch(e){
+            console.log(e);
+        };
+    })(parameters);
+    
+});
+
+
+
+app.post('/post', function (req, res) {
+   
+    let urlFromClient = req.body.url;
+    let parameters = req.body.parameters.split(',');
+
+   
+    
+    const go = async (parameters) => {
+        try {
+            const browser = await puppeteer.launch({
+                headless: true
+            });
+            const page = await browser.newPage();
+
+                let temp = urlFromClient.split('http://')
+                if (typeof temp == 'object' && temp.length == 2){
+                    urlFromClient = temp[1];
+                } else {
+                    temp = urlFromClient.split('http//')
+                    if (typeof temp == 'object' && temp.length == 2){
+                        urlFromClient = temp[1];
+                    } 
+                }
+                
+                console.log(urlFromClient);
+
+                await page.goto('https://' + urlFromClient, {
+                    waitUntil: 'networkidle2'
+                });    
+           
+            await page.setViewport({ width: 1280, height: 800 });
             await page.waitForSelector('img');
 
-            imgUrlList = await page.evaluate(() => {
+            imgUrlList = await page.evaluate((parameters) => {
                 let repos = {};
                 let data = {};
+
+                console.log('parameters' ,parameters);
 
                 repos.h1 = document.querySelectorAll('h1');
                 repos.h2 = document.querySelectorAll('h2');
@@ -221,6 +248,27 @@ app.post('/post', function (req, res) {
                 src = src.map(i => i.src+'\n');
                 alt = alt.map(i => i.alt+'\n');
 
+                if (parameters.length>0){
+                    parameters.forEach((elm)=>{
+                        let find = document.querySelectorAll(`[class$="${elm}"]`);
+                        find = Array.from(find);
+        
+                        console.log('find', find);
+        
+                        div = Array.from(document.querySelectorAll('span'));
+                        div.forEach((d)=>{
+                            if (d.textContent && d.textContent.contains(`"${elm}`)){
+                                d.style.background = 'gold';
+                            };
+                        });
+        
+                        if (find.length === 0){
+        
+                        };
+                    });
+                }
+              
+
                 return {src, alt}
                 
             });
@@ -243,8 +291,6 @@ app.post('/post', function (req, res) {
             // saveToLogFile(html);
           
             let urlToFilename = urlFromClient;
-            // screenShotName = urlToFilename.replace(/./g, '_');
-
             screenShotName = urlToFilename.replace(/\//g, '_');
 
             await page.screenshot({ path: './png/demo.png', fullPage: true });
@@ -274,9 +320,9 @@ app.post('/post', function (req, res) {
         }
     };
 
-    (async function main() {
-        await go();
-    })();
+    (async function main(parameters) {
+        await go(parameters);
+    })(parameters);
 
 });
 

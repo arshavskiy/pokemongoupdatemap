@@ -11,15 +11,17 @@ function reqListener () {
     console.log(this.statusText);
 }
 
-function dataBtn() {
-    let parameters = document.querySelector('input[name=parameters]');
+function fireData() {
+    let parametersFromUser = document.querySelector('input[name=parameters]');
+    let url_to_scrap = document.querySelector('input[name=scrap]');
 
+    urlFromUser = url_to_scrap.value;
     log();
 
     let someUrl = "/params"; //URL here
     let dataObj = { 
-        // 'data' : urlFromUser,
-        'parameters': parametersFromUser 
+        'url' : urlFromUser || '',
+        'parameters': parametersFromUser.value
     };
 
     request.open('POST', someUrl);
@@ -31,10 +33,7 @@ function dataBtn() {
             document.querySelector('#img img').src = '/png/demo.png'  ;
         }
     }
-    
     actionBtnWasClicked = true;
-
-
 }
 
 function log(){
@@ -52,12 +51,23 @@ function fire() {
     parametersFromUser = parameters.value;
    
     iframe2.style.display = 'block';
+
+    let temp = urlFromUser.split('https://')
+                if (typeof temp == 'object' && temp.length == 2){
+                    urlFromUser = temp[1];
+                } else {
+                    temp = urlFromUser.split('http://')
+                    if (typeof temp == 'object' && temp.length == 2){
+                        urlFromUser = temp[1];
+                    } 
+                }
+
     iframe2.src = '//' + urlFromUser;
 
     let someUrl = "/post"; //URL here
     let dataObj = { 
-        'data' : urlFromUser,
-        // 'parameters': parametersFromUser 
+        'url' : urlFromUser,
+        'parameters': parametersFromUser  || ''
     };
 
     log();
@@ -71,8 +81,6 @@ function fire() {
             document.querySelector('#img img').src = '/png/demo.png'  ;
         }
     }
- 
-
     actionBtnWasClicked = true;
 }
 
