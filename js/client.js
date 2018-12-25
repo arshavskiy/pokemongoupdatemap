@@ -158,7 +158,7 @@ function tableClientCreate(data){
         tbl  = document.createElement('table');
         tbl.style.height = '200px';
         tbl.style.width  = '100%';
-        tbl.style.border = '1px solid black';
+        tbl.style.border = '1px solid gold';
     
     let src = data.foundFromClient;
     let alt = data.parameters;
@@ -171,11 +171,11 @@ function tableClientCreate(data){
             if(j == 0 ){
                 var td = tr.insertCell();
                 td.appendChild(document.createTextNode(alt[i-1]));
-                td.style.border = '1px solid blue';
+                td.style.border = 'none';
             } else {
                 var td = tr.insertCell();
                 td.appendChild(document.createTextNode(src[i-1]));
-                td.style.border = '1px solid black';
+                td.style.border = 'none';
                 // if(i == 1 && j == 1){
                 //     td.setAttribute('rowSpan', '2');
                 // }
@@ -193,7 +193,7 @@ function tableCreate(data){
         tbl  = document.createElement('table');
         tbl.style.height = '200px';
         tbl.style.width  = '100%';
-        tbl.style.border = '1px solid black';
+        tbl.style.border = '1px solid pink';
     
     let src = data.src;
     let alt = data.alt;
@@ -211,11 +211,11 @@ function tableCreate(data){
                 img.style.maxHeight = '80px';
                 let div = document.createElement('div')
                 td.appendChild(  div.appendChild(img) );
-                td.style.border = '1px solid blue';
+                td.style.border = 'none';
             } else {
                 var td = tr.insertCell();
                 td.appendChild(document.createTextNode(alt[i-1]));
-                td.style.border = '1px solid black';
+                td.style.border = 'none';
                 // if(i == 1 && j == 1){
                 //     td.setAttribute('rowSpan', '2');
                 // }

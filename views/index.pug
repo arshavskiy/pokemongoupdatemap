@@ -12,17 +12,20 @@ html(lang='en')
 
   body
     section#input
-      h4 #{title}
       div.input_top
-        input(name='scrap', value='', placeholder='Url here')
-        input#find(name='parameters', value='', placeholder='Find')
-        button#data data
-        menu
-          button#download_png.btn save image file
-          button#download_pdf.btn save pdf file
-          button#go_to_html.btn open link
-          button#go_to_rendered_html.btn table
-      button#enter scan
+        div.title
+          h4 #{title}
+        div.input
+          input(name='scrap', value='', placeholder='Url here')
+          input#find(name='parameters', value='', placeholder='Find')
+        button#enter scan
+    menu
+      button#data data
+      button#download_png.btn save image file
+      button#download_pdf.btn save pdf file
+      button#go_to_html.btn open link
+      button#go_to_rendered_html.btn table
+    
    
     section#generate
       iframe#my_iframe(style="display:none;" target="_blank")

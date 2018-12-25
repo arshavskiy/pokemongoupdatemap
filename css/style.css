@@ -12,6 +12,10 @@ section#input{
     align-items: center;
 }
 
+.title{
+    margin: 1rem 10px;
+}
+
 input{
     width: 50vw;
     height: 2rem;
@@ -26,7 +30,7 @@ input{
 button{
     background: #fff;
     padding: 2px 10px;
-    margin: 0 10px;
+    margin: 1rem 10px;
     border: 0;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
@@ -39,9 +43,17 @@ button:hover{
     cursor: pointer;
 }
 
+menu{
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+}
+
 .input_top{
     position: relative;
-    top: 1.3rem;
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
 }
 
 
@@ -71,7 +83,7 @@ section#img{
 
 #table2,
 #table{
-    height: 400px;
+    max-height: 400px;
     overflow-y: scroll;
     display: none;
     width: calc(100% - 30px);
@@ -89,10 +101,11 @@ table{
 }
 
 input#find{
-    position: absolute;
-    left: 0%;
-    top: 80px;
-    width: 200px;
+    /* position: absolute; */
+    /* left: 0%; */
+    /* top: 80px; */
+    width: auto;
+    /* margin-left:25vw; */
 }
 
 table{
@@ -113,6 +126,5 @@ table tr:nth-child(even) {background-color: #f2f2f2;}
 
 #generate{
     margin-top: 2.5rem;
-    width: 90vw; 
-    height: 80vh;
+    height: 50vh;
 }
