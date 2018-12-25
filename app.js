@@ -404,7 +404,7 @@ app.post('/post', function (req, res) {
                 console.log(error);
             }
 
-            // let closeBroser = await browser.close();
+            let closeBroser = await browser.close();
 
         } catch (e) {
             console.log(e);
