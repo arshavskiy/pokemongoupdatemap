@@ -279,7 +279,8 @@ app.post('/post', function (req, res) {
             });
 
             htmlUrl = '//' + urlFromClient;
-
+            
+            await page.emulateMedia('screen');
             await page.screenshot({ path: './png/demo.png', fullPage: true });
 
             html = await page.content();  
@@ -304,7 +305,7 @@ app.post('/post', function (req, res) {
             await page.screenshot({ path: './png/demo.png', fullPage: true });
             // await page.screenshot({ path: './png/' + screenShotName +  startDate + '.png', fullPage: true });
 
-            await page.emulateMedia('screen');
+           
             
             try {
                 let makeMYPDF = await page.pdf({

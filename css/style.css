@@ -73,8 +73,8 @@ section#img{
     height: 400px;
     overflow-y: scroll;
     display: none;
-    width: 500px;
-    margin-left: 15px
+    width: calc(100% - 30px);
+    margin-left: 15px;
     
 }
 input#find{

@@ -138,8 +138,8 @@ function tableCreate(data){
     var body = document.body,
         tbl  = document.createElement('table');
         tbl.style.height = '200px';
-    tbl.style.width  = window.innerWidth * .9;
-    tbl.style.border = '1px solid black';
+        tbl.style.width  = '100%';
+        tbl.style.border = '1px solid black';
     
     src = data.src;
     alt = data.alt;
