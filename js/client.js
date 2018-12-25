@@ -78,6 +78,10 @@ function fire() {
     request.onreadystatechange = function() {
         if (request.readyState == XMLHttpRequest.DONE) {
             document.querySelector('section#img').style.display = 'block';
+            let oldImg = document.querySelector('#img img').src;
+            if (oldImg){
+                document.querySelector('#img img').src = '';
+            }
             document.querySelector('#img img').src = '/png/demo.png'  ;
         }
     }
