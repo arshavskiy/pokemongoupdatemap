@@ -69,14 +69,21 @@ section#img{
     display: none;
 }
 
+#table2,
 #table{
     height: 400px;
     overflow-y: scroll;
     display: none;
     width: calc(100% - 30px);
     margin-left: 15px;
-    
 }
+
+#table2{
+    margin-top: 1rem;
+    max-height: 400px;
+    height: auto;
+}
+
 input#find{
     position: absolute;
     left: 0%;
@@ -84,7 +91,7 @@ input#find{
     width: 200px;
 }
 
-#table table{
+table{
     border-collapse: collapse;
     border: 2px black solid;
     font: 12px sans-serif;
@@ -93,12 +100,12 @@ input#find{
    
 }
 
-#table table td {
+table td {
     border: 2px black solid;
     padding: 5px;
 }
 
-#table table tr:nth-child(even) {background-color: #f2f2f2;}
+table tr:nth-child(even) {background-color: #f2f2f2;}
 
 #generate{
     margin-top: 2.5rem;

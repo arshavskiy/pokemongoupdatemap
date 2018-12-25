@@ -7,8 +7,10 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const http = require('http');
 const puppeteer = require('puppeteer');
+const cheerio = require('cheerio');
 
-parameters = [];
+global = {};
+global.parameters = [];
 
 app.use(cors({
     allowedHeaders: 'Content-Type, Cache-Control'
@@ -45,6 +47,22 @@ app.get('/csv', function(req, res){
     let promise2 = new Promise(function(resolve, reject) {
         resolve(imgUrlList);
         console.log('resolve(imgUrlList)');
+      });
+      
+      promise2.then(function(value) {
+        res.send(value);
+      });
+});
+
+app.get('/client', function(req, res){
+    let promise2 = new Promise(function(resolve, reject) {
+
+        resolve({
+                foundFromClient: foundFromClient, 
+                parameters: global.parameters
+            });
+
+        console.log('resolve - parameters', global.parameters);
       });
       
       promise2.then(function(value) {
@@ -93,6 +111,65 @@ app.get('/download/:file(*)', function (req, res) {
 });
 
 
+
+function run(content, params) {
+
+    // const browser = await puppeteer.launch();
+    // const page = await browser.newPage();
+    // await page.goto(url);
+    // let content = await page.content();
+    var $ = cheerio.load(content);
+    foundFromClient = [];
+    $(params).each(function(i, element){
+        console.log(element);
+        
+        var a = $(this);
+        var elemClass = $('.'+element).text();
+        var elemDiv = $(element).text();
+        // var rank = a.parent().parent().text();
+        // var title = a.text();
+        // var url = a.attr('href');
+        // var subtext = a.parent().parent().next().children('.subtext').children();
+        // var points = $(subtext).eq(0).text();
+        // var username = $(subtext).eq(1).text();
+        // var comments = $(subtext).eq(2).text();
+
+        // var metadata = {
+        // rank: parseInt(rank),
+        // title: title,
+        // url: url,
+        // points: parseInt(points),
+        // username: username,
+        // comments: parseInt(comments)
+        // };
+
+        console.log(elemClass, elemDiv);
+
+        foundFromClient.push(elemClass);
+        foundFromClient.push(elemDiv);
+    });
+  
+    saveData(foundFromClient, 'foundFromClient');
+    return foundFromClient;
+  }
+
+
+
+function saveData(logToSave, filename) {
+    if (this.parameters === 2){
+        onsole.log('parameters: ' + parameters);
+    }
+    if (filename) filename += '.csv';
+    fs.writeFile('DB/'+filename, logToSave,'utf8',function (err) {
+        if (err) {
+           throw err;
+        } else {
+            console.log('log ' + ' saved');
+        }
+      });
+};
+
+
 function saveToLogFile(logToSave) {
     startDate = Date.now();
     fs.appendFileSync('DB/log.csv', logToSave + 'at: '+ startDate +'\r\n', function (err) {
@@ -121,9 +198,11 @@ function saveToLogFile(logToSave) {
 app.post('/params', (req, res)=>{
 
     let urlFromClient = req.body.url;
+    
 
-    let parameters = req.body.parameters.split(',');
+    parameters = req.body.parameters.split(',');
     console.log('parameters1', parameters);
+   
 
     (async (parameters) => {
         try {
@@ -187,8 +266,7 @@ app.post('/post', function (req, res) {
    
     let urlFromClient = req.body.url;
     let parameters = req.body.parameters.split(',');
-
-   
+    global.parameters = parameters;
     
     const go = async (parameters) => {
         try {
@@ -285,7 +363,10 @@ app.post('/post', function (req, res) {
 
             html = await page.content();  
             console.log('got(html)');
+
             res.send(html);
+
+            run(html, parameters);
 
             fs.writeFile("./html/demo.html", html, function(err) {
                 if(err) {
@@ -296,6 +377,7 @@ app.post('/post', function (req, res) {
             }); 
                 
             saveToLogFile(imgUrlList);
+            saveData(html, 'html');
           
             // saveToLogFile(html);
           
@@ -334,7 +416,6 @@ app.post('/post', function (req, res) {
     })(parameters);
 
 });
-
 
 
 let download = function(uri, filename, callback){

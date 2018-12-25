@@ -130,19 +130,69 @@ function makeTable() {
             var tableData = JSON.parse(request.responseText);
             console.debug(tableData);
             tableCreate(tableData);
+            makeTableFromClient();
+        }
+    }
+    
+}
+
+function makeTableFromClient() {
+
+    request.open("GET", "/client");
+    request.send();
+    request.onreadystatechange = function() {
+        if (request.readyState == XMLHttpRequest.DONE) {
+            var client = JSON.parse(request.response);
+            console.debug(client);
+            tableClientCreate(client);
         }
     }
 }
 
-function tableCreate(data){
-    var body = document.body,
+function tableClientCreate(data){
+    let body = document.body,
         tbl  = document.createElement('table');
         tbl.style.height = '200px';
         tbl.style.width  = '100%';
         tbl.style.border = '1px solid black';
     
-    src = data.src;
-    alt = data.alt;
+    let src = data.foundFromClient;
+    let alt = data.parameters;
+
+    let tl = src.length;
+
+    for(var i = 0; i < tl; i++){
+        var tr = tbl.insertRow();
+        for(var j = 0; j < 2; j++){
+            if(j == 0 ){
+                var td = tr.insertCell();
+                td.appendChild(document.createTextNode(alt[i-1]));
+                td.style.border = '1px solid blue';
+            } else {
+                var td = tr.insertCell();
+                td.appendChild(document.createTextNode(src[i-1]));
+                td.style.border = '1px solid black';
+                // if(i == 1 && j == 1){
+                //     td.setAttribute('rowSpan', '2');
+                // }
+            }
+        }
+    }
+    let table2 = document.querySelector('#table2');
+    table2.style.display = 'block';
+    table2.appendChild(tbl);
+}
+
+
+function tableCreate(data){
+    let body = document.body,
+        tbl  = document.createElement('table');
+        tbl.style.height = '200px';
+        tbl.style.width  = '100%';
+        tbl.style.border = '1px solid black';
+    
+    let src = data.src;
+    let alt = data.alt;
 
     let tl = src.length;
 
@@ -182,7 +232,7 @@ init = () => {
     let downloadPdf = document.querySelector('#download_pdf');
     let actionGoToPainted = document.querySelector('#go_to_html');
     let dataTable = document.querySelector('#go_to_rendered_html');
-
+    
     let actionColor = document.querySelector('object');
 
     actionBtn.addEventListener('click', fire);
