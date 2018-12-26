@@ -99,7 +99,7 @@ app.get('/edit', function (req, res, next) {
 
 app.get('/download/:file(*)', function (req, res) {
     var file = req.params.file;
-    var fileLocation = path.join('./DB', file);
+    var fileLocation = path.join('./', file);
     res.download(fileLocation), file,
         function (err) {
             if (err) {
@@ -110,14 +110,8 @@ app.get('/download/:file(*)', function (req, res) {
         }
 });
 
-
-
 function run(content, params) {
 
-    // const browser = await puppeteer.launch();
-    // const page = await browser.newPage();
-    // await page.goto(url);
-    // let content = await page.content();
     var $ = cheerio.load(content);
     foundFromClient = [];
     $(params).each(function(i, element){
@@ -126,23 +120,7 @@ function run(content, params) {
         var a = $(this);
         var elemClass = $('.'+element).text();
         var elemDiv = $(element).text();
-        // var rank = a.parent().parent().text();
-        // var title = a.text();
-        // var url = a.attr('href');
-        // var subtext = a.parent().parent().next().children('.subtext').children();
-        // var points = $(subtext).eq(0).text();
-        // var username = $(subtext).eq(1).text();
-        // var comments = $(subtext).eq(2).text();
-
-        // var metadata = {
-        // rank: parseInt(rank),
-        // title: title,
-        // url: url,
-        // points: parseInt(points),
-        // username: username,
-        // comments: parseInt(comments)
-        // };
-
+      
         console.log(elemClass, elemDiv);
 
         foundFromClient.push(elemClass);
@@ -151,9 +129,7 @@ function run(content, params) {
   
     saveData(foundFromClient, 'foundFromClient');
     return foundFromClient;
-  }
-
-
+};
 
 function saveData(logToSave, filename) {
     if (this.parameters === 2){
@@ -168,7 +144,6 @@ function saveData(logToSave, filename) {
         }
       });
 };
-
 
 function saveToLogFile(logToSave) {
     startDate = Date.now();
@@ -192,8 +167,7 @@ function saveToLogFile(logToSave) {
             });
         }
       });
-  }
-
+};
 
 app.post('/params', (req, res)=>{
 
@@ -260,14 +234,16 @@ app.post('/params', (req, res)=>{
     
 });
 
-
-
-app.post('/post', function (req, res) {
-   
+function getSite( req, res ) {
+    let parameters;
     let urlFromClient = req.body.url;
-    let parameters = req.body.parameters.split(',');
-    global.parameters = parameters;
+
+    if (req.body.parameters){
+        parameters = req.body.parameters.split(',');
+    }
     
+    global.parameters = parameters;
+
     const go = async (parameters) => {
         try {
             const browser = await puppeteer.launch({
@@ -387,11 +363,9 @@ app.post('/post', function (req, res) {
             await page.screenshot({ path: './png/demo.png', fullPage: true });
             // await page.screenshot({ path: './png/' + screenShotName +  startDate + '.png', fullPage: true });
 
-           
-            
             try {
                 let makeMYPDF = await page.pdf({
-                    path: './pdf/'+ screenShotName + '_demo.pdf', 
+                    path: './pdf/demo.pdf', 
                     format: 'A4',
                     margin: {
                       top: '1in',
@@ -415,6 +389,17 @@ app.post('/post', function (req, res) {
         await go(parameters);
     })(parameters);
 
+};
+
+app.post('/post', function (req, res) {
+    getSite(req, res);
+});
+
+app.get('/get/:url(*)', function (req, res) {
+    let params = req.params.url.split(',');
+    let url = params.shift();
+
+    getSite( url, params )
 });
 
 

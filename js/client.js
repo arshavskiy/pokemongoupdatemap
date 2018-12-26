@@ -1,3 +1,42 @@
+function iframeURLChange(iframe, callback) {
+    var lastDispatched = null;
+
+    var dispatchChange = function () {
+        var newHref = iframe.contentWindow.location.href;
+
+        if (newHref !== lastDispatched) {
+            callback(newHref);
+            lastDispatched = newHref;
+        }
+    };
+
+    var unloadHandler = function () {
+        // Timeout needed because the URL changes immediately after
+        // the `unload` event is dispatched.
+        setTimeout(dispatchChange, 0);
+    };
+
+    function attachUnload() {
+        // Remove the unloadHandler in case it was already attached.
+        // Otherwise, there will be two handlers, which is unnecessary.
+        iframe.contentWindow.removeEventListener("unload", unloadHandler);
+        iframe.contentWindow.addEventListener("unload", unloadHandler);
+    }
+
+    iframe.addEventListener("load", function () {
+        attachUnload();
+
+        // Just in case the change wasn't dispatched during the unload event...
+        dispatchChange();
+    });
+
+    attachUnload();
+}
+
+// Usage:
+
+
+
 function getMyData() {
     function reqListener () {
         console.log(this.responseText);
@@ -63,6 +102,16 @@ function fire() {
                 }
 
     iframe2.src = '//' + urlFromUser;
+   
+    iframe2.addEventListener("load", function () {
+        let data = iframe2.contentWindow.location.href;
+        console.log('contentWindow:', iframe2.contentWindow);
+        console.log('data', data);
+    });
+
+    // iframeURLChange( iframe2, function (newURL) {
+    //     console.log("URL changed:", newURL);
+    // });
 
     let someUrl = "/post"; //URL here
     let dataObj = { 
@@ -82,7 +131,7 @@ function fire() {
             if (oldImg){
                 document.querySelector('#img img').src = '';
             }
-            document.querySelector('#img img').src = '/png/demo.png'  ;
+            document.querySelector('#img img').src = '/png'  ;
         }
     }
     actionBtnWasClicked = true;
@@ -108,7 +157,8 @@ function getPng() {
 
         document.getElementById('my_iframe').src = '/png';
         document.querySelector('section#img').style.display = 'block';
-        document.querySelector('#img img').src = '/png/demo.png'  ;
+        document.querySelector('#img img').src = '';
+        document.querySelector('#img img').src = '/png'  ;
        
         request.open("GET", "/png");
         request.addEventListener("load", reqListener);
@@ -240,10 +290,10 @@ init = () => {
     let actionColor = document.querySelector('object');
 
     actionBtn.addEventListener('click', fire);
-    dataBtn.addEventListener('click', fireData);
+    // dataBtn.addEventListener('click', fireData);
     downloadPng.addEventListener('click', getPng);
     downloadPdf.addEventListener('click', getPdf);
-    actionGoToPainted.addEventListener('click', getPng);
+    // actionGoToPainted.addEventListener('click', getPng);
     dataTable.addEventListener('click', makeTable);
 };
 

@@ -20,22 +20,22 @@ html(lang='en')
           input#find(name='parameters', value='', placeholder='Find')
         button#enter scan
     menu
-      button#data data
+      //- button#data data
       button#download_png.btn save image file
       button#download_pdf.btn save pdf file
-      button#go_to_html.btn open link
+      //- button#go_to_html.btn open link
       button#go_to_rendered_html.btn table
     
    
-    section#generate
-      iframe#my_iframe(style="display:none;" target="_blank")
-      //- object#my_object_rendered2(width='100%', height='100%', type='text/html')
-      iframe#my_object_rendered2(width='50%', height='100%')
-        section
-      //- object#my_object_rendered(width='100%', height='100%', type='text/html')
-      //-   section
-      section#img
-        img(src="", alt="")
+   
+    iframe#my_iframe(style="display:none;" target="_blank")
+    //- object#my_object_rendered2(width='100%', height='100%', type='text/html')
+    iframe#my_object_rendered2(width='50%', height='100%')
+      section
+    //- object#my_object_rendered(width='100%', height='100%', type='text/html')
+    //-   section
+    section#img
+      img(src="", alt="")
       
     #table2
     #table
