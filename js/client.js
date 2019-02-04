@@ -286,7 +286,7 @@ function params() {
     let split;
     let urlParsed;
     let url = window.location.href.split('?');
-    if (url.length > 0){
+    if (url.length){
         urlParsed = url[1].split('&');
         urlParsed.forEach((p,i)=>{
              temp = p.split('=');
