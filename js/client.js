@@ -277,6 +277,36 @@ function tableCreate(data){
     table.appendChild(tbl);
 }
 
+
+function params() {
+    // url=https://en.wikipedia.org/wiki/Podesta_Group
+    // find=title
+    let params = {};
+    let temp;
+    let split;
+    let urlParsed;
+    let url = window.location.href.split('?');
+    if (url.length > 0){
+        urlParsed = url[1].split('&');
+        urlParsed.forEach((p,i)=>{
+             temp = p.split('=');
+             split = temp[1].split(',');
+             params[temp[0]] = split.length > 1 ? split : temp[1]; 
+        })
+        let input_url = document.getElementById('url');
+        let input_find = document.getElementById('find');
+        input_url.value = params.url;
+        if (split.length > 1){
+            input_find.value = split;
+            fire();
+        } else {
+            input_find.value = params.find;
+            fire();
+        }
+    }
+   
+}
+
 init = () => {
     iframe = document.getElementById('my_object_rendered');
     iframe2 = document.getElementById('my_object_rendered2');
@@ -288,6 +318,8 @@ init = () => {
     let dataTable = document.querySelector('#go_to_rendered_html');
     
     let actionColor = document.querySelector('object');
+
+    params();
 
     actionBtn.addEventListener('click', fire);
     // dataBtn.addEventListener('click', fireData);

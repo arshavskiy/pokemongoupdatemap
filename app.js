@@ -236,13 +236,23 @@ app.post('/params', (req, res)=>{
 
 function getSite( req, res ) {
     let parameters;
-    let urlFromClient = req.body.url;
+    let urlFromClient;
 
-    if (req.body.parameters){
-        parameters = req.body.parameters.split(',');
+    if (typeof req == 'string'){
+        urlFromClient = req;
+    } else {
+        urlFromClient = req.body.url;  
     }
     
-    global.parameters = parameters;
+    if (res.length > 0){
+        parameters = res;  
+    } else if (req.body){
+        parameters = req.body.parameters.split(',')   
+    }
+
+
+     
+    global.parameters = parameters || '';
 
     const go = async (parameters) => {
         try {
@@ -250,15 +260,14 @@ function getSite( req, res ) {
                 headless: true
             });
             const page = await browser.newPage();
-
-                let temp = urlFromClient.split('http://')
+                let temp = '';
+                if ( urlFromClient.includes('https') ){
+                    temp = urlFromClient.split('https://');
+                } else if ( urlFromClient.includes('http') ){
+                    temp = urlFromClient.split('http://');
+                }
                 if (typeof temp == 'object' && temp.length == 2){
                     urlFromClient = temp[1];
-                } else {
-                    temp = urlFromClient.split('http//')
-                    if (typeof temp == 'object' && temp.length == 2){
-                        urlFromClient = temp[1];
-                    } 
                 }
                 
                 console.log(urlFromClient);
@@ -395,11 +404,12 @@ app.post('/post', function (req, res) {
     getSite(req, res);
 });
 
-app.get('/get/:url(*)', function (req, res) {
-    let params = req.params.url.split(',');
-    let url = params.shift();
+app.get('/get', function (req, res) {
 
-    getSite( url, params )
+    let url = req.query.url;
+    let params = req.query.find.split(',');
+
+    getSite(url, res, params)
 });
 
 
