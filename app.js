@@ -34,12 +34,12 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/pdf', function(req, res){
-    var file = __dirname + '/pdf/' + screenShotName + '_demo.pdf';
+    var file = './pdf/demo.pdf';
     res.download(file);
   });
 
 app.get('/png', function(req, res){
-    var file = __dirname + '/png/demo.png';
+    var file = './png/demo.png';
     res.download(file);
   });
 
@@ -277,7 +277,7 @@ function getSite( req, res ) {
                 });    
            
             await page.setViewport({ width: 1280, height: 800 });
-            await page.waitForSelector('img');
+            await page.waitForSelector('div');
 
             imgUrlList = await page.evaluate((parameters) => {
                 let repos = {};
@@ -342,9 +342,14 @@ function getSite( req, res ) {
             });
 
             htmlUrl = '//' + urlFromClient;
+
+            let urlToFilename = urlFromClient;
+            screenShotName = urlToFilename.replace(/\//g, '_');
+
             
             await page.emulateMedia('screen');
-            await page.screenshot({ path: './png/demo.png', fullPage: true });
+            let png = './png/demo.png';
+            await page.screenshot({ path: png, fullPage: true });
 
             html = await page.content();  
             console.log('got(html)');
@@ -352,7 +357,7 @@ function getSite( req, res ) {
             res.send(html);
 
             run(html, parameters);
-
+                
             fs.writeFile("./html/demo.html", html, function(err) {
                 if(err) {
                     return console.log(err);
@@ -365,22 +370,19 @@ function getSite( req, res ) {
             saveData(html, 'html');
           
             // saveToLogFile(html);
-          
-            let urlToFilename = urlFromClient;
-            screenShotName = urlToFilename.replace(/\//g, '_');
 
             await page.screenshot({ path: './png/demo.png', fullPage: true });
             // await page.screenshot({ path: './png/' + screenShotName +  startDate + '.png', fullPage: true });
-
+            let file = './pdf/demo.pdf';
             try {
                 let makeMYPDF = await page.pdf({
-                    path: './pdf/demo.pdf', 
+                    path: file, 
                     format: 'A4',
                     margin: {
-                      top: '1in',
-                      bottom: '1in',
-                      left: '1in',
-                      right: '1in'
+                      top: '1cm',
+                      bottom: '1cm',
+                      left: '0',
+                      right: '0'
                     }
                   });
             } catch (error) {

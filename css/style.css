@@ -71,7 +71,7 @@ menu{
 section#img,
 #my_object_rendered2{
     width: calc(100vw - 50px);
-    height: 25vh;
+    height: 35vh;
 }
 
 section#img{
@@ -112,6 +112,10 @@ input#find{
     width: auto;
     /* margin-left:25vw; */
 }
+#enter{
+    position: relative;
+    top: 0;
+}
 
 table{
     border-collapse: collapse;
@@ -133,3 +137,20 @@ table tr:nth-child(even) {background-color: #f2f2f2;}
     margin-top: 2.5rem;
     height: 50vh;
 }
+
+@media only screen and (max-width: 792px) {
+    iframe {
+      width: 100vw;
+    }
+    section#img, #my_object_rendered2{
+        height: 35vh;
+    } 
+    input{
+        width: auto;
+    }
+
+    #enter{
+        position: relative;
+        top: 3rem;
+    }
+  } 
