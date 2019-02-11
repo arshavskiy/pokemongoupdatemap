@@ -60,7 +60,7 @@ function fireData() {
     let someUrl = "/params"; //URL here
     let dataObj = { 
         'url' : urlFromUser || '',
-        'parameters': parametersFromUser.value
+        'parameters': parametersFromUser.value || ''
     };
 
     request.open('POST', someUrl);
@@ -87,7 +87,7 @@ function fire() {
     let parameters = document.querySelector('input[name=parameters]');
 
     urlFromUser = url_to_scrap.value;
-    parametersFromUser = parameters.value;
+    parametersFromUser = parameters.value || '';
    
     // iframe2.style.display = 'block';
 
@@ -278,7 +278,7 @@ function tableCreate(data){
 }
 
 
-function params() {
+function paramsFromUrl() {
     // url=https://en.wikipedia.org/wiki/Podesta_Group
     // find=title
     let params = {};
@@ -300,7 +300,9 @@ function params() {
             input_find.value = split;
             fire();
         } else {
-            input_find.value = params.find;
+            if (input_find.value ){
+                input_find.value = params.find;
+            }
             fire();
         }
     }
@@ -319,7 +321,7 @@ init = () => {
     
     let actionColor = document.querySelector('object');
 
-    params();
+    paramsFromUrl();
 
     actionBtn.addEventListener('click', fire);
     // dataBtn.addEventListener('click', fireData);

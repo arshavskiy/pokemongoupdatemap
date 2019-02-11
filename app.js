@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 const http = require('http');
 const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
+const devices = require('puppeteer/DeviceDescriptors');
+const Galaxy = devices['Galaxy S5'];
 
 global = {};
 global.parameters = [];
@@ -176,6 +178,7 @@ app.post('/params', (req, res)=>{
     parameters = req.body.parameters.split(',');
     console.log('parameters1', parameters);
 
+  
 
     (async (parameters) => {
         try {
@@ -183,6 +186,8 @@ app.post('/params', (req, res)=>{
                 headless: true
             });
             const page2 = await browser.newPage();
+
+           
 
             try {
                 await page2.goto('https://' + urlFromClient, {
@@ -259,24 +264,38 @@ function getSite( req, res ) {
                 headless: true
             });
             const page = await browser.newPage();
-                let temp = '';
-                if ( urlFromClient.includes('https') ){
-                    temp = urlFromClient.split('https://');
-                } else if ( urlFromClient.includes('http') ){
-                    temp = urlFromClient.split('http://');
-                }
-                if (typeof temp == 'object' && temp.length == 2){
-                    urlFromClient = temp[1];
-                }
 
-                console.log(urlFromClient);
+            let mobile = parameters.find((p) => {
+                return p === 'mobile';
+            });
 
-                await page.goto('https://' + urlFromClient, {
-                    waitUntil: 'networkidle2'
-                });
+            if (mobile) {
+                await page.emulate(Galaxy);
+            }
 
-            await page.setViewport({ width: 1280, height: 800 });
-            await page.waitForSelector('div');
+            let temp = '';
+            if ( urlFromClient.includes('https') ){
+                temp = urlFromClient.split('https://');
+            } else if ( urlFromClient.includes('http') ){
+                temp = urlFromClient.split('http://');
+            }
+            if (typeof temp == 'object' && temp.length == 2){
+                urlFromClient = temp[1];
+            }
+
+            console.log(urlFromClient);
+
+            await page.goto('https://' + urlFromClient, {
+                waitUntil: 'networkidle2'
+            });
+
+            if (mobile){
+                await page.setViewport({ width: 360, height: 640 });
+            } else {
+                await page.setViewport({ width: 1280, height: 800 });
+            }
+           
+            await page.waitForSelector('span');
 
             imgUrlList = await page.evaluate((parameters) => {
                 let repos = {};
@@ -300,13 +319,16 @@ function getSite( req, res ) {
                     i.style.borderRadius = '10px';
                 });
                 h1.forEach((i) => {
-                    i.style.borderLeft = '5px solid blue';
+                    i.style.borderLeft = '25px solid blue';
+                    i.style.borderTop = '15px solid transparent';
+                    i.style.borderBottom = '15px solid transparent';
                 });
                 h2.forEach((i) => {
                     i.style.borderLeft = '5px solid green';
                 });
                 a.forEach((i) => {
-                    i.style.background = '5px solid gold';
+                    // i.style.borderBottom = '3px dotted gold';
+                    i.style.background = 'gold';
                 });
 
 
@@ -350,7 +372,6 @@ function getSite( req, res ) {
             await page.screenshot({ path: png, fullPage: true });
 
             html = await page.content();
-            console.log('got(html)');
 
             res.send(html);
 
