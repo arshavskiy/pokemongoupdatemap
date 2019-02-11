@@ -71,7 +71,7 @@ menu{
 section#img,
 #my_object_rendered2{
     width: calc(100vw - 50px);
-    height: 35vh;
+    height: calc(100vh - 250px);
 }
 
 section#img{

@@ -48,7 +48,7 @@ app.get('/csv', function(req, res){
         resolve(imgUrlList);
         console.log('resolve(imgUrlList)');
       });
-      
+
       promise2.then(function(value) {
         res.send(value);
       });
@@ -58,18 +58,17 @@ app.get('/client', function(req, res){
     let promise2 = new Promise(function(resolve, reject) {
 
         resolve({
-                foundFromClient: foundFromClient, 
+                foundFromClient: foundFromClient,
                 parameters: global.parameters
             });
 
         console.log('resolve - parameters', global.parameters);
       });
-      
+
       promise2.then(function(value) {
         res.send(value);
       });
 });
-
 
 app.get('/demo', function (req, res) {
     res.sendFile(path.join(__dirname + '/html/demo.html'));
@@ -90,11 +89,11 @@ app.get('/edit', function (req, res, next) {
         resolve(html);
         console.log('resolve(html)');
       });
-      
+
       promise1.then(function(value) {
         res.send(value);
       });
-   
+
 });
 
 app.get('/download/:file(*)', function (req, res) {
@@ -116,20 +115,20 @@ function run(content, params) {
     foundFromClient = [];
     $(params).each(function(i, element){
         console.log(element);
-        
+
         var a = $(this);
         var elemClass = $('.'+element).text();
         var elemDiv = $(element).text();
-      
+
         console.log(elemClass, elemDiv);
 
         foundFromClient.push(elemClass);
         foundFromClient.push(elemDiv);
     });
-  
+
     saveData(foundFromClient, 'foundFromClient');
     return foundFromClient;
-};
+}
 
 function saveData(logToSave, filename) {
     if (this.parameters === 2){
@@ -143,7 +142,7 @@ function saveData(logToSave, filename) {
             console.log('log ' + ' saved');
         }
       });
-};
+}
 
 function saveToLogFile(logToSave) {
     startDate = Date.now();
@@ -167,16 +166,16 @@ function saveToLogFile(logToSave) {
             });
         }
       });
-};
+}
 
 app.post('/params', (req, res)=>{
 
     let urlFromClient = req.body.url;
-    
+
 
     parameters = req.body.parameters.split(',');
     console.log('parameters1', parameters);
-   
+
 
     (async (parameters) => {
         try {
@@ -184,15 +183,15 @@ app.post('/params', (req, res)=>{
                 headless: true
             });
             const page2 = await browser.newPage();
-            
+
             try {
                 await page2.goto('https://' + urlFromClient, {
                     waitUntil: 'networkidle2'
-                });    
+                });
             } catch (error) {
                 console.log(error);
             }
-           
+
             await page2.setViewport({ width: 1280, height: 800 });
             await page2.waitForSelector('img');
 
@@ -200,7 +199,7 @@ app.post('/params', (req, res)=>{
 
             // imgUrlList = await page2.evaluateHandle(mine(parameters));
 
-            html = await page.content();  
+            html = await page.content();
             htmlJson = Array.from(html)
 
             console.log('got(html)', htmlJson);
@@ -209,29 +208,29 @@ app.post('/params', (req, res)=>{
                 parameters.forEach((elm)=>{
                     let find = document.querySelectorAll(`[class$="${elm}"]`);
                     find = Array.from(find);
-    
+
                     console.log('find', find);
-    
+
                     div = Array.from(document.querySelectorAll('span'));
                     div.forEach((d)=>{
                         if (d.textContent && d.textContent.contains(`"${elm}`)){
                             d.style.background = 'gold';
                         };
                     });
-    
+
                     if (find.length === 0){
-    
+
                     };
                 });
                 return find;
 
-            };
+            }
 
         } catch(e){
             console.log(e);
-        };
+        }
     })(parameters);
-    
+
 });
 
 function getSite( req, res ) {
@@ -241,17 +240,17 @@ function getSite( req, res ) {
     if (typeof req == 'string'){
         urlFromClient = req;
     } else {
-        urlFromClient = req.body.url;  
+        urlFromClient = req.body.url;
     }
-    
+
     if (res.length > 0){
-        parameters = res;  
+        parameters = res;
     } else if (req.body){
-        parameters = req.body.parameters.split(',')   
+        parameters = req.body.parameters.split(',')
     }
 
 
-     
+
     global.parameters = parameters || '';
 
     const go = async (parameters) => {
@@ -269,13 +268,13 @@ function getSite( req, res ) {
                 if (typeof temp == 'object' && temp.length == 2){
                     urlFromClient = temp[1];
                 }
-                
+
                 console.log(urlFromClient);
 
                 await page.goto('https://' + urlFromClient, {
                     waitUntil: 'networkidle2'
-                });    
-           
+                });
+
             await page.setViewport({ width: 1280, height: 800 });
             await page.waitForSelector('div');
 
@@ -290,7 +289,7 @@ function getSite( req, res ) {
                 repos.a = document.querySelectorAll('a');
 
                 repos.img = document.querySelectorAll('img');
-                
+
                 img = Array.from(repos.img);
                 h1 = Array.from(repos.h1);
                 h2 = Array.from(repos.h2);
@@ -320,25 +319,24 @@ function getSite( req, res ) {
                     parameters.forEach((elm)=>{
                         let find = document.querySelectorAll(`[class$="${elm}"]`);
                         find = Array.from(find);
-        
+
                         console.log('find', find);
-        
+
                         div = Array.from(document.querySelectorAll('span'));
                         div.forEach((d)=>{
                             if (d.textContent && d.textContent.contains(`"${elm}`)){
                                 d.style.background = 'gold';
                             };
                         });
-        
+
                         if (find.length === 0){
-        
+
                         };
                     });
                 }
-              
 
                 return {src, alt}
-                
+
             });
 
             htmlUrl = '//' + urlFromClient;
@@ -346,29 +344,29 @@ function getSite( req, res ) {
             let urlToFilename = urlFromClient;
             screenShotName = urlToFilename.replace(/\//g, '_');
 
-            
+
             await page.emulateMedia('screen');
             let png = './png/demo.png';
             await page.screenshot({ path: png, fullPage: true });
 
-            html = await page.content();  
+            html = await page.content();
             console.log('got(html)');
 
             res.send(html);
 
             run(html, parameters);
-                
+
             fs.writeFile("./html/demo.html", html, function(err) {
                 if(err) {
                     return console.log(err);
                 } else {
                     console.log("The file was saved!");
                 }
-            }); 
-                
+            });
+
             saveToLogFile(imgUrlList);
             saveData(html, 'html');
-          
+
             // saveToLogFile(html);
 
             await page.screenshot({ path: './png/demo.png', fullPage: true });
@@ -376,7 +374,7 @@ function getSite( req, res ) {
             let file = './pdf/demo.pdf';
             try {
                 let makeMYPDF = await page.pdf({
-                    path: file, 
+                    path: file,
                     format: 'A4',
                     margin: {
                       top: '1cm',
@@ -423,7 +421,6 @@ let download = function(uri, filename, callback){
     request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
   });
 };
-
 
 let port = process.env.PORT || 3000;
 

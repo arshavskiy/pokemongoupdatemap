@@ -89,7 +89,7 @@ function fire() {
     urlFromUser = url_to_scrap.value;
     parametersFromUser = parameters.value;
    
-    iframe2.style.display = 'block';
+    // iframe2.style.display = 'block';
 
     let temp = urlFromUser.split('https://')
                 if (typeof temp == 'object' && temp.length == 2){
@@ -101,13 +101,13 @@ function fire() {
                     } 
                 }
 
-    iframe2.src = '//' + urlFromUser;
+    // iframe2.src = '//' + urlFromUser;
    
-    iframe2.addEventListener("load", function () {
-        let data = iframe2.contentWindow.location.href;
-        console.log('contentWindow:', iframe2.contentWindow);
-        console.log('data', data);
-    });
+    // iframe2.addEventListener("load", function () {
+    //     let data = iframe2.contentWindow.location.href;
+    //     console.log('contentWindow:', iframe2.contentWindow);
+    //     console.log('data', data);
+    // });
 
     // iframeURLChange( iframe2, function (newURL) {
     //     console.log("URL changed:", newURL);
@@ -309,7 +309,7 @@ function params() {
 
 init = () => {
     iframe = document.getElementById('my_object_rendered');
-    iframe2 = document.getElementById('my_object_rendered2');
+    // iframe2 = document.getElementById('my_object_rendered2');
     let actionBtn = document.querySelector('#enter');
     let dataBtn = document.querySelector('#data');
     let downloadPng = document.querySelector('#download_png');

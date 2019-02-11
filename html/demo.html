@@ -1,404 +1,557 @@
-<!DOCTYPE html><html><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style><base href="/"><meta charset="utf-8"><title>Start Magazine</title><link rel="manifest" href="manifest.json"><meta name="description" content=""><link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="/assets/favicon_196_196.png"><meta name="theme-color" content="#000000"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name="theme-color" content="#000000"><style>.feed-loader,.slow{position:absolute;left:50%}#views-container,body,html{padding:0;margin:0;font-size:20px;background:#fff;font-family:Whitney,san-serif}body *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}@media only screen and (max-device-width:321px) and (-webkit-max-device-pixel-ratio:1){body,body>div,html{font-size:16px}}.loading-init{width:100%;height:100%}.feed-loader{top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.feed-loader .dot{width:10px;height:10px;border-radius:50%;float:left;margin:0 5px;-webkit-transform:scale(0);transform:scale(0);-webkit-animation:fx 1s ease infinite 0s;animation:fx 1s ease infinite 0s}.dot:nth-child(2){-webkit-animation:fx 1s ease infinite .5;animation:fx 1s ease infinite .5}.dot:nth-child(3){-webkit-animation:fx 1s ease infinite 0;animation:fx 1s ease infinite 0}@-webkit-keyframes fx{50%{-webkit-transform:scale(1);transform:scale(1);opacity:1}100%{opacity:0}}@keyframes fx{50%{-webkit-transform:scale(1);transform:scale(1);opacity:1}100%{opacity:0}}@supports (--height:100vh){.article-body-loading{width:100%;display:inline-block;height:calc(.5 * var(--height))}}.article-body-loading{width:100%;display:inline-block;height:101vh}.article-title-loading{height:4.5rem;padding:.5rem}.article-title-text-loading{width:100%;height:1.2rem;background:#e6e6e6;margin-bottom:.5rem}.article-text-loading{background-color:#e6e6e6;height:.5rem;margin:.8rem .5rem}.article-info-loading{background-color:#999;color:#fff;margin-bottom:1.2rem;height:2.8rem;padding-top:.2rem}.slow{top:65%;width:100%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);text-align:center;font-family:Whitney,Roboto,arial,serif;transition:all 250ms linear;opacity:0}.slow-fade-in{opacity:1}.slow-msg{color:#999;margin-bottom:27px}.slow-btn{border-radius:50px;background:#2196F3;color:#fff;display:inline-block;padding:10px 20px;font-size:17px;position:relative}</style><link rel="stylesheet" href="styles/desktop-92137b8799.css"><style>#interstitial {padding: 0px;position: fixed;width: 100%;height: 100%;top: 0;left: 0;text-align: center;background: rgba(0,0,0,0.85);z-index: 99999;opacity: 0;-webkit-transform-origin: 50% 0 0;transform-origin: 50% 0 0;transform: translateY(-100%);-webkit-transform: translateY(-100%);}</style><style>:root { --height: 640px;}</style><style>@font-face{font-family:"Whitney";font-weight:bold;font-style:normal;src: url("fonts/Whitney-Bold-ProGkCy.otf") format("opentype");}@font-face{font-family:"Whitney";font-weight:normal;font-style:italic;src: url("fonts/Whitney-BookItal-ProGkCy.otf") format("opentype");}@font-face{font-family:"Whitney";font-weight:lighter;font-style:normal;src: url("fonts/Whitney-Light-ProGkCy.otf") format("opentype");}@font-face{font-family:"Whitney";font-weight:lighter;font-style:italic;src: url("fonts/Whitney-LightItal-ProGkCy.otf") format("opentype");}</style><style>@font-face{font-family:"Whitney Medium";font-weight:normal;font-style:normal;src: url("fonts/Whitney-Medium-ProGkCy.otf") format("opentype");}</style><style>@font-face{font-family:"Whitney SemiBold";font-weight:normal;font-style:normal;src: url("fonts/Whitney-Semibld-ProGkCy.otf") format("opentype");}@font-face{font-family:"Whitney SemiBold";font-weight:normal;font-style:italic;src: url("fonts/Whitney-SemibldItal-ProGkCy.otf") format("opentype");}</style><style>@font-face{font-family:"Whitney Book";font-weight:normal;font-style:normal;src: url("fonts/Whitney-Book-ProGkCy.otf") format("opentype");}</style></head><body ct-resize-watcher="" ng-app="StartMagazineApp" ng-controller="MainCtrl as vm"><div class="desktop-top-nav-bar"><div class="top-nav-bar--logo"><img src="/assets/favicon_128_128.png" style="border: 1px solid red; border-radius: 10px;"><span><a ng-click="gotoFeed()">START MAGAZINE</a></span></div><div class="desktop-top-nav-bar__language"><div class="desktop-language-picker"><div ng-show="!vm.toggle" class="desktop-language-picker__selection" ng-click="vm.toggle=!vm.toggle"><i class="desktop-language-picker__caret"></i><div class="desktop-language-picker__selected flag-icon-background flag-icon-squared flag-icon-us"></div></div><div ng-show="vm.toggle" class="desktop-language-picker__options-wrapper ng-hide"><ul><!----><li ng-repeat="country in vm.config.countries" class="flag-icon-background flag-icon-squared flag-icon-us" ng-click="vm.onCountrySelected(country)"></li><!----><li ng-repeat="country in vm.config.countries" class="flag-icon-background flag-icon-squared flag-icon-mx" ng-click="vm.onCountrySelected(country)"></li><!----><li ng-repeat="country in vm.config.countries" class="flag-icon-background flag-icon-squared flag-icon-ru" ng-click="vm.onCountrySelected(country)"></li><!----><li ng-repeat="country in vm.config.countries" class="flag-icon-background flag-icon-squared flag-icon-fr" ng-click="vm.onCountrySelected(country)"></li><!----><li ng-repeat="country in vm.config.countries" class="flag-icon-background flag-icon-squared flag-icon-de" ng-click="vm.onCountrySelected(country)"></li><!----><li ng-repeat="country in vm.config.countries" class="flag-icon-background flag-icon-squared flag-icon-hk" ng-click="vm.onCountrySelected(country)"></li><!----></ul></div></div></div><div class="desktop-top-nav-bar__nav"><ul><li><a href="https://www.thestartmagazine.com/developers/">Developers</a></li><li><a href="http://www.celltick.com/products/start-magazine/">About</a></li></ul></div></div><ct-global-notification><!----></ct-global-notification><!----><div id="menus-container" ui-view="menu"><div>
-	<div class="feed-top-menu clearfix">
-		<div class="feed-top-menu__wrapper" ng-class="menu.feedState.menuHidden ? 'hidden' : ''">
-			<div class="pull-left">
-				<!---->
-				<!----><i class="ct-icon-menu" ng-click="menu.onMenuToggle()" analytics-event="Menu Toggle" analytics-category="Feed Menu" ng-if="menu.availableCategories"></i><!---->
-				<!----><i ng-class="[menu.toggled || !menu.availableCategories ? '' : 'hidden', menu.availableCategories ? 'ct-icon-settings': 'ct-icon-settings-menu']" ng-if="menu.settings.available" ng-click="menu.onSettingsToggle()" analytics-event="Settings" analytics-category="Feed Menu" class="hidden ct-icon-settings"></i><!---->
-			</div>
-			<div class="pull-right">
-				<!---->
-				<!---->
-				<i class="ct-icon-forward none" ng-class="menu.toggled ? '' : 'none'" ng-click="menu.onMenuToggle()" analytics-event="Menu Closed (back)" analytics-category="Feed Menu"></i>
-				<!---->
-				<!---->
-			</div>
-			<div class="start-logo" ng-class="!menu.toggled ? '' : 'hidden'" ng-click="menu.onLogoPressed()"></div>
-		</div>
-	</div>
-	<!---->
-	<!---->
-	<!---->
-</div></div><!----><div id="views-container" class="article-container" view-animations="" ui-view="content"><div>
-	<div ng-style="vm.pullToRefreshStyle" style="position: absolute; background-color: rgb(0, 0, 0); width: 100%; z-index: 9999; height: 60px; transform: translate3d(0px, -100%, 9999px);"><div ng-style="vm.pullToRefreshLoaderStyle" style="position: absolute; height: 60px; bottom: 0px; left: 0px; width: 100%; opacity: 0; transition: opacity 350ms linear 0s;"><div class="feed-loader">
-	<div class="dot" style="background-color: rgb(129, 199, 132);"></div>
-	<div class="dot" style="background-color: rgb(255, 183, 77);"></div>
-	<div class="dot" style="background-color: rgb(244, 67, 54);"></div>
-</div></div></div>
-	<div class="feed-container" infinite-scroll="vm.loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="!vm.fetchCompleted || !vm.init" ng-style="feedState.feedContainerStyle" ng-animate-children="true" hm-panstart="vm.onPanStart" hm-pan="vm.onPan" hm-panend="vm.onPanEnd" hm-manager-options="{&quot;enabled&quot;:true, &quot;domEvents&quot;: true, &quot;touchAction&quot;: &quot;pan-y&quot;}" hm-recognizer-options="{&quot;preventDefault&quot;: false, &quot;stopPropagation&quot;: false}" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-		<!----><div ng-repeat="box in vm.feed.feedStream track by $index" ng-switch="box.type" class="ct-animate box-repeat-wrapper box-1-animation" ng-class="box.playAnimation ? 'box-1-animation' : ''" ng-style="box.boxStyle" style="">
-			<!----><div class="box-container box-1 clearfix" data-type="item" ng-switch-when="1" box-items="box.boxItems" ids="box.ids" category-name="vm.feed.getCategoryName()" play-animation="box.playAnimation" data-box-index="1" data-box-template-type="box_1">
-	<div class="pull-left box box-col-1 box-row-2" style="background-color: rgb(255, 183, 77);">
-		<div box-item="boxItems[0]" data-box-item-index="1" category-name="categoryName" content="v" data-type="feed_item" data-box-template-type="box_1" data-content-id="4d31b1f5-43f6-4437-ae97-27b29f258d60" data-content-provider="CNN_Global" data-content-type="article" data-recommendation-id="TIME_BL" data-box-index="1" style="width: 100%; height: 100%; position: relative;" data-in-view="true"><div class="box-item-vertical" ng-style="vm.article.feedStyle" ng-click="vm.onClick($event)" data-contentid="4d31b1f5-43f6-4437-ae97-27b29f258d60" data-content-type="article" data-recomender-id="TIME_BL" box-item="boxItem" category-name="categoryName" style="background: linear-gradient(to top, rgb(0, 0, 0) 0px, rgba(0, 0, 0, 0) 52%), url(&quot;https://imageca1.thestartmagazine.com/fetch/d_magazineDefault.jpg,c_fill,g_auto,fl_lossy,q_60,w_1080,h_320/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F130404134144-degette-video-synd-2.jpg&quot;) 50% 0px / cover no-repeat; position: relative;">
-	<div class="box-item-vertical__footer">
-		<!---->
-		<div class="box-item-vertical__footer__title">
-			<span>House panel requests additional documents on family separation</span>
-		</div>
-		<!----><div class="box-item-vertical__footer__category-decoration" ng-if="!verticalLarge || (showSummary &amp;&amp; vm.article.title !== vm.article.summary)"></div><!---->
-		<!----><div ng-if="!verticalLarge" class="box-item-vertical__footer__category" ng-click="vm.openCategory($event)">News</div><!---->
-		<!---->
-	</div>
-	<!----><div ng-if="!verticalLarge">
-		<!---->
-		<!----><i ng-if="!$root.readingListEnabled" class="box-item-vertical__footer__read-later-btn ct-icon-heart" ng-class="(vm.heartToggled ? 'ct-icon-heart-full' : 'ct-icon-heart')" ng-click="vm.onHeart($event)"></i><!---->
-	</div><!---->
-</div></div>
-	</div>
-	<div class="pull-left ct-animate box box-col-1 box-row-2" style="background-color: rgb(100, 181, 246);">
-		<div box-item="boxItems[1]" data-box-item-index="2" category-name="categoryName" content="v" data-type="feed_item" data-box-template-type="box_1" data-content-id="39388a53-4c5a-4207-95c3-caf28b4b5221" data-content-provider="Refinery29_US" data-content-type="article" data-recommendation-id="TIME_BL" data-box-index="1" style="width: 100%; height: 100%; position: relative;" data-in-view="true"><div class="box-item-vertical" ng-style="vm.article.feedStyle" ng-click="vm.onClick($event)" data-contentid="39388a53-4c5a-4207-95c3-caf28b4b5221" data-content-type="article" data-recomender-id="TIME_BL" box-item="boxItem" category-name="categoryName" style="background: linear-gradient(to top, rgb(0, 0, 0) 0px, rgba(0, 0, 0, 0) 52%), url(&quot;https://imageca2.thestartmagazine.com/fetch/d_magazineDefault.jpg,c_fill,g_auto,fl_lossy,q_60,w_1080,h_320/https://s3.r29static.com//bin/entry/a65/1200x900%2C80/2120229/image.jpg&quot;) 50% 0px / cover no-repeat; position: relative;">
-	<div class="box-item-vertical__footer">
-		<!---->
-		<div class="box-item-vertical__footer__title">
-			<span>Pink Lingerie Is The New Red This Valentine's Day</span>
-		</div>
-		<!----><div class="box-item-vertical__footer__category-decoration" ng-if="!verticalLarge || (showSummary &amp;&amp; vm.article.title !== vm.article.summary)"></div><!---->
-		<!----><div ng-if="!verticalLarge" class="box-item-vertical__footer__category" ng-click="vm.openCategory($event)">Fashion</div><!---->
-		<!---->
-	</div>
-	<!----><div ng-if="!verticalLarge">
-		<!---->
-		<!----><i ng-if="!$root.readingListEnabled" class="box-item-vertical__footer__read-later-btn ct-icon-heart" ng-class="(vm.heartToggled ? 'ct-icon-heart-full' : 'ct-icon-heart')" ng-click="vm.onHeart($event)"></i><!---->
-	</div><!---->
-</div></div>
-	</div>
-	<div class="pull-left ct-animate box box-col-2 box-row-1" style="background-color: rgb(244, 67, 54);">
-		<div box-item="boxItems[2]" data-box-item-index="3" category-name="categoryName" content="h" data-type="feed_item" data-box-template-type="box_1" data-content-id="c1b754ff-1aac-4f0d-bbb4-c30ea2b674b1" data-content-provider="BangShowbiz" data-content-type="article" data-recommendation-id="TIME_BL" data-box-index="1" style="width: 100%; height: 100%; position: relative;" data-in-view="false"><div class="box-item-horizontal" ng-style="vm.article.feedStyle" ng-click="vm.onClick($event)" data-content-type="article" data-contentid="c1b754ff-1aac-4f0d-bbb4-c30ea2b674b1" data-recomender-id="TIME_BL" box-item="boxItem" category-name="categoryName" style="background: linear-gradient(to top, rgb(0, 0, 0) 0px, rgba(0, 0, 0, 0) 52%), url(&quot;https://imageca3.thestartmagazine.com/upload/d_magazineDefault.jpg,c_fill,g_auto,fl_lossy,q_60,w_1080,h_320/v1549402616/bangshowbiz_1762338.jpg&quot;) 50% 0px / cover no-repeat; position: relative;">
-	<div class="box-item-horizontal__footer">
-		<div class="box-item-horizontal__footer__category" ng-click="vm.openCategory($event)">Entertainment</div>
-		<div class="box-item-horizontal__footer__category-decoration"></div>
-		<div class="box-item-horizontal__footer__title"><span>Brie Larson: Jennifer Lawrence gave me Oscars advice</span></div>		
-	</div>
-	<!---->
-	<!----><i ng-if="!$root.readingListEnabled" class="box-item-horizontal__footer__read-later-btn ct-icon-heart" ng-class="(vm.heartToggled ? 'ct-icon-heart-full' : 'ct-icon-heart')" ng-click="vm.onHeart($event)"></i><!---->
-</div></div>
-	</div>	
-</div><!---->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
-			<!-- content breakers -->
-			<!---->
-			<!--<world cup widgets>-->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
+<!DOCTYPE html><html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
 
-			<!--</world cup widgets>-->
-			<!-- <ct-yahoo ng-switch-when="cb_yahoo" ad-format="{{box.adFormat}}" ad-slot="{{box.adSlot}}" data-box-index="{{$index+1}}" data-box-template-type="cb_yahoo" class="ct_ad" data-vendor="Yahoo" ng-click="onAdClick($event)" data-type="ad_item"></ct-yahoo>
-			<ct-playbuzz ng-switch-when="cb_playbuzz" data-box-index="{{$index+1}}" data-box-template-type="cb_playbuzz" class="ct_ad" data-vendor="Playbuzz" ng-click="onAdClick($event)" style="max-height: 43rem; overflow: hidden; display: block;" data-type="ad_item"></ct-playbuzz> -->
-			<!---->
-            <!---->
-<!-- 			<ct-google-adsense ng-switch-when="cb_dfp" ad-format="{{box.adFormat}}" ad-slot="{{box.adSlot}}" data-box-index="{{$index}}" data-box-template-type="cb_dfp" class="ct_ad" vendor="DFP" ng-click="onAdClick($event)">
-			</ct-google-adsense>  -->
- 			<!---->
-			<!---->
-			<!---->
+<title>הכרויות לעשירים | שוגר דדי | ריצ'דייט</title>
+<meta name="description" content="ריצ'דייט הוא אתר הכרויות ייחודי המיועד לגברים עשירים ונשים יפות בלבד. מחפשת שוגר דדי? רוצה לפגוש נשים אטרקטיביות? בריצ'דייט מאגר איכותי של גברים אמידים ונשים יפהפיות.">
+<meta name="keywords" content="הכרויות | היכרויות | אתר הכרויות | הכרויות לעשירים | גבר עשיר | ריצ'דייט">
+<meta name="rating" content="General">
+<meta name="Distribution" content="Global">
+<meta name="Robots" content="All">
+<meta name="abstract" content="שהכרויות | היכרויות | אתר הכרויות | הכרויות לעשירים | גבר עשיר | ריצ'דייט">
+<link href="/css/stylenewest.css" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="js/owl/owl.carousel.css">
+<script type="text/javascript" src="/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="/js/owl/owl.carousel.js"></script>
+<script type="text/javascript" src="/js/all.js"></script>
 
-			<!---->
-			<!---->
-		</div><!----><div ng-repeat="box in vm.feed.feedStream track by $index" ng-switch="box.type" class="ct-animate box-repeat-wrapper" ng-class="box.playAnimation ? 'box-1-animation' : ''" ng-style="box.boxStyle" style="">
-			<!---->
-			<!---->
-			<!---->
-			<!----><div class="box-container box-4 clearfix" ng-switch-when="4" box-items="box.boxItems" ids="box.ids" category-name="vm.feed.getCategoryName()" data-box-index="2" data-box-template-type="box_4">
-	<div class="pull-left box box-col-2 box-row-2" style="background-color: rgb(77, 208, 225);">
-		<div box-item="boxItems[0]" category-name="categoryName" data-box-item-index="1" content="h" data-type="feed_item" data-box-template-type="box_4" data-content-id="0292d8c8-65be-4b0f-8ba5-1d1bd3bde1bb" data-content-provider="Reuters" data-content-type="article" data-recommendation-id="TIME_BL" data-box-index="2" style="width: 100%; height: 100%; position: relative;" data-in-view="true"><div class="box-item-horizontal" ng-style="vm.article.feedStyle" ng-click="vm.onClick($event)" data-content-type="article" data-contentid="0292d8c8-65be-4b0f-8ba5-1d1bd3bde1bb" data-recomender-id="TIME_BL" box-item="boxItem" category-name="categoryName" style="background: linear-gradient(to top, rgb(0, 0, 0) 0px, rgba(0, 0, 0, 0) 52%), url(&quot;https://imageca3.thestartmagazine.com/upload/d_magazineDefault.jpg,c_fill,g_auto,fl_lossy,q_60,w_1080,h_320/v1549402160/reuters_tag:reuters.com%2C2019:newsml_LYNXNPEF141M5:1.jpg&quot;) 50% 0px / cover no-repeat; position: relative;">
-	<div class="box-item-horizontal__footer">
-		<div class="box-item-horizontal__footer__category" ng-click="vm.openCategory($event)">Finance</div>
-		<div class="box-item-horizontal__footer__category-decoration"></div>
-		<div class="box-item-horizontal__footer__title"><span>For Fed chairs, White House summons are typical, though not always welcome</span></div>		
+<style>
+	.toph1{
+		text-align:center;
+		margin:5px auto;
+		max-width:1800px;
+	}
+	.toph1 h1{
+		font-size:14px;
+		display: inline-block;
+		font-weight:normal;
+	}
+	.toph1 hr {
+		display: inline-block;
+		height: 1px;
+		width: 120px;
+		border: 0px;
+		background: #1c1c1c;
+		margin: 4px;
+	}
+	</style>
+</head>
+<body data-userway-font-size="22">
+		<div class="userway userway_p5" style="background-color: transparent !important;"><div class="userway_accessibility_icon userway_dark" role="button" aria-label="This website uses the UserWay accessibility widget." aria-describedby="userway_accessibility_intro" tabindex="0"><span id="userway_accessibility_intro" class="userway-screen-reader-text">Hit Control U on your keyboard to enable the widget and keyboard navigation.</span> <img class="userway_icon_white" aria-hidden="true" alt="Icon of a person: decorative" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxMjEuODFweCIgaGVpZ2h0PSIxMjEuNzkycHgiIHZpZXdCb3g9IjAgMCAxMjEuODEgMTIxLjc5MiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTIxLjgxIDEyMS43OTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik02MS44MTksMC4wMDRDMjcuOTc2LTAuMzk1LDAuMTYsMjYuMjk4LDAuMDAxLDYwLjQ2OWMtMC4xNTgsMzMuOTc0LDI3LjA2LDYxLjMyMyw2MC43MzEsNjEuMzIzYzMzLjc0NiwwLjAwOSw2MC45NjQtMjYuOTIzLDYxLjA3Ny02MC42M0MxMjEuOTI0LDI3LjI1Miw5NC44OSwwLjM5NCw2MS44MTksMC4wMDR6IE02MC4zNiwxMDkuOTczYy0yNy4wNzYtMC4xMy00OC42NC0yMi4wOTEtNDguNjQtNDguOTY2QzExLjcwNywzMy45NjgsMzMuMjUsMTEuOTEsNjAuMzE5LDExLjU5MWMyNy42Ny0wLjMyNSw0OS44MDYsMjIuMDksNDkuNzg1LDQ5LjM2OUMxMTAuMDgzLDg4LjM4NCw4OC4xNjMsMTEwLjEwNiw2MC4zNiwxMDkuOTczeiIvPjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik05MS44NTQsNDIuODM1Yy0wLjg0OS0wLjM0MS0xLjczNi0wLjQzNC0yLjYzNy0wLjQyNWMtNC4wMjUsMC4wNDMtOC4wMjMsMC41MDMtMTIuMDI5LDAuODE3Yy04LjEwOSwwLjYzNi0xNi4yMjIsMS4wNTMtMjQuMzU0LDAuNjNjLTYuNzU2LTAuMzUxLTEzLjUwNy0wLjgwMi0yMC4yNjEtMS4xOWMtMC40LTAuMDIzLTAuNTQ4LTAuMjMyLTAuNzA3LTAuNTE2Yy0wLjEzNC0wLjIzOS0wLjI1MS0wLjQzLTAuNTc0LTAuMTQ3Yy0wLjY5NiwwLjYwOC0xLjQ4MSwxLjEyLTIuMTQxLDEuNzYyYy0xLjM3OSwxLjM0MS0xLjA3NiwzLjAyNywwLjY1OCwzLjg4YzAuOTE5LDAuNDUyLDEuOTIzLDAuNjM0LDIuOTI0LDAuNzQ4YzQuMjgyLDAuNDg5LDguNTg4LDAuNjk2LDEyLjg4MSwxLjA1MWMyLjIxMywwLjE4Myw0LjQ2MiwwLjA3Niw2LjYyOCwwLjY4NmMxLjgwOSwwLjUxLDIuNjg4LDEuNjM4LDIuNzg5LDMuNTE1YzAuMDI1LDAuNDYxLDAuMDM4LDAuOTI5LTAuMDExLDEuMzg3Yy0wLjIxOSwyLjAxMS0wLjQ1NSw0LjAyMS0wLjY5OCw2LjAzYy0wLjY1Niw1LjM5Ni0xLjQ1NywxMC43NjgtMi42OTUsMTYuMDY3Yy0xLjM5Miw1Ljk2Mi0zLjIwOSwxMS44MTMtNC42NjIsMTcuNzZjLTAuMjI1LDAuOTItMC4xNDIsMS43NTIsMC4xNzMsMi42MmMwLjYzNiwxLjc1NiwwLjYwNSwxLjY4LDIuNDMsMS4zODJjMi4xODktMC4zNTcsMy40MTctMS41NjYsNC4xNDctMy42NGMxLjk5OC01LjY3NiwzLjQ2LTExLjQ5MSw0Ljc3OS0xNy4zNDljMC40MjItMS44NzQsMC44NjUtMy43MzQsMi41ODctNC45OTRjMC43MDksMS4wOTgsMS44MjksMS45MzQsMi4xOCwzLjM0MmMxLjU2NSw2LjI3NCwzLjI5MSwxMi41MDUsNS4xNTEsMTguNjk5YzAuNDIsMS40MDEsMS4xMzMsMi42NjUsMi4yMzQsMy42NTZjMS4wNzcsMC45NywyLjM3NCwwLjkwMiwzLjU5NCwwLjQ0NWMxLjAxNi0wLjM4LDEuMDUxLTEuNDQ1LDEuMDk3LTIuMzY1YzAuMDY0LTEuMjk4LTAuNDE1LTIuNS0wLjgzLTMuNjk2Yy0zLjg1NC0xMS4xMTUtNi4yNDktMjIuNTMzLTcuMDkyLTM0LjI2N2MtMC4xMjgtMS43ODEtMC4zMjktMy41NjgtMC4wNzMtNS4zNjZjMC4yNzctMS45NSwxLjE5NS0zLjA2LDMuMTAyLTMuNjE3YzAuOTI1LTAuMjcsMS44NzUtMC4zNDksMi44MjYtMC40MDFjNC44NzktMC4yNjcsOS43Ni0wLjUxNCwxNC42NC0wLjc3N2MxLjQ4LTAuMDgsMi45MzgtMC4yODksNC4yNTUtMS4wMzdjMC44OS0wLjUwNiwxLjQ3Mi0xLjI0OCwxLjQxNS0yLjMxMkM5My41MTksNDQuMDc2LDkyLjkzMiw0My4yNjgsOTEuODU0LDQyLjgzNXoiLz48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNNjAuODM2LDQwLjY0NmM1LjU5OSwwLjAzMiwxMC4wMzYtNC4zNjIsMTAuMDY4LTkuOTY5YzAuMDMyLTUuNTMzLTQuMzYxLTEwLjA4Ni05Ljc1NS0xMC4xMTJjLTUuNjc4LTAuMDI3LTEwLjIzOCw0LjM2LTEwLjI3LDkuODgxQzUwLjg0NiwzNi4xMDEsNTUuMjUxLDQwLjYxNCw2MC44MzYsNDAuNjQ2eiIvPjwvZz48L3N2Zz4=" style="border: 1px solid red; border-radius: 10px;"> <img class="userway_icon_black" aria-hidden="true" alt="Icon of a person: decorative" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxMjEuODFweCIgaGVpZ2h0PSIxMjEuNzkycHgiIHZpZXdCb3g9IjAgMCAxMjEuODEgMTIxLjc5MiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTIxLjgxIDEyMS43OTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwYXRoIGZpbGw9IiMwMDAwMDAiIGQ9Ik02MS44MTksMC4wMDRDMjcuOTc2LTAuMzk1LDAuMTYsMjYuMjk4LDAuMDAxLDYwLjQ2OWMtMC4xNTgsMzMuOTc0LDI3LjA2LDYxLjMyMyw2MC43MzEsNjEuMzIzYzMzLjc0NiwwLjAwOSw2MC45NjQtMjYuOTIzLDYxLjA3Ny02MC42M0MxMjEuOTI0LDI3LjI1Miw5NC44OSwwLjM5NCw2MS44MTksMC4wMDR6IE02MC4zNiwxMDkuOTczYy0yNy4wNzYtMC4xMy00OC42NC0yMi4wOTEtNDguNjQtNDguOTY2QzExLjcwNywzMy45NjgsMzMuMjUsMTEuOTEsNjAuMzE5LDExLjU5MWMyNy42Ny0wLjMyNSw0OS44MDYsMjIuMDksNDkuNzg1LDQ5LjM2OUMxMTAuMDgzLDg4LjM4NCw4OC4xNjMsMTEwLjEwNiw2MC4zNiwxMDkuOTczeiIvPjxwYXRoIGZpbGw9IiMwMDAwMDAiIGQ9Ik05MS44NTQsNDIuODM1Yy0wLjg0OS0wLjM0MS0xLjczNi0wLjQzNC0yLjYzNy0wLjQyNWMtNC4wMjUsMC4wNDMtOC4wMjMsMC41MDMtMTIuMDI5LDAuODE3Yy04LjEwOSwwLjYzNi0xNi4yMjIsMS4wNTMtMjQuMzU0LDAuNjNjLTYuNzU2LTAuMzUxLTEzLjUwNy0wLjgwMi0yMC4yNjEtMS4xOWMtMC40LTAuMDIzLTAuNTQ4LTAuMjMyLTAuNzA3LTAuNTE2Yy0wLjEzNC0wLjIzOS0wLjI1MS0wLjQzLTAuNTc0LTAuMTQ3Yy0wLjY5NiwwLjYwOC0xLjQ4MSwxLjEyLTIuMTQxLDEuNzYyYy0xLjM3OSwxLjM0MS0xLjA3NiwzLjAyNywwLjY1OCwzLjg4YzAuOTE5LDAuNDUyLDEuOTIzLDAuNjM0LDIuOTI0LDAuNzQ4YzQuMjgyLDAuNDg5LDguNTg4LDAuNjk2LDEyLjg4MSwxLjA1MWMyLjIxMywwLjE4Myw0LjQ2MiwwLjA3Niw2LjYyOCwwLjY4NmMxLjgwOSwwLjUxLDIuNjg4LDEuNjM4LDIuNzg5LDMuNTE1YzAuMDI1LDAuNDYxLDAuMDM4LDAuOTI5LTAuMDExLDEuMzg3Yy0wLjIxOSwyLjAxMS0wLjQ1NSw0LjAyMS0wLjY5OCw2LjAzYy0wLjY1Niw1LjM5Ni0xLjQ1NywxMC43NjgtMi42OTUsMTYuMDY3Yy0xLjM5Miw1Ljk2Mi0zLjIwOSwxMS44MTMtNC42NjIsMTcuNzZjLTAuMjI1LDAuOTItMC4xNDIsMS43NTIsMC4xNzMsMi42MmMwLjYzNiwxLjc1NiwwLjYwNSwxLjY4LDIuNDMsMS4zODJjMi4xODktMC4zNTcsMy40MTctMS41NjYsNC4xNDctMy42NGMxLjk5OC01LjY3NiwzLjQ2LTExLjQ5MSw0Ljc3OS0xNy4zNDljMC40MjItMS44NzQsMC44NjUtMy43MzQsMi41ODctNC45OTRjMC43MDksMS4wOTgsMS44MjksMS45MzQsMi4xOCwzLjM0MmMxLjU2NSw2LjI3NCwzLjI5MSwxMi41MDUsNS4xNTEsMTguNjk5YzAuNDIsMS40MDEsMS4xMzMsMi42NjUsMi4yMzQsMy42NTZjMS4wNzcsMC45NywyLjM3NCwwLjkwMiwzLjU5NCwwLjQ0NWMxLjAxNi0wLjM4LDEuMDUxLTEuNDQ1LDEuMDk3LTIuMzY1YzAuMDY0LTEuMjk4LTAuNDE1LTIuNS0wLjgzLTMuNjk2Yy0zLjg1NC0xMS4xMTUtNi4yNDktMjIuNTMzLTcuMDkyLTM0LjI2N2MtMC4xMjgtMS43ODEtMC4zMjktMy41NjgtMC4wNzMtNS4zNjZjMC4yNzctMS45NSwxLjE5NS0zLjA2LDMuMTAyLTMuNjE3YzAuOTI1LTAuMjcsMS44NzUtMC4zNDksMi44MjYtMC40MDFjNC44NzktMC4yNjcsOS43Ni0wLjUxNCwxNC42NC0wLjc3N2MxLjQ4LTAuMDgsMi45MzgtMC4yODksNC4yNTUtMS4wMzdjMC44OS0wLjUwNiwxLjQ3Mi0xLjI0OCwxLjQxNS0yLjMxMkM5My41MTksNDQuMDc2LDkyLjkzMiw0My4yNjgsOTEuODU0LDQyLjgzNXoiLz48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNNjAuODM2LDQwLjY0NmM1LjU5OSwwLjAzMiwxMC4wMzYtNC4zNjIsMTAuMDY4LTkuOTY5YzAuMDMyLTUuNTMzLTQuMzYxLTEwLjA4Ni05Ljc1NS0xMC4xMTJjLTUuNjc4LTAuMDI3LTEwLjIzOCw0LjM2LTEwLjI3LDkuODgxQzUwLjg0NiwzNi4xMDEsNTUuMjUxLDQwLjYxNCw2MC44MzYsNDAuNjQ2eiIvPjwvZz48L3N2Zz4=" style="border: 1px solid red; border-radius: 10px;"><div class="userway_preloader_spinner"><img class="spinner_icon_black" aria-hidden="true" alt="Spinner: decorative" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDAiIHdpZHRoPSI0MCIKICAgICB2ZXJzaW9uPSIxLjEiIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIKICAgICB2aWV3Qm94PSIwIDAgNDAuMDAwMDAxIDQwLjAwMDAwMSI+CiAgICA8Zz4KICAgICAgICA8Y2lyY2xlIHN0cm9rZS13aWR0aD0iMCIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09InNjYWxlKC0xLDEpIiBjeT0iNS4yMjI3IiBjeD0iLTIwLjAzMyIgcj0iMy41MzkxIiBmaWxsPSIjMDAwMDAwIi8+CiAgICA8L2c+CiAgICA8ZyBvcGFjaXR5PSIuOSI+CiAgICAgICAgPGNpcmNsZSBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGN4PSItMi41MDMzIiB0cmFuc2Zvcm09Im1hdHJpeCgtLjc2NjA0IC42NDI3OSAuNjQyNzkgLjc2NjA0IDAgMCkiIGN5PSIxMy4zODciIHI9IjMuNTM5MSIgc3Ryb2tlLXdpZHRoPSIwIiBmaWxsPSIjMDAwMDAwIi8+CiAgICA8L2c+CiAgICA8ZyBvcGFjaXR5PSIuOCI+CiAgICAgICAgPGNpcmNsZSBzdHJva2Utd2lkdGg9IjAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgdHJhbnNmb3JtPSJtYXRyaXgoLS4xNzM2NSAuOTg0ODEgLjk4NDgxIC4xNzM2NSAwIDApIiBjeT0iOC4zNzIyIiBjeD0iMTYuMTczIiByPSIzLjUzOTEiIGZpbGw9IiMwMDAwMDAiLz4KICAgIDwvZz4KICAgIDxnIG9wYWNpdHk9Ii43Ij4KICAgICAgICA8Y2lyY2xlIGZpbGwtcnVsZT0iZXZlbm9kZCIgY3g9IjI3LjI1NyIgdHJhbnNmb3JtPSJtYXRyaXgoLjUgLjg2NjAzIC44NjYwMyAtLjUgMCAwKSIgY3k9Ii03LjQ3NCIgcj0iMy41MzkxIiBzdHJva2Utd2lkdGg9IjAiIGZpbGw9IiMwMDAwMDAiLz4KICAgIDwvZz4KICAgIDxnIG9wYWNpdHk9Ii42Ij4KICAgICAgICA8Y2lyY2xlIHN0cm9rZS13aWR0aD0iMCIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09Im1hdHJpeCguOTM5NjkgLjM0MjAyIC4zNDIwMiAtLjkzOTY5IDAgMCkiIGN5PSItMjYuNzM4IiBjeD0iMjUuNTYyIiByPSIzLjUzOTEiIGZpbGw9IiMwMDAwMDAiLz4KICAgIDwvZz4KICAgIDxnIG9wYWNpdHk9Ii41Ij4KICAgICAgICA8Y2lyY2xlIGZpbGwtcnVsZT0iZXZlbm9kZCIgY3g9IjExLjg4MSIgdHJhbnNmb3JtPSJtYXRyaXgoLjkzOTY5IC0uMzQyMDIgLS4zNDIwMiAtLjkzOTY5IDAgMCkiIGN5PSItNDAuNDA1IiByPSIzLjUzOTEiIHN0cm9rZS13aWR0aD0iMCIgZmlsbD0iIzAwMDAwMCIvPgogICAgPC9nPgogICAgPGcgb3BhY2l0eT0iLjQiPgogICAgICAgIDxjaXJjbGUgc3Ryb2tlLXdpZHRoPSIwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHRyYW5zZm9ybT0ibWF0cml4KC41IC0uODY2MDMgLS44NjYwMyAtLjUgMCAwKSIgY3k9Ii00Mi4wODEiIGN4PSItNy4zODM4IiByPSIzLjUzOTEiIGZpbGw9IiMwMDAwMDAiLz4KICAgIDwvZz4KICAgIDxnIG9wYWNpdHk9Ii4zIj4KICAgICAgICA8Y2lyY2xlIGZpbGwtcnVsZT0iZXZlbm9kZCIgY3g9Ii0yMy4yMTkiIHRyYW5zZm9ybT0ibWF0cml4KC0uMTczNjUgLS45ODQ4MSAtLjk4NDgxIC4xNzM2NSAwIDApIiBjeT0iLTMwLjk4MSIgcj0iMy41MzkxIiBzdHJva2Utd2lkdGg9IjAiIGZpbGw9IiMwMDAwMDAiLz4KICAgIDwvZz4KICAgIDxnIG9wYWNpdHk9Ii4yIj4KICAgICAgICA8Y2lyY2xlIHN0cm9rZS13aWR0aD0iMCIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09Im1hdHJpeCgtLjc2NjA0IC0uNjQyNzkgLS42NDI3OSAuNzY2MDQgMCAwKSIgY3k9Ii0xMi4yOTkiIGN4PSItMjguMjE1IiByPSIzLjUzOTEiIGZpbGw9IiMwMDAwMDAiLz4KICAgIDwvZz4KPC9zdmc+" style="border: 1px solid red; border-radius: 10px;"> <img class="spinner_icon_white" aria-hidden="true" alt="Spinner: decorative" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDAiIHdpZHRoPSI0MCIKICAgICB2ZXJzaW9uPSIxLjEiIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIKICAgICB2aWV3Qm94PSIwIDAgNDAuMDAwMDAxIDQwLjAwMDAwMSI+CiAgICA8Zz4KICAgICAgICA8Y2lyY2xlIHN0cm9rZS13aWR0aD0iMCIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09InNjYWxlKC0xLDEpIiBjeT0iNS4yMjI3IiBjeD0iLTIwLjAzMyIgcj0iMy41MzkxIiBmaWxsPSIjZmZmZmZmIi8+CiAgICA8L2c+CiAgICA8ZyBvcGFjaXR5PSIuOSI+CiAgICAgICAgPGNpcmNsZSBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGN4PSItMi41MDMzIiB0cmFuc2Zvcm09Im1hdHJpeCgtLjc2NjA0IC42NDI3OSAuNjQyNzkgLjc2NjA0IDAgMCkiIGN5PSIxMy4zODciIHI9IjMuNTM5MSIgc3Ryb2tlLXdpZHRoPSIwIiBmaWxsPSIjZmZmZmZmIi8+CiAgICA8L2c+CiAgICA8ZyBvcGFjaXR5PSIuOCI+CiAgICAgICAgPGNpcmNsZSBzdHJva2Utd2lkdGg9IjAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgdHJhbnNmb3JtPSJtYXRyaXgoLS4xNzM2NSAuOTg0ODEgLjk4NDgxIC4xNzM2NSAwIDApIiBjeT0iOC4zNzIyIiBjeD0iMTYuMTczIiByPSIzLjUzOTEiIGZpbGw9IiNmZmZmZmYiLz4KICAgIDwvZz4KICAgIDxnIG9wYWNpdHk9Ii43Ij4KICAgICAgICA8Y2lyY2xlIGZpbGwtcnVsZT0iZXZlbm9kZCIgY3g9IjI3LjI1NyIgdHJhbnNmb3JtPSJtYXRyaXgoLjUgLjg2NjAzIC44NjYwMyAtLjUgMCAwKSIgY3k9Ii03LjQ3NCIgcj0iMy41MzkxIiBzdHJva2Utd2lkdGg9IjAiIGZpbGw9IiNmZmZmZmYiLz4KICAgIDwvZz4KICAgIDxnIG9wYWNpdHk9Ii42Ij4KICAgICAgICA8Y2lyY2xlIHN0cm9rZS13aWR0aD0iMCIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09Im1hdHJpeCguOTM5NjkgLjM0MjAyIC4zNDIwMiAtLjkzOTY5IDAgMCkiIGN5PSItMjYuNzM4IiBjeD0iMjUuNTYyIiByPSIzLjUzOTEiIGZpbGw9IiNmZmZmZmYiLz4KICAgIDwvZz4KICAgIDxnIG9wYWNpdHk9Ii41Ij4KICAgICAgICA8Y2lyY2xlIGZpbGwtcnVsZT0iZXZlbm9kZCIgY3g9IjExLjg4MSIgdHJhbnNmb3JtPSJtYXRyaXgoLjkzOTY5IC0uMzQyMDIgLS4zNDIwMiAtLjkzOTY5IDAgMCkiIGN5PSItNDAuNDA1IiByPSIzLjUzOTEiIHN0cm9rZS13aWR0aD0iMCIgZmlsbD0iI2ZmZmZmZiIvPgogICAgPC9nPgogICAgPGcgb3BhY2l0eT0iLjQiPgogICAgICAgIDxjaXJjbGUgc3Ryb2tlLXdpZHRoPSIwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHRyYW5zZm9ybT0ibWF0cml4KC41IC0uODY2MDMgLS44NjYwMyAtLjUgMCAwKSIgY3k9Ii00Mi4wODEiIGN4PSItNy4zODM4IiByPSIzLjUzOTEiIGZpbGw9IiNmZmZmZmYiLz4KICAgIDwvZz4KICAgIDxnIG9wYWNpdHk9Ii4zIj4KICAgICAgICA8Y2lyY2xlIGZpbGwtcnVsZT0iZXZlbm9kZCIgY3g9Ii0yMy4yMTkiIHRyYW5zZm9ybT0ibWF0cml4KC0uMTczNjUgLS45ODQ4MSAtLjk4NDgxIC4xNzM2NSAwIDApIiBjeT0iLTMwLjk4MSIgcj0iMy41MzkxIiBzdHJva2Utd2lkdGg9IjAiIGZpbGw9IiNmZmZmZmYiLz4KICAgIDwvZz4KICAgIDxnIG9wYWNpdHk9Ii4yIj4KICAgICAgICA8Y2lyY2xlIHN0cm9rZS13aWR0aD0iMCIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09Im1hdHJpeCgtLjc2NjA0IC0uNjQyNzkgLS42NDI3OSAuNzY2MDQgMCAwKSIgY3k9Ii0xMi4yOTkiIGN4PSItMjguMjE1IiByPSIzLjUzOTEiIGZpbGw9IiNmZmZmZmYiLz4KICAgIDwvZz4KPC9zdmc+" style="border: 1px solid red; border-radius: 10px;"></div><span class="userway-spacer"></span> <img class="check_on" alt="Accessibility menu is on" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI0MS4zMDJweCIgaGVpZ2h0PSI0MS4zMDJweCIgdmlld0JveD0iMCAwIDQxLjMwMiA0MS4zMDIiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDQxLjMwMiA0MS4zMDIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxjaXJjbGUgZmlsbD0iI0ZGRkZGRiIgY3g9IjIwLjY1MSIgY3k9IjIwLjY1MSIgcj0iMjAuNjUxIi8+PGc+PHBhdGggZmlsbD0iIzEwODcwMCIgZD0iTTIwLjY1MSwyLjM2N2MzLjMxNSwwLDYuMzc1LDAuODE3LDkuMTc5LDIuNDVzNS4wMjIsMy44NTIsNi42NTYsNi42NTVjMS42MzMsMi44MDQsMi40NSw1Ljg2NCwyLjQ1LDkuMThzLTAuODE3LDYuMzc1LTIuNDUsOS4xNzljLTEuNjMzLDIuODAzLTMuODUyLDUuMDIxLTYuNjU2LDYuNjU2Yy0yLjgwMywxLjYzMy01Ljg2NCwyLjQ1LTkuMTc5LDIuNDVjLTMuMzE2LDAtNi4zNzUtMC44MTctOS4xNzktMi40NWMtMi44MDQtMS42MzQtNS4wMjMtMy44NTItNi42NTYtNi42NTZjLTEuNjMzLTIuODAzLTIuNDUtNS44NjMtMi40NS05LjE3OXMwLjgxNy02LjM3NSwyLjQ1LTkuMThjMS42MzMtMi44MDMsMy44NTEtNS4wMjEsNi42NTYtNi42NTVDMTQuMjc1LDMuMTgzLDE3LjMzNSwyLjM2NywyMC42NTEsMi4zNjd6IE0xMS44NzQsMTguNzEzbC0xLjk3NSwxLjkzOWMxLjczMSwxLjczMSwzLjMwMywzLjM1Miw0LjcxOCw0Ljg2M2MxLjQxNCwxLjUxMiwyLjQwMSwyLjYwOSwyLjk2MiwzLjI5MmwwLjgwNSwwLjk1bDAuODA0LTEuMzE2YzAuMzQxLTAuNTYxLDEuMDM2LTEuNTk3LDIuMDg1LTMuMTA5bDMuMDM1LTQuMzUxYzAuOTc1LTEuMzksMi4xMzMtMi44NCwzLjQ3NC00LjM1MmMxLjM0MS0xLjUxMiwyLjU0Ny0yLjc3OSwzLjYyMS0zLjgwM2MtMC40MzktMC44NTMtMC44NzgtMS4yNzktMS4zMTctMS4yNzljLTAuMjQ0LDAuMTQ2LTAuNjM0LDAuNDE1LTEuMTcsMC44MDRjLTAuNTM3LDAuMzkxLTEuOTE0LDEuNTcyLTQuMTMzLDMuNTQ3Yy0yLjIxOSwxLjk3NS00Ljc5MSw0LjQyNS03LjcxNiw3LjM1MUwxMS44NzQsMTguNzEzeiIvPjwvZz48L2c+PC9zdmc+" style="border: 1px solid red; border-radius: 10px;"><div class="userway_hide"><span aria-hidden="true" class="userway_hide_off">הסתר</span> <span aria-hidden="true" class="userway_hide_on">הצג</span></div><div class="userway_hide_icon" aria-hidden="true"><span><img class="userway_hide_icon_right userway_icon_white" alt="White right arrow" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxMTkuMnB4IiBoZWlnaHQ9Ijg2LjdweCIgdmlld0JveD0iMCAwIDExOS4yIDg2LjciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDExOS4yIDg2Ljc7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDojRkZGRkZGO308L3N0eWxlPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik04OC4yLDUxLjNjLTMuNiwwLTcuMiwwLTEwLjksMGMtNS41LDAtNS41LDAtNS41LTUuNWMwLTIuNywwLjEtNS41LDAtOC4yYy0wLjEtMS43LDAuNS0yLjMsMi4zLTIuM2M0LjIsMC4xLDguMywwLDEyLjUsMGMwLjUsMCwxLjEtMC4yLDIuMi0wLjNjLTEtMS4xLTEuNy0xLjktMi41LTIuNmMtNi45LTYuNy0xMy43LTEzLjQtMjAuNi0yMGMtMS40LTEuMy0xLjYtMi4zLTAuMS0zLjZjMi43LTIuNSw1LjItNS4xLDcuOC03LjhjMS4xLTEuMiwyLTEuNCwzLjMtMC4xYzEzLjksMTMuNywyNy43LDI3LjMsNDEuNyw0MWMxLjIsMS4yLDEuMSwxLjktMC4xLDMuMWMtMTMuOSwxMy42LTI3LjgsMjcuMy00MS43LDQxYy0xLjIsMS4yLTIsMS4xLTMuMS0wLjFjLTIuNS0yLjYtNS4xLTUuMi03LjgtNy43Yy0xLjUtMS40LTEuNi0yLjMsMC0zLjhjNy02LjcsMTMuOS0xMy40LDIwLjgtMjAuMmMwLjctMC43LDEuMy0xLjQsMS45LTIuMUM4OC40LDUxLjgsODguMyw1MS41LDg4LjIsNTEuM3oiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMCw1MS4zYzAtNS40LDAtMTAuNiwwLTE2YzQuOSwwLDkuNywwLDE0LjUsMC4xYzAuNSwwLDEuMywxLDEuMywxLjZjMC4xLDQuMiwwLjEsOC41LDAsMTIuN2MwLDAuNi0xLDEuNS0xLjUsMS42QzkuNiw1MS40LDQuOSw1MS4zLDAsNTEuM3oiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzEuOCwzNS4zYzIsMCw0LDAuMSw2LDBjMS41LTAuMSwyLjEsMC40LDIuMSwyYy0wLjEsNC0wLjEsOCwwLDEyYzAsMS41LTAuNCwyLjEtMiwyLjFjLTQtMC4xLTgtMC4xLTEyLDBjLTEuNSwwLTIuMS0wLjQtMi4xLTJjMC4xLTQsMC4xLTgsMC0xMmMwLTEuNywwLjctMi4xLDIuMi0yLjFDMjgsMzUuNCwyOS45LDM1LjMsMzEuOCwzNS4zeiIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01NS45LDM1LjNjMi4xLDAsNC4yLDAsNi4yLDBjMS4zLDAsMS44LDAuNSwxLjgsMS44YzAsNC4yLDAsOC4zLDAsMTIuNWMwLDEuMi0wLjQsMS44LTEuNywxLjhjLTQuMiwwLTguMywwLTEyLjUsMGMtMS40LDAtMS45LTAuNS0xLjktMS45YzAuMS00LjEsMC4xLTguMSwwLTEyLjJjMC0xLjYsMC43LTIsMi4xLTEuOUM1MS45LDM1LjQsNTMuOSwzNS4zLDU1LjksMzUuM0w1NS45LDM1LjN6Ii8+PC9zdmc+" style="border: 1px solid red; border-radius: 10px;"> <img class="userway_hide_icon_right userway_icon_black" alt="Black right arrow" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxMTkuMnB4IiBoZWlnaHQ9Ijg2LjdweCIgdmlld0JveD0iMCAwIDExOS4yIDg2LjciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDExOS4yIDg2Ljc7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBkPSJNODguMiw1MS4zYy0zLjYsMC03LjIsMC0xMC45LDBjLTUuNSwwLTUuNSwwLTUuNS01LjVjMC0yLjcsMC4xLTUuNSwwLTguMmMtMC4xLTEuNywwLjUtMi4zLDIuMy0yLjNjNC4yLDAuMSw4LjMsMCwxMi41LDBjMC41LDAsMS4xLTAuMiwyLjItMC4zYy0xLTEuMS0xLjctMS45LTIuNS0yLjZjLTYuOS02LjctMTMuNy0xMy40LTIwLjYtMjBjLTEuNC0xLjMtMS42LTIuMy0wLjEtMy42YzIuNy0yLjUsNS4yLTUuMSw3LjgtNy44YzEuMS0xLjIsMi0xLjQsMy4zLTAuMWMxMy45LDEzLjcsMjcuNywyNy4zLDQxLjcsNDFjMS4yLDEuMiwxLjEsMS45LTAuMSwzLjFjLTEzLjksMTMuNi0yNy44LDI3LjMtNDEuNyw0MWMtMS4yLDEuMi0yLDEuMS0zLjEtMC4xYy0yLjUtMi42LTUuMS01LjItNy44LTcuN2MtMS41LTEuNC0xLjYtMi4zLDAtMy44YzctNi43LDEzLjktMTMuNCwyMC44LTIwLjJjMC43LTAuNywxLjMtMS40LDEuOS0yLjFDODguNCw1MS44LDg4LjMsNTEuNSw4OC4yLDUxLjN6Ii8+PHBhdGggZD0iTTAsNTEuM2MwLTUuNCwwLTEwLjYsMC0xNmM0LjksMCw5LjcsMCwxNC41LDAuMWMwLjUsMCwxLjMsMSwxLjMsMS42YzAuMSw0LjIsMC4xLDguNSwwLDEyLjdjMCwwLjYtMSwxLjUtMS41LDEuNkM5LjYsNTEuNCw0LjksNTEuMywwLDUxLjN6Ii8+PHBhdGggZD0iTTMxLjgsMzUuM2MyLDAsNCwwLjEsNiwwYzEuNS0wLjEsMi4xLDAuNCwyLjEsMmMtMC4xLDQtMC4xLDgsMCwxMmMwLDEuNS0wLjQsMi4xLTIsMi4xYy00LTAuMS04LTAuMS0xMiwwYy0xLjUsMC0yLjEtMC40LTIuMS0yYzAuMS00LDAuMS04LDAtMTJjMC0xLjcsMC43LTIuMSwyLjItMi4xQzI4LDM1LjQsMjkuOSwzNS4zLDMxLjgsMzUuM3oiLz48cGF0aCBkPSJNNTUuOSwzNS4zYzIuMSwwLDQuMiwwLDYuMiwwYzEuMywwLDEuOCwwLjUsMS44LDEuOGMwLDQuMiwwLDguMywwLDEyLjVjMCwxLjItMC40LDEuOC0xLjcsMS44Yy00LjIsMC04LjMsMC0xMi41LDBjLTEuNCwwLTEuOS0wLjUtMS45LTEuOWMwLjEtNC4xLDAuMS04LjEsMC0xMi4yYzAtMS42LDAuNy0yLDIuMS0xLjlDNTEuOSwzNS40LDUzLjksMzUuMyw1NS45LDM1LjNDNTUuOSwzNS4zLDU1LjksMzUuMyw1NS45LDM1LjN6Ii8+PC9zdmc+" style="border: 1px solid red; border-radius: 10px;"> <img class="userway_hide_icon_up userway_icon_white" alt="White up arrow" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI4Ni43cHgiIGhlaWdodD0iMTE5LjJweCIgdmlld0JveD0iMCAwIDg2LjcgMTE5LjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDg2LjcgMTE5LjI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDojRkZGRkZGO308L3N0eWxlPjxnPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01MS4zLDMxYzAsMy42LDAsNy4yLDAsMTAuOWMwLDUuNSwwLDUuNS01LjUsNS41Yy0yLjcsMC01LjUtMC4xLTguMiwwYy0xLjcsMC4xLTIuMy0wLjUtMi4zLTIuM2MwLjEtNC4yLDAtOC4zLDAtMTIuNWMwLTAuNS0wLjItMS4xLTAuMy0yLjJjLTEuMSwxLTEuOSwxLjctMi42LDIuNWMtNi43LDYuOS0xMy40LDEzLjctMjAsMjAuNmMtMS4zLDEuNC0yLjMsMS42LTMuNiwwLjFjLTIuNS0yLjctNS4xLTUuMi03LjgtNy44Yy0xLjItMS4xLTEuNC0yLTAuMS0zLjNjMTMuNy0xMy45LDI3LjMtMjcuNyw0MS00MS43YzEuMi0xLjIsMS45LTEuMSwzLjEsMC4xYzEzLjYsMTMuOSwyNy4zLDI3LjgsNDEsNDEuN2MxLjIsMS4yLDEuMSwyLTAuMSwzLjFjLTIuNiwyLjUtNS4yLDUuMS03LjcsNy44Yy0xLjQsMS41LTIuMywxLjYtMy44LDBjLTYuNy03LTEzLjQtMTMuOS0yMC4yLTIwLjhjLTAuNy0wLjctMS40LTEuMy0yLjEtMS45QzUxLjgsMzAuOCw1MS41LDMwLjksNTEuMywzMXoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTEuMywxMTkuMmMtNS40LDAtMTAuNiwwLTE2LDBjMC00LjksMC05LjcsMC4xLTE0LjVjMC0wLjUsMS0xLjMsMS42LTEuM2M0LjItMC4xLDguNS0wLjEsMTIuNywwYzAuNiwwLDEuNSwxLDEuNiwxLjVDNTEuNCwxMDkuNiw1MS4zLDExNC4zLDUxLjMsMTE5LjJ6Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTM1LjMsODcuNGMwLTIsMC4xLTQsMC02Yy0wLjEtMS41LDAuNC0yLjEsMi0yLjFjNCwwLjEsOCwwLjEsMTIsMGMxLjUsMCwyLjEsMC40LDIuMSwyYy0wLjEsNC0wLjEsOCwwLDEyYzAsMS41LTAuNCwyLjEtMiwyLjFjLTQtMC4xLTgtMC4xLTEyLDBjLTEuNywwLTIuMS0wLjctMi4xLTIuMkMzNS40LDkxLjIsMzUuMyw4OS4zLDM1LjMsODcuNHoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzUuMyw2My4zYzAtMi4xLDAtNC4yLDAtNi4yYzAtMS4zLDAuNS0xLjgsMS44LTEuOGM0LjIsMCw4LjMsMCwxMi41LDBjMS4yLDAsMS44LDAuNCwxLjgsMS43YzAsNC4yLDAsOC4zLDAsMTIuNWMwLDEuNC0wLjUsMS45LTEuOSwxLjljLTQuMS0wLjEtOC4xLTAuMS0xMi4yLDBjLTEuNiwwLTItMC43LTEuOS0yLjFDMzUuNCw2Ny4zLDM1LjMsNjUuMywzNS4zLDYzLjNDMzUuMyw2My4zLDM1LjMsNjMuMywzNS4zLDYzLjN6Ii8+PC9nPjwvc3ZnPg==" style="border: 1px solid red; border-radius: 10px;"> <img class="userway_hide_icon_up userway_icon_black" alt="Black up arrow" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI4Ni43cHgiIGhlaWdodD0iMTE5LjJweCIgdmlld0JveD0iMCAwIDg2LjcgMTE5LjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDg2LjcgMTE5LjI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48Zz48cGF0aCBkPSJNNTEuMywzMWMwLDMuNiwwLDcuMiwwLDEwLjljMCw1LjUsMCw1LjUtNS41LDUuNWMtMi43LDAtNS41LTAuMS04LjIsMGMtMS43LDAuMS0yLjMtMC41LTIuMy0yLjNjMC4xLTQuMiwwLTguMywwLTEyLjVjMC0wLjUtMC4yLTEuMS0wLjMtMi4yYy0xLjEsMS0xLjksMS43LTIuNiwyLjVjLTYuNyw2LjktMTMuNCwxMy43LTIwLDIwLjZjLTEuMywxLjQtMi4zLDEuNi0zLjYsMC4xYy0yLjUtMi43LTUuMS01LjItNy44LTcuOGMtMS4yLTEuMS0xLjQtMi0wLjEtMy4zYzEzLjctMTMuOSwyNy4zLTI3LjcsNDEtNDEuN2MxLjItMS4yLDEuOS0xLjEsMy4xLDAuMWMxMy42LDEzLjksMjcuMywyNy44LDQxLDQxLjdjMS4yLDEuMiwxLjEsMi0wLjEsMy4xYy0yLjYsMi41LTUuMiw1LjEtNy43LDcuOGMtMS40LDEuNS0yLjMsMS42LTMuOCwwYy02LjctNy0xMy40LTEzLjktMjAuMi0yMC44Yy0wLjctMC43LTEuNC0xLjMtMi4xLTEuOUM1MS44LDMwLjgsNTEuNSwzMC45LDUxLjMsMzF6Ii8+PHBhdGggZD0iTTUxLjMsMTE5LjJjLTUuNCwwLTEwLjYsMC0xNiwwYzAtNC45LDAtOS43LDAuMS0xNC41YzAtMC41LDEtMS4zLDEuNi0xLjNjNC4yLTAuMSw4LjUtMC4xLDEyLjcsMGMwLjYsMCwxLjUsMSwxLjYsMS41QzUxLjQsMTA5LjYsNTEuMywxMTQuMyw1MS4zLDExOS4yeiIvPjxwYXRoIGQ9Ik0zNS4zLDg3LjRjMC0yLDAuMS00LDAtNmMtMC4xLTEuNSwwLjQtMi4xLDItMi4xYzQsMC4xLDgsMC4xLDEyLDBjMS41LDAsMi4xLDAuNCwyLjEsMmMtMC4xLDQtMC4xLDgsMCwxMmMwLDEuNS0wLjQsMi4xLTIsMi4xYy00LTAuMS04LTAuMS0xMiwwYy0xLjcsMC0yLjEtMC43LTIuMS0yLjJDMzUuNCw5MS4yLDM1LjMsODkuMywzNS4zLDg3LjR6Ii8+PHBhdGggZD0iTTM1LjMsNjMuM2MwLTIuMSwwLTQuMiwwLTYuMmMwLTEuMywwLjUtMS44LDEuOC0xLjhjNC4yLDAsOC4zLDAsMTIuNSwwYzEuMiwwLDEuOCwwLjQsMS44LDEuN2MwLDQuMiwwLDguMywwLDEyLjVjMCwxLjQtMC41LDEuOS0xLjksMS45Yy00LjEtMC4xLTguMS0wLjEtMTIuMiwwYy0xLjYsMC0yLTAuNy0xLjktMi4xQzM1LjQsNjcuMywzNS4zLDY1LjMsMzUuMyw2My4zQzM1LjMsNjMuMywzNS4zLDYzLjMsMzUuMyw2My4zeiIvPjwvZz48L3N2Zz4=" style="border: 1px solid red; border-radius: 10px;"> <img class="userway_hide_icon_down userway_icon_white" alt="White down arrow" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI4Ni43cHgiIGhlaWdodD0iMTE5LjJweCIgdmlld0JveD0iMCAwIDg2LjcgMTE5LjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDg2LjcgMTE5LjI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDojRkZGRkZGO308L3N0eWxlPjxnPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01MS4zLDg4LjJjMC0zLjYsMC03LjIsMC0xMC45YzAtNS41LDAtNS41LTUuNS01LjVjLTIuNywwLTUuNSwwLjEtOC4yLDBjLTEuNy0wLjEtMi4zLDAuNS0yLjMsMi4zYzAuMSw0LjIsMCw4LjMsMCwxMi41YzAsMC41LTAuMiwxLjEtMC4zLDIuMmMtMS4xLTEtMS45LTEuNy0yLjYtMi41Yy02LjctNi45LTEzLjQtMTMuNy0yMC0yMC42Yy0xLjMtMS40LTIuMy0xLjYtMy42LTAuMWMtMi41LDIuNy01LjEsNS4yLTcuOCw3LjhjLTEuMiwxLjEtMS40LDItMC4xLDMuM2MxMy43LDEzLjksMjcuMywyNy43LDQxLDQxLjdjMS4yLDEuMiwxLjksMS4xLDMuMS0wLjFjMTMuNi0xMy45LDI3LjMtMjcuOCw0MS00MS43YzEuMi0xLjIsMS4xLTItMC4xLTMuMWMtMi42LTIuNS01LjItNS4xLTcuNy03LjhjLTEuNC0xLjUtMi4zLTEuNi0zLjgsMGMtNi43LDctMTMuNCwxMy45LTIwLjIsMjAuOGMtMC43LDAuNy0xLjQsMS4zLTIuMSwxLjlDNTEuOCw4OC40LDUxLjUsODguMyw1MS4zLDg4LjJ6Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTUxLjMsMGMtNS40LDAtMTAuNiwwLTE2LDBjMCw0LjksMCw5LjcsMC4xLDE0LjVjMCwwLjUsMSwxLjMsMS42LDEuM2M0LjIsMC4xLDguNSwwLjEsMTIuNywwYzAuNiwwLDEuNS0xLDEuNi0xLjVDNTEuNCw5LjYsNTEuMyw0LjksNTEuMywweiIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zNS4zLDMxLjhjMCwyLDAuMSw0LDAsNmMtMC4xLDEuNSwwLjQsMi4xLDIsMi4xYzQtMC4xLDgtMC4xLDEyLDBjMS41LDAsMi4xLTAuNCwyLjEtMmMtMC4xLTQtMC4xLTgsMC0xMmMwLTEuNS0wLjQtMi4xLTItMi4xYy00LDAuMS04LDAuMS0xMiwwYy0xLjcsMC0yLjEsMC43LTIuMSwyLjJDMzUuNCwyOCwzNS4zLDI5LjksMzUuMywzMS44eiIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zNS4zLDU1LjljMCwyLjEsMCw0LjIsMCw2LjJjMCwxLjMsMC41LDEuOCwxLjgsMS44YzQuMiwwLDguMywwLDEyLjUsMGMxLjIsMCwxLjgtMC40LDEuOC0xLjdjMC00LjIsMC04LjMsMC0xMi41YzAtMS40LTAuNS0xLjktMS45LTEuOWMtNC4xLDAuMS04LjEsMC4xLTEyLjIsMGMtMS42LDAtMiwwLjctMS45LDIuMUMzNS40LDUxLjksMzUuMyw1My45LDM1LjMsNTUuOUwzNS4zLDU1Ljl6Ii8+PC9nPjwvc3ZnPg==" style="border: 1px solid red; border-radius: 10px;"> <img class="userway_hide_icon_down userway_icon_black" alt="Black down arrow" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI4Ni43cHgiIGhlaWdodD0iMTE5LjJweCIgdmlld0JveD0iMCAwIDg2LjcgMTE5LjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDg2LjcgMTE5LjI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48Zz48cGF0aCBkPSJNNTEuMyw4OC4yYzAtMy42LDAtNy4yLDAtMTAuOWMwLTUuNSwwLTUuNS01LjUtNS41Yy0yLjcsMC01LjUsMC4xLTguMiwwYy0xLjctMC4xLTIuMywwLjUtMi4zLDIuM2MwLjEsNC4yLDAsOC4zLDAsMTIuNWMwLDAuNS0wLjIsMS4xLTAuMywyLjJjLTEuMS0xLTEuOS0xLjctMi42LTIuNWMtNi43LTYuOS0xMy40LTEzLjctMjAtMjAuNmMtMS4zLTEuNC0yLjMtMS42LTMuNi0wLjFjLTIuNSwyLjctNS4xLDUuMi03LjgsNy44Yy0xLjIsMS4xLTEuNCwyLTAuMSwzLjNjMTMuNywxMy45LDI3LjMsMjcuNyw0MSw0MS43YzEuMiwxLjIsMS45LDEuMSwzLjEtMC4xYzEzLjYtMTMuOSwyNy4zLTI3LjgsNDEtNDEuN2MxLjItMS4yLDEuMS0yLTAuMS0zLjFjLTIuNi0yLjUtNS4yLTUuMS03LjctNy44Yy0xLjQtMS41LTIuMy0xLjYtMy44LDBjLTYuNyw3LTEzLjQsMTMuOS0yMC4yLDIwLjhjLTAuNywwLjctMS40LDEuMy0yLjEsMS45QzUxLjgsODguNCw1MS41LDg4LjMsNTEuMyw4OC4yeiIvPjxwYXRoIGQ9Ik01MS4zLDBjLTUuNCwwLTEwLjYsMC0xNiwwYzAsNC45LDAsOS43LDAuMSwxNC41YzAsMC41LDEsMS4zLDEuNiwxLjNjNC4yLDAuMSw4LjUsMC4xLDEyLjcsMGMwLjYsMCwxLjUtMSwxLjYtMS41QzUxLjQsOS42LDUxLjMsNC45LDUxLjMsMHoiLz48cGF0aCBkPSJNMzUuMywzMS44YzAsMiwwLjEsNCwwLDZjLTAuMSwxLjUsMC40LDIuMSwyLDIuMWM0LTAuMSw4LTAuMSwxMiwwYzEuNSwwLDIuMS0wLjQsMi4xLTJjLTAuMS00LTAuMS04LDAtMTJjMC0xLjUtMC40LTIuMS0yLTIuMWMtNCwwLjEtOCwwLjEtMTIsMGMtMS43LDAtMi4xLDAuNy0yLjEsMi4yQzM1LjQsMjgsMzUuMywyOS45LDM1LjMsMzEuOHoiLz48cGF0aCBkPSJNMzUuMyw1NS45YzAsMi4xLDAsNC4yLDAsNi4yYzAsMS4zLDAuNSwxLjgsMS44LDEuOGM0LjIsMCw4LjMsMCwxMi41LDBjMS4yLDAsMS44LTAuNCwxLjgtMS43YzAtNC4yLDAtOC4zLDAtMTIuNWMwLTEuNC0wLjUtMS45LTEuOS0xLjljLTQuMSwwLjEtOC4xLDAuMS0xMi4yLDBjLTEuNiwwLTIsMC43LTEuOSwyLjFDMzUuNCw1MS45LDM1LjMsNTMuOSwzNS4zLDU1LjlDMzUuMyw1NS45LDM1LjMsNTUuOSwzNS4zLDU1Ljl6Ii8+PC9nPjwvc3ZnPg==" style="border: 1px solid red; border-radius: 10px;"> <img class="userway_hide_icon_left userway_icon_white" alt="White left arrow" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxMTkuMnB4IiBoZWlnaHQ9Ijg2LjdweCIgdmlld0JveD0iMCAwIDExOS4yIDg2LjciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDExOS4yIDg2Ljc7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDojRkZGRkZGO308L3N0eWxlPjxnPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zMSw1MS4zYzMuNiwwLDcuMiwwLDEwLjksMGM1LjUsMCw1LjUsMCw1LjUtNS41YzAtMi43LTAuMS01LjUsMC04LjJjMC4xLTEuNy0wLjUtMi4zLTIuMy0yLjNjLTQuMiwwLjEtOC4zLDAtMTIuNSwwYy0wLjUsMC0xLjEtMC4yLTIuMi0wLjNjMS0xLjEsMS43LTEuOSwyLjUtMi42YzYuOS02LjcsMTMuNy0xMy40LDIwLjYtMjBjMS40LTEuMywxLjYtMi4zLDAuMS0zLjZjLTIuNy0yLjUtNS4yLTUuMS03LjgtNy44Yy0xLjEtMS4yLTItMS40LTMuMy0wLjFjLTEzLjksMTMuNy0yNy43LDI3LjMtNDEuNyw0MWMtMS4yLDEuMi0xLjEsMS45LDAuMSwzLjFjMTMuOSwxMy42LDI3LjgsMjcuMyw0MS43LDQxYzEuMiwxLjIsMiwxLjEsMy4xLTAuMWMyLjUtMi42LDUuMS01LjIsNy44LTcuN2MxLjUtMS40LDEuNi0yLjMsMC0zLjhjLTctNi43LTEzLjktMTMuNC0yMC44LTIwLjJjLTAuNy0wLjctMS4zLTEuNC0xLjktMi4xQzMwLjgsNTEuOCwzMC45LDUxLjUsMzEsNTEuM3oiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTE5LjIsNTEuM2MwLTUuNCwwLTEwLjYsMC0xNmMtNC45LDAtOS43LDAtMTQuNSwwLjFjLTAuNSwwLTEuMywxLTEuMywxLjZjLTAuMSw0LjItMC4xLDguNSwwLDEyLjdjMCwwLjYsMSwxLjUsMS41LDEuNkMxMDkuNiw1MS40LDExNC4zLDUxLjMsMTE5LjIsNTEuM3oiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNODcuNCwzNS4zYy0yLDAtNCwwLjEtNiwwYy0xLjUtMC4xLTIuMSwwLjQtMi4xLDJjMC4xLDQsMC4xLDgsMCwxMmMwLDEuNSwwLjQsMi4xLDIsMi4xYzQtMC4xLDgtMC4xLDEyLDBjMS41LDAsMi4xLTAuNCwyLjEtMmMtMC4xLTQtMC4xLTgsMC0xMmMwLTEuNy0wLjctMi4xLTIuMi0yLjFDOTEuMiwzNS40LDg5LjMsMzUuMyw4Ny40LDM1LjN6Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTYzLjMsMzUuM2MtMi4xLDAtNC4yLDAtNi4yLDBjLTEuMywwLTEuOCwwLjUtMS44LDEuOGMwLDQuMiwwLDguMywwLDEyLjVjMCwxLjIsMC40LDEuOCwxLjcsMS44YzQuMiwwLDguMywwLDEyLjUsMGMxLjQsMCwxLjktMC41LDEuOS0xLjljLTAuMS00LjEtMC4xLTguMSwwLTEyLjJjMC0xLjYtMC43LTItMi4xLTEuOUM2Ny4zLDM1LjQsNjUuMywzNS4zLDYzLjMsMzUuM0w2My4zLDM1LjN6Ii8+PC9nPjwvc3ZnPg==" style="border: 1px solid red; border-radius: 10px;"> <img class="userway_hide_icon_left userway_icon_black" alt="Black left arrow" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxMTkuMnB4IiBoZWlnaHQ9Ijg2LjdweCIgdmlld0JveD0iMCAwIDExOS4yIDg2LjciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDExOS4yIDg2Ljc7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48Zz48cGF0aCBkPSJNMzEsNTEuM2MzLjYsMCw3LjIsMCwxMC45LDBjNS41LDAsNS41LDAsNS41LTUuNWMwLTIuNy0wLjEtNS41LDAtOC4yYzAuMS0xLjctMC41LTIuMy0yLjMtMi4zYy00LjIsMC4xLTguMywwLTEyLjUsMGMtMC41LDAtMS4xLTAuMi0yLjItMC4zYzEtMS4xLDEuNy0xLjksMi41LTIuNmM2LjktNi43LDEzLjctMTMuNCwyMC42LTIwYzEuNC0xLjMsMS42LTIuMywwLjEtMy42Yy0yLjctMi41LTUuMi01LjEtNy44LTcuOGMtMS4xLTEuMi0yLTEuNC0zLjMtMC4xYy0xMy45LDEzLjctMjcuNywyNy4zLTQxLjcsNDFjLTEuMiwxLjItMS4xLDEuOSwwLjEsMy4xYzEzLjksMTMuNiwyNy44LDI3LjMsNDEuNyw0MWMxLjIsMS4yLDIsMS4xLDMuMS0wLjFjMi41LTIuNiw1LjEtNS4yLDcuOC03LjdjMS41LTEuNCwxLjYtMi4zLDAtMy44Yy03LTYuNy0xMy45LTEzLjQtMjAuOC0yMC4yYy0wLjctMC43LTEuMy0xLjQtMS45LTIuMUMzMC44LDUxLjgsMzAuOSw1MS41LDMxLDUxLjN6Ii8+PHBhdGggZD0iTTExOS4yLDUxLjNjMC01LjQsMC0xMC42LDAtMTZjLTQuOSwwLTkuNywwLTE0LjUsMC4xYy0wLjUsMC0xLjMsMS0xLjMsMS42Yy0wLjEsNC4yLTAuMSw4LjUsMCwxMi43YzAsMC42LDEsMS41LDEuNSwxLjZDMTA5LjYsNTEuNCwxMTQuMyw1MS4zLDExOS4yLDUxLjN6Ii8+PHBhdGggZD0iTTg3LjQsMzUuM2MtMiwwLTQsMC4xLTYsMGMtMS41LTAuMS0yLjEsMC40LTIuMSwyYzAuMSw0LDAuMSw4LDAsMTJjMCwxLjUsMC40LDIuMSwyLDIuMWM0LTAuMSw4LTAuMSwxMiwwYzEuNSwwLDIuMS0wLjQsMi4xLTJjLTAuMS00LTAuMS04LDAtMTJjMC0xLjctMC43LTIuMS0yLjItMi4xQzkxLjIsMzUuNCw4OS4zLDM1LjMsODcuNCwzNS4zeiIvPjxwYXRoIGQ9Ik02My4zLDM1LjNjLTIuMSwwLTQuMiwwLTYuMiwwYy0xLjMsMC0xLjgsMC41LTEuOCwxLjhjMCw0LjIsMCw4LjMsMCwxMi41YzAsMS4yLDAuNCwxLjgsMS43LDEuOGM0LjIsMCw4LjMsMCwxMi41LDBjMS40LDAsMS45LTAuNSwxLjktMS45Yy0wLjEtNC4xLTAuMS04LjEsMC0xMi4yYzAtMS42LTAuNy0yLTIuMS0xLjlDNjcuMywzNS40LDY1LjMsMzUuMyw2My4zLDM1LjNDNjMuMywzNS4zLDYzLjMsMzUuMyw2My4zLDM1LjN6Ii8+PC9nPjwvc3ZnPg==" style="border: 1px solid red; border-radius: 10px;"></span></div></div><iframe class="userway_iframe userway_p5" name="userway" title="UserWay Accessibility Menu"></iframe></div><div class="toph1" data-userway-font-size="22">
+		<hr data-userway-font-size="22"><h1 data-userway-font-size="14" style="border-left: 5px solid blue;">
+	הכרויות לעשירים זה ריצ'דייט. ריצ'דייט – אתר הכרויות לעשירון העליון.
+</h1><hr data-userway-font-size="22">
 	</div>
-	<!---->
-	<!----><i ng-if="!$root.readingListEnabled" class="box-item-horizontal__footer__read-later-btn ct-icon-heart" ng-class="(vm.heartToggled ? 'ct-icon-heart-full' : 'ct-icon-heart')" ng-click="vm.onHeart($event)"></i><!---->
-</div></div>
-	</div>
-	<div class="pull-left box box-col-2 box-row-1" style="background-color: rgb(240, 98, 146);">
-		<div box-item="boxItems[1]" category-name="categoryName" data-box-item-index="2" content="h" data-type="feed_item" data-box-template-type="box_4" data-content-id="adbfe030-a2c2-449d-bd73-fbd193d8f732" data-content-provider="PROS_12up" data-content-type="article" data-recommendation-id="TIME_BL" data-box-index="2" style="width: 100%; height: 100%; position: relative;" data-in-view="false"><div class="box-item-horizontal" ng-style="vm.article.feedStyle" ng-click="vm.onClick($event)" data-content-type="article" data-contentid="adbfe030-a2c2-449d-bd73-fbd193d8f732" data-recomender-id="TIME_BL" box-item="boxItem" category-name="categoryName" style="background: linear-gradient(to top, rgb(0, 0, 0) 0px, rgba(0, 0, 0, 0) 52%), url(&quot;https://imageca1.thestartmagazine.com/fetch/d_magazineDefault.jpg,c_fill,g_auto,fl_lossy,q_60,w_1080,h_320/https://images2.minutemediacdn.com/image/upload/c_fill%2Cw_912%2Ch_516%2Cf_auto%2Cq_auto%2Cg_auto/shape/cover/sport/georgetown-v-syracuse-5c59ee35e989d096c8000001.jpg%3Fmain_image=true&amp;imageType=.jpg&quot;) 50% 0px / cover no-repeat; position: relative;">
-	<div class="box-item-horizontal__footer">
-		<div class="box-item-horizontal__footer__category" ng-click="vm.openCategory($event)">Sports</div>
-		<div class="box-item-horizontal__footer__category-decoration"></div>
-		<div class="box-item-horizontal__footer__title"><span>ESPN's Jay Bilas Destroyed by Calipari Family After Using Unnecessary Photo</span></div>		
-	</div>
-	<!---->
-	<!----><i ng-if="!$root.readingListEnabled" class="box-item-horizontal__footer__read-later-btn ct-icon-heart" ng-class="(vm.heartToggled ? 'ct-icon-heart-full' : 'ct-icon-heart')" ng-click="vm.onHeart($event)"></i><!---->
-</div></div>
-	</div>
-</div><!---->
-			<!---->
-			<!---->
-			<!---->
-			<!-- content breakers -->
-			<!---->
-			<!--<world cup widgets>-->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
 
-			<!--</world cup widgets>-->
-			<!-- <ct-yahoo ng-switch-when="cb_yahoo" ad-format="{{box.adFormat}}" ad-slot="{{box.adSlot}}" data-box-index="{{$index+1}}" data-box-template-type="cb_yahoo" class="ct_ad" data-vendor="Yahoo" ng-click="onAdClick($event)" data-type="ad_item"></ct-yahoo>
-			<ct-playbuzz ng-switch-when="cb_playbuzz" data-box-index="{{$index+1}}" data-box-template-type="cb_playbuzz" class="ct_ad" data-vendor="Playbuzz" ng-click="onAdClick($event)" style="max-height: 43rem; overflow: hidden; display: block;" data-type="ad_item"></ct-playbuzz> -->
-			<!---->
-            <!---->
-<!-- 			<ct-google-adsense ng-switch-when="cb_dfp" ad-format="{{box.adFormat}}" ad-slot="{{box.adSlot}}" data-box-index="{{$index}}" data-box-template-type="cb_dfp" class="ct_ad" vendor="DFP" ng-click="onAdClick($event)">
-			</ct-google-adsense>  -->
- 			<!---->
-			<!---->
-			<!---->
+<!-- Main Container -->
+<div class="main_container" data-userway-font-size="22">
+  <!-- header -->
+  <div class="header" data-userway-font-size="22">
+  <header id="header" class="main-header" data-userway-font-size="22">
+	<div class="vce-res-nav" data-userway-font-size="22">
+    <!-- header main -->
+    <div class="header-main" data-userway-font-size="22">
+      <div class="wrap clearfix" data-userway-font-size="22">
+        <div class="logo" data-userway-font-size="22"><a href="/" data-userway-font-size="22"><img src="images/newlogo.png" alt="richdate" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></a></div>
+        <div class="header-right" data-userway-font-size="22">
+          <div class="x-box font-resize" data-userway-font-size="22">
+            <ul data-userway-font-size="22">
+              <li data-userway-font-size="22"><a href="#" class="small" id="decfont" data-userway-font-size="20">א</a></li>
+              <li data-userway-font-size="22"><a href="#" id="resetf" data-userway-font-size="27">א</a></li>
+              <li data-userway-font-size="22"><a href="#" class="big" id="incfont" data-userway-font-size="36">א</a></li>
+            </ul>
+          </div>
+          <div class="login-form clearfix" data-userway-font-size="22">
+            
+			 
 
-			<!---->
-			<!---->
-		</div><!----><div ng-repeat="box in vm.feed.feedStream track by $index" ng-switch="box.type" class="ct-animate box-repeat-wrapper" ng-class="box.playAnimation ? 'box-1-animation' : ''" ng-style="box.boxStyle" style="">
-			<!---->
-			<!---->
-			<!---->
-			<!----><div class="box-container box-4 clearfix" ng-switch-when="4" box-items="box.boxItems" ids="box.ids" category-name="vm.feed.getCategoryName()" data-box-index="3" data-box-template-type="box_4">
-	<div class="pull-left box box-col-2 box-row-2" style="background-color: rgb(189, 189, 189);">
-		<div box-item="boxItems[0]" category-name="categoryName" data-box-item-index="1" content="h" data-type="feed_item" data-box-template-type="box_4" data-content-id="908a07b4-699a-4ace-8198-7c1356bdf5c7" data-content-provider="Refinery29_US" data-content-type="article" data-recommendation-id="TIME_BL" data-box-index="3" style="width: 100%; height: 100%; position: relative;" data-in-view="false"><div class="box-item-horizontal" ng-style="vm.article.feedStyle" ng-click="vm.onClick($event)" data-content-type="article" data-contentid="908a07b4-699a-4ace-8198-7c1356bdf5c7" data-recomender-id="TIME_BL" box-item="boxItem" category-name="categoryName" style="background: linear-gradient(to top, rgb(0, 0, 0) 0px, rgba(0, 0, 0, 0) 52%), url(&quot;https://imageca3.thestartmagazine.com/fetch/d_magazineDefault.jpg,c_fill,g_auto,fl_lossy,q_60,w_1080,h_320/https%3A%2F%2Fs3.r29static.com%2F%2Fbin%2Fentry%2F1de%2F1200x900%2F2120393%2Fimage.png&quot;) 50% 0px / cover no-repeat; position: relative;">
-	<div class="box-item-horizontal__footer">
-		<div class="box-item-horizontal__footer__category" ng-click="vm.openCategory($event)">Fashion</div>
-		<div class="box-item-horizontal__footer__category-decoration"></div>
-		<div class="box-item-horizontal__footer__title"><span>Chunky Boots Are Here &amp; They're Bigger Than Ever Before</span></div>		
+			
+			<form action="/login.asp" method="post" name="login_form" data-userway-font-size="22">
+            <div class="lfield" data-userway-font-size="22"><input type="text" name="userEmail" placeholder="שם משתמש" value="" required="" data-userway-font-size="20"></div>
+            <div class="lfield" data-userway-font-size="22"><input type="password" name="userPass" value="" required="" data-userway-font-size="20"></div>
+            <div class="login-btn" style="width:19%" data-userway-font-size="22"><input type="submit" value="כניסה" id="login-submit" data-userway-font-size="20"></div>
+			<div class="login-btn" style="width:19%;margin-right:17px;" data-userway-font-size="22"><button style="line-height:14px;font-size:17px" onclick="location='/users/insert_1.asp'" data-userway-font-size="17">להרשמה<br data-userway-font-size="17">חינם</button></div>
+            <div class="clr" data-userway-font-size="22"></div>
+            <p data-userway-font-size="14"><a href="/users/nologin.asp?act=pass" data-userway-font-size="14">שכחת את הסיסמה?</a></p>
+		  </form>
+		  
+          </div>
+        </div>
+      </div>
+    </div>
 	</div>
-	<!---->
-	<!----><i ng-if="!$root.readingListEnabled" class="box-item-horizontal__footer__read-later-btn ct-icon-heart" ng-class="(vm.heartToggled ? 'ct-icon-heart-full' : 'ct-icon-heart')" ng-click="vm.onHeart($event)"></i><!---->
-</div></div>
-	</div>
-	<div class="pull-left box box-col-2 box-row-1" style="background-color: rgb(189, 189, 189);">
-		<div box-item="boxItems[1]" category-name="categoryName" data-box-item-index="2" content="h" data-type="feed_item" data-box-template-type="box_4" data-content-id="d34b4a3a-067d-4a6d-9452-c020c43d50b5" data-content-provider="Reuters" data-content-type="article" data-recommendation-id="TIME_BL" data-box-index="3" style="width: 100%; height: 100%; position: relative;" data-in-view="false"><div class="box-item-horizontal" ng-style="vm.article.feedStyle" ng-click="vm.onClick($event)" data-content-type="article" data-contentid="d34b4a3a-067d-4a6d-9452-c020c43d50b5" data-recomender-id="TIME_BL" box-item="boxItem" category-name="categoryName" style="background: linear-gradient(to top, rgb(0, 0, 0) 0px, rgba(0, 0, 0, 0) 52%), url(&quot;https://imageca1.thestartmagazine.com/upload/d_magazineDefault.jpg,c_fill,g_auto,fl_lossy,q_60,w_1080,h_320/v1549402171/reuters_tag:reuters.com%2C2019:newsml_LYNXNPEF141LV:1.jpg&quot;) 50% 0px / cover no-repeat; position: relative;">
-	<div class="box-item-horizontal__footer">
-		<div class="box-item-horizontal__footer__category" ng-click="vm.openCategory($event)">News</div>
-		<div class="box-item-horizontal__footer__category-decoration"></div>
-		<div class="box-item-horizontal__footer__title"><span>Chicago mayor condemns anti-Muslim emails written by Cubs family head</span></div>		
-	</div>
-	<!---->
-	<!----><i ng-if="!$root.readingListEnabled" class="box-item-horizontal__footer__read-later-btn ct-icon-heart" ng-class="(vm.heartToggled ? 'ct-icon-heart-full' : 'ct-icon-heart')" ng-click="vm.onHeart($event)"></i><!---->
-</div></div>
-	</div>
-</div><!---->
-			<!---->
-			<!---->
-			<!---->
-			<!-- content breakers -->
-			<!---->
-			<!--<world cup widgets>-->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
-
-			<!--</world cup widgets>-->
-			<!-- <ct-yahoo ng-switch-when="cb_yahoo" ad-format="{{box.adFormat}}" ad-slot="{{box.adSlot}}" data-box-index="{{$index+1}}" data-box-template-type="cb_yahoo" class="ct_ad" data-vendor="Yahoo" ng-click="onAdClick($event)" data-type="ad_item"></ct-yahoo>
-			<ct-playbuzz ng-switch-when="cb_playbuzz" data-box-index="{{$index+1}}" data-box-template-type="cb_playbuzz" class="ct_ad" data-vendor="Playbuzz" ng-click="onAdClick($event)" style="max-height: 43rem; overflow: hidden; display: block;" data-type="ad_item"></ct-playbuzz> -->
-			<!---->
-            <!---->
-<!-- 			<ct-google-adsense ng-switch-when="cb_dfp" ad-format="{{box.adFormat}}" ad-slot="{{box.adSlot}}" data-box-index="{{$index}}" data-box-template-type="cb_dfp" class="ct_ad" vendor="DFP" ng-click="onAdClick($event)">
-			</ct-google-adsense>  -->
- 			<!---->
-			<!---->
-			<!---->
-
-			<!---->
-			<!---->
-		</div><!----><div ng-repeat="box in vm.feed.feedStream track by $index" ng-switch="box.type" class="ct-animate box-repeat-wrapper" ng-class="box.playAnimation ? 'box-1-animation' : ''" ng-style="box.boxStyle">
-			<!---->
-			<!---->
-			<!---->
-			<!----><div class="box-container box-4 clearfix" ng-switch-when="4" box-items="box.boxItems" ids="box.ids" category-name="vm.feed.getCategoryName()" data-box-index="4" data-box-template-type="box_4">
-	<div class="pull-left box box-col-2 box-row-2" style="background-color: rgb(100, 181, 246);">
-		<div box-item="boxItems[0]" category-name="categoryName" data-box-item-index="1" content="h" data-type="feed_item" data-box-template-type="box_4" data-content-id="642691de-53de-4ba7-a4c8-beaadf2bea57" data-content-provider="AFP" data-content-type="article" data-recommendation-id="TIME_BL" data-box-index="4" style="width: 100%; height: 100%; position: relative;" data-in-view="false"><div class="box-item-horizontal" ng-style="vm.article.feedStyle" ng-click="vm.onClick($event)" data-content-type="article" data-contentid="642691de-53de-4ba7-a4c8-beaadf2bea57" data-recomender-id="TIME_BL" box-item="boxItem" category-name="categoryName" style="background: linear-gradient(to top, rgb(0, 0, 0) 0px, rgba(0, 0, 0, 0) 52%), url(&quot;https://imageca1.thestartmagazine.com/upload/d_magazineDefault.jpg,c_fill,g_auto,fl_lossy,q_60,w_1080,h_320/v1549401563/AFP_989e154fcb7cdeaf6f7473f73788d96eb7ba5fd6.jpg&quot;) 50% 0px / cover no-repeat; position: relative;">
-	<div class="box-item-horizontal__footer">
-		<div class="box-item-horizontal__footer__category" ng-click="vm.openCategory($event)">Sports</div>
-		<div class="box-item-horizontal__footer__category-decoration"></div>
-		<div class="box-item-horizontal__footer__title"><span>World No. 2 Koepka sees better Slam odds with PGA in May</span></div>		
-	</div>
-	<!---->
-	<!----><i ng-if="!$root.readingListEnabled" class="box-item-horizontal__footer__read-later-btn ct-icon-heart" ng-class="(vm.heartToggled ? 'ct-icon-heart-full' : 'ct-icon-heart')" ng-click="vm.onHeart($event)"></i><!---->
-</div></div>
-	</div>
-	<div class="pull-left box box-col-2 box-row-1" style="background-color: rgb(240, 98, 146);">
-		<div box-item="boxItems[1]" category-name="categoryName" data-box-item-index="2" content="h" data-type="feed_item" data-box-template-type="box_4" data-content-id="9b44c8bf-c44b-4c53-93dc-c9865e98d77e" data-content-provider="CNN_Global" data-content-type="article" data-recommendation-id="TIME_BL" data-box-index="4" style="width: 100%; height: 100%; position: relative;" data-in-view="false"><div class="box-item-horizontal" ng-style="vm.article.feedStyle" ng-click="vm.onClick($event)" data-content-type="article" data-contentid="9b44c8bf-c44b-4c53-93dc-c9865e98d77e" data-recomender-id="TIME_BL" box-item="boxItem" category-name="categoryName" style="background: linear-gradient(to top, rgb(0, 0, 0) 0px, rgba(0, 0, 0, 0) 52%), url(&quot;https://imageca1.thestartmagazine.com/fetch/d_magazineDefault.jpg,c_fill,g_auto,fl_lossy,q_60,w_1080,h_320/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F190122225738-pba-oscars-video-synd-2.jpg&quot;) 50% 0px / cover no-repeat; position: relative;">
-	<div class="box-item-horizontal__footer">
-		<div class="box-item-horizontal__footer__category" ng-click="vm.openCategory($event)">Entertainment</div>
-		<div class="box-item-horizontal__footer__category-decoration"></div>
-		<div class="box-item-horizontal__footer__title"><span>ABC confirms host-free Oscars, says 'mystery' has stoked interest</span></div>		
-	</div>
-	<!---->
-	<!----><i ng-if="!$root.readingListEnabled" class="box-item-horizontal__footer__read-later-btn ct-icon-heart" ng-class="(vm.heartToggled ? 'ct-icon-heart-full' : 'ct-icon-heart')" ng-click="vm.onHeart($event)"></i><!---->
-</div></div>
-	</div>
-</div><!---->
-			<!---->
-			<!---->
-			<!---->
-			<!-- content breakers -->
-			<!---->
-			<!--<world cup widgets>-->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
-
-			<!--</world cup widgets>-->
-			<!-- <ct-yahoo ng-switch-when="cb_yahoo" ad-format="{{box.adFormat}}" ad-slot="{{box.adSlot}}" data-box-index="{{$index+1}}" data-box-template-type="cb_yahoo" class="ct_ad" data-vendor="Yahoo" ng-click="onAdClick($event)" data-type="ad_item"></ct-yahoo>
-			<ct-playbuzz ng-switch-when="cb_playbuzz" data-box-index="{{$index+1}}" data-box-template-type="cb_playbuzz" class="ct_ad" data-vendor="Playbuzz" ng-click="onAdClick($event)" style="max-height: 43rem; overflow: hidden; display: block;" data-type="ad_item"></ct-playbuzz> -->
-			<!---->
-            <!---->
-<!-- 			<ct-google-adsense ng-switch-when="cb_dfp" ad-format="{{box.adFormat}}" ad-slot="{{box.adSlot}}" data-box-index="{{$index}}" data-box-template-type="cb_dfp" class="ct_ad" vendor="DFP" ng-click="onAdClick($event)">
-			</ct-google-adsense>  -->
- 			<!---->
-			<!---->
-			<!---->
-
-			<!---->
-			<!---->
-		</div><!----><div ng-repeat="box in vm.feed.feedStream track by $index" ng-switch="box.type" class="ct-animate box-repeat-wrapper" ng-class="box.playAnimation ? 'box-1-animation' : ''" ng-style="box.boxStyle" style="">
-			<!---->
-			<!---->
-			<!---->
-			<!----><div class="box-container box-4 clearfix" ng-switch-when="4" box-items="box.boxItems" ids="box.ids" category-name="vm.feed.getCategoryName()" data-box-index="5" data-box-template-type="box_4">
-	<div class="pull-left box box-col-2 box-row-2" style="background-color: rgb(240, 98, 146);">
-		<div box-item="boxItems[0]" category-name="categoryName" data-box-item-index="1" content="h" data-type="feed_item" data-box-template-type="box_4" data-content-id="90c23f1d-6f32-433e-a071-c799b312b0f5" data-content-provider="PROS_12up" data-content-type="article" data-recommendation-id="TIME_BL" data-box-index="5" style="width: 100%; height: 100%; position: relative;" data-in-view="false"><div class="box-item-horizontal" ng-style="vm.article.feedStyle" ng-click="vm.onClick($event)" data-content-type="article" data-contentid="90c23f1d-6f32-433e-a071-c799b312b0f5" data-recomender-id="TIME_BL" box-item="boxItem" category-name="categoryName" style="background: linear-gradient(to top, rgb(0, 0, 0) 0px, rgba(0, 0, 0, 0) 52%), url(&quot;https://imageca3.thestartmagazine.com/fetch/d_magazineDefault.jpg,c_fill,g_auto,fl_lossy,q_60,w_1080,h_320/https://images2.minutemediacdn.com/image/upload/c_fill%2Cw_912%2Ch_516%2Cf_auto%2Cq_auto%2Cg_auto/shape/cover/sport/washington-nationals-v-colorado-rockies-5c59eeb39bda3e79d5000001.jpg%3Fmain_image=true&amp;imageType=.jpg&quot;) 50% 0px / cover no-repeat; position: relative;">
-	<div class="box-item-horizontal__footer">
-		<div class="box-item-horizontal__footer__category" ng-click="vm.openCategory($event)">Sports</div>
-		<div class="box-item-horizontal__footer__category-decoration"></div>
-		<div class="box-item-horizontal__footer__title"><span>Rockies Seem Ready to Screw Yankees and Sign Nolan Arenado to Massive Extension</span></div>		
-	</div>
-	<!---->
-	<!----><i ng-if="!$root.readingListEnabled" class="box-item-horizontal__footer__read-later-btn ct-icon-heart" ng-class="(vm.heartToggled ? 'ct-icon-heart-full' : 'ct-icon-heart')" ng-click="vm.onHeart($event)"></i><!---->
-</div></div>
-	</div>
-	<div class="pull-left box box-col-2 box-row-1" style="background-color: rgb(255, 183, 77);">
-		<div box-item="boxItems[1]" category-name="categoryName" data-box-item-index="2" content="h" data-type="feed_item" data-box-template-type="box_4" data-content-id="6efa80d6-ec1e-4a08-9309-0246ffc6ca9d" data-content-provider="CNN_Global" data-content-type="article" data-recommendation-id="TIME_BL" data-box-index="5" style="width: 100%; height: 100%; position: relative;" data-in-view="false"><div class="box-item-horizontal" ng-style="vm.article.feedStyle" ng-click="vm.onClick($event)" data-content-type="article" data-contentid="6efa80d6-ec1e-4a08-9309-0246ffc6ca9d" data-recomender-id="TIME_BL" box-item="boxItem" category-name="categoryName" style="background: linear-gradient(to top, rgb(0, 0, 0) 0px, rgba(0, 0, 0, 0) 52%), url(&quot;https://imageca3.thestartmagazine.com/fetch/d_magazineDefault.jpg,c_fill,g_auto,fl_lossy,q_60,w_1080,h_320/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F190205154627-neomi-rao-video-synd-2.jpg&quot;) 50% 0px / cover no-repeat; position: relative;">
-	<div class="box-item-horizontal__footer">
-		<div class="box-item-horizontal__footer__category" ng-click="vm.openCategory($event)">News</div>
-		<div class="box-item-horizontal__footer__category-decoration"></div>
-		<div class="box-item-horizontal__footer__title"><span>Trump pick for key court faces scrutiny over past writing about rape</span></div>		
-	</div>
-	<!---->
-	<!----><i ng-if="!$root.readingListEnabled" class="box-item-horizontal__footer__read-later-btn ct-icon-heart" ng-class="(vm.heartToggled ? 'ct-icon-heart-full' : 'ct-icon-heart')" ng-click="vm.onHeart($event)"></i><!---->
-</div></div>
-	</div>
-</div><!---->
-			<!---->
-			<!---->
-			<!---->
-			<!-- content breakers -->
-			<!---->
-			<!--<world cup widgets>-->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
-
-			<!--</world cup widgets>-->
-			<!-- <ct-yahoo ng-switch-when="cb_yahoo" ad-format="{{box.adFormat}}" ad-slot="{{box.adSlot}}" data-box-index="{{$index+1}}" data-box-template-type="cb_yahoo" class="ct_ad" data-vendor="Yahoo" ng-click="onAdClick($event)" data-type="ad_item"></ct-yahoo>
-			<ct-playbuzz ng-switch-when="cb_playbuzz" data-box-index="{{$index+1}}" data-box-template-type="cb_playbuzz" class="ct_ad" data-vendor="Playbuzz" ng-click="onAdClick($event)" style="max-height: 43rem; overflow: hidden; display: block;" data-type="ad_item"></ct-playbuzz> -->
-			<!---->
-            <!---->
-<!-- 			<ct-google-adsense ng-switch-when="cb_dfp" ad-format="{{box.adFormat}}" ad-slot="{{box.adSlot}}" data-box-index="{{$index}}" data-box-template-type="cb_dfp" class="ct_ad" vendor="DFP" ng-click="onAdClick($event)">
-			</ct-google-adsense>  -->
- 			<!---->
-			<!---->
-			<!---->
-
-			<!---->
-			<!---->
-		</div><!----><div ng-repeat="box in vm.feed.feedStream track by $index" ng-switch="box.type" class="ct-animate box-repeat-wrapper" ng-class="box.playAnimation ? 'box-1-animation' : ''" ng-style="box.boxStyle">
-			<!---->
-			<!---->
-			<!---->
-			<!----><div class="box-container box-4 clearfix" ng-switch-when="4" box-items="box.boxItems" ids="box.ids" category-name="vm.feed.getCategoryName()" data-box-index="6" data-box-template-type="box_4">
-	<div class="pull-left box box-col-2 box-row-2" style="background-color: rgb(240, 98, 146);">
-		<div box-item="boxItems[0]" category-name="categoryName" data-box-item-index="1" content="h" data-type="feed_item" data-box-template-type="box_4" data-content-id="deb11d30-8e3e-492f-86ee-5b4ac7e7b3a5" data-content-provider="Reuters" data-content-type="article" data-recommendation-id="TIME_BL" data-box-index="6" style="width: 100%; height: 100%; position: relative;" data-in-view="false"><div class="box-item-horizontal" ng-style="vm.article.feedStyle" ng-click="vm.onClick($event)" data-content-type="article" data-contentid="deb11d30-8e3e-492f-86ee-5b4ac7e7b3a5" data-recomender-id="TIME_BL" box-item="boxItem" category-name="categoryName" style="background: linear-gradient(to top, rgb(0, 0, 0) 0px, rgba(0, 0, 0, 0) 52%), url(&quot;https://imageca2.thestartmagazine.com/upload/d_magazineDefault.jpg,c_fill,g_auto,fl_lossy,q_60,w_1080,h_320/v1549400660/reuters_tag:reuters.com%2C2019:newsml_LYNXNPEF141L6:1.jpg&quot;) 50% 0px / cover no-repeat; position: relative;">
-	<div class="box-item-horizontal__footer">
-		<div class="box-item-horizontal__footer__category" ng-click="vm.openCategory($event)">Technology</div>
-		<div class="box-item-horizontal__footer__category-decoration"></div>
-		<div class="box-item-horizontal__footer__title"><span>Madrid taxi drivers call off anti-Uber strike, vow to fight on</span></div>		
-	</div>
-	<!---->
-	<!----><i ng-if="!$root.readingListEnabled" class="box-item-horizontal__footer__read-later-btn ct-icon-heart" ng-class="(vm.heartToggled ? 'ct-icon-heart-full' : 'ct-icon-heart')" ng-click="vm.onHeart($event)"></i><!---->
-</div></div>
-	</div>
-	<div class="pull-left box box-col-2 box-row-1" style="background-color: rgb(255, 183, 77);">
-		<div box-item="boxItems[1]" category-name="categoryName" data-box-item-index="2" content="h" data-type="feed_item" data-box-template-type="box_4" data-content-id="afaca7af-421c-4614-96b2-d2736455ba81" data-content-provider="BangShowbiz" data-content-type="article" data-recommendation-id="TIME_BL" data-box-index="6" style="width: 100%; height: 100%; position: relative;" data-in-view="false"><div class="box-item-horizontal" ng-style="vm.article.feedStyle" ng-click="vm.onClick($event)" data-content-type="article" data-contentid="afaca7af-421c-4614-96b2-d2736455ba81" data-recomender-id="TIME_BL" box-item="boxItem" category-name="categoryName" style="background: linear-gradient(to top, rgb(0, 0, 0) 0px, rgba(0, 0, 0, 0) 52%), url(&quot;https://imageca1.thestartmagazine.com/upload/d_magazineDefault.jpg,c_fill,g_auto,fl_lossy,q_60,w_1080,h_320/v1549400816/bangshowbiz_1762319.jpg&quot;) 50% 0px / cover no-repeat; position: relative;">
-	<div class="box-item-horizontal__footer">
-		<div class="box-item-horizontal__footer__category" ng-click="vm.openCategory($event)">Entertainment</div>
-		<div class="box-item-horizontal__footer__category-decoration"></div>
-		<div class="box-item-horizontal__footer__title"><span>Frances Bean Cobain: My dad's money feels like a loan</span></div>		
-	</div>
-	<!---->
-	<!----><i ng-if="!$root.readingListEnabled" class="box-item-horizontal__footer__read-later-btn ct-icon-heart" ng-class="(vm.heartToggled ? 'ct-icon-heart-full' : 'ct-icon-heart')" ng-click="vm.onHeart($event)"></i><!---->
-</div></div>
-	</div>
-</div><!---->
-			<!---->
-			<!---->
-			<!---->
-			<!-- content breakers -->
-			<!---->
-			<!--<world cup widgets>-->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
-			<!---->
-
-			<!--</world cup widgets>-->
-			<!-- <ct-yahoo ng-switch-when="cb_yahoo" ad-format="{{box.adFormat}}" ad-slot="{{box.adSlot}}" data-box-index="{{$index+1}}" data-box-template-type="cb_yahoo" class="ct_ad" data-vendor="Yahoo" ng-click="onAdClick($event)" data-type="ad_item"></ct-yahoo>
-			<ct-playbuzz ng-switch-when="cb_playbuzz" data-box-index="{{$index+1}}" data-box-template-type="cb_playbuzz" class="ct_ad" data-vendor="Playbuzz" ng-click="onAdClick($event)" style="max-height: 43rem; overflow: hidden; display: block;" data-type="ad_item"></ct-playbuzz> -->
-			<!---->
-            <!---->
-<!-- 			<ct-google-adsense ng-switch-when="cb_dfp" ad-format="{{box.adFormat}}" ad-slot="{{box.adSlot}}" data-box-index="{{$index}}" data-box-template-type="cb_dfp" class="ct_ad" vendor="DFP" ng-click="onAdClick($event)">
-			</ct-google-adsense>  -->
- 			<!---->
-			<!---->
-			<!---->
-
-			<!---->
-			<!---->
-		</div><!---->
-		<!----><div ng-if="!vm.depleted" ng-class="vm.init ? 'feed-loading' : 'feed-loading-init'" class="feed-loading">
-			<div class="feed-loader">
-	<div class="dot" style="background-color: rgb(189, 189, 189);"></div>
-	<div class="dot" style="background-color: rgb(189, 189, 189);"></div>
-	<div class="dot" style="background-color: rgb(100, 181, 246);"></div>
-</div>
-		</div><!---->
+	</header>
+    <!-- banner text -->
+    <div class="banner-txt" data-userway-font-size="22"> 
+      <h4 data-userway-font-size="30">ברוכים הבאים<br data-userway-font-size="30">לריצ'דייט!</h4>
+      <p data-userway-font-size="24">המקום בו יופי ועושר נפגשים...<br data-userway-font-size="24">אתר ההכרויות מספר 1<br data-userway-font-size="24"> לעשירון העליון בישראל</p>
+     <div class="join-btn" data-userway-font-size="22"><a href="/users/insert_1.asp" data-userway-font-size="32">הצטרפו עכשיו חינם!</a></div>
+     <div class="android-icon" data-userway-font-size="22">     
+       <!--<a  target="_blank" href="https://itunes.apple.com/us/app/richdate-ryyzdyyt/id898630946?ls=1&mt=8"><span><img src="images/ios-icon.png" alt="ios"/></span></a>-->
+       <a target="_blank" href="https://play.google.com/store/apps/details?id=com.interdate.richdate" data-userway-font-size="22"><span data-userway-font-size="22"><img src="images/android-icon.png" alt="ios" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></span></a>
+     </div>
+    </div>
+    <!-- slider -->
+    <div class="hslider owl-carousel owl-theme owl-rtl owl-loaded" data-userway-font-size="22">
+      
+      
+      
+      
+    <div class="owl-stage-outer" data-userway-font-size="22"><div class="owl-stage" data-userway-font-size="22" style="transform: translate3d(2560px, 0px, 0px); transition: all 0s ease 0s; width: 10240px;"><div class="owl-item cloned" data-userway-font-size="22" style="width: 1280px; margin-left: 0px;"><div class="slider-img" style="background:url(images/slider-img3.jpg) no-repeat center center; background-size:cover;" data-userway-font-size="22"></div></div><div class="owl-item cloned" data-userway-font-size="22" style="width: 1280px; margin-left: 0px;"><div class="slider-img" style="background:url(images/slider-img4.jpg) no-repeat center center; background-size:cover;" data-userway-font-size="22"></div></div><div class="owl-item active" data-userway-font-size="22" style="width: 1280px; margin-left: 0px;"><div class="slider-img" style="background:url(images/slider-img1.jpg) no-repeat center center; background-size:cover;" data-userway-font-size="22"></div></div><div class="owl-item" data-userway-font-size="22" style="width: 1280px; margin-left: 0px;"><div class="slider-img" style="background:url(images/slider-img2.jpg) no-repeat center center; background-size:cover;" data-userway-font-size="22"></div></div><div class="owl-item" data-userway-font-size="22" style="width: 1280px; margin-left: 0px;"><div class="slider-img" style="background:url(images/slider-img3.jpg) no-repeat center center; background-size:cover;" data-userway-font-size="22"></div></div><div class="owl-item" data-userway-font-size="22" style="width: 1280px; margin-left: 0px;"><div class="slider-img" style="background:url(images/slider-img4.jpg) no-repeat center center; background-size:cover;" data-userway-font-size="22"></div></div><div class="owl-item cloned" data-userway-font-size="22" style="width: 1280px; margin-left: 0px;"><div class="slider-img" style="background:url(images/slider-img1.jpg) no-repeat center center; background-size:cover;" data-userway-font-size="22"></div></div><div class="owl-item cloned" data-userway-font-size="22" style="width: 1280px; margin-left: 0px;"><div class="slider-img" style="background:url(images/slider-img2.jpg) no-repeat center center; background-size:cover;" data-userway-font-size="22"></div></div></div></div><div class="owl-controls" data-userway-font-size="22"><div class="owl-nav" data-userway-font-size="22"><div class="owl-prev" data-userway-font-size="14" style="display: none;">prev</div><div class="owl-next" data-userway-font-size="14" style="display: none;">next</div></div><div class="owl-dots" data-userway-font-size="22" style="display: none;"></div></div></div>
+  </div>
+  <!-- middile containt -->
+  <div class="mid-container" data-userway-font-size="22">
+  <!-- join section -->
+  <div class="join-section" data-userway-font-size="22">
+    <div class="wrap" data-userway-font-size="22">
+    
+    <h1 data-userway-font-size="48" style="border-left: 5px solid blue;">למה כדאי להצטרף לריצ'דייט?</h1>
+    <!--<h4>לפניכם מספר סיבות:</h4>-->
+    <ul class="clearfix" data-userway-font-size="22">
+      <li data-userway-font-size="22">
+        <div class="join-icon" data-userway-font-size="22"><img src="images/join-icon1.png" alt="הרישום לאתר ריצ'דייט מהיר, נוח וקל" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></div>
+        <p data-userway-font-size="22">הרישום לאתר ריצ'דייט מהיר, נוח וקל</p>
+      </li>
+      <li data-userway-font-size="22">
+        <div class="join-icon" data-userway-font-size="22"><img src="images/join-icon2.png" alt="הרישום לאתר ריצ'דייט מהיר, נוח וקל" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></div>
+        <p data-userway-font-size="22">ניתן לגלוש באתר ריצ'דייט במחשב ובסלולר</p>
+      </li>
+      <li data-userway-font-size="22">
+        <div class="join-icon" data-userway-font-size="22"><img src="images/join-icon3.png" alt="הרישום לאתר ריצ'דייט מהיר, נוח וקל" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></div>
+        <p data-userway-font-size="22">מערכת צ'אטים והודעות נוחה וקלה לשימוש</p>
+      </li>
+      <li data-userway-font-size="22">
+        <div class="join-icon" data-userway-font-size="22"><img src="images/join-icon4.png" alt="הרישום לאתר ריצ'דייט מהיר, נוח וקל" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></div>
+        <p data-userway-font-size="22">מאגר ענק של נשים יפיפיות וגברים עשירים</p>
+      </li>
+    </ul>
+    <div class="regis-btn" data-userway-font-size="22"><a href="/users/insert_1.asp" data-userway-font-size="32">להרשמה חינם</a></div>
+    
+   </div>
+  </div>
+  <!-- search section -->
+  <div class="search-section" data-userway-font-size="22">
+    <div class="wrap" data-userway-font-size="22">
+      <h1 data-userway-font-size="48" style="border-left: 5px solid blue;">חיפוש מהיר באתר</h1>
+      
+      <div class="serch-form clearfix" data-userway-font-size="22">
+       <form action="/members/results.asp" method="get" name="qsearch" data-userway-font-size="22">
+        <div class="sfield" data-userway-font-size="22">
+          <label for="an" data-userway-font-size="27">*אני:</label>          
+          <span class="select-wrapper" data-userway-font-size="22"><select id="an" name="userGender" class="custom-select" data-userway-font-size="22">
+              <option value="אני" data-userway-font-size="22">אני</option>
+              <option value="0" data-userway-font-size="22">גבר</option>
+              <option value="1" data-userway-font-size="22">אישה</option>             
+              
+          </select><span class="holder" data-userway-font-size="22">אני</span></span>
+        </div>
+        <div class="sfield" data-userway-font-size="22">
+          <label for="location" data-userway-font-size="27">*באיזור:</label>
+          <span class="select-wrapper" data-userway-font-size="22"><select id="location" name="countryRegionIds" class="custom-select" data-userway-font-size="22">
+              <option value="באיזור" data-userway-font-size="22">באיזור</option>
+              <option value="12" data-userway-font-size="22">איו"ש</option><option value="18" data-userway-font-size="22">אילת</option><option value="10" data-userway-font-size="22">הדרום</option><option value="9" data-userway-font-size="22">המרכז</option><option value="17" data-userway-font-size="22">השרון</option><option value="14" data-userway-font-size="22">חוץ-לארץ</option><option value="6" data-userway-font-size="22">חיפה</option><option value="7" data-userway-font-size="22">ירושלים</option><option value="5" data-userway-font-size="22">צפון</option><option value="8" data-userway-font-size="22">תל-אביב</option>
+            </select><span class="holder" data-userway-font-size="22">באיזור</span></span>
+        </div>
+        <div class="sfield" data-userway-font-size="22">
+          <label for="bgilai" data-userway-font-size="27">*בגיל: מ- </label>
+          <div class="sfield2" data-userway-font-size="22">
+           <input name="userAge_l" id="bgilai" type="text" required="" data-userway-font-size="20">
+           <label for="until" data-userway-font-size="27">עד-</label>
+           <input name="userAge_h" id="until" type="text" required="" data-userway-font-size="20">
+          </div>
+        </div>
+        <div class="send-btn" data-userway-font-size="22"><input name="search" id="search" type="submit" value="חפש" data-userway-font-size="30"></div>
+	  </form>
+      </div>	
 		
+      
+    </div>
+
+	<div id="faces_container" data-userway-font-size="22">
+		<div class="wrap" data-userway-font-size="22">
+			<div id="faces_init_data" class="hidden" data-userway-font-size="22">
+				<input type="hidden" value="/users/insert_1.asp" id="sign_up_path" data-userway-font-size="13">
+				<div class="item" data-userway-font-size="22">
+				<input type="hidden" class="faceImageName" value="img1" data-userway-font-size="13">
+				<input type="hidden" class="url" value="images/img1.jpg" data-userway-font-size="13">
+				</div>
+				<div class="item" data-userway-font-size="22">
+				<input type="hidden" class="faceImageName" value="img2" data-userway-font-size="13">
+				<input type="hidden" class="url" value="images/img2.jpg" data-userway-font-size="13">
+				</div>
+				<div class="item" data-userway-font-size="22">
+				<input type="hidden" class="faceImageName" value="img3" data-userway-font-size="13">
+				<input type="hidden" class="url" value="images/img3.jpg" data-userway-font-size="13">
+				</div>
+				<div class="item" data-userway-font-size="22">
+				<input type="hidden" class="faceImageName" value="img4" data-userway-font-size="13">
+				<input type="hidden" class="url" value="images/img4.jpg" data-userway-font-size="13">
+				</div>
+				<div class="item" data-userway-font-size="22">
+				<input type="hidden" class="faceImageName" value="img5" data-userway-font-size="13">
+				<input type="hidden" class="url" value="images/img5.jpg" data-userway-font-size="13">
+				</div>      
+
+				<div class="item" data-userway-font-size="22">
+				<input type="hidden" class="faceImageName" value="img6" data-userway-font-size="13">
+				<input type="hidden" class="url" value="images/img6.png" data-userway-font-size="13">
+				</div>
+				<div class="item" data-userway-font-size="22">
+				<input type="hidden" class="faceImageName" value="img7" data-userway-font-size="13">
+				<input type="hidden" class="url" value="images/img7.png" data-userway-font-size="13">
+				</div>
+				<div class="item" data-userway-font-size="22">
+				<input type="hidden" class="faceImageName" value="img8" data-userway-font-size="13">
+				<input type="hidden" class="url" value="images/img8.png" data-userway-font-size="13">
+				</div>
+				<div class="item" data-userway-font-size="22">
+				<input type="hidden" class="faceImageName" value="img9" data-userway-font-size="13">
+				<input type="hidden" class="url" value="images/img9.png" data-userway-font-size="13">
+				</div>
+				<div class="item" data-userway-font-size="22">
+				<input type="hidden" class="faceImageName" value="img10" data-userway-font-size="13">
+				<input type="hidden" class="url" value="images/img10.png" data-userway-font-size="13">
+				</div>
+			</div>
+
+
+			<div class="face_wrapper first" data-userway-font-size="22"><img class="face" alt="" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></div>
+			<div class="face_wrapper second" data-userway-font-size="22"><img class="face" alt="" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></div>
+			<div class="face_wrapper third" data-userway-font-size="22"><img class="face" alt="" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></div>
+			<div class="face_wrapper fourth" data-userway-font-size="22"><img class="face" alt="" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></div>
+			<div class="face_wrapper fifth" data-userway-font-size="22"><img class="face" alt="" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></div>
+		</div>
+		</div>
+		<script src="/js/faces.js" data-userway-font-size="22"></script>
+
+  </div>
+  <!-- video section -->
+  <div class="video-section" data-userway-font-size="22">
+    <div class="wrap clearfix" data-userway-font-size="22">
+    
+      <div class="video-right clearfix" data-userway-font-size="22">
+       <div class="girlbox" data-userway-font-size="22"><img src="images/video-girl.jpg" alt="girl" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></div>
+       <div class="textbox" data-userway-font-size="22">
+         <h1 data-userway-font-size="48" style="border-left: 5px solid blue;"><span data-userway-font-size="48">עשיר וטוב לה:</span></h1>
+         <h4 data-userway-font-size="30">על מערכות יחסים בעשירון העליון</h4>
+       </div>
+      </div>
+      <div class="video-left" data-userway-font-size="22"><iframe height="402" src="https://www.youtube.com/embed/wTs4wL1dPYY" allowfullscreen="" data-userway-font-size="22"></iframe></div>  
+    </div>
+  </div>
+  <!-- about section -->
+  <div class="about" data-userway-font-size="22">
+   <div class="wrap" data-userway-font-size="22">
+    <div class="about-txt" data-userway-font-size="22">
+     <p data-userway-font-size="26"></p><p data-userway-font-size="26">ריצ'דייט יוצר מרחב שמחבר בין עושר ויופי, בין חלום ומציאות. באתר ריצ'דייט החלטנו להעלות את הרף על מנת ליצור מאגר של פנויים פנויות בסטנדרטים שלא הכרתם! זה המקום לנשים ולגברים לחפש בני זוג אמידים, איכותיים ואטרקטיביים, מבלי להתפשר. ריצ'דייט הוא האתר המוביל בארץ להכרויות לעשירון העליון. במאגר הגדול והאיכותי שלנו עורכי דין, בעלי חברות, סמנכ"לי כספים, טייסים, שחקניות, דוגמניות ונשות עסקים. הצטרפו עוד היום לאתר ההכרויות האקסלוסיבי של ריצ'דייט.</p>
+<p data-userway-font-size="26"></p>     
+     <div class="regis-btn" data-userway-font-size="22"><a href="/users/insert_1.asp" data-userway-font-size="32">להרשמה חינם</a></div>
+    </div>
+   </div>
+  </div>
+  <!-- magzin section -->
+  <div class="magzin" data-userway-font-size="22">
+    <div class="wrap" data-userway-font-size="22">
+    <h1 data-userway-font-size="48" style="border-left: 5px solid blue;">מגזין הכרויות לעשירון העליון</h1>
+    <ul data-userway-font-size="22">
+      <li data-userway-font-size="22"><div class="magzin-img" data-userway-font-size="22"><a href="/magazine/entries/default.asp?blogid=328&amp;entryId=3094" data-userway-font-size="22"><img src="/images/articles/large/model-600238_1920.jpg" alt="כללי בטיחות לגלישה באתרי הכרויות" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></a></div><h3 data-userway-font-size="25"><a href="/magazine/entries/default.asp?blogid=328&amp;entryId=3094" data-userway-font-size="25">כללי בטיחות לגלישה באתרי הכרויות</a></h3><p data-userway-font-size="22">למרות כל היתרונות שאינטרנט מספק לנו, עדיין מדובר בסביבה שאינה לגמרי בטוחה. לצערנ...</p><div class="conti-btn" data-userway-font-size="22"><a href="/magazine/entries/default.asp?blogid=328&amp;entryId=3094" data-userway-font-size="18">להמשך קריאה</a></div></li><li data-userway-font-size="22"><div class="magzin-img" data-userway-font-size="22"><a href="/magazine/entries/default.asp?blogid=328&amp;entryId=3097" data-userway-font-size="22"><img src="/images/articles/large/video 3_1.jpg" alt="אמיתי או FAKE?" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></a></div><h3 data-userway-font-size="25"><a href="/magazine/entries/default.asp?blogid=328&amp;entryId=3097" data-userway-font-size="25">אמיתי או FAKE?</a></h3><p data-userway-font-size="22">חדשה בריצ'דייט ותיבת ההודעות שלך מפוצצת בהודעות מגברים מרשימים? קבלי 8 טיפים...</p><div class="conti-btn" data-userway-font-size="22"><a href="/magazine/entries/default.asp?blogid=328&amp;entryId=3097" data-userway-font-size="18">להמשך קריאה</a></div></li><li data-userway-font-size="22"><div class="magzin-img" data-userway-font-size="22"><a href="/magazine/entries/default.asp?blogid=328&amp;entryId=3096" data-userway-font-size="22"><img src="/images/articles/large/video 2_1.jpg" alt="טיפים לכתיבת פרופיל בריצדייט" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></a></div><h3 data-userway-font-size="25"><a href="/magazine/entries/default.asp?blogid=328&amp;entryId=3096" data-userway-font-size="25">טיפים לכתיבת פרופיל בריצדייט</a></h3><p data-userway-font-size="22">נרשמת לריצ'דייט ולא יודעת מה לכתוב בפרופיל? אל דאגה! לפיית הדייטים שלך יש 8 ...</p><div class="conti-btn" data-userway-font-size="22"><a href="/magazine/entries/default.asp?blogid=328&amp;entryId=3096" data-userway-font-size="18">להמשך קריאה</a></div></li>
+	  
+    </ul>
+   </div>
+  </div>
+  <!-- how join section -->
+  <div class="how-join" data-userway-font-size="22">
+   <div class="wrap" data-userway-font-size="22">
+    <h1 data-userway-font-size="48" style="border-left: 5px solid blue;">איך מצטרפים לריצ'דייט? בקלות!</h1>
+    <h4 data-userway-font-size="30">לחצו על כפתור ההרשמה ותוך מספר צעדים פשוטים תוכלו גם אתם להצטרף לקהילה האקסלוסיבית של ריצ'דייט!</h4>
+    <div class="regis-btn" data-userway-font-size="22"><a href="/users/insert_1.asp" data-userway-font-size="32">להרשמה חינם</a></div>
+   </div>
+  </div>
+  <!-- connect us section -->
+  <div class="connect" data-userway-font-size="22">
+   <div class="wrap" data-userway-font-size="22">
+   <div style="max-width:600px; text-align:center;margin:0 auto;" data-userway-font-size="22">
+   <h1 data-userway-font-size="48" style="border-left: 5px solid blue;">התחברו אלינו בסלולר!</h1>
+   <p data-userway-font-size="26"></p><p data-userway-font-size="26">לא ליד מחשב? אין בעיה! אתר ריצ'דייט עומד לרשותכם גם בסלולר! אפליקציית ריצ'דייט זמינה עבור כל מכשיר סלולרי ומאפשרת לכם להמשיך לגלוש באתר מכל מקום ובכל שעה. התאמות לפי מרחק גיאוגרפי, צ'אט, דפדוף בזירה, עריכת פרופיל ועוד- כל השירותים זמינים עבורכם 24/7 באפליקציות ובאתר המותאם<span dir="LTR" data-userway-font-size="26">.</span></p>
+<p data-userway-font-size="26"></p>
 	</div>
+   <ul data-userway-font-size="22">
+    <!-- <li>
+    <a target="_blank" href="https://itunes.apple.com/us/app/richdate-ryyzdyyt/id898630946?ls=1&mt=8">	
+     <h5>ריצ'דייט באייפון</h5>
+     <div class="icon"><img src="images/ios-icon2.png" alt="ios"/></div>
+     </a>
+    </li>-->
+    <li data-userway-font-size="22">
+    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.interdate.richdate" data-userway-font-size="22">
+     <h5 data-userway-font-size="26">ריצ'דייט באנדרואיד</h5>
+     <div class="icon" data-userway-font-size="22"><img src="images/android-icon2.png" alt="android" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></div>
+     </a>
+    </li>
+   </ul>
+   <div class="mobile-icon" data-userway-font-size="22"><img src="images/mobile-img.png" alt="mobile" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></div>
+   
+   </div>
+  </div>
+  <!-- end -->
+  </div>
+  <!-- end -->
+  <!-- footer -->
+  <div class="footer" data-userway-font-size="22">
+   <div class="go-top" data-userway-font-size="22"></div>
+    <div class="wrap" data-userway-font-size="22">
+      
+      <div class="footer-main clearfix" data-userway-font-size="22">
+      
+        <div class="footer-box col1" data-userway-font-size="22">
+<h6 data-userway-font-size="18">ריצ'דייט</h6>
+
+<ul data-userway-font-size="22">
+	<li data-userway-font-size="22"><a href="/dyncpage.asp?pageId=6" data-userway-font-size="16">אודות האתר</a></li>
+	<li data-userway-font-size="22"><a href="/dyncpage.asp?pageId=7" data-userway-font-size="16">תנאי שימוש</a></li>
+	<li data-userway-font-size="22"><a href="/dyncpage.asp?pageId=11" data-userway-font-size="16">מדיניות פרטיות</a></li>
+</ul>
 </div>
 
-</div><div id="interstitial" style="padding: 0px; opacity: 0; transform: translateY(-100%);"></div><script src="https://secure.quantserve.com/quant.js" async="" type="text/javascript"></script><script async="" src="https://sb.scorecardresearch.com/beacon.js"></script><script type="text/javascript" async="" src="https://d31qbv1cthcecs.cloudfront.net/atrk.js"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script>"use strict";if(window.location.href.indexOf("/magazine/")>-1){var getChromeVersion=function(){var e=navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);return!!e&&parseInt(e[2],10)},isOldAndroid=function(){return navigator.userAgent.match(/Android\/([0-9]+)\./)},chromeVersion=getChromeVersion();(chromeVersion&&chromeVersion<40||isOldAndroid())&&(window.location.href=window.location.href.replace("/magazine/","/magazinec/"))}
-    "use strict";var googletag=googletag||{};googletag.cmd=googletag.cmd||[],googletag.cmd.push(function(){googletag.pubads().disableInitialLoad(),googletag.enableServices()});var _YB=_YB||{ab:function(){return _YB.dool?"b":"a"+Math.floor(10*Math.random())},dc:function(){return _YB.dool?"d":"c"+Math.floor(20*Math.random())},mx:function(){return _YB.dool?"m"+Math.floor(180*Math.random()):"x"},tt:function(){return"tt"+Math.floor(10*Math.random())},dool:Math.random()>=.1};
-    "use strict";window.SOMETHING_WRONG=function(d){var s=new CustomEvent("csAdError",{detail:{error:d}});document.dispatchEvent(s)},window.DRAW_ADS=function(d){window.csAds=window.csAds||[];for(var s={},a=0;a<d.ads.length;a++){var n=qa_json_adart.getImageUrlForAd(d.ads[a],1,s);d.ads[a].imgUrl=n}window.csAds.push(d.ads);var t=new CustomEvent("csAdLoaded",{detail:{ads:d.ads}});document.dispatchEvent(t)};
-    "use strict";!function(){window.categories=[{"categoryId":86,"categoryName":"Trending News","translatedName":"Trending News","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":88,"categoryName":"Regional News","translatedName":"Regional News","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":7,"categoryName":"Sports","translatedName":"Sports","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":13,"categoryName":"News","translatedName":"News","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":48,"categoryName":"Finance","translatedName":"Finance","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":1,"categoryName":"India news","translatedName":"India news","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":4,"categoryName":"World news","translatedName":"World news","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":61,"categoryName":"Cars","translatedName":"Cars","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":12,"categoryName":"Entertainment","translatedName":"Entertainment","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":9,"categoryName":"Technology","translatedName":"Technology","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":42,"categoryName":"Lifestyle","translatedName":"Lifestyle","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":24,"categoryName":"Health","translatedName":"Health","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":8,"categoryName":"Movies","translatedName":"Movies","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":65,"categoryName":"Music","translatedName":"Music","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":85,"categoryName":"Tourism","translatedName":"Tourism","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":50,"categoryName":"Opinions","translatedName":"Opinions","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":17,"categoryName":"Celebrities","translatedName":"Celebrities","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":93,"categoryName":"Politics","translatedName":"Politics","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":75,"categoryName":"Television","translatedName":"Television","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":62,"categoryName":"Education","translatedName":"Education","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":18,"categoryName":"Fashion","translatedName":"Fashion","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":83,"categoryName":"Environment","translatedName":"Environment","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":45,"categoryName":"Trends","translatedName":"Trends","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":14,"categoryName":"Science","translatedName":"Science","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":77,"categoryName":"Food","translatedName":"Food","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":6,"categoryName":"Cricket","translatedName":"Cricket","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":27,"categoryName":"Nutrition and Exercise","translatedName":"Nutrition and Exercise","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":79,"categoryName":"Bollywood","translatedName":"Bollywood","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":19,"categoryName":"Game News","translatedName":"Game News","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":46,"categoryName":"Culture","translatedName":"Culture","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":16,"categoryName":"Beauty","translatedName":"Beauty","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":84,"categoryName":"Books","translatedName":"Books","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":29,"categoryName":"Sexuality","translatedName":"Sexuality","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"},{"categoryId":92,"categoryName":"Viral","translatedName":"Viral","imageUrl":"https://imageca.thestartmagazine.com/upload/fl_lossy,q_70/magazineDefault.jpg"}];window.settings={"ads":{"lazy_load_ads":true},"feed":{"brand":{"publisher":{"logo":"https://imageca.thestartmagazine.com/upload/app/TQ.png","name":"QBMedia_TheQuint_ENG"}},"box_types":["HTP_Slim",1,4],"native_ads":{},"ad_breakers":{"DFP":{"active":false,"weight":1}},"feed_enabled":true,"native_content":{"cedato":{"cap":0,"active":true,"weight":0.4,"categories":["all"],"name":"cedato"}},"content_breakers":{"articles":{"active":true,"weight":1}},"native_ad_percentage":0,"ad_breakers_percentage":0,"category_icons_enabled":false,"imageShardingInstances":3,"fixed_breaker_positions":["Articles","DFP","DFP","DFP","DFP","DFP","DFP","DFP"],"fixed_native_ad_positions":[]},"lean":{"ads":{"lazy_load_ads":true},"feed":{"ad_breakers":{"dfp":{"cap":4,"active":true,"name":"dfp"}}},"providers":{"cedato":{"player_id":1841037896}}},"article":{"ads":{"DFP":{"active":true,"placements":{"center":true,"footer":false,"header":true},"name":"dfp"}},"serverRender":false,"swipe_enabled":true,"additional_content":{"ads":[{"adSlot":"/156102325/article//320_50_related_article","noTitle":true,"adFormat":"[[320,100], [320, 50]]","provider":"dfp","type":"ad","id":0}],"active":true,"blockOrder":["article","article","ad","article","article"],"widget_configuration":{"in_article":true,"bottom_type":"regular"}},"read_orig_article_enabled":"preview_only","notifications_popup_enabled":false},"partner":{"about_logo":"","about_text":"","active_state":"Active"},"version":1,"manifest":{"add_to_home_enabled":true},"settings":{"active":true},"providers":{"DFP":{"feed":[{"size":"[[300,250],[250,250],[200,200],[336,280],[\"fluid\"]]","ad_unit":"/156102325/feed//300_250_first"},{"size":"[[300,250],[250,250],[200,200],[336,280],[\"fluid\"]]","ad_unit":"/156102325/feed//300_250_second"},{"size":"[[300,250],[250,250],[200,200],[336,280],[\"fluid\"]]","ad_unit":"/156102325/feed//300_250_third"},{"size":"[[300,250],[250,250],[200,200],[336,280],[\"fluid\"]]","ad_unit":"/156102325/feed//300_250_fourth"},{"size":"[[300,250],[250,250],[200,200],[336,280],[\"fluid\"]]","ad_unit":"/156102325/feed//300_250_fifth"},{"size":"[[300,250],[250,250],[200,200],[336,280],[\"fluid\"]]","ad_unit":"/156102325/feed//300_250_sixth"},{"size":"[[300,250],[250,250],[200,200],[336,280],[\"fluid\"]]","ad_unit":"/156102325/feed//300_250_seventh"}]},"cedato":{"player_id":1841037896}},"signature":{"id":577,"ts":"2019-02-04 15:52:16.957","md5":"e3732f92-6800-b053-0bf2-6dbfdb29d103"},"categories":{"type":"vertical","enabled":true,"category_icons_enabled":false},"content_providers":{"Bloomberg":{"register_url":"https://www.bloomberg.com/subscriptions?in_source=hp-nav","articles_daily_cap":10}},"i18n":{"en":{"SEARCH_FOR_TEAM":"Search for a team","POPULAR_TEAMS":"Popular teams","SHOW_MORE":"Show more","COUNTRIES":"Countries","POPULAR_SEARCHES":"Popular searches","MY_TEAMS":"My teams","SELECT_TEAM":"Select Team","POWERED_BY":"Powered by","NEWS":"News","Today":"Today","Yesterday":"Yesterday","January":"January","February":"February","March":"March","April":"April","May":"May","June":"June","July":"July","August":"August","September":"September","October":"October","November":"November","December":"December","CLICK_TO_FAVORITE_TEAMS":"Click to select your favorite teams","CHECK_OUT_THIS_INTERESTING_ARTICLE_FROM_START":"Check out this interesting article from Start:","CHECK_OUT_THIS_ARTICLE":"Check out this article:","PROMOTED":"Promoted","READ_MORE":"Read More","SPORTS":"Sports","ENDED":"Ended","SHOW_ALL":"Show all","LINEUP":"Lineup","MATCH_DETAILS":"Match details","REFEREE":"Referee","STADIUM":"Stadium","FIFA":"FIFA","CHAMPIONS_LEAGUE":"Champions League","WHO_WILL_WIN":"Who Will Win?","PRE_GAME_INFO":"Pre-Game Info","PREVIOUS_MEETINGS":"Previous Meetings","MISSING_PLAYERS":"Missing Players","PREMIER_LEAGUE":"Premier league","DRAW":"Draw","SHARE_THIS_LINEUP":"Share this lineup with your friends","SELECT_YOUR_FAVORITE_EURO_TEAMS":"Select your favorite Euro teams","SELECT_YOUR_EURO_2016_TEAMS":"Select your Euro2016 teams","SOCCER":"Soccer","FIFA_WORLD_CUB":"FIFA World Cup","MATCH_EVENTS":"Match Events","NO_LINEUP_AVILABLE":"No lineups available for this match, We will notify you as soon as they will be released","FOLLOW":"Follow","SKIP":"Skip","SELECT_THE_TEAMS_YOU_WANT_TO_FOLLOW":"Select the Euro national football teams you want to follow","RECEIVE_LIVE_SCORES":"Get live scores, breaking news and match event info","Austria":"Austria","Ukraine":"Ukraine","Italy":"Italy","Iceland":"Iceland","Ireland":"Ireland","Albania":"Albania","England":"England","Belgium":"Belgium","Germany":"Germany","Hungary":"Hungary","Wales":"Wales","Turkey":"Turkey","Slovakia":"Slovakia","Spain":"Spain","Poland":"Poland","Portugal":"Portugal","Czech Republic":"Czech Republic","Northern Ireland":"Northern Ireland","France":"France","Croatia":"Croatia","Rumania":"Rumania","Russia":"Russia","Sweden":"Sweden","Switzerland":"Switzerland","Goalkeeper":"Goalkeeper","Defenders":"Defenders","Midfielders":"Midfielders","Forward":"Forward","VOTES":"Votes","LEAGUES":"Leagues","UP":"Up","NEXT":"Next","MAGAZINE_HOME":"Magazine Home","SPONSORED":"Sponsored","SPONSORED_BY":"Sponsored by","UP_NEXT":"Up next","RELATED_CONTENT":"Related Content","SETTINGS":"Settings","MAGAZINE_NOTIFICATIONS":"Magazine Notifications","MAGAZINE_SHORTCUT":"Magazine Shortcut","START_MAGAZINE":"Start Magazine","UPDATE_BROWSER":"Sorry, your device's browser isn't the latest version and cannot show this content. Click here to update it.","BROWSER_CANT_SHOW":"Sorry, your device's browser cannot show this content.","READ_IN_SITE":"Read on site","READING_LIST":"Reading List","READ_ITEMS":"Read Items","UNREAD_ITEMS":"Unread items","DELETE":"Delete","SWIPE_FOR_ANOTHER_ARTICLE":"Now swipe for another article!","SWIPE_FOR_MORE":"Swipe for more","ADVERTISEMENT":"Advertisment","SELECT_YOUR_FAVORITE_SPORT_TEAMS":"Select your favorite sport teams","WILL_RECIEVE_INFO":"As soon as games are played, you’ll receive  live scores, breaking news and match event info!","LET’S_GO":"Let's go","CLOSE":"Close","PERSONALITY_QUIZ":"Personality quiz","TEST_YOURSELF":"Test yourself","TODAYS_COMICS":"Today’s Comics","GET_ANOTHER_ONE":"Get another one","SOMETHING_ELSE":"Something else","CATEGORIES":"Categories","LOAD_MORE":"Load More","SLOW_CONNECTION_MSG":"Slow Connection?","SLOW_CONNECTION_ACTION":"Get the Instant Version","MORE_STORIES":"More Stories","RELATED_STORIES":"Related stories","SIMILAR":"Similar","LEAN_NO_VIDEO":"Oops, your device can't play this video","TOP_STORIES":"Top Stories","ABOUT":"About","APP_VERSION":"App Version","RELEASE_DATE":"Release Date","PRIVACY_POLICY":"Privacy Policy","CLICK_TO_VIEW_PRIVACY_POLICY":"Click here to view our Privacy Policy","TERMS_AND_CONDITIONS":"Terms And Conditions","CLICK_TO_VIEW_TERMS_AND_CONDITIONS":"Click here to view our Terms of Use","DEVELOPERS":"Developers","404_SADMAN_MESSAGE":"Page not found","404_ARTICLE_SUGGESTIONS_TITLE":"Not to worry, there's plenty more to see","OOPS":"OOPS","BACK_TO_FEED":"Back to feed","BREAKING_NEWS":"Breaking news","RELATED":"Related","SAVE_FOR_LATER":"Save for later","SWIPE_UP_FOR_MORE_VIDEOS":"Swipe up for more videos","ENABLE_NOTIFICATIONS":"Notify me about important game events","CUSTOMIZE_YOUR_NOTIFICATIONS":"Customize Your Notifications","GAME_ABOUT_TO_START":"Game About To Start","GAME_STARTED":"Game Started","GOALS":"Goals","RED_CARDS":"Red Cards","PENALTY":"Penalty","GAME_ENDED":"Game Ended","MATCH_ATTENDANCE":"Match Attendance","TV_AIR_TIME":"TV Air Time","GAME_INFO":"Game info","EDITORS_PICK":"Editor’s Pick","HALFTIME":"Halftime","END_OF_90_MIN":"End of 90 min","ALL_EVENTS":"All Events","STATISTIC":"Statistic","POSESSION":"Posession","SHOTS_ON_TARGET":"Shots On Target","CORNERS":"Corners","OFFSIDES":"Offsides","NOTIFICATIONS":"Notifications","MANAGE_NOTIFICATIONS":"Manage Notifications","CANCEL":"Cancel","OK":"OK","STANDINGS":"Standings","GAMES":"Games","WORLD_CUP":"World Cup","LET'S_PERSONALIZE":"Let’s personalize your sports magazine. Who are you a fan of? ","SELECT_TEAMS":"Select Teams","LATER":"Later","404_SADMAN_MESSAGE_OLD":"The page you are looking for is... gone!","COOKIE_NOTIFICATION":"By accessing this site or closing this message, you agree that we will use and share cookies to offer you a better browsing experience, including for analytics and advertising purposes. ","COOKIE_NOTIFICATION_LINK":"See details","ENABLE_NOTIFICATIONS_OLD":"Enable Notifications","FOR_YOU":"For You","TEAMS_LIMIT_EXCEEDED":"You've subscribed for too many teams. Please cancel some subscriptions before adding new ones.","SOCIAL_FEED":"SOCIAL FEED"}}};}();
-    "use strict";window.Styles=window.Styles||{},function(){for(var e=["#81C784","#BDBDBD","#64B5F6","#F44336","#FFB74D","#F06292","#4DD0E1","#FFEB3B"],n=document.body.querySelector(".feed-loader"),t=n.children,o=0;o<t.length;o++){var r=Math.floor(10*Math.random())%e.length;t[o].style.backgroundColor=e[r]}var i=window.MagazineSdkEventsBridge;i&&i.onContentDisplayed(),window.isSandbox=window.location.href.split("/sandboxed/").length>1,window.extractParamsFromUrl=function(e){var n=e.split("?")[1];n&&(n=n.split("#")[0]),"undefined"==typeof n&&(n="");var t={},o=decodeURIComponent(n);return o.replace(new RegExp("([^?=&]+)(=([^&]*))?","g"),function(e,n,o,r){t[n]=r}),t},window.getUrlParams=function(){return extractParamsFromUrl(window.location.href)};var a=window.settings&&settings.loading&&settings.loading.offerLean&&settings.i18n;if(a){settings.loading.offerLeanTimeout=settings.loading.offerLeanTimeout||5;setTimeout(function(){var e=getUrlParams(),n=e.language;"undefined"==typeof n&&(e.locale&&"auto"!==e.locale&&"AUTO"!==e.locale?(n=e.locale.split("_"),n=n.length>1?n[1]:"en"):n="en");var t=document.getElementById("slow-helper");t.className="slow slow-fade-in";var o=t.querySelector(".slow-msg");o.innerText=settings.i18n[n].SLOW_CONNECTION_MSG;var r=t.querySelector(".slow-btn"),i=t.querySelector(".slow-btn-text");i.innerText=settings.i18n[n].SLOW_CONNECTION_ACTION,r.addEventListener("click",function(n){var o=document.body.querySelectorAll(".dot");o[0].parentElement.removeChild(o[0]),o[2].parentElement.removeChild(o[2]),t.parentElement.removeChild(t),e.deviceYearClass=111;var r=window.location.href.split("?")[0],i="";for(var a in e)""!=i&&(i+="&"),e.hasOwnProperty(a)&&(i+=a+"="+e[a]);r+="?"+i,window.location=r})},1e3*settings.loading.offerLeanTimeout)}}();</script><script src="scripts/vendor-87546da65e.js" defer="defer"></script><script>window.paramDefaults = {};
-    window.paramDefaults.isDesktop = 'true';
-    window.paramDefaults.deviceHeight = 640;
-    window.paramDefaults.feed = 'false';</script><script src="scripts/magazine.config-c48d2e87d3.js" defer="defer"></script><script src="scripts/desktop-scripts-a277176f1e.js" defer="defer"></script><script>"use strict";!function(e,t,a,n,c,s,o){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,s=t.createElement(a),o=t.getElementsByTagName(a)[0],s.async=1,s.src=n,o.parentNode.insertBefore(s,o)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-76585427-2","auto");</script><script>_atrk_opts = {atrk_acct: "cegTo1IWhd1052", domain: "thestartmagazine.com", dynamic: true};
-    (function () {
-        var as = document.createElement('script');
-        as.type = 'text/javascript';
-        as.async = true;
-        as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js";
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(as, s);
-    })();</script><noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=cegTo1IWhd1052" style="display:none" height="1" width="1" alt=""></noscript><script>var _comscore = _comscore || [];
-    _comscore.push({c1: "2", c2: "25274286"});
-    (function () {
-        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0];
-        s.async = true;
-        s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
-        el.parentNode.insertBefore(s, el);
-    })();</script><noscript><img src="http://b.scorecardresearch.com/p?c1=2&c2=25274286&cv=2.0&cj=1"></noscript></body></html>
+<div class="footer-box col2" data-userway-font-size="22">
+<h6 data-userway-font-size="18">קריאה נוספת</h6>
+
+<ul data-userway-font-size="22">
+	<li data-userway-font-size="22"><a href="/magazine" data-userway-font-size="16">מגזין</a></li>
+	<li data-userway-font-size="22"><a href="http://www.richdate.co.il/dyncpage.asp?pageId=34" data-userway-font-size="16">מהתקשורת</a></li>
+	<li data-userway-font-size="22"><a href="/dyncpage.asp?pageId=43" data-userway-font-size="16">קיצור דרך באייפון</a></li>
+</ul>
+</div>
+
+<div class="footer-box col3" data-userway-font-size="22">
+<h6 data-userway-font-size="18">צור קשר</h6>
+
+<ul data-userway-font-size="22">
+	<li data-userway-font-size="22"><a href="/faq" data-userway-font-size="16">שאלות ותשובות</a></li>
+	<li data-userway-font-size="22"><a href="/contact" data-userway-font-size="16">פנו אלינו</a></li>
+</ul>
+</div>
+
+        <div class="footer-box col4" data-userway-font-size="22">
+          <h6 data-userway-font-size="18">הצטרפו אלינו</h6>
+          <span data-userway-font-size="22"><a href="https://www.facebook.com/pages/Richdate/684796568241480" target="_blank" data-userway-font-size="22"><img src="images/facebook.png" alt="facebook" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></a></span>
+          <span data-userway-font-size="22"><a href="https://plus.google.com/u/0/114135801654118585823/posts" target="_blank" data-userway-font-size="22"><img src="images/gplus.png" alt="gplus" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></a></span>
+        </div>
+        <div class="footer-box col5" data-userway-font-size="22">
+          <h6 data-userway-font-size="18">צרו קשר</h6>
+          <span data-userway-font-size="22"><a href="/contact" data-userway-font-size="22"><img src="images/email.png" alt="email" data-userway-font-size="22" style="border: 1px solid red; border-radius: 10px;"></a></span>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+
+</div>
+<!-- Main Container --> 
+<script data-userway-font-size="22">
+	
+/*-----------------------------------------------------------------------------------*/
+/* STICKY HEADER
+/*-----------------------------------------------------------------------------------*/
+jQuery(document).ready(function($) {	
+  var sticky_header_created = false;
+
+  if($('#header').length) {
+
+    var sticky_header_top = $('#header').offset().top + 0;
+    // Hide Header on on scroll down
+    var didScroll;
+    var lastScrollTop = 0;
+    var delta = 5;
+    var navbarHeight = $('#header').outerHeight();
+    var st = $(this).scrollTop();
+      
+    $(window).scroll(function(){
+        if($(window).width() > 480){
+            if( $(window).scrollTop() > sticky_header_top ) {
+                if(sticky_header_created == false){
+                    cloneHeader();
+                    sticky_header_created = true;
+                    setTimeout(function() {
+                         $('body').addClass('sticky-active');
+                         $('#sticky_header').addClass('header-is-sticky');
+
+                    }, 300);
+                  
+                } else{
+                    $('body').addClass('sticky-active');
+                   $('#sticky_header').addClass('header-is-sticky');  
+                }            
+            
+            } else {
+                $('body').removeClass('sticky-active');
+                $('#sticky_header').removeClass('header-is-sticky');
+            }
+        } else{
+            if(sticky_header_created == false){
+                cloneHeader();
+                sticky_header_created = true;               
+            } else{
+                $('body').addClass('sticky-active');
+               // $('#sticky_header').addClass('header-is-sticky');  
+            } 
+            //call for hasScrolled() function
+            setInterval();
+        }        
+
+    });
+    
+  }
+
+    
+
+    function setInterval() {
+        if (didScroll) {
+            hasScrolled();
+            didScroll = false;
+        }
+    }
+
+
+    function cloneHeader(){
+        //var site_logo = $('.site-title').clone(true);
+        //var site_nav = $('.main-navigation').clone(true, true);
+        var site_nav_res = $('.vce-res-nav').clone(true);
+        $('body').prepend('<div id="sticky_header" class="header-sticky"><div class="container">'+site_nav_res.html()+'</div></div>');
+        /*if( vce_js_settings.sticky_header_logo != "" && $("#sticky_header .site-title a img").length > 0 ){
+            $("#sticky_header .site-title a img").attr("src",vce_js_settings.sticky_header_logo);
+        }
+            $("#sticky_header .site-title a img").css('height','auto').css('width','auto');*/
+
+    }
+
+    function hasScrolled() {
+        var st = $(this).scrollTop();
+        
+        if(Math.abs(lastScrollTop - st) <= delta)
+            return;
+
+        if (st > lastScrollTop){
+            // Scroll Down
+            $('#sticky_header').removeClass('header-is-sticky');
+
+        } else {
+            // Scroll Up
+            if(st  < navbarHeight) {
+                $('#sticky_header').removeClass('header-is-sticky');
+            }else{
+                $('#sticky_header').addClass('header-is-sticky');
+            }
+        }
+
+        lastScrollTop = st;
+    }  
+	
+		if($('#form_login').size()>0){
+			$('#user').val($.cookie('nick'));
+		}            
+	
+	});
+	
+	 function setCookies(){	
+	 
+            $.cookie('user', $('#user').val(), { expires: 90 });
+            $.cookie('password', $('#pass').val(), { expires: 90 });  
+            $.cookie('nick', $('#user').val());
+            return true;            
+        }
+</script>
+<style data-userway-font-size="22">
+.header-sticky {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2000;
+    height: 50px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateY(-200%);
+    -moz-transform: translateY(-200%);
+    transform: translateY(-200%);
+    -webkit-transition: all 300ms linear;
+       -moz-transition: all 300ms linear;
+        -ms-transition: all 300ms linear;
+         -o-transition: all 300ms linear;
+            transition: all 300ms linear;
+}
+.header-is-sticky {
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  transform: translateY(0%);
+}
+#sticky_header .logo img{
+	width:140px;
+	float: left;
+	
+}
+#sticky_header .logo {
+	float: left;
+	
+    padding: 5px 0px 0px 5px;
+    width: 23%;
+}
+#sticky_header .hp-head-sec-inn{
+	min-height:65px;
+	max-height:65px;
+	padding:0px;
+}
+#sticky_header  .font-resize{
+	display:none;
+}
+
+#sticky_header .formsec{
+	margin-top:10px;
+}
+
+#sticky_header .hp-head-sec .form-input-div input{
+	height:30px;
+	font-size:100%;
+}
+#sticky_header .hp-head-sec .form-submit-div input{
+	height:30px;
+	font-size:100%;
+}
+@media only screen and (max-width:810px) {
+	#sticky_header .hp-head-sec .form-input-div input{
+		
+		font-size:80%;
+	}
+	#sticky_header .hp-head-sec .form-submit-div input{
+		
+		font-size:80%;
+	}
+	#sticky_header  .form-input-div{
+		width:20%;
+	}
+}
+@media only screen and (max-width:500px) {
+	#sticky_header{
+		display:none;
+	}
+}
+
+</style>
+<script type="text/javascript" data-userway-font-size="22">
+var _userway_config = {
+    // position below will override position set via widget
+    // position: 5,
+    // uncomment the following line to override color set via widget 
+    //color: '#053e67', 
+    account: 'Ucgiiw876R',
+    language: 'he',
+};
+</script>
+<script type="text/javascript" src="https://cdn.userway.org/widget.js" data-userway-font-size="22"></script><script src="https://cdn.userway.org/widgetapp/2019-02-07/widget_components_1549497531439.js" data-userway-font-size="22"></script>
+
+
+
+<script src="https://cdn.userway.org/widgetapp/2019-02-07/widget_app_1549497531439.js" data-userway-font-size="22"></script><style>html.userway-s3-3{background-color:#fff}html.userway-s3-3.userway-s1 a:focus,html.userway-s3-3.userway-s1 button:focus,html.userway-s3-3.userway-s1 input:focus,html.userway-s3-3.userway-s1 select:focus,html.userway-s3-3.userway-s1 textarea:focus{outline-color:#c00!important}html.userway-s3-2{background-color:#000}html.userway-s3-2.userway-s1 a:focus,html.userway-s3-2.userway-s1 button:focus,html.userway-s3-2.userway-s1 input:focus,html.userway-s3-2.userway-s1 select:focus,html.userway-s3-2.userway-s1 textarea:focus{outline-color:#50d0a0!important}.userway-screen-reader-text{clip:rect(1px,1px,1px,1px);height:1px;width:1px;overflow:hidden;position:absolute!important;z-index:-1;opacity:0}.userway-s1 .userway-s1-selected{outline:dashed 4px #c00!important}.userway-s2,.userway-s2 *{cursor:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyOS4xODhweCIgaGVpZ2h0PSI0My42MjVweCIgdmlld0JveD0iMCAwIDI5LjE4OCA0My42MjUiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI5LjE4OCA0My42MjUiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHN0cm9rZT0iI0Q5REFEOSIgc3Ryb2tlLXdpZHRoPSIxLjE0MDYiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgcG9pbnRzPSIyLjgsNC41NDkgMjYuODQ3LDE5LjkwMiAxNi45NjQsMjIuNzAxIDI0LjIzOSwzNy43NDkgMTguMjc4LDQyLjAxNyA5Ljc0MSwzMC43MjQgMS4xMzgsMzUuODA5ICIvPjxnPjxnPjxnPjxwYXRoIGZpbGw9IiMyMTI2MjciIGQ9Ik0yOS4xNzUsMjEuMTU1YzAuMDcxLTAuNjEzLTAuMTY1LTEuMjUzLTAuNjM1LTEuNTczTDIuMTY1LDAuMjU4Yy0wLjQyNC0wLjMyLTAuOTg4LTAuMzQ2LTEuNDM1LTAuMDUzQzAuMjgyLDAuNDk3LDAsMS4wMywwLDEuNjE3djM0LjE3MWMwLDAuNjEzLDAuMzA2LDEuMTQ2LDAuNzc2LDEuNDM5YzAuNDcxLDAuMjY3LDEuMDU5LDAuMjEzLDEuNDgyLTAuMTZsNy40ODItNi4zNDRsNi44NDcsMTIuMTU1YzAuMjU5LDAuNDgsMC43MjksMC43NDYsMS4yLDAuNzQ2YzAuMjM1LDAsMC40OTQtMC4wOCwwLjcwNi0wLjIxM2w2Ljk4OC00LjU4NWMwLjMyOS0wLjIxMywwLjU2NS0wLjU4NiwwLjY1OS0xLjAxM2MwLjA5NC0wLjQyNiwwLjAyNC0wLjg4LTAuMTg4LTEuMjI2bC02LjM3Ni0xMS4zODJsOC42MTEtMi43NDVDMjguNzA1LDIyLjI3NCwyOS4xMDUsMjEuNzY4LDI5LjE3NSwyMS4xNTV6IE0xNi45NjQsMjIuNzAxYy0wLjQyNCwwLjEzMy0wLjc3NiwwLjUwNi0wLjk0MSwwLjk2Yy0wLjE2NSwwLjQ4LTAuMTE4LDEuMDEzLDAuMTE4LDEuNDM5bDYuNTg4LDExLjc4MWwtNC41NDEsMi45ODVsLTYuODk0LTEyLjMxNWMtMC4yMTItMC4zNzMtMC41NDEtMC42NC0wLjk0MS0wLjcyYy0wLjA5NC0wLjAyNy0wLjE2NS0wLjAyNy0wLjI1OS0wLjAyN2MtMC4zMDYsMC0wLjU4OCwwLjEwNy0wLjg0NywwLjMyTDIuOCwzMi41OVY0LjU0OWwyMS41OTksMTUuODA2TDE2Ljk2NCwyMi43MDF6Ii8+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==),auto!important}.userway-s2-ie,.userway-s2-ie *{cursor:url(cursor_ie_32.cur),auto!important}.userway-s3-1{background:#000!important}.userway-s3-1,.userway-s3-1-ff{filter:invert(100%);-webkit-filter:invert(100%)}.userway-s3-2,.userway-s3-2 a,.userway-s3-2 a:hover{background-color:#000!important}.userway-s3-2 a{border-color:#fff!important;color:#fcff3c!important}.userway-s3-2 abbr,.userway-s3-2 article,.userway-s3-2 aside,.userway-s3-2 b,.userway-s3-2 big,.userway-s3-2 body,.userway-s3-2 button,.userway-s3-2 div,.userway-s3-2 em,.userway-s3-2 footer,.userway-s3-2 form,.userway-s3-2 h1,.userway-s3-2 h2,.userway-s3-2 h3,.userway-s3-2 h4,.userway-s3-2 h5,.userway-s3-2 h6,.userway-s3-2 header,.userway-s3-2 i,.userway-s3-2 input,.userway-s3-2 label,.userway-s3-2 li,.userway-s3-2 main,.userway-s3-2 nav,.userway-s3-2 p,.userway-s3-2 select,.userway-s3-2 small,.userway-s3-2 span,.userway-s3-2 strong,.userway-s3-2 td,.userway-s3-2 textarea,.userway-s3-2 th,.userway-s3-2 ul{background-color:#000!important;border-color:#fff!important;color:#50d0a0!important}.userway-s3-2 a:hover{color:#fff!important}.userway-s3-3{background-color:#fff!important}.userway-s3-3 a{border-color:#000!important}.userway-s3-3 abbr,.userway-s3-3 article,.userway-s3-3 aside,.userway-s3-3 b,.userway-s3-3 big,.userway-s3-3 body,.userway-s3-3 button,.userway-s3-3 div,.userway-s3-3 em,.userway-s3-3 footer,.userway-s3-3 form,.userway-s3-3 h1,.userway-s3-3 h2,.userway-s3-3 h3,.userway-s3-3 h4,.userway-s3-3 h5,.userway-s3-3 h6,.userway-s3-3 header,.userway-s3-3 i,.userway-s3-3 input,.userway-s3-3 label,.userway-s3-3 li,.userway-s3-3 main,.userway-s3-3 nav,.userway-s3-3 p,.userway-s3-3 select,.userway-s3-3 small,.userway-s3-3 span,.userway-s3-3 strong,.userway-s3-3 td,.userway-s3-3 textarea,.userway-s3-3 th,.userway-s3-3 ul{background-color:#fff!important;color:#000!important;border-color:#000!important}.userway-s3-3 a:hover,.userway-s3-3.userway-s6 a:hover{color:#000!important;background-color:#fff!important}.userway-s3-3 a,.userway-s3-3.userway-s6 a,.userway-s3-3.userway-s6 a *{color:#0000d3!important;background-color:#fff!important}.userway-s5-black{background-color:#888!important;color:#fff!important}.userway-s5-light{background-color:#fff!important;color:#000!important}.userway-s5{filter:grayscale(100%)!important;-webkit-filter:grayscale(100%)!important}.userway-s5.userway-s3-1{filter:invert(100%) grayscale(100%)!important;-webkit-filter:invert(100%) grayscale(100%)!important;background:#000!important}.userway-s6 a,.userway-s6 a *{text-decoration:underline!important;color:#ff0!important;background-color:#000!important}.userway-s6 a img{box-sizing:border-box!important;border:1px solid #ff0!important}.userway-s7 .userway-s7-active{font-family:Arial,serif!important}.userway-s7 .userway-s7-no-justify{text-align:unset!important}body .userway{filter:none!important;-webkit-filter:none!important;position:fixed;top:10px;right:10px;z-index:2147483647;transition:.2s;height:43px;width:43px}body .userway.userway_mobile .userway_hide .userway_hide_off{display:none!important}body .userway.userway_mobile .userway_accessibility_icon .userway_hide_icon,body .userway.userway_p1 .userway_accessibility_icon .userway_hide_icon span .userway_hide_icon_right,body .userway.userway_p2 .userway_accessibility_icon .userway_hide_icon span .userway_hide_icon_right,body .userway.userway_p3 .userway_accessibility_icon .userway_hide_icon span .userway_hide_icon_right,body .userway.userway_p4 .userway_accessibility_icon .userway_hide_icon span .userway_hide_icon_down,body .userway.userway_p7 .userway_accessibility_icon .userway_hide_icon span .userway_hide_icon_left{display:block}body .userway.userway_p1{top:10px;right:10px;left:auto;bottom:auto}body .userway.userway_p1.userway_hidden,body .userway.userway_p2.userway_hidden,body .userway.userway_p3.userway_hidden{right:-30px;left:auto}body .userway.userway_p1 .userway_accessibility_icon .userway_hide{right:30px;left:auto}body .userway.userway_p1 .userway_accessibility_icon .userway_hide span{border-radius:4px 0 0 4px!important}body .userway.userway_p2{top:calc(50% - 22px);left:auto;right:10px}body .userway.userway_p3{top:auto;left:auto;bottom:10px;right:10px}body .userway.userway_p3 .userway_accessibility_icon .userway_hide_icon{top:-18px}body .userway.userway_p3 .userway_accessibility_icon .userway_hide_icon span{border-radius:4px 4px 0 0!important}body .userway.userway_p4{top:auto;left:calc(50% - 22px);bottom:10px;right:auto}body .userway.userway_p4.userway_hidden{bottom:-30px;top:auto;right:auto}body .userway.userway_p4.userway_hidden.userway_over{bottom:10px}body .userway.userway_p4 .userway_accessibility_icon .userway_hide{left:30px;right:auto}body .userway.userway_p4 .userway_accessibility_icon .userway_hide span{border-radius:0 4px 4px 0!important}body .userway.userway_p4 .userway_accessibility_icon .userway_hide_icon{top:-19px}body .userway.userway_p4 .userway_accessibility_icon .userway_hide_icon span{border-radius:4px 4px 0 0!important}body .userway.userway_p5{top:auto;bottom:10px;left:10px;right:auto}body .userway.userway_p5.userway_hidden,body .userway.userway_p6.userway_hidden,body .userway.userway_p7.userway_hidden{left:-30px;right:auto}body .userway.userway_p5 .userway_accessibility_icon .userway_hide{left:30px;right:auto}body .userway.userway_p5 .userway_accessibility_icon .userway_hide span{border-radius:0 4px 4px 0!important}body .userway.userway_p5 .userway_accessibility_icon .userway_hide_icon{top:-18px}body .userway.userway_p5 .userway_accessibility_icon .userway_hide_icon span{border-radius:4px 4px 0 0!important}body .userway.userway_p5 .userway_accessibility_icon .userway_hide_icon .userway_hide_icon_left{display:block!important}body .userway.userway_p5 .userway_accessibility_icon .userway_hide_icon .userway_hide_icon_down,body .userway.userway_p5 .userway_accessibility_icon .userway_hide_icon .userway_hide_icon_right,body .userway.userway_p5 .userway_accessibility_icon .userway_hide_icon .userway_hide_icon_up{display:none!important}body .userway.userway_p6{top:calc(50% - 22px);left:10px;right:auto;bottom:auto}body .userway.userway_p6 .userway_accessibility_icon .userway_hide,body .userway.userway_p7 .userway_accessibility_icon .userway_hide{left:30px;right:auto}body .userway.userway_p6 .userway_accessibility_icon .userway_hide span,body .userway.userway_p7 .userway_accessibility_icon .userway_hide span,body .userway.userway_p8 .userway_accessibility_icon .userway_hide span{border-radius:0 4px 4px 0!important}body .userway.userway_p6 .userway_accessibility_icon .userway_hide_icon .userway_hide_icon_left{display:block!important}body .userway.userway_p6 .userway_accessibility_icon .userway_hide_icon .userway_hide_icon_down,body .userway.userway_p6 .userway_accessibility_icon .userway_hide_icon .userway_hide_icon_right,body .userway.userway_p6 .userway_accessibility_icon .userway_hide_icon .userway_hide_icon_up{display:none!important}body .userway.userway_p7{top:10px;left:10px;right:auto;bottom:auto}body .userway.userway_p7 .userway_accessibility_icon .userway_hide_icon span .userway_hide_icon_down,body .userway.userway_p7 .userway_accessibility_icon .userway_hide_icon span .userway_hide_icon_right,body .userway.userway_p7 .userway_accessibility_icon .userway_hide_icon span .userway_hide_icon_up{display:none}body .userway.userway_p8{top:10px;left:calc(50% - 22px);right:auto;bottom:auto}body .userway.userway_p8.userway_hidden{top:-30px;bottom:auto;right:auto}body .userway.userway_p8.userway_hidden.userway_over{top:10px}body .userway.userway_p8 .userway_accessibility_icon .userway_hide{left:30px;right:auto}body .userway.userway_p8 .userway_accessibility_icon .userway_hide_icon_up{display:block!important}body .userway.userway_p8 .userway_accessibility_icon .userway_hide_icon_down,body .userway.userway_p8 .userway_accessibility_icon .userway_hide_icon_left,body .userway.userway_p8 .userway_accessibility_icon .userway_hide_icon_right{display:none!important}body .userway.userway_on .userway_accessibility_icon,body .userway.userway_on .userway_accessibility_icon .userway_hide span,body .userway.userway_on .userway_accessibility_icon .userway_hide_icon span{background:#007dd5!important}body .userway.userway_on .userway_accessibility_icon .userway_hide{display:block!important}body .userway .userway_accessibility_icon .userway_preloader_spinner.white .spinner_icon_white,body .userway.userway_on .userway_iframe{display:block}body .userway.userway_enabled .userway_accessibility_icon .check_on{opacity:1;visibility:visible;top:-4px;right:-4px}body .userway.userway_hidden{right:-30px}body .userway.userway_hidden .userway_hide_off{display:none!important}body .userway.userway_hidden .userway_hide_on{display:inline!important}body .userway.userway_hidden .userway_hide_icon{display:none!important}body .userway.userway_over .userway_hide{display:block!important}body .userway .userway_iframe{filter:none!important;position:fixed;top:0;left:0;bottom:0;right:0;width:100%;height:100%;border:none;margin:0;padding:0;overflow:hidden;z-index:999999;display:none}body .userway .userway_accessibility_icon{position:relative;filter:none!important;cursor:pointer;background:#003d68!important;border-radius:50%!important;padding:4px;transition:.1s;display:inline-block;width:35px;height:35px;min-width:35px;min-height:35px;max-width:35px;max-height:35px;text-align:center;box-sizing:content-box!important;font-size:initial!important}body .userway .userway_accessibility_icon:active,body .userway .userway_accessibility_icon:focus,body .userway .userway_accessibility_icon:hover{background:#007dd5}body .userway .userway_accessibility_icon .userway_preloader_spinner{display:none;position:absolute;height:45px;width:45px;top:-1px;left:-1px;background-color:transparent!important;overflow:hidden;background-position:-48px -48px;background-size:140px;animation:standard .75s infinite linear;transform-origin:50% 50% 0!important}@keyframes standard{0%{transform:rotate(0deg)}to{transform:rotate(360deg)}}body .userway .userway_accessibility_icon .userway_preloader_spinner .spinner_icon_white{display:block}body .userway .userway_accessibility_icon .userway_preloader_spinner .spinner_icon_black,body .userway .userway_accessibility_icon .userway_preloader_spinner.white .spinner_icon_black{display:none}body .userway .userway_accessibility_icon .userway_preloader_spinner .spinner_icon_black,body .userway .userway_accessibility_icon .userway_preloader_spinner .spinner_icon_white{height:45px;width:45px;position:absolute;top:0;left:0}body .userway .userway_accessibility_icon .userway-spacer{position:absolute;top:-10px;right:-10px;bottom:-10px;left:-10px;display:inline-block;background-color:transparent!important}body .userway .userway_accessibility_icon.userway_light .userway_icon_white,body .userway .userway_accessibility_icon.userway_light .userway_preloader_spinner .spinner_icon_white{display:none}body .userway .userway_accessibility_icon.userway_light .userway_icon_black,body .userway .userway_accessibility_icon.userway_light .userway_preloader_spinner .spinner_icon_black{display:block}body .userway .userway_accessibility_icon.userway_light .userway_hide span{color:#000!important}body .userway .userway_accessibility_icon.userway_light .userway_hide_icon .userway_icon_white{display:none!important}body .userway .userway_accessibility_icon.userway_light .userway_hide_icon .userway_icon_black{display:none}body .userway .userway_accessibility_icon.userway_dark .userway_hide_icon .userway_icon_black{display:none!important}body .userway .userway_accessibility_icon .userway_icon_white,body .userway .userway_accessibility_icon.userway_dark .userway_preloader_spinner .spinner_icon_white{display:block}body .userway .userway_accessibility_icon.loading .userway_preloader_spinner{display:block!important}body .userway .userway_accessibility_icon .userway_icon_black,body .userway .userway_accessibility_icon.loading .userway_icon_black,body .userway .userway_accessibility_icon.loading .userway_icon_white,body .userway .userway_accessibility_icon.userway_dark .userway_preloader_spinner .spinner_icon_black{display:none}body .userway .userway_accessibility_icon .userway_hide{z-index:-1;display:none;position:absolute;right:30px;cursor:pointer;font-size:12px!important;line-height:14px!important;top:5px!important;padding:10px;background:0 0!important}body .userway .userway_accessibility_icon .userway_hide>span{border-radius:4px 0 0 4px!important;color:#fff!important;font-size:12px!important;line-height:14px!important;font-weight:800;background:#003d68!important;padding:2px 5px;font-family:sans-serif!important;position:relative!important;white-space:nowrap!important}body .userway .userway_accessibility_icon .userway_hide .userway_hide_off{display:inline}body .userway .userway_accessibility_icon .userway_hide .userway_hide_on{display:none}body .userway .userway_accessibility_icon .userway_hide_icon{display:none;position:absolute;top:38px;left:0;right:0;z-index:-1;text-align:center!important}body .userway .userway_accessibility_icon .userway_hide_icon span{display:inline-block;background:#003d68!important;padding:5px 7px 2px;border-radius:0 0 4px 4px!important}body .userway .userway_accessibility_icon .userway_hide_icon span img{width:14px;height:16px;display:none;position:relative;bottom:2px}body .userway .userway_accessibility_icon .check_on{position:absolute;top:-7px;right:-4px;width:18px;height:20px;transition:.1s;opacity:0;visibility:hidden}body .userway .userway_accessibility_icon img{height:35px;width:35px;display:block;padding:0!important;margin:0!important;background:0 0!important;border:none!important}body .userway.userway-the-big .userway_accessibility_icon{padding:4px;width:57px;height:57px;min-width:57px;min-height:57px;max-width:57px;max-height:57px}body .userway.userway-the-big .userway_accessibility_icon img{width:57px;height:57px;padding:0!important;margin:0!important;background:0 0!important;border:none!important}body .userway.userway-the-big .userway_accessibility_icon .userway_hide{padding:22px}body .userway.userway-the-big .userway_accessibility_icon .userway_hide>span{font-size:12px!important;padding:3px 6px}body .userway.userway-the-big .userway_accessibility_icon .check_on{top:-2px;right:-2px;width:21px;height:21px}body .userway.userway-the-big.userway_p1,body .userway.userway-the-big.userway_p2{right:30px}body .userway.userway-the-big.userway_p1 .userway_hide{right:39px}body .userway.userway-the-big.userway_p1.userway_hidden{right:-20px}body .userway.userway-the-big.userway_p2 .userway_hide{right:39px}body .userway.userway-the-big.userway_p2.userway_hidden{right:-20px}body .userway.userway-the-big.userway_p3{right:30px;bottom:30px}body .userway.userway-the-big.userway_p3 .userway_hide{right:39px}body .userway.userway-the-big.userway_p3.userway_hidden{right:-20px}body .userway.userway-the-big.userway_p4,body .userway.userway-the-big.userway_p4.userway_hidden.userway_over{bottom:30px}body .userway.userway-the-big.userway_p4 .userway_hide{left:39px}body .userway.userway-the-big.userway_p4.userway_hidden{bottom:-25px;top:auto}body .userway.userway-the-big.userway_p5{left:11px;bottom:30px}body .userway.userway-the-big.userway_p5 .userway_hide{left:39px}body .userway.userway-the-big.userway_p5.userway_hidden{left:-35px}body .userway.userway-the-big.userway_p6,body .userway.userway-the-big.userway_p7{left:11px}body .userway.userway-the-big.userway_p6 .userway_hide{left:39px}body .userway.userway-the-big.userway_p6.userway_hidden{left:-35px}body .userway.userway-the-big.userway_p7 .userway_hide{left:39px}body .userway.userway-the-big.userway_p7.userway_hidden{left:-35px}body .userway.userway-the-big.userway_p8 .userway_hide{left:39px}body .userway.userway-the-big.userway_p8.userway_hidden{top:-40px}body .userway.userway-the-big.userway_p8.userway_hidden.userway_over{top:10px}body .userway.userway-the-big .userway_preloader_spinner{top:9px;left:9px}body .userway-reader-active{background:#ff0!important;color:#000!important}</style></body></html>
