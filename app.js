@@ -254,24 +254,18 @@ function getSite( req, res ) {
         parameters = req.body.parameters.split(',')
     }
 
-
-
     global.parameters = parameters || '';
 
     const go = async (parameters) => {
         try {
             const browser = await puppeteer.launch({
-                headless: true
+                headless: false
             });
             const page = await browser.newPage();
 
             let mobile = parameters.find((p) => {
                 return p === 'mobile';
             });
-
-            if (mobile) {
-                await page.emulate(Galaxy);
-            }
 
             let temp = '';
             if ( urlFromClient.includes('https') ){
@@ -285,12 +279,15 @@ function getSite( req, res ) {
 
             console.log(urlFromClient);
 
+            if (mobile) {
+                await page.emulate(Galaxy);
+            }
             await page.goto('https://' + urlFromClient, {
-                waitUntil: 'networkidle2'
+                waitUntil: 'load'
             });
 
             if (mobile){
-                await page.setViewport({ width: 360, height: 640 });
+                // await page.setViewport({ width: 360, height: 640 });
             } else {
                 await page.setViewport({ width: 1280, height: 800 });
             }
@@ -390,23 +387,26 @@ function getSite( req, res ) {
 
             // saveToLogFile(html);
 
-            await page.screenshot({ path: './png/demo.png', fullPage: true });
-            // await page.screenshot({ path: './png/' + screenShotName +  startDate + '.png', fullPage: true });
-            let file = './pdf/demo.pdf';
-            try {
-                let makeMYPDF = await page.pdf({
-                    path: file,
-                    format: 'A4',
-                    margin: {
-                      top: '1cm',
-                      bottom: '1cm',
-                      left: '0',
-                      right: '0'
-                    }
-                  });
-            } catch (error) {
-                console.log(error);
+            if (!mobile || mobile != 'mobile') {
+                await page.screenshot({ path: './png/demo.png', fullPage: true });
+                // await page.screenshot({ path: './png/' + screenShotName +  startDate + '.png', fullPage: true });
+                let file = './pdf/demo.pdf';
+                try {
+                    let makeMYPDF = await page.pdf({
+                        path: file,
+                        format: 'A4',
+                        margin: {
+                          top: '1cm',
+                          bottom: '1cm',
+                          left: '0',
+                          right: '0'
+                        }
+                      });
+                } catch (error) {
+                    console.log(error);
+                }
             }
+            
 
             let closeBroser = await browser.close();
 
